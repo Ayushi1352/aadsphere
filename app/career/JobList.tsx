@@ -9,17 +9,17 @@ const { openings, cta } = site.career;
 /** List of open positions, each with its details and an apply button. */
 export default function JobList() {
   return (
-    <section className="px-20 py-56 sm:px-32 sm:py-72 xl:px-76 xl:pb-110 xl:pt-100">
-      <div className="flex flex-col items-center text-center">
+    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:px-76 xl:py-48">
+      <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={openings.label} />
         <SectionHeading lines={openings.headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:mt-20 xl:fs-65 xl:leading-64" />
       </div>
 
-      <ul className="mx-auto mt-36 max-w-1240 space-y-18 xl:mt-56 xl:space-y-22">
+      <ul data-reveal-group="left" className="mx-auto mt-36 max-w-1240 space-y-18 xl:mt-56 xl:space-y-22">
         {openings.jobs.map((job) => (
           <li
             key={job.title}
-            className="flex flex-col gap-20 r-14 border border-[#ececef] bg-[#f9f9fb] p-24 transition-shadow duration-200 hover:shadow-[0_0.5rem_1.75rem_rgba(110,12,18,0.1)] md:flex-row md:items-center md:justify-between md:gap-32 xl:px-40 xl:py-34"
+            className="flex flex-col gap-20 r-14 border border-[#ececef] bg-[#f9f9fb] p-24 transition-[translate,box-shadow] duration-300 hover:-translate-y-4 hover:shadow-[0_0.5rem_1.75rem_rgba(110,12,18,0.1)] md:flex-row md:items-center md:justify-between md:gap-32 xl:px-40 xl:py-34"
           >
             <div className="min-w-0">
               <p className="flex items-center gap-12 font-inter fs-11 font-medium uppercase leading-none tracking-[0.25em] text-[#4d525c] xl:fs-12">
@@ -50,7 +50,7 @@ export default function JobList() {
         ))}
       </ul>
 
-      <div className="mx-auto mt-56 max-w-1240 xl:mt-80">
+      <div className="mx-auto mt-64 max-w-1240 sm:mt-80 xl:mt-96">
         <CtaStrip cta={cta} />
       </div>
     </section>

@@ -39,7 +39,7 @@ export default function Navbar() {
 
         {/* Desktop navigation */}
         <span className="ml-38 hidden size-10 shrink-0 rounded-full bg-brand xl:block" aria-hidden="true" />
-        <nav className="ml-33 hidden h-full xl:block" aria-label="Main">
+        <nav className="ml-33 hidden h-full xl:block" aria-label={text.mainNavLabel}>
           <ul className="flex h-full items-center gap-37">
             {navLinks.map((item) => {
               const active = isActive(pathname, item.href);
@@ -120,8 +120,8 @@ export default function Navbar() {
       {/* Mobile / tablet navigation */}
       {menuOpen && (
         <nav
-          aria-label="Mobile"
-          className="absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[#eeeeee] bg-white px-20 pb-24 pt-8 shadow-[0_1.5rem_2.5rem_rgba(20,20,20,0.14)] sm:px-32 xl:hidden"
+          aria-label={text.mobileNavLabel}
+          className="animate-fade-in absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[#eeeeee] bg-white px-20 pb-24 pt-8 shadow-[0_1.5rem_2.5rem_rgba(20,20,20,0.14)] sm:px-32 xl:hidden"
         >
           <ul>
             {navLinks.map((item) => {

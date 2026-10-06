@@ -7,7 +7,7 @@ const { label, headingLines, descriptionLines, features } = site.quote;
 /** Left side of the quote page: heading, short text and three promises. */
 export default function QuoteIntro() {
   return (
-    <div className="lg:w-[46%] xl:ml-118 xl:w-702 xl:shrink-0 xl:pt-3">
+    <div data-reveal-group="left" className="lg:w-[46%] xl:ml-118 xl:w-702 xl:shrink-0 xl:pt-3">
       <p className="flex items-center gap-16 font-inter fs-13 font-bold uppercase leading-none tracking-[0.24em] text-[#5a5f6b] xl:gap-23 xl:fs-15">
         <span className="h-2 w-36 bg-accent xl:w-47" aria-hidden="true" />
         {label}

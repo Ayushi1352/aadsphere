@@ -234,6 +234,7 @@
         "variants": {
           "AdvertisingSiteMeta1": {
             "lang": "en",
+            "brandName": "AdSphere",
             "meta": {
               "Layout": {
                 "title": "AdSphere - Advertising Agency | Turning Ideas into Impact",
@@ -241,13 +242,21 @@
               }
             },
             "contact": {
-              "phone": "+91 987 654 3210",
-              "footerPhone": "+91 98765 43210",
-              "email": "info@adsphere.com",
+              "phone": "+1 415 555 0132",
+              "footerPhone": "+1 415 555 0132",
+              "altPhone": "+1 415 555 0133",
+              "email": "xyz@example.com",
+              "supportEmail": "support@example.com",
               "addressLines": [
-                "123 Business Park,",
-                "New Delhi, India 110001"
+                "123 Business Avenue,",
+                "Suite 400, San Francisco,",
+                "CA 94107, USA"
               ],
+              "directionsHref": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107",
+              "map": {
+                "title": "Map of San Francisco, USA",
+                "src": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed"
+              },
               "hoursLines": [
                 "Mon - Fri: 9:00 AM - 6:00 PM",
                 "Sat - Sun: Closed"
@@ -258,6 +267,10 @@
                 "previous": "Previous",
                 "next": "Next",
                 "goToSlideN": "Go to slide {n}"
+              },
+              "Pagination": {
+                "previous": "Previous",
+                "next": "Next"
               }
             }
           }
@@ -276,10 +289,6 @@
                 "name": "About Us",
                 "href": "/about-us",
                 "children": [
-                  {
-                    "name": "About Us",
-                    "href": "/about-us"
-                  },
                   {
                     "name": "How It Works",
                     "href": "/how-it-works"
@@ -350,7 +359,9 @@
               "needHelp": "Need help? Talk to Us",
               "getAQuote": "Get a Quote",
               "openMenu": "Open menu",
-              "closeMenu": "Close menu"
+              "closeMenu": "Close menu",
+              "mainNavLabel": "Main",
+              "mobileNavLabel": "Mobile"
             },
             "images": {
               "logo": "/images/logo.webp"
@@ -723,10 +734,6 @@
               "Here’s what our clients say about working with us and",
               "the results we’ve delivered for their businesses."
             ],
-            "image": {
-              "src": "/images/testimonial-client.webp",
-              "alt": "Smiling client talking during a meeting"
-            },
             "badge": {
               "stars": 5,
               "text": "Trusted by 500+ Businesses"
@@ -741,7 +748,11 @@
                 ],
                 "name": "Michael Roberts",
                 "role": "CEO & Founder, Nexus Tech",
-                "avatar": "/images/testimonial-avatar.webp"
+                "avatar": "/images/testimonial-avatar.webp",
+                "image": {
+                  "src": "/images/testimonial-client.webp",
+                  "alt": "Michael Roberts talking during a meeting"
+                }
               },
               {
                 "quoteLines": [
@@ -752,7 +763,11 @@
                 ],
                 "name": "Priya Sharma",
                 "role": "Marketing Head, UrbanNest",
-                "avatar": ""
+                "avatar": "",
+                "image": {
+                  "src": "/images/process-execute.webp",
+                  "alt": "Priya Sharma at work"
+                }
               },
               {
                 "quoteLines": [
@@ -763,7 +778,11 @@
                 ],
                 "name": "Daniel Carter",
                 "role": "Director, BrightPath Retail",
-                "avatar": ""
+                "avatar": "",
+                "image": {
+                  "src": "/images/process-deliver.webp",
+                  "alt": "Daniel Carter at his desk"
+                }
               },
               {
                 "quoteLines": [
@@ -774,7 +793,11 @@
                 ],
                 "name": "Ananya Verma",
                 "role": "Co-Founder, FreshKart",
-                "avatar": ""
+                "avatar": "",
+                "image": {
+                  "src": "/images/testimonial-ananya.webp",
+                  "alt": "Ananya Verma smiling at work"
+                }
               }
             ]
           }
@@ -1190,6 +1213,10 @@
         "variants": {
           "AdvertisingServicesPage1": {
             "title": "Services",
+            "pagination": {
+              "label": "Service pagination",
+              "goToPageN": "Go to service page {n}"
+            },
             "meta": {
               "title": "Services - AdSphere Advertising Agency",
               "description": "Digital marketing, branding, paid advertising and consulting services designed to grow your business."
@@ -1212,23 +1239,36 @@
             "services": [
               {
                 "number": "01",
-                "category": "Digital Marketing",
+                "category": "Paid Media",
                 "titleLines": [
-                  "Search Engine",
-                  "Optimization"
+                  "Digital",
+                  "Advertising"
                 ],
-                "href": "/services/search-engine-optimization",
+                "href": "/services/digital-advertising",
                 "image": {
                   "src": "/images/service-seo.webp",
-                  "alt": "Two marketers reviewing search results on a laptop"
+                  "alt": "Two marketers reviewing ad results on a laptop"
                 }
               },
               {
                 "number": "02",
+                "category": "Social Media",
+                "titleLines": [
+                  "Social Media",
+                  "Marketing"
+                ],
+                "href": "/services/social-media-marketing",
+                "image": {
+                  "src": "/images/portfolio-social-campaign.webp",
+                  "alt": "Three phones showing social media creatives"
+                }
+              },
+              {
+                "number": "03",
                 "category": "Branding",
                 "titleLines": [
-                  "Brand Strategy",
-                  "& Identity"
+                  "Brand",
+                  "Strategy"
                 ],
                 "href": "/services/brand-strategy",
                 "image": {
@@ -1237,7 +1277,7 @@
                 }
               },
               {
-                "number": "03",
+                "number": "04",
                 "category": "Paid Advertising",
                 "titleLines": [
                   "Performance",
@@ -1250,10 +1290,22 @@
                 }
               },
               {
-                "number": "04",
+                "number": "05",
+                "category": "Design",
+                "titleLines": [
+                  "Creative",
+                  "Design"
+                ],
+                "href": "/services/creative-design",
+                "image": {
+                  "src": "/images/about-designer.webp",
+                  "alt": "Designer reviewing brand colour charts at a desk"
+                }
+              },
+              {
+                "number": "06",
                 "category": "Consulting",
                 "titleLines": [
-                  "Marketing",
                   "Consulting"
                 ],
                 "href": "/services/consulting",
@@ -1263,55 +1315,29 @@
                 }
               },
               {
-                "number": "01",
-                "category": "Digital Marketing",
+                "number": "07",
+                "category": "Planning",
                 "titleLines": [
-                  "Search Engine",
-                  "Optimization"
+                  "Media",
+                  "Planning"
                 ],
-                "href": "/services/search-engine-optimization",
+                "href": "/services/media-planning",
                 "image": {
-                  "src": "/images/service-seo.webp",
-                  "alt": "Two marketers reviewing search results on a laptop"
+                  "src": "/images/blog-data-driven.webp",
+                  "alt": "Business charts being reviewed next to a laptop"
                 }
               },
               {
-                "number": "02",
-                "category": "Branding",
+                "number": "08",
+                "category": "Campaigns",
                 "titleLines": [
-                  "Brand Strategy",
-                  "& Identity"
+                  "Campaign",
+                  "Management"
                 ],
-                "href": "/services/brand-strategy",
+                "href": "/services/campaign-management",
                 "image": {
-                  "src": "/images/service-branding.webp",
-                  "alt": "Brand strategists discussing ideas at a laptop"
-                }
-              },
-              {
-                "number": "03",
-                "category": "Paid Advertising",
-                "titleLines": [
-                  "Performance",
-                  "Marketing"
-                ],
-                "href": "/services/performance-marketing",
-                "image": {
-                  "src": "/images/service-performance.webp",
-                  "alt": "Performance charts on a tablet during a review"
-                }
-              },
-              {
-                "number": "04",
-                "category": "Consulting",
-                "titleLines": [
-                  "Marketing",
-                  "Consulting"
-                ],
-                "href": "/services/consulting",
-                "image": {
-                  "src": "/images/service-consulting.webp",
-                  "alt": "Consultants smiling around a laptop"
+                  "src": "/images/about-team.webp",
+                  "alt": "Team reviewing campaign material around a laptop"
                 }
               }
             ]
@@ -1322,6 +1348,10 @@
         "variants": {
           "AdvertisingServiceDetail1": {
             "title": "Services Detail",
+            "breadcrumb": {
+              "label": "Services",
+              "href": "/services"
+            },
             "label": "Our Service",
             "image": {
               "src": "/images/service-detail.webp",
@@ -1526,6 +1556,10 @@
         "variants": {
           "AdvertisingPortfolio1": {
             "title": "Portfolio",
+            "pagination": {
+              "label": "Portfolio pagination",
+              "goToPageN": "Go to portfolio page {n}"
+            },
             "meta": {
               "title": "Portfolio - AdSphere Advertising Agency",
               "description": "Explore recent AdSphere projects across branding, websites, apps and marketing campaigns."
@@ -1633,7 +1667,11 @@
       "BlogPage": {
         "variants": {
           "AdvertisingBlogPage1": {
-            "title": "Blogs",
+            "title": "Blog",
+            "pagination": {
+              "label": "Blog pagination",
+              "goToPageN": "Go to blog page {n}"
+            },
             "meta": {
               "title": "Blogs - AdSphere Advertising Agency",
               "description": "Expert tips, industry insights and practical strategies to help your brand grow in the digital world."
@@ -1724,72 +1762,118 @@
                 }
               },
               {
-                "day": "20",
+                "day": "08",
                 "month": "Aug",
                 "year": "2025",
                 "categories": [
-                  "Digital Marketing",
+                  "Branding",
                   "Strategy"
                 ],
                 "titleLines": [
-                  "Effective Digital Marketing",
-                  "Strategies for Business Growth"
+                  "Everything You Should Know",
+                  "About Brand Strategy"
                 ],
                 "excerptLines": [
-                  "Discover proven digital marketing strategies",
-                  "that help you attract the right audience, boost",
-                  "brand visibility, and drive measurable growth."
+                  "Understand what a brand strategy really is,",
+                  "why it matters, and how to build one that",
+                  "keeps your business memorable."
                 ],
-                "href": "/blog/effective-digital-marketing-strategies-for-business-growth",
+                "href": "/blog/everything-you-should-know-about-brand-strategy",
                 "image": {
-                  "src": "/images/blog-digital-marketing.webp",
-                  "alt": "Laptop showing a digital marketing dashboard"
+                  "src": "/images/blog-detail.webp",
+                  "alt": "Three brand strategists reviewing ideas on a laptop"
                 }
               },
               {
-                "day": "25",
+                "day": "02",
                 "month": "Aug",
                 "year": "2025",
                 "categories": [
-                  "Business",
-                  "Consulting"
+                  "Design",
+                  "Creative"
                 ],
                 "titleLines": [
-                  "How Data-Driven Decisions",
-                  "Can Transform Your Business"
+                  "Creative Design Trends That",
+                  "Make Your Brand Stand Out"
                 ],
                 "excerptLines": [
-                  "Learn how data-driven strategies can help you",
-                  "make smarter decisions, improve efficiency,",
-                  "and achieve long-term success."
+                  "See the design trends shaping modern brands",
+                  "and learn how strong visuals turn first",
+                  "impressions into lasting recognition."
                 ],
-                "href": "/blog/how-data-driven-decisions-can-transform-your-business",
+                "href": "/blog/creative-design-trends-that-make-your-brand-stand-out",
                 "image": {
-                  "src": "/images/blog-data-driven.webp",
-                  "alt": "Business charts being reviewed next to a laptop"
+                  "src": "/images/about-designer.webp",
+                  "alt": "Designer reviewing brand colour charts at a desk"
                 }
               },
               {
-                "day": "14",
-                "month": "Aug",
+                "day": "28",
+                "month": "Jul",
                 "year": "2025",
                 "categories": [
-                  "Social Media",
-                  "Branding"
+                  "Media",
+                  "Planning"
                 ],
                 "titleLines": [
-                  "The Power of Social Media",
-                  "for Modern Businesses"
+                  "Smart Media Planning Tips",
+                  "for Higher Campaign ROI"
                 ],
                 "excerptLines": [
-                  "Explore how social media can strengthen",
-                  "your brand, increase engagement, and create",
-                  "new opportunities for business growth."
+                  "Find out how to choose the right channels,",
+                  "set realistic budgets, and plan media that",
+                  "delivers more from every rupee spent."
                 ],
-                "href": "/blog/the-power-of-social-media-for-modern-businesses",
+                "href": "/blog/smart-media-planning-tips-for-higher-campaign-roi",
                 "image": {
-                  "src": "/images/blog-social-media.webp",
-                  "alt": "Phone with social media reactions floating above it"
+                  "src": "/images/service-detail.webp",
+                  "alt": "Three strategists planning media together at a laptop"
+                }
+              },
+              {
+                "day": "21",
+                "month": "Jul",
+                "year": "2025",
+                "categories": [
+                  "Advertising",
+                  "Performance"
+                ],
+                "titleLines": [
+                  "Performance Marketing Metrics",
+                  "Every Business Should Track"
+                ],
+                "excerptLines": [
+                  "Get to know the numbers that matter most,",
+                  "from cost per lead to return on ad spend,",
+                  "and use them to improve every campaign."
+                ],
+                "href": "/blog/performance-marketing-metrics-every-business-should-track",
+                "image": {
+                  "src": "/images/portfolio-trading-platform.webp",
+                  "alt": "Performance dashboard on a laptop screen"
+                }
+              },
+              {
+                "day": "15",
+                "month": "Jul",
+                "year": "2025",
+                "categories": [
+                  "Consulting",
+                  "Growth"
+                ],
+                "titleLines": [
+                  "Why Marketing Consulting",
+                  "Matters for Growing Brands"
+                ],
+                "excerptLines": [
+                  "Learn how an outside expert view can uncover",
+                  "missed opportunities, sharpen your strategy,",
+                  "and speed up sustainable growth."
+                ],
+                "href": "/blog/why-marketing-consulting-matters-for-growing-brands",
+                "image": {
+                  "src": "/images/about-team.webp",
+                  "alt": "Team reviewing campaign material around a laptop"
                 }
               }
             ]
@@ -1800,6 +1884,10 @@
         "variants": {
           "AdvertisingBlogDetail1": {
             "title": "Blogs Details",
+            "breadcrumb": {
+              "label": "Blog",
+              "href": "/blog"
+            },
             "meta": {
               "title": "Everything You Should Know About Brand Strategy - AdSphere",
               "description": "A strong brand strategy is the foundation of every successful business."
@@ -1808,7 +1896,11 @@
               "everything-you-should-know-about-brand-strategy",
               "effective-digital-marketing-strategies-for-business-growth",
               "how-data-driven-decisions-can-transform-your-business",
-              "the-power-of-social-media-for-modern-businesses"
+              "the-power-of-social-media-for-modern-businesses",
+              "creative-design-trends-that-make-your-brand-stand-out",
+              "smart-media-planning-tips-for-higher-campaign-roi",
+              "performance-marketing-metrics-every-business-should-track",
+              "why-marketing-consulting-matters-for-growing-brands"
             ],
             "image": {
               "src": "/images/blog-detail.webp",
@@ -2121,44 +2213,38 @@
                 "icon": "map-pin",
                 "title": "Headquarters",
                 "lines": [
-                  "123 Business Avenue,",
-                  "Suite 400, San Francisco,",
-                  "CA 94107, USA"
+                  "{addressLines}"
                 ],
                 "link": {
                   "label": "Get Direction",
-                  "href": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
+                  "href": "{directionsHref}"
                 }
               },
               {
                 "icon": "chat",
                 "title": "Email Address",
                 "lines": [
-                  "info@yourdomain.com",
-                  "support@yourdomain.com"
+                  "{email}",
+                  "{supportEmail}"
                 ],
                 "link": {
                   "label": "Send Message",
-                  "href": "mailto:info@yourdomain.com"
+                  "href": "{emailHref}"
                 }
               },
               {
                 "icon": "phone-solid",
                 "title": "Phone Number",
                 "lines": [
-                  "+1 234 567 8901",
-                  "+1 234 567 8902"
+                  "{phone}",
+                  "{altPhone}"
                 ],
                 "link": {
                   "label": "Call Anytime",
-                  "href": "tel:+12345678901"
+                  "href": "{phoneHref}"
                 }
               }
             ],
-            "map": {
-              "title": "Map of New York, USA",
-              "src": "https://www.google.com/maps?q=New+York,+USA&z=10&output=embed"
-            },
             "form": {
               "headingLines": [
                 "Have Any Project on",

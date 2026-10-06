@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[policy]">): Promise<Metadata> {
   const { policy } = await params;
   const item = items.find((entry) => entry.slug === policy);
-  return item ? { title: `${item.title} - ${site.siteMeta.meta.Layout.title.split(" - ")[0]}`, description: item.description } : {};
+  return item ? { title: `${item.title} - ${site.siteMeta.brandName}`, description: item.description } : {};
 }
 
 export default async function PolicyPage({ params }: PageProps<"/[policy]">) {

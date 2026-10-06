@@ -7,8 +7,8 @@ const { label, headingLines, descriptionLines, reasons } = site.whyChooseUs;
 /** "Why Choose Us": heading plus six reason cards (the featured one is solid red). */
 export default function WhyChooseUs() {
   return (
-    <section className="px-20 py-56 sm:px-32 sm:py-72 xl:h-898 xl:p-0">
-      <div className="flex flex-col items-center text-center xl:pt-77">
+    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:h-800 xl:p-0">
+      <div data-reveal-group="up" className="flex flex-col items-center text-center xl:pt-48">
         <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold" />
         <h2 className="mt-18 fs-28 font-extrabold leading-[1.1] text-ink sm:fs-52 xl:mt-24 xl:fs-63 xl:leading-60">
           {headingLines.map((line, i) => (
@@ -26,11 +26,11 @@ export default function WhyChooseUs() {
         </p>
       </div>
 
-      <ul className="mt-36 grid gap-20 md:grid-cols-2 xl:ml-63 xl:mt-34 xl:h-451 xl:w-1571 xl:grid-cols-[515fr_507fr_512fr] xl:grid-rows-[218fr_212fr] xl:gap-x-22 xl:gap-y-23">
+      <ul data-reveal-group="up" className="mt-36 grid gap-20 md:grid-cols-2 xl:ml-63 xl:mt-23 xl:h-451 xl:w-1571 xl:grid-cols-[515fr_507fr_512fr] xl:grid-rows-[218fr_212fr] xl:gap-x-22 xl:gap-y-23">
         {reasons.map((reason) => (
           <li
             key={reason.number}
-            className={`relative flex gap-18 overflow-hidden r-14 p-22 sm:gap-24 sm:p-28 xl:block xl:p-0 ${
+            className={`group relative flex gap-18 overflow-hidden r-14 p-22 transition-[translate,box-shadow] duration-300 hover:-translate-y-6 sm:gap-24 sm:p-28 xl:block xl:p-0 ${
               reason.featured
                 ? "bg-[radial-gradient(circle_at_100%_0%,#c40514_0%,transparent_42%),radial-gradient(circle_at_0%_100%,#bd0715_0%,transparent_45%),linear-gradient(135deg,#7d0a13_0%,#a10a15_48%,#650c11_100%)] text-white shadow-[0_0.75rem_1.75rem_rgba(190,10,25,0.22)]"
                 : "border border-[#f3e9ea] bg-white shadow-[0_0.25rem_1.25rem_rgba(110,12,18,0.06)]"
@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
             )}
 
             <span
-              className={`relative flex size-76 shrink-0 items-center justify-center r-14 sm:size-96 xl:absolute xl:top-36 xl:size-113 xl:r-16 ${reason.featured ? "xl:left-31" : "xl:left-29"} ${
+              className={`relative flex size-76 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 items-center justify-center r-14 sm:size-96 xl:absolute xl:top-36 xl:size-113 xl:r-16 ${reason.featured ? "xl:left-31" : "xl:left-29"} ${
                 reason.featured ? "bg-white/[0.13] text-white" : "bg-[#fcefef] text-[#c2121c]"
               }`}
             >

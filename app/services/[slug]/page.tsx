@@ -4,7 +4,7 @@ import PageBanner from "@/components/PageBanner";
 import ServiceContent from "./ServiceContent";
 import { site } from "@/data";
 
-const { items, introLines } = site.serviceDetail;
+const { items, introLines, breadcrumb } = site.serviceDetail;
 
 // Only the services listed in site.json (ServiceDetail > items) get a page.
 export const dynamicParams = false;
@@ -16,7 +16,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const item = items.find((entry) => entry.slug === slug);
-  return item ? { title: `${item.name} - ${site.siteMeta.meta.Layout.title.split(" - ")[0]}`, description: introLines.join(" ") } : {};
+  const navItem = site.navbar.navLinks.flatMap((n) => n.children).find((c) => c.href === `/services/${slug}`);
+  const title = navItem?.name || item?.name;
+  return item && title ? { title: `${title} - ${site.siteMeta.brandName}`, description: introLines.join(" ") } : {};
 }
 
 export default async function ServiceDetailPage({ params }: PageProps<"/services/[slug]">) {
@@ -24,9 +26,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
   const item = items.find((entry) => entry.slug === slug);
   if (!item) notFound();
 
+  const navItem = site.navbar.navLinks.flatMap((n) => n.children).find((c) => c.href === `/services/${slug}`);
+  const title = navItem?.name || item.name;
+
   return (
     <main className="grow">
-      <PageBanner title={item.name} crumbs={[{ label: "Services", href: "/services" }]} />
+      <PageBanner title={title} crumbs={[breadcrumb]} />
       <ServiceContent heading={item.heading} />
     </main>
   );

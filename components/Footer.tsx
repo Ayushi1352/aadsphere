@@ -15,10 +15,10 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-night text-white xl:h-799">
+    <footer className="relative mt-32 bg-night text-white sm:mt-40 xl:mt-48 xl:h-799">
       {/* Call to action */}
       <div className="px-20 pt-40 sm:px-32 xl:pl-63 xl:pr-52 xl:pt-51">
-        <div className="r-12 border border-[#451217] bg-linear-to-r from-[#1c0d10] via-[#170c0e] to-[#1a0d0f] px-24 py-28 lg:flex lg:items-center lg:justify-between lg:gap-32 xl:relative xl:block xl:h-130 xl:p-0">
+        <div data-reveal="up" className="r-12 border border-[#451217] bg-linear-to-r from-[#1c0d10] via-[#170c0e] to-[#1a0d0f] px-24 py-28 lg:flex lg:items-center lg:justify-between lg:gap-32 xl:relative xl:block xl:h-130 xl:p-0">
           <div className="border-l-3 border-cta pl-20 xl:absolute xl:left-43 xl:top-32 xl:h-64 xl:border-l-[0.1875rem] xl:pl-46">
             <p className="fs-14 font-bold uppercase leading-none tracking-[0.17em] text-[#ee3446] xl:-mt-2 xl:fs-17">{cta.eyebrow}</p>
             <p className="mt-12 fs-24 font-bold leading-[1.2] sm:fs-30 xl:mt-6 xl:whitespace-nowrap xl:fs-36 xl:leading-40">
@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="grid gap-x-24 gap-y-40 px-20 py-48 sm:grid-cols-2 sm:px-32 lg:grid-cols-3 xl:block xl:p-0">
+      <div data-reveal-group="up" className="grid gap-x-24 gap-y-40 px-20 py-48 sm:grid-cols-2 sm:px-32 lg:grid-cols-3 xl:block xl:p-0">
         <div className="sm:col-span-2 lg:col-span-3 xl:absolute xl:left-63 xl:top-246">
           <Link href={links.home} aria-label={text.homeLabel} className="block w-fit">
             <Image src={images.logo} alt={text.logoAlt} width={900} height={217} className="h-auto w-168 sm:w-200 xl:w-322 brightness-[1.3] saturate-[1.15]" />
@@ -56,7 +56,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex size-46 items-center justify-center r-8 border border-[#23262b] bg-[#14171a] text-white transition-colors duration-200 hover:border-cta hover:bg-cta xl:size-48"
+                  className="flex size-46 items-center justify-center r-8 border border-[#23262b] bg-[#14171a] text-white transition-[translate,color,background-color,border-color] duration-200 hover:-translate-y-4 hover:border-cta hover:bg-cta xl:size-48"
                 >
                   <Icon name={social.icon} className="size-24 xl:size-27" />
                 </a>

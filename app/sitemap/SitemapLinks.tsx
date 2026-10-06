@@ -8,8 +8,8 @@ const { label, headingLines, descriptionLines, groups } = site.sitemap;
 /** Every page of the website, grouped into boxes of links. */
 export default function SitemapLinks() {
   return (
-    <section className="px-20 py-56 sm:px-32 sm:py-72 xl:px-76 xl:pb-110 xl:pt-96">
-      <div className="flex flex-col items-center text-center">
+    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:px-76 xl:py-48">
+      <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} />
         <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:mt-20 xl:fs-65 xl:leading-64" />
         <p className="mt-18 max-w-640 font-text fs-16 font-medium leading-[1.7] text-body sm:fs-18 xl:mt-14 xl:max-w-none xl:fs-19 xl:leading-29">
@@ -17,7 +17,7 @@ export default function SitemapLinks() {
         </p>
       </div>
 
-      <ul className="mt-36 grid gap-22 sm:grid-cols-2 lg:grid-cols-3 xl:mt-56 xl:gap-26">
+      <ul data-reveal-group="up" className="mt-36 grid gap-22 sm:grid-cols-2 lg:grid-cols-3 xl:mt-56 xl:gap-26">
         {groups.map((group, i) => (
           <li key={group.heading} className="r-14 border border-[#ececef] bg-[#f9f9fb] p-24 xl:p-34">
             <p className="fs-16 font-extrabold leading-none text-brand xl:fs-18">{String(i + 1).padStart(2, "0")}</p>

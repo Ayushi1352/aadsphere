@@ -20,7 +20,7 @@ function Box({ heading, children, className = "" }: { heading: string; children:
 /** Right column of a blog post: categories, recent posts and tags. */
 export default function Sidebar() {
   return (
-    <aside className="mt-40 grid gap-24 md:grid-cols-2 lg:mt-0 lg:w-340 lg:shrink-0 lg:grid-cols-1 xl:w-448 xl:gap-29">
+    <aside data-reveal-group="right" className="mt-40 grid gap-24 md:grid-cols-2 lg:mt-0 lg:w-340 lg:shrink-0 lg:grid-cols-1 xl:w-448 xl:gap-29">
       <Box heading={categoriesHeading} className="xl:h-474 xl:pb-0 xl:pt-27">
         <ul className="mt-10 font-sans xl:-mr-4 xl:mt-18">
           {categories.map((item, i) => (
@@ -28,7 +28,7 @@ export default function Sidebar() {
               <Link href={item.href} className="group flex items-center py-15 fs-17 font-medium leading-none text-[#2b3340] transition-colors duration-200 hover:text-[#d6101d] xl:h-[3.78125rem] xl:py-0 xl:fs-20">
                 {item.name}
                 <span className="ml-auto flex h-28 w-42 items-center justify-center rounded-full bg-[#fde8e9] fs-15 text-[#d6101d] xl:h-30 xl:w-44 xl:fs-17">{item.count}</span>
-                <Icon name="chevron-right" className="ml-18 mr-2 size-16 xl:ml-20 xl:size-18" />
+                <Icon name="chevron-right" className="ml-18 mr-2 size-16 transition-transform duration-200 group-hover:translate-x-3 xl:ml-20 xl:size-18" />
               </Link>
             </li>
           ))}
@@ -40,7 +40,7 @@ export default function Sidebar() {
           {recentPosts.map((post, i) => (
             <li key={post.titleLines.join(" ")} className={i > 0 ? "border-t border-[#ececef]" : ""}>
               <Link href={post.href} className="group flex items-center gap-18 py-18 xl:gap-22 xl:py-21">
-                <Image src={post.image.src} alt={post.image.alt} width={137} height={109} className="h-88 w-110 shrink-0 r-6 object-cover xl:h-109 xl:w-137" />
+                <Image src={post.image.src} alt={post.image.alt} width={137} height={109} className="h-88 w-110 shrink-0 r-6 object-cover transition-transform duration-300 group-hover:scale-105 xl:h-109 xl:w-137" />
                 <span className="block">
                   <span className="block fs-16 font-bold leading-[1.4] tracking-[-0.02em] text-[#0d0612] transition-colors duration-200 group-hover:text-[#d6101d] xl:whitespace-nowrap xl:fs-19 xl:leading-27">
                     {post.titleLines.map((line) => (

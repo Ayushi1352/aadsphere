@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Krona_One, Montserrat, Poppins, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { site } from "@/data";
 import "./globals.css";
 
@@ -31,6 +32,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${redHat.variable} ${redHatText.variable} ${krona.variable} ${poppins.variable} ${montserrat.variable} ${inter.variable}`}
     >
       <body className="font-sans antialiased">
+        {/* Without JavaScript the scroll animations cannot run, so nothing stays hidden. */}
+        <noscript>
+          <style>{`[data-reveal], [data-reveal-group] > * { opacity: 1 !important; animation: none !important; }`}</style>
+        </noscript>
+        <ScrollReveal />
         {/* Navbar and Footer live here once, so every page gets them automatically. */}
         <div className="mx-auto flex min-h-screen w-full max-w-1686 flex-col overflow-x-clip bg-white">
           <Navbar />

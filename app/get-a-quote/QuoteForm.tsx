@@ -52,7 +52,7 @@ export default function QuoteForm() {
   };
 
   return (
-    <div className="mt-48 r-16 border border-[#e8e9ec] bg-[#fbfbfc] p-22 shadow-[0_0.25rem_1.5rem_rgba(20,20,20,0.04)] sm:p-32 lg:mt-0 lg:grow xl:w-760 xl:flex-none xl:r-20 xl:pb-31 xl:pl-37 xl:pr-32 xl:pt-20">
+    <div data-reveal="right" className="mt-48 r-16 border border-[#e8e9ec] bg-[#fbfbfc] p-22 shadow-[0_0.25rem_1.5rem_rgba(20,20,20,0.04)] sm:p-32 lg:mt-0 lg:grow xl:w-760 xl:flex-none xl:r-20 xl:pb-31 xl:pl-37 xl:pr-32 xl:pt-20">
       <h2 className="fs-30 font-black leading-[1.1] text-[#0e1118] sm:fs-36 xl:fs-43 xl:leading-48">
         {form.heading}
         <span className="text-[#74121a]">{form.headingHighlight}</span>

@@ -10,9 +10,7 @@ export default function HowItWorksPage() {
   return (
     <main className="grow">
       <PageBanner title={site.howItWorks.title} />
-      <div className="xl:pt-40">
-        <ProcessSection />
-      </div>
+      <ProcessSection />
       <StepDetails />
     </main>
   );

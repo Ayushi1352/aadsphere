@@ -6,7 +6,7 @@ import { DotGrid, Lines, SectionHeading, SectionLabel } from "./ui";
 import { SliderDots, useSlider } from "./slider";
 import { site } from "@/data";
 
-const { label, headingLines, descriptionLines, image, badge, testimonials } = site.testimonial;
+const { label, headingLines, descriptionLines, badge, testimonials } = site.testimonial;
 const carouselText = site.siteMeta.text.Carousel;
 
 function initials(name: string) {
@@ -22,18 +22,18 @@ export default function TestimonialsSection() {
   const current = testimonials[slider.index];
 
   return (
-    <section className="relative px-20 py-56 sm:px-32 sm:py-72 xl:h-760 xl:p-0">
+    <section className="relative px-20 py-32 sm:px-32 sm:py-40 xl:h-769 xl:p-0">
       <div className="lg:flex lg:items-center lg:gap-48 xl:block">
-        <div className="lg:w-[56%] xl:w-auto">
-          <SectionLabel text={label} tracking="tracking-[0.34em]" className="xl:absolute xl:left-112 xl:top-37" />
-          <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:absolute xl:left-112 xl:top-74 xl:mt-0 xl:whitespace-nowrap xl:fs-74 xl:leading-70" />
-          <p className="mt-16 max-w-620 font-text fs-17 leading-[1.5] text-[#6a7080] sm:fs-20 xl:absolute xl:left-112 xl:top-225 xl:mt-0 xl:max-w-none xl:whitespace-nowrap xl:fs-25 xl:leading-33 xl:tracking-[0.01em]">
+        <div data-reveal-group="left" className="lg:w-[56%] xl:w-auto">
+          <SectionLabel text={label} tracking="tracking-[0.34em]" className="xl:absolute xl:left-112 xl:top-48" />
+          <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:absolute xl:left-112 xl:top-85 xl:mt-0 xl:whitespace-nowrap xl:fs-74 xl:leading-70" />
+          <p className="mt-16 max-w-620 font-text fs-17 leading-[1.5] text-[#6a7080] sm:fs-20 xl:absolute xl:left-112 xl:top-236 xl:mt-0 xl:max-w-none xl:whitespace-nowrap xl:fs-25 xl:leading-33 xl:tracking-[0.01em]">
             <Lines lines={descriptionLines} />
           </p>
 
           {/* Quote card */}
           <div
-            className="relative mt-32 r-28 bg-[#f6f6f8] px-22 pb-26 pt-24 sm:px-32 sm:pb-32 sm:pt-30 xl:absolute xl:left-112 xl:top-328 xl:mt-0 xl:h-335 xl:w-803 xl:r-36 xl:p-0"
+            className="relative mt-32 r-28 bg-[#f6f6f8] px-22 pb-26 pt-24 sm:px-32 sm:pb-32 sm:pt-30 xl:absolute xl:left-112 xl:top-339 xl:mt-0 xl:h-335 xl:w-803 xl:r-36 xl:p-0"
             {...slider.swipe}
           >
             <span className="flex size-60 items-center justify-center rounded-full bg-[#f7ddde] text-[#6e0a12] xl:absolute xl:left-31 xl:top-22 xl:size-76">
@@ -86,19 +86,22 @@ export default function TestimonialsSection() {
             count={testimonials.length}
             active={slider.index}
             onSelect={slider.goTo}
-            className="mt-18 xl:absolute xl:left-112 xl:top-682 xl:mt-0 xl:w-803"
+            className="mt-18 xl:absolute xl:left-112 xl:top-693 xl:mt-0 xl:w-803"
           />
         </div>
 
         {/* Photo */}
         <div className="mt-48 lg:mt-0 lg:grow xl:mt-0">
-          <div className="relative mx-auto aspect-712/624 w-full max-w-520 xl:absolute xl:left-946 xl:top-61 xl:mx-0 xl:h-624 xl:w-688 xl:max-w-none">
+          <div data-reveal="right" className="relative mx-auto aspect-712/624 w-full max-w-520 xl:absolute xl:left-946 xl:top-72 xl:mx-0 xl:h-624 xl:w-688 xl:max-w-none">
             <span className="absolute right-0 top-0 h-[75.6%] w-[63.5%] rounded-[9%/8.5%] bg-[#6e0107]" aria-hidden="true" />
-            <DotGrid cols={4} rows={4} gap={21} size={5} color="#e3b7ba" className="absolute right-[5.6%] top-[6%] hidden sm:block" />
+            <DotGrid cols={4} rows={4} gap={21} size={5} color="#e3b7ba" className="absolute right-[5.6%] top-[6%] hidden animate-float sm:block" />
             <div className="absolute left-0 top-[9%] h-[91%] w-[85.25%] overflow-hidden rounded-[7.5%_7.5%_7.5%_22%/8%_8%_8%_23.5%]">
-              <Image src={image.src} alt={image.alt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover" />
+              {/* Each testimonial has its own photo, so it changes together with the name. */}
+              <div key={slider.index} className="absolute inset-0 animate-fade-in">
+                <Image src={current.image.src} alt={current.image.alt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
             </div>
-            <div className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] r-16 bg-white px-16 py-12 shadow-[0_0.5rem_1.75rem_rgba(20,20,20,0.12)] sm:px-24 sm:py-16 xl:h-91 xl:w-285 xl:r-22 xl:px-31 xl:py-0 xl:pt-19">
+            <div className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] animate-float r-16 bg-white px-16 py-12 shadow-[0_0.5rem_1.75rem_rgba(20,20,20,0.12)] sm:px-24 sm:py-16 xl:h-91 xl:w-285 xl:r-22 xl:px-31 xl:py-0 xl:pt-19">
               <p className="flex gap-6 text-[#c4012d] xl:-ml-2 xl:gap-5" aria-label={`${badge.stars}/5`}>
                 {Array.from({ length: badge.stars }, (_, i) => (
                   <Icon key={i} name="star" className="size-16 xl:size-24" />

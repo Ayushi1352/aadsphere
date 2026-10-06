@@ -11,7 +11,7 @@ export default function FaqList() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <ul className="mx-auto mt-36 max-w-1240 space-y-14 xl:mt-56 xl:space-y-18">
+    <ul data-reveal-group="up" className="mx-auto mt-36 max-w-1240 space-y-14 xl:mt-56 xl:space-y-18">
       {faqs.map((faq, i) => {
         const isOpen = open === i;
         return (

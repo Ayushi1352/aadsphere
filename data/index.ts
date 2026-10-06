@@ -53,9 +53,13 @@ export const contact = {
   phoneHref: tel(contactData.phone),
   footerPhone: contactData.footerPhone,
   footerPhoneHref: tel(contactData.footerPhone),
+  altPhone: contactData.altPhone,
   email: contactData.email,
   emailHref: `mailto:${contactData.email}`,
+  supportEmail: contactData.supportEmail,
   addressLines: contactData.addressLines,
+  directionsHref: contactData.directionsHref,
+  map: contactData.map,
   hoursLines: contactData.hoursLines,
 };
 

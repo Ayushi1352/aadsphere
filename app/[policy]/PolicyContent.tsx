@@ -9,8 +9,8 @@ export default function PolicyContent({ slug }: { slug: string }) {
   const policy = items.find((item) => item.slug === slug) ?? items[0];
 
   return (
-    <section className="px-20 py-56 sm:px-32 sm:py-72 lg:flex lg:items-start lg:gap-48 xl:gap-80 xl:px-98 xl:pb-110 xl:pt-96">
-      <article className="min-w-0 lg:grow">
+    <section className="px-20 py-32 sm:px-32 sm:py-40 lg:flex lg:items-start lg:gap-48 xl:gap-80 xl:px-98 xl:py-48">
+      <article data-reveal-group="up" className="min-w-0 lg:grow">
         <p className="flex items-center gap-14 font-inter fs-13 font-medium uppercase leading-none tracking-[0.2em] text-[#4d525c] xl:fs-14">
           <span className="h-2 w-40 bg-accent" aria-hidden="true" />
           {updatedLabel} {policy.updated}
@@ -45,7 +45,7 @@ export default function PolicyContent({ slug }: { slug: string }) {
         ))}
       </article>
 
-      <aside className="mt-48 space-y-24 lg:sticky lg:top-24 lg:mt-0 lg:w-320 lg:shrink-0 xl:w-400">
+      <aside data-reveal-group="right" className="mt-48 space-y-24 lg:sticky lg:top-24 lg:mt-0 lg:w-320 lg:shrink-0 xl:w-400">
         <nav aria-label={otherHeading} className="r-14 border border-[#f0f0f2] bg-[#f9f9fb] p-24 xl:p-32">
           <h2 className="fs-21 font-extrabold leading-none text-ink xl:fs-24">{otherHeading}</h2>
           <span className="mt-12 block h-3 w-48 bg-accent" aria-hidden="true" />

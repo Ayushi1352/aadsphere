@@ -17,8 +17,8 @@ const values = {
 /** Heading plus the four ways to reach the support team. */
 export default function SupportChannels() {
   return (
-    <section className="px-20 pt-56 sm:px-32 sm:pt-72 xl:px-76 xl:pt-96">
-      <div className="flex flex-col items-center text-center">
+    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:px-76 xl:py-48">
+      <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} />
         <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:mt-20 xl:fs-65 xl:leading-64" />
         <p className="mt-18 max-w-680 font-text fs-16 font-medium leading-[1.7] text-body sm:fs-18 xl:mt-14 xl:max-w-none xl:fs-19 xl:leading-29">
@@ -26,18 +26,18 @@ export default function SupportChannels() {
         </p>
       </div>
 
-      <ul className="mt-36 grid gap-20 sm:grid-cols-2 xl:mt-56 xl:grid-cols-4 xl:gap-24">
+      <ul data-reveal-group="up" className="mt-36 grid gap-20 sm:grid-cols-2 xl:mt-56 xl:grid-cols-4 xl:gap-24">
         {channels.map((channel) => {
           const href = fill(channel.href, values);
           const className =
-            "group relative flex h-full flex-col overflow-hidden r-14 border border-[#f3e9ea] bg-white p-26 shadow-[0_0.25rem_1.25rem_rgba(110,12,18,0.06)] transition-shadow duration-200 hover:shadow-[0_0.75rem_2rem_rgba(110,12,18,0.14)] xl:p-32";
+            "group relative flex h-full flex-col overflow-hidden r-14 border border-[#f3e9ea] bg-white p-26 shadow-[0_0.25rem_1.25rem_rgba(110,12,18,0.06)] transition-[translate,box-shadow] duration-300 hover:-translate-y-6 hover:shadow-[0_0.75rem_2rem_rgba(110,12,18,0.14)] xl:p-32";
           const body = (
             <>
               <span
                 aria-hidden="true"
                 className="absolute bottom-0 right-0 h-80 w-110 bg-linear-to-tl from-[#fadfe0] to-[#fdf1f1] [clip-path:polygon(100%_0,100%_100%,0_100%)]"
               />
-              <span className="relative flex size-72 items-center justify-center r-14 bg-[#fcefef] text-[#c2121c] xl:size-88">
+              <span className="relative flex size-72 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 r-14 bg-[#fcefef] text-[#c2121c] xl:size-88">
                 <Icon name={channel.icon} className="size-36 xl:size-44" />
               </span>
               <span className="relative mt-20 block fs-21 font-extrabold leading-[1.2] text-ink xl:mt-26 xl:fs-25">{channel.title}</span>

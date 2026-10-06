@@ -14,7 +14,7 @@ export default function AboutUsPage() {
       <PageBanner title={site.aboutPage.title} />
       <AboutSection compact />
       <AboutStory />
-      <ImpactSection compact />
+      <ImpactSection />
       <WhyChooseUs />
     </main>
   );

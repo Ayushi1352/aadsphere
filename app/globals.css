@@ -34,6 +34,41 @@
   --animate-slide-in: slide-in 0.45s ease-out both;
   --animate-fade-in: fade-in 0.45s ease-out both;
 
+  /* Page-load animations (hero and page banner). They only describe the starting
+     point, so once they finish the element is back to its normal styles. */
+  --animate-rise: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  --animate-from-left: reveal-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  --animate-wipe-in: wipe-in 1.1s cubic-bezier(0.65, 0, 0.35, 1) backwards;
+  --animate-zoom-out: zoom-out 1.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  /* Slow, endless movement for decorative shapes. */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 40s linear infinite;
+
+  @keyframes wipe-in {
+    from {
+      clip-path: inset(0 0 0 100%);
+    }
+    to {
+      clip-path: inset(0);
+    }
+  }
+  @keyframes zoom-out {
+    from {
+      scale: 1.14;
+    }
+  }
+  @keyframes spin-slow {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes float {
+    50% {
+      translate: 0 -0.75rem;
+    }
+  }
+
   @keyframes slide-in {
     from {
       opacity: 0;
@@ -87,7 +122,100 @@ body {
   font-family: var(--font-sans);
 }
 
+/*
+  Scroll animations
+  -----------------
+  data-reveal="up | down | left | right | zoom | fade | line" on an element, or
+  data-reveal-group="..." on a parent to animate each child in turn.
+  components/ScrollReveal.tsx adds data-shown when the element scrolls into view.
+  "left" means the element comes in from the left side, "right" from the right.
+*/
+:is([data-reveal], [data-reveal-group] > *):not([data-shown]) {
+  opacity: 0;
+}
+:is([data-reveal], [data-reveal-group] > *)[data-shown] {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+}
+:is([data-reveal="down"], [data-reveal-group="down"] > *)[data-shown] {
+  animation-name: reveal-down;
+}
+:is([data-reveal="left"], [data-reveal-group="left"] > *)[data-shown] {
+  animation-name: reveal-left;
+}
+:is([data-reveal="right"], [data-reveal-group="right"] > *)[data-shown] {
+  animation-name: reveal-right;
+}
+:is([data-reveal="zoom"], [data-reveal-group="zoom"] > *)[data-shown] {
+  animation-name: reveal-zoom;
+}
+:is([data-reveal="fade"], [data-reveal-group="fade"] > *)[data-shown] {
+  animation-name: reveal-fade;
+}
+[data-reveal="line"] {
+  transform-origin: left center;
+}
+[data-reveal="line"][data-shown] {
+  animation-name: reveal-line;
+}
+
+/* Safety net: if the script never starts, show everything after a moment. */
+html:not([data-reveal-ready]) :is([data-reveal], [data-reveal-group] > *) {
+  animation: reveal-fade 0.4s ease-out 3s forwards;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 2.5rem;
+  }
+}
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    translate: 0 -2.5rem;
+  }
+}
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    translate: -3.5rem 0;
+  }
+}
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    translate: 3.5rem 0;
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes reveal-line {
+  from {
+    opacity: 0;
+    scale: 0 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  :is([data-reveal], [data-reveal-group] > *) {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  [class*="animate-"] {
+    animation: none !important;
+  }
   html {
     scroll-behavior: auto;
   }
