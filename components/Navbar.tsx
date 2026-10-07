@@ -63,7 +63,7 @@ export default function Navbar() {
                     }`}
                   />
                   {item.children.length > 0 && (
-                    <ul className={`invisible absolute -left-24 top-full w-270 translate-y-8 border-t-3 border-brand bg-white py-10 opacity-0 shadow-[0_1rem_2.5rem_rgba(20,20,20,0.14)] transition-all duration-200 ${dropdownLocked ? "" : "group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"}`}>
+                    <ul suppressHydrationWarning className={`invisible absolute -left-24 top-full w-270 translate-y-8 border-t-3 border-brand bg-white py-10 opacity-0 shadow-[0_1rem_2.5rem_rgba(20,20,20,0.14)] transition-all duration-200 ${dropdownLocked ? "" : "group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"}`}>
                       {item.children.map((child) => (
                         <li key={child.name}>
                           <Link
