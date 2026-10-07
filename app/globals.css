@@ -11,6 +11,7 @@
 */
 @theme {
   --spacing: 0.0625rem;
+  --breakpoint-xl: 64rem;
 
   --font-sans: var(--font-red-hat), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-krona), ui-sans-serif, system-ui, sans-serif;
@@ -105,7 +106,7 @@ html {
 }
 
 /* Desktop: scale the 1686px design in proportion to the screen. */
-@media (min-width: 80rem) {
+@media (min-width: 64rem) {
   html {
     font-size: calc(100vw / 1686 * 16);
   }

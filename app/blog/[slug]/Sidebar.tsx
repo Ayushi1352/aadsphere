@@ -18,7 +18,14 @@ function Box({ heading, children, className = "" }: { heading: string; children:
 }
 
 /** Right column of a blog post: categories, recent posts and tags. */
-export default function Sidebar() {
+export default function Sidebar({ currentSlug }: { currentSlug?: string }) {
+  const allBlogPosts = site.blogPage.posts;
+  const recentPostsList = (
+    currentSlug
+      ? allBlogPosts.filter((p) => p.href !== `/blog/${currentSlug}`)
+      : allBlogPosts
+  ).slice(0, 3);
+
   return (
     <aside data-reveal-group="right" className="mt-40 grid gap-24 md:grid-cols-2 lg:mt-0 lg:w-340 lg:shrink-0 lg:grid-cols-1 xl:w-448 xl:gap-29">
       <Box heading={categoriesHeading} className="xl:h-474 xl:pb-0 xl:pt-27">
@@ -35,21 +42,17 @@ export default function Sidebar() {
         </ul>
       </Box>
 
-      <Box heading={recentHeading} className="xl:h-560 xl:pb-0 xl:pt-27">
+      <Box heading={recentHeading} className="xl:min-h-560 xl:pb-24 xl:pt-27">
         <ul className="mt-10 xl:mt-3">
-          {recentPosts.map((post, i) => (
-            <li key={post.titleLines.join(" ")} className={i > 0 ? "border-t border-[#ececef]" : ""}>
+          {recentPostsList.map((post, i) => (
+            <li key={post.href} className={i > 0 ? "border-t border-[#ececef]" : ""}>
               <Link href={post.href} className="group flex items-center gap-18 py-18 xl:gap-22 xl:py-21">
                 <Image src={post.image.src} alt={post.image.alt} width={137} height={109} className="h-88 w-110 shrink-0 r-6 object-cover transition-transform duration-300 group-hover:scale-105 xl:h-109 xl:w-137" />
-                <span className="block">
-                  <span className="block fs-16 font-bold leading-[1.4] tracking-[-0.02em] text-[#0d0612] transition-colors duration-200 group-hover:text-[#d6101d] xl:whitespace-nowrap xl:fs-19 xl:leading-27">
-                    {post.titleLines.map((line) => (
-                      <span key={line} className="xl:block">
-                        {line}{" "}
-                      </span>
-                    ))}
+                <span className="block min-w-0">
+                  <span className="block fs-16 font-bold leading-[1.35] tracking-[-0.02em] text-[#0d0612] transition-colors duration-200 group-hover:text-[#d6101d] xl:fs-18 xl:leading-24">
+                    {post.titleLines.join(" ")}
                   </span>
-                  <span className="mt-6 block font-sans fs-14 leading-none text-[#666b75] xl:mt-8 xl:fs-18">{post.date}</span>
+                  <span className="mt-6 block font-sans fs-14 leading-none text-[#666b75] xl:mt-8 xl:fs-16">{post.month} {post.day}, {post.year}</span>
                 </span>
               </Link>
             </li>

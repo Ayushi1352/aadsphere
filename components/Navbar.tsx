@@ -17,6 +17,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [dropdownLocked, setDropdownLocked] = useState(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -44,7 +45,7 @@ export default function Navbar() {
             {navLinks.map((item) => {
               const active = isActive(pathname, item.href);
               return (
-                <li key={item.name} className="group relative flex h-full items-center">
+                <li key={item.name} className="group relative flex h-full items-center" onPointerLeave={() => setDropdownLocked(false)}>
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
@@ -62,11 +63,12 @@ export default function Navbar() {
                     }`}
                   />
                   {item.children.length > 0 && (
-                    <ul className="invisible absolute -left-24 top-full w-270 translate-y-8 border-t-3 border-brand bg-white py-10 opacity-0 shadow-[0_1rem_2.5rem_rgba(20,20,20,0.14)] transition-all duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    <ul className={`invisible absolute -left-24 top-full w-270 translate-y-8 border-t-3 border-brand bg-white py-10 opacity-0 shadow-[0_1rem_2.5rem_rgba(20,20,20,0.14)] transition-all duration-200 ${dropdownLocked ? "" : "group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"}`}>
                       {item.children.map((child) => (
                         <li key={child.name}>
                           <Link
                             href={child.href}
+                            onClick={(e) => { (e.target as HTMLElement).blur(); setDropdownLocked(true); }}
                             className="block px-24 py-10 font-inter fs-15 font-medium text-[#1f1f1f] transition-colors duration-200 hover:bg-blush hover:text-brand"
                           >
                             {child.name}

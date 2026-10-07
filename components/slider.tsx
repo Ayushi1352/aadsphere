@@ -54,7 +54,7 @@ export function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={text[direction]}
-      className={`flex size-44 cursor-pointer items-center justify-center rounded-full bg-white text-brand shadow-[0_0.25rem_1rem_rgba(20,20,20,0.12)] transition-colors duration-200 hover:bg-brand hover:text-white xl:size-52 ${className}`}
+      className={`hidden md:flex size-44 cursor-pointer items-center justify-center rounded-full bg-white text-brand shadow-[0_0.25rem_1rem_rgba(20,20,20,0.12)] transition-colors duration-200 hover:bg-brand hover:text-white xl:size-52 ${className}`}
     >
       <Icon name={icon} className="size-20 xl:size-22" />
     </button>

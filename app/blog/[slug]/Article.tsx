@@ -5,24 +5,32 @@ import { site } from "@/data";
 
 const { image, date, category, author, headingLines, paragraphs, quoteLines, sections } = site.blogDetail;
 
-/** The blog post itself: photo, meta line, title, text, quote and sub sections. */
-export default function Article() {
+export default function Article({ currentSlug }: { currentSlug?: string }) {
+  const matchingPost = currentSlug
+    ? site.blogPage.posts.find((p) => p.href === `/blog/${currentSlug}`)
+    : undefined;
+
+  const articleImage = matchingPost?.image ?? image;
+  const articleDate = matchingPost ? `${matchingPost.month} ${matchingPost.day}, ${matchingPost.year}` : date;
+  const articleCategory = matchingPost?.categories?.[0] ?? category;
+  const articleTitle = matchingPost ? matchingPost.titleLines.map((line) => [{ text: line, highlight: false }]) : headingLines;
+
   return (
     <article className="min-w-0 lg:grow xl:w-1042 xl:flex-none">
       <div className="relative aspect-1042/448 overflow-hidden r-12 xl:r-16">
-        <Image src={image.src} alt={image.alt} fill preload sizes="(min-width: 64rem) 62vw, 100vw" className="animate-zoom-out object-cover" />
+        <Image src={articleImage.src} alt={articleImage.alt} fill preload sizes="(min-width: 64rem) 62vw, 100vw" className="animate-zoom-out object-cover" />
       </div>
 
       <p data-reveal="up" className="mt-22 flex flex-wrap items-center gap-x-14 gap-y-4 fs-14 font-medium uppercase leading-none text-[#4b4f57] sm:fs-16 xl:mt-34 xl:gap-x-18 xl:pl-7 xl:fs-18">
-        {date}
+        {articleDate}
         <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
-        <span className="font-semibold text-[#d3141f]">{category}</span>
+        <span className="font-semibold text-[#d3141f]">{articleCategory}</span>
         <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
         {author}
       </p>
 
       <h1 data-reveal="up" className="mt-14 fs-32 font-extrabold leading-[1.12] tracking-[-0.024em] text-[#0d0612] sm:fs-48 xl:mt-20 xl:whitespace-nowrap xl:pl-7 xl:fs-67 xl:leading-70">
-        {headingLines.map((line, i) => (
+        {articleTitle.map((line, i) => (
           <span key={i} className="xl:block">
             {line.map((part) => (
               <span key={part.text} className={part.highlight ? "text-[#d6101d]" : ""}>

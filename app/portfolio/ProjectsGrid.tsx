@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Lines, SectionLabel } from "@/components/ui";
 import { fill, site } from "@/data";
@@ -12,11 +12,17 @@ const pageSize = 8;
 /** Heading plus a paginated grid of portfolio projects (photo, name and tags). */
 export default function ProjectsGrid() {
   const [currentPage, setCurrentPage] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
   const pageCount = Math.ceil(projects.length / pageSize);
   const visibleProjects = projects.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
-    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:px-0 xl:py-48">
+    <section ref={sectionRef} className="scroll-mt-80 px-20 py-32 sm:px-32 sm:py-40 xl:scroll-mt-120 xl:px-0 xl:py-48">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold" />
         <h2 className="mt-18 fs-30 font-black leading-[1.1] tracking-[-0.02em] text-[#0b0b0c] sm:fs-52 xl:mt-34 xl:fs-70 xl:leading-70">
@@ -64,7 +70,7 @@ export default function ProjectsGrid() {
         <nav aria-label={pagination.label} className="mt-40 flex flex-wrap items-center justify-center gap-8">
           <button
             type="button"
-            onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+            onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
             className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
@@ -74,7 +80,7 @@ export default function ProjectsGrid() {
             <button
               key={page}
               type="button"
-              onClick={() => setCurrentPage(page)}
+              onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
               aria-current={currentPage === page ? "page" : undefined}
               className={`size-44 rounded-full fs-14 font-semibold transition-colors ${currentPage === page ? "bg-brand text-white" : "bg-white text-ink hover:bg-brand hover:text-white"}`}
@@ -84,7 +90,7 @@ export default function ProjectsGrid() {
           ))}
           <button
             type="button"
-            onClick={() => setCurrentPage((page) => Math.min(pageCount, page + 1))}
+            onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
             disabled={currentPage === pageCount}
             className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >

@@ -2001,41 +2001,38 @@
               "recentPosts": [
                 {
                   "titleLines": [
-                    "6 Big Commerce",
-                    "Design Tips For Big",
-                    "Brands"
+                    "Effective Digital Marketing",
+                    "Strategies for Business Growth"
                   ],
-                  "date": "Sep 15, 2024",
-                  "href": "/blog/everything-you-should-know-about-brand-strategy",
+                  "date": "Aug 20, 2025",
+                  "href": "/blog/effective-digital-marketing-strategies-for-business-growth",
                   "image": {
-                    "src": "/images/blog-recent-1.webp",
-                    "alt": "Laptop showing sales charts on a desk"
+                    "src": "/images/blog-digital-marketing.webp",
+                    "alt": "Laptop showing a digital marketing dashboard"
                   }
                 },
                 {
                   "titleLines": [
-                    "Five Winning Voice",
-                    "Search Marketing",
-                    "Strategies"
+                    "How Data-Driven Decisions",
+                    "Can Transform Your Business"
                   ],
-                  "date": "Sep 15, 2024",
-                  "href": "/blog/everything-you-should-know-about-brand-strategy",
+                  "date": "Aug 25, 2025",
+                  "href": "/blog/how-data-driven-decisions-can-transform-your-business",
                   "image": {
-                    "src": "/images/blog-recent-2.webp",
-                    "alt": "Team meeting in front of a wall of sticky notes"
+                    "src": "/images/blog-data-driven.webp",
+                    "alt": "Business charts being reviewed next to a laptop"
                   }
                 },
                 {
                   "titleLines": [
-                    "Four Steps To",
-                    "Conduct A Successful",
-                    "Brand Audit"
+                    "The Power of Social Media",
+                    "for Modern Businesses"
                   ],
-                  "date": "Sep 15, 2024",
-                  "href": "/blog/everything-you-should-know-about-brand-strategy",
+                  "date": "Aug 14, 2025",
+                  "href": "/blog/the-power-of-social-media-for-modern-businesses",
                   "image": {
-                    "src": "/images/blog-recent-3.webp",
-                    "alt": "Analytics dashboard open on a laptop"
+                    "src": "/images/blog-social-media.webp",
+                    "alt": "Phone with social media reactions floating above it"
                   }
                 }
               ],

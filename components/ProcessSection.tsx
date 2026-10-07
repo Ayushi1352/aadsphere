@@ -25,15 +25,17 @@ export default function ProcessSection() {
       <ol data-reveal-group="up" className="relative mt-48 grid gap-x-24 gap-y-52 sm:grid-cols-2 xl:absolute xl:left-63 xl:top-294 xl:mt-0 xl:w-1571 xl:grid-cols-4 xl:gap-0">
         {steps.map((step) => (
           <li key={step.number} className="group flex flex-col items-center text-center">
-            <div className="relative size-250 transition-transform duration-500 group-hover:-translate-y-8 xl:mt-18">
-              <span className="absolute -left-50 -top-17 size-270 rounded-full bg-[#fbf1f0]" aria-hidden="true" />
-              <Image src={step.image.src} alt={step.image.alt} fill sizes="250px" className="rounded-full object-cover" />
-              <span className="absolute -left-48 -top-14 fs-57 font-extrabold leading-none tracking-[-0.03em] text-[#6e0a12]">{step.number}</span>
-              <span className="absolute bottom-4 -right-19 flex size-94 items-center justify-center rounded-full border-[0.3125rem] border-white bg-[#7b0d10] text-white transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
-                <Icon name={step.icon} className="size-42" />
+            <div className="relative size-200 transition-transform duration-500 group-hover:-translate-y-8 sm:size-250 xl:mt-18">
+              <span className="absolute -left-30 -top-15 size-230 rounded-full bg-[#fbf1f0] sm:-left-50 sm:-top-17 sm:size-270" aria-hidden="true" />
+              <div className="relative size-200 overflow-hidden rounded-full sm:size-250">
+                <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 40rem) 250px, 200px" className="object-cover" />
+              </div>
+              <span className="absolute -left-28 -top-12 z-10 fs-48 font-extrabold leading-none tracking-[-0.03em] text-[#6e0a12] sm:-left-48 sm:-top-14 sm:fs-57">{step.number}</span>
+              <span className="absolute -bottom-4 -right-10 z-10 flex size-76 items-center justify-center rounded-full border-[0.3125rem] border-white bg-[#7b0d10] text-white transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 sm:bottom-4 sm:-right-19 sm:size-94">
+                <Icon name={step.icon} className="size-34 sm:size-42" />
               </span>
             </div>
-            <h3 className="relative mt-28 fs-23 font-bold leading-none tracking-[-0.005em] text-ink xl:mt-7 xl:fs-26 xl:leading-30">{step.title}</h3>
+            <h3 className="relative mt-24 fs-23 font-bold leading-none tracking-[-0.005em] text-ink sm:mt-28 xl:mt-7 xl:fs-26 xl:leading-30">{step.title}</h3>
             <span className="mt-16 block h-3 w-40 bg-accent transition-[width] duration-500 group-hover:w-72 xl:mt-13" aria-hidden="true" />
             <p className="mt-14 max-w-320 font-text fs-16 font-medium leading-[1.55] text-body xl:mt-9 xl:max-w-none xl:fs-18 xl:leading-25 xl:tracking-[0.02em]">
               <Lines lines={step.descriptionLines} />

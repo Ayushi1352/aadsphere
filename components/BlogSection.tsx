@@ -35,8 +35,8 @@ export default function BlogSection() {
           </ul>
         </div>
 
-        <ArrowButton direction="previous" icon="chevron-left" onClick={slider.prev} className="absolute -left-14 top-[26%] z-10 xl:-left-15 xl:top-165" />
-        <ArrowButton direction="next" icon="chevron-right" onClick={slider.next} className="absolute -right-14 top-[26%] z-10 xl:-right-21 xl:top-165" />
+        <ArrowButton direction="previous" icon="chevron-left" onClick={slider.prev} className="hidden md:flex absolute -left-14 top-[26%] z-10 xl:-left-15 xl:top-165" />
+        <ArrowButton direction="next" icon="chevron-right" onClick={slider.next} className="hidden md:flex absolute -right-14 top-[26%] z-10 xl:-right-21 xl:top-165" />
       </div>
 
       <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} className="mt-24 xl:absolute xl:inset-x-0 xl:top-730 xl:mt-0" />

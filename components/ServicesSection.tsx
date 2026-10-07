@@ -36,8 +36,8 @@ export default function ServicesSection() {
           </ul>
         </div>
 
-        <ArrowButton direction="previous" icon="arrow-left" onClick={slider.prev} className="absolute -left-14 top-[38%] z-10 xl:-left-18 xl:top-166" />
-        <ArrowButton direction="next" icon="arrow-right" onClick={slider.next} className="absolute -right-14 top-[38%] z-10 xl:-right-20 xl:top-166" />
+        <ArrowButton direction="previous" icon="arrow-left" onClick={slider.prev} className="hidden md:flex absolute -left-14 top-[38%] z-10 xl:-left-18 xl:top-166" />
+        <ArrowButton direction="next" icon="arrow-right" onClick={slider.next} className="hidden md:flex absolute -right-14 top-[38%] z-10 xl:-right-20 xl:top-166" />
       </div>
 
       <SliderDots count={services.length} active={slider.index} onSelect={slider.goTo} className="mt-24 xl:absolute xl:inset-x-0 xl:top-735 xl:mt-0" />

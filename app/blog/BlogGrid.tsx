@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BlogCard from "@/components/BlogCard";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui";
 import { fill, site } from "@/data";
@@ -12,11 +12,17 @@ const pageSize = 6;
 /** Heading plus a paginated grid of blog cards. */
 export default function BlogGrid() {
   const [currentPage, setCurrentPage] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
   const pageCount = Math.ceil(posts.length / pageSize);
   const visiblePosts = posts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
-    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:px-0 xl:py-48">
+    <section ref={sectionRef} className="scroll-mt-80 px-20 py-32 sm:px-32 sm:py-40 xl:scroll-mt-120 xl:px-0 xl:py-48">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} tracking="tracking-[0.22em]" />
         <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:mt-18 xl:fs-65 xl:leading-62 xl:tracking-[-0.01em]" />
@@ -26,8 +32,8 @@ export default function BlogGrid() {
       </div>
 
       <ul data-reveal-group="up" className="mt-36 grid gap-24 md:grid-cols-2 xl:ml-77 xl:mt-34 xl:w-1535 xl:grid-cols-3 xl:gap-x-25 xl:gap-y-65">
-        {visiblePosts.map((post, i) => (
-          <li key={i}>
+        {visiblePosts.map((post) => (
+          <li key={post.href}>
             <BlogCard post={post} />
           </li>
         ))}
@@ -37,7 +43,7 @@ export default function BlogGrid() {
         <nav aria-label={pagination.label} className="mt-40 flex flex-wrap items-center justify-center gap-8">
           <button
             type="button"
-            onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+            onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
             className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
@@ -47,7 +53,7 @@ export default function BlogGrid() {
             <button
               key={page}
               type="button"
-              onClick={() => setCurrentPage(page)}
+              onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
               aria-current={currentPage === page ? "page" : undefined}
               className={`size-44 rounded-full fs-14 font-semibold transition-colors ${currentPage === page ? "bg-brand text-white" : "bg-white text-ink hover:bg-brand hover:text-white"}`}
@@ -57,7 +63,7 @@ export default function BlogGrid() {
           ))}
           <button
             type="button"
-            onClick={() => setCurrentPage((page) => Math.min(pageCount, page + 1))}
+            onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
             disabled={currentPage === pageCount}
             className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >

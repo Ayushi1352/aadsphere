@@ -11,9 +11,9 @@ export default function PolicyContent({ slug }: { slug: string }) {
   return (
     <section className="px-20 py-32 sm:px-32 sm:py-40 lg:flex lg:items-start lg:gap-48 xl:gap-80 xl:px-98 xl:py-48">
       <article data-reveal-group="up" className="min-w-0 lg:grow">
-        <p className="flex items-center gap-14 font-inter fs-13 font-medium uppercase leading-none tracking-[0.2em] text-[#4d525c] xl:fs-14">
-          <span className="h-2 w-40 bg-accent" aria-hidden="true" />
-          {updatedLabel} {policy.updated}
+        <p className="flex items-center gap-8 sm:gap-14 font-inter fs-11 sm:fs-13 font-medium uppercase leading-none tracking-[0.1em] sm:tracking-[0.2em] text-[#4d525c] xl:fs-14">
+          <span className="h-2 w-24 sm:w-40 shrink-0 bg-accent" aria-hidden="true" />
+          <span className="whitespace-nowrap">{updatedLabel} {policy.updated}</span>
         </p>
         <p className="mt-20 font-text fs-17 leading-[1.7] text-body sm:fs-19 xl:mt-26 xl:fs-22 xl:leading-37">{policy.intro}</p>
 
