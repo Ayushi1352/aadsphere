@@ -24,7 +24,7 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
       <p data-reveal="up" className="mt-22 flex flex-wrap items-center gap-x-14 gap-y-4 fs-14 font-medium uppercase leading-none text-[#4b4f57] sm:fs-16 xl:mt-34 xl:gap-x-18 xl:pl-7 xl:fs-18">
         {articleDate}
         <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
-        <span className="font-semibold text-[#d3141f]">{articleCategory}</span>
+        <span className="font-semibold text-brand">{articleCategory}</span>
         <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
         {author}
       </p>
@@ -33,7 +33,7 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
         {articleTitle.map((line, i) => (
           <span key={i} className="xl:block">
             {line.map((part) => (
-              <span key={part.text} className={part.highlight ? "text-[#d6101d]" : ""}>
+              <span key={part.text} className={part.highlight ? "text-brand" : ""}>
                 {part.text}
               </span>
             ))}{" "}
@@ -52,7 +52,7 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
       <blockquote data-reveal="left" className="relative mt-28 flex items-center gap-18 overflow-hidden r-12 bg-linear-to-r from-[#fdeeef] to-[#fbe3e4] p-22 sm:gap-28 sm:p-30 xl:mt-34 xl:block xl:h-140 xl:r-16 xl:p-0">
         <span className="absolute -bottom-90 -right-40 size-200 rounded-full bg-[#f9d5d6]/60" aria-hidden="true" />
         <span className="absolute -right-70 -top-120 size-260 rounded-full bg-[#fbe0e1]/50" aria-hidden="true" />
-        <Icon name="quote-slant" className="relative h-44 w-56 shrink-0 text-[#d9161a] xl:absolute xl:left-48 xl:top-23 xl:size-80" />
+        <Icon name="quote-slant" className="relative h-44 w-56 shrink-0 text-brand xl:absolute xl:left-48 xl:top-23 xl:size-80" />
         <p className="relative fs-17 leading-[1.5] text-[#44484f] sm:fs-21 xl:absolute xl:left-152 xl:top-31 xl:whitespace-nowrap xl:fs-24 xl:leading-36 xl:tracking-[0.005em]">
           <Lines lines={quoteLines} />
         </p>

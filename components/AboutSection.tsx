@@ -50,11 +50,11 @@ export default function AboutSection({ compact = false }: { compact?: boolean })
           {/* Photos */}
           <div className="mt-40 lg:mt-0 lg:w-1/2 xl:w-auto">
             <div className="relative mx-auto aspect-458/680 w-full max-w-420 xl:absolute xl:left-598 xl:top-48 xl:mx-0 xl:h-680 xl:w-458 xl:max-w-none">
-              <span data-reveal="zoom" className="absolute left-[12%] top-0 h-[14.3%] w-[34.5%] bg-[#650f0e]" aria-hidden="true" />
+              <span data-reveal="zoom" className="absolute left-[12%] top-0 h-[14.3%] w-[34.5%] bg-brand" aria-hidden="true" />
               <div data-reveal="down" className="absolute left-[19.65%] top-[4.1%] h-[67.95%] w-[80.35%] overflow-hidden">
                 <Image src={images.primary.src} alt={images.primary.alt} fill sizes="(min-width: 80rem) 22vw, 340px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
-              <span data-reveal="zoom" className="absolute left-0 top-[56.8%] h-[19.4%] w-[17.9%] bg-[#7a1a1c]" aria-hidden="true" />
+              <span data-reveal="zoom" className="absolute left-0 top-[56.8%] h-[19.4%] w-[17.9%] bg-brand" aria-hidden="true" />
               <DotGrid cols={4} rows={4} gap={22} className="absolute -left-43 top-[85.6%] hidden animate-float xl:block" />
               <div data-reveal="left" data-reveal-delay="150" className="absolute left-[6.35%] top-[60.4%] h-[39.6%] w-[77.7%] border-2 border-white bg-white">
                 <div className="relative size-full overflow-hidden">
@@ -76,7 +76,7 @@ export default function AboutSection({ compact = false }: { compact?: boolean })
             <div className="flex items-center gap-24 xl:block">
               <p
                 data-reveal="up"
-                className="fs-150 font-black leading-[0.8] tracking-[-0.04em] text-[#660e0d] sm:fs-200 xl:absolute xl:left-58 xl:top-153 xl:origin-left xl:scale-x-[0.93] xl:fs-262 xl:leading-205"
+                className="fs-150 font-black leading-[0.8] tracking-[-0.04em] text-brand sm:fs-200 xl:absolute xl:left-58 xl:top-153 xl:origin-left xl:scale-x-[0.93] xl:fs-262 xl:leading-205"
                 style={{ WebkitBoxReflect: "below -0.06em linear-gradient(transparent 70%, rgba(255,255,255,0.09))" }}
               >
                 <CountUp value={experience.number} />

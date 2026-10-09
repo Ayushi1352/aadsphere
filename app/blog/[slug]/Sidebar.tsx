@@ -11,7 +11,7 @@ function Box({ heading, children, className = "" }: { heading: string; children:
   return (
     <section className={`r-12 border border-[#f0f0f2] bg-[#fdfdfd] p-24 xl:r-14 xl:px-34 ${className}`}>
       <h2 className="fs-22 font-extrabold leading-none tracking-[-0.02em] text-[#0d0612] xl:fs-27 xl:leading-32">{heading}</h2>
-      <span className="mt-12 block h-3 w-56 bg-[#d6101d] xl:mt-13" aria-hidden="true" />
+      <span className="mt-12 block h-3 w-56 bg-brand xl:mt-13" aria-hidden="true" />
       {children}
     </section>
   );
@@ -32,9 +32,9 @@ export default function Sidebar({ currentSlug }: { currentSlug?: string }) {
         <ul className="mt-10 font-sans xl:-mr-4 xl:mt-18">
           {categories.map((item, i) => (
             <li key={item.name} className={i > 0 ? "border-t border-[#ececef]" : ""}>
-              <Link href={item.href} className="group flex items-center py-15 fs-17 font-medium leading-none text-[#2b3340] transition-colors duration-200 hover:text-[#d6101d] xl:h-[3.78125rem] xl:py-0 xl:fs-20">
+              <Link href={item.href} className="group flex items-center py-15 fs-17 font-medium leading-none text-[#2b3340] transition-colors duration-200 hover:text-brand xl:h-[3.78125rem] xl:py-0 xl:fs-20">
                 {item.name}
-                <span className="ml-auto flex h-28 w-42 items-center justify-center rounded-full bg-[#fde8e9] fs-15 text-[#d6101d] xl:h-30 xl:w-44 xl:fs-17">{item.count}</span>
+                <span className="ml-auto flex h-28 w-42 items-center justify-center rounded-full bg-blush fs-15 text-brand xl:h-30 xl:w-44 xl:fs-17">{item.count}</span>
                 <Icon name="chevron-right" className="ml-18 mr-2 size-16 transition-transform duration-200 group-hover:translate-x-3 xl:ml-20 xl:size-18" />
               </Link>
             </li>
@@ -49,7 +49,7 @@ export default function Sidebar({ currentSlug }: { currentSlug?: string }) {
               <Link href={post.href} className="group flex items-center gap-18 py-18 xl:gap-22 xl:py-21">
                 <Image src={post.image.src} alt={post.image.alt} width={137} height={109} className="h-88 w-110 shrink-0 r-6 object-cover transition-transform duration-300 group-hover:scale-105 xl:h-109 xl:w-137" />
                 <span className="block min-w-0">
-                  <span className="block fs-16 font-bold leading-[1.35] tracking-[-0.02em] text-[#0d0612] transition-colors duration-200 group-hover:text-[#d6101d] xl:fs-18 xl:leading-24">
+                  <span className="block fs-16 font-bold leading-[1.35] tracking-[-0.02em] text-[#0d0612] transition-colors duration-200 group-hover:text-brand xl:fs-18 xl:leading-24">
                     {post.titleLines.join(" ")}
                   </span>
                   <span className="mt-6 block font-sans fs-14 leading-none text-[#666b75] xl:mt-8 xl:fs-16">{post.month} {post.day}, {post.year}</span>
@@ -66,7 +66,7 @@ export default function Sidebar({ currentSlug }: { currentSlug?: string }) {
             <li key={tag.name}>
               <Link
                 href={tag.href}
-                className="flex h-40 items-center rounded-full bg-[#fdeced] px-18 fs-15 font-semibold leading-none tracking-[-0.02em] text-[#d6101d] transition-colors duration-200 hover:bg-[#d6101d] hover:text-white xl:h-44 xl:px-21 xl:fs-17"
+                className="flex h-40 items-center rounded-full bg-blush px-18 fs-15 font-semibold leading-none tracking-[-0.02em] text-brand transition-colors duration-200 hover:bg-brand hover:text-white xl:h-44 xl:px-21 xl:fs-17"
               >
                 {tag.name}
               </Link>

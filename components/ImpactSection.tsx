@@ -45,7 +45,7 @@ export default function ImpactSection() {
                 cy="254"
                 r="251"
                 fill="none"
-                stroke="#7c1218"
+                stroke="#6e0c12"
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 pathLength="360"
@@ -54,7 +54,7 @@ export default function ImpactSection() {
               />
             </svg>
             <Image src={image.src} alt={image.alt} fill sizes="(min-width: 80rem) 28vw, 420px" className="rounded-full object-cover" />
-            <span className="absolute left-[81.8%] top-[-3.6%] size-[11.9%] animate-float rounded-full bg-[#700811]" aria-hidden="true" />
+            <span className="absolute left-[81.8%] top-[-3.6%] size-[11.9%] animate-float rounded-full bg-brand" aria-hidden="true" />
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function ImpactSection() {
               className="group relative flex items-center justify-between gap-16 r-20 transition-[translate,box-shadow] duration-300 hover:-translate-y-6 hover:shadow-[0_0.9rem_2rem_rgba(110,12,18,0.12)] bg-linear-to-br from-[#fbf9f9] to-[#fbf1f1] px-28 py-30 xl:block xl:h-200 xl:p-0"
             >
               <div className="xl:absolute xl:left-42 xl:top-33">
-                <p className="font-poppins fs-48 font-bold leading-none tracking-[-0.02em] text-[#6e0611] xl:fs-66"><CountUp value={stat.value} /></p>
+                <p className="font-poppins fs-48 font-bold leading-none tracking-[-0.02em] text-brand xl:fs-66"><CountUp value={stat.value} /></p>
                 <p className="mt-16 font-poppins fs-13 uppercase leading-[1.55] tracking-[0.44em] text-[#3f3f3f] xl:mt-12 xl:fs-14 xl:leading-21">
                   {stat.labelLines.map((line) => (
                     <span key={line} className="block">

@@ -213,18 +213,6 @@
                 "component": "AdvertisingSitemap1"
               }
             ]
-          },
-          "help-and-support": {
-            "components": [
-              {
-                "key": "PageBanner",
-                "component": "AdvertisingPageBanner1"
-              },
-              {
-                "key": "Help",
-                "component": "AdvertisingHelp1"
-              }
-            ]
           }
         }
       }
@@ -242,10 +230,10 @@
               }
             },
             "contact": {
-              "phone": "+1 415 555 0132",
-              "footerPhone": "+1 415 555 0132",
-              "altPhone": "+1 415 555 0133",
-              "email": "xyz@example.com",
+              "phone": "+1 0000000000",
+              "footerPhone": "+1 0000000000",
+              "altPhone": "+1 0000000000",
+              "email": "info@xyz.com",
               "supportEmail": "support@example.com",
               "addressLines": [
                 "123 Business Avenue,",
@@ -288,16 +276,7 @@
               {
                 "name": "About Us",
                 "href": "/about-us",
-                "children": [
-                  {
-                    "name": "How It Works",
-                    "href": "/how-it-works"
-                  },
-                  {
-                    "name": "Career",
-                    "href": "/career"
-                  }
-                ]
+                "children": []
               },
               {
                 "name": "Services",
@@ -923,7 +902,7 @@
                 "solutions that deliver real results."
               ],
               "contactHeading": "Contact Us",
-              "copyright": "© 2026 AdSphere. All Rights Reserved."
+              "copyright": "© 2026 All Rights Reserved. Powered by Lestow."
             },
             "links": {
               "home": "/"
@@ -975,6 +954,10 @@
                     "href": "/blog"
                   },
                   {
+                    "name": "FAQs",
+                    "href": "/faqs"
+                  },
+                  {
                     "name": "Career",
                     "href": "/career"
                   },
@@ -1018,39 +1001,6 @@
                   {
                     "name": "Campaign Management",
                     "href": "/services/campaign-management"
-                  }
-                ]
-              },
-              {
-                "heading": "Support",
-                "links": [
-                  {
-                    "name": "FAQs",
-                    "href": "/faqs"
-                  },
-                  {
-                    "name": "Privacy Policy",
-                    "href": "/privacy-policy"
-                  },
-                  {
-                    "name": "Terms & Conditions",
-                    "href": "/terms-and-conditions"
-                  },
-                  {
-                    "name": "Cookie Policy",
-                    "href": "/cookie-policy"
-                  },
-                  {
-                    "name": "Sitemap",
-                    "href": "/sitemap"
-                  },
-                  {
-                    "name": "Help & Support",
-                    "href": "/help-and-support"
-                  },
-                  {
-                    "name": "Get a Quote",
-                    "href": "/get-a-quote"
                   }
                 ]
               }
@@ -2469,6 +2419,30 @@
                 "label": "Contact Us",
                 "href": "/contact"
               }
+            },
+            "applicationForm": {
+              "heading": "Apply Now",
+              "description": "Attach your resume and tell us about yourself.",
+              "contactEmail": "careers@adsphere.in",
+              "contactPhone": "+91 98765 43210",
+              "fullName": "Full Name",
+              "emailLabel": "Email Address",
+              "phoneLabel": "Phone Number",
+              "positionLabel": "Select Position",
+              "positions": [
+                "Digital Marketing Executive",
+                "Graphic Designer",
+                "SEO Specialist",
+                "Content Writer",
+                "Client Relationship Manager",
+                "Other"
+              ],
+              "resumeLabel": "Attach Resume (PDF, DOC)",
+              "coverNote": "Cover note (optional)",
+              "submit": "Submit Application",
+              "successHeading": "Application Sent!",
+              "successMessage": "Thank you for applying. We will review your profile and get back to you soon.",
+              "removeResume": "Remove resume"
             }
           }
         }
@@ -2858,10 +2832,6 @@
                     "href": "/faqs"
                   },
                   {
-                    "name": "Help & Support",
-                    "href": "/help-and-support"
-                  },
-                  {
                     "name": "Privacy Policy",
                     "href": "/privacy-policy"
                   },
@@ -2880,139 +2850,6 @@
                 ]
               }
             ]
-          }
-        }
-      },
-      "Help": {
-        "variants": {
-          "AdvertisingHelp1": {
-            "title": "Help & Support",
-            "meta": {
-              "title": "Help & Support - AdSphere Advertising Agency",
-              "description": "Get help with your AdSphere project, billing, reports or anything else you need."
-            },
-            "label": "Help & Support",
-            "headingLines": [
-              {
-                "text": "We Are Here",
-                "highlight": false
-              },
-              {
-                "text": "To Help You",
-                "highlight": true
-              }
-            ],
-            "descriptionLines": [
-              "Choose the way that suits you best. Our team is available",
-              "{hours} and replies as quickly as possible."
-            ],
-            "channels": [
-              {
-                "icon": "phone-call",
-                "title": "Call Us",
-                "lines": [
-                  "Speak directly with",
-                  "our support team."
-                ],
-                "linkLabel": "{footerPhone}",
-                "href": "{footerPhoneHref}"
-              },
-              {
-                "icon": "mail",
-                "title": "Email Us",
-                "lines": [
-                  "Send your question and",
-                  "get a detailed reply."
-                ],
-                "linkLabel": "{email}",
-                "href": "{emailHref}"
-              },
-              {
-                "icon": "chat",
-                "title": "Send a Message",
-                "lines": [
-                  "Use the contact form to",
-                  "share your requirement."
-                ],
-                "linkLabel": "Contact Form",
-                "href": "/contact"
-              },
-              {
-                "icon": "bulb",
-                "title": "Browse FAQs",
-                "lines": [
-                  "Find quick answers to",
-                  "common questions."
-                ],
-                "linkLabel": "View FAQs",
-                "href": "/faqs"
-              }
-            ],
-            "topics": {
-              "label": "Help Topics",
-              "headingLines": [
-                {
-                  "text": "What Do You",
-                  "highlight": false
-                },
-                {
-                  "text": "Need Help With?",
-                  "highlight": true
-                }
-              ],
-              "items": [
-                {
-                  "icon": "target",
-                  "title": "Starting a Project",
-                  "description": "Not sure where to begin? Share your goals and we will suggest the right services and a clear plan.",
-                  "linkLabel": "Get a Quote",
-                  "href": "/get-a-quote"
-                },
-                {
-                  "icon": "chart",
-                  "title": "Campaign Reports",
-                  "description": "Need help reading your reports or want different numbers tracked? Your account manager can walk you through them.",
-                  "linkLabel": "Contact Us",
-                  "href": "/contact"
-                },
-                {
-                  "icon": "briefcase",
-                  "title": "Billing & Payments",
-                  "description": "For questions about invoices, payment schedules or changes to your plan, reach out to our team.",
-                  "linkLabel": "Contact Us",
-                  "href": "/contact"
-                },
-                {
-                  "icon": "gear",
-                  "title": "Changing Your Plan",
-                  "description": "Your needs can change. We review the plan with you and adjust channels, budgets or creatives when required.",
-                  "linkLabel": "How It Works",
-                  "href": "/how-it-works"
-                },
-                {
-                  "icon": "shield",
-                  "title": "Privacy & Data",
-                  "description": "Learn how we collect, use and protect your information and how you can control it.",
-                  "linkLabel": "Privacy Policy",
-                  "href": "/privacy-policy"
-                },
-                {
-                  "icon": "team",
-                  "title": "Working With Us",
-                  "description": "Interested in joining AdSphere? See our open positions and what it is like to work with our team.",
-                  "linkLabel": "Career",
-                  "href": "/career"
-                }
-              ]
-            },
-            "cta": {
-              "heading": "Still need help?",
-              "description": "Tell us what you need and we will get back to you shortly.",
-              "button": {
-                "label": "Contact Us",
-                "href": "/contact"
-              }
-            }
           }
         }
       }

@@ -27,7 +27,7 @@ export default function FaqList() {
                 {faq.question}
                 <span
                   className={`flex size-38 shrink-0 items-center justify-center rounded-full transition-colors duration-200 xl:size-46 ${
-                    isOpen ? "bg-[#790c0f] text-white" : "bg-blush text-brand"
+                    isOpen ? "bg-brand text-white" : "bg-blush text-brand"
                   }`}
                 >
                   {isOpen ? (

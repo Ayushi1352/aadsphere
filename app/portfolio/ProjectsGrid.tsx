@@ -29,7 +29,7 @@ export default function ProjectsGrid() {
           {headingLines.map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
-                <span key={part.text} className={part.highlight ? "text-[#d3101d]" : ""}>
+                <span key={part.text} className={part.highlight ? "text-brand" : ""}>
                   {part.text}
                 </span>
               ))}
@@ -57,7 +57,7 @@ export default function ProjectsGrid() {
             <h3 className="mt-18 fs-22 font-black leading-[1.2] tracking-[0.01em] text-[#0b0b0c] sm:fs-25 xl:mt-19 xl:fs-32 xl:leading-38">{project.title}</h3>
             <ul className="mt-14 flex flex-wrap gap-10 xl:mt-21 xl:gap-11">
               {project.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-[#fde9ea] px-18 py-9 fs-15 font-medium leading-none text-[#d3141f] xl:flex xl:h-45 xl:items-center xl:px-22 xl:py-0 xl:fs-19">
+                <li key={tag} className="rounded-full bg-blush px-18 py-9 fs-15 font-medium leading-none text-brand xl:flex xl:h-45 xl:items-center xl:px-22 xl:py-0 xl:fs-19">
                   {tag}
                 </li>
               ))}

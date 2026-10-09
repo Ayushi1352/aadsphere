@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
             className="relative mt-32 r-28 bg-[#f6f6f8] px-22 pb-26 pt-24 sm:px-32 sm:pb-32 sm:pt-30 xl:absolute xl:left-112 xl:top-339 xl:mt-0 xl:h-335 xl:w-803 xl:r-36 xl:p-0"
             {...slider.swipe}
           >
-            <span className="flex size-60 items-center justify-center rounded-full bg-[#f7ddde] text-[#6e0a12] xl:absolute xl:left-31 xl:top-22 xl:size-76">
+            <span className="flex size-60 items-center justify-center rounded-full bg-blush text-brand xl:absolute xl:left-31 xl:top-22 xl:size-76">
               <Icon name="quote" className="size-38 xl:size-50" />
             </span>
 
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
                 type="button"
                 onClick={slider.next}
                 aria-label={carouselText.next}
-                className="flex size-46 cursor-pointer items-center justify-center rounded-full bg-[#780309] text-white transition-colors duration-200 hover:bg-ink xl:size-54"
+                className="flex size-46 cursor-pointer items-center justify-center rounded-full bg-brand text-white transition-colors duration-200 hover:bg-ink xl:size-54"
               >
                 <Icon name="chevron-right" className="size-22 xl:size-26" />
               </button>
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
         {/* Photo */}
         <div className="mt-48 lg:mt-0 lg:grow xl:mt-0">
           <div data-reveal="right" className="relative mx-auto aspect-712/624 w-full max-w-520 xl:absolute xl:left-946 xl:top-72 xl:mx-0 xl:h-624 xl:w-688 xl:max-w-none">
-            <span className="absolute right-0 top-0 h-[75.6%] w-[63.5%] rounded-[9%/8.5%] bg-[#6e0107]" aria-hidden="true" />
+            <span className="absolute right-0 top-0 h-[75.6%] w-[63.5%] rounded-[9%/8.5%] bg-brand" aria-hidden="true" />
             <DotGrid cols={4} rows={4} gap={21} size={5} color="#e3b7ba" className="absolute right-[5.6%] top-[6%] hidden animate-float sm:block" />
             <div className="absolute left-0 top-[9%] h-[91%] w-[85.25%] overflow-hidden rounded-[7.5%_7.5%_7.5%_22%/8%_8%_8%_23.5%]">
               {/* Each testimonial has its own photo, so it changes together with the name. */}
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
               </div>
             </div>
             <div className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] animate-float r-16 bg-white px-16 py-12 shadow-[0_0.5rem_1.75rem_rgba(20,20,20,0.12)] sm:px-24 sm:py-16 xl:h-91 xl:w-285 xl:r-22 xl:px-31 xl:py-0 xl:pt-19">
-              <p className="flex gap-6 text-[#c4012d] xl:-ml-2 xl:gap-5" aria-label={`${badge.stars}/5`}>
+              <p className="flex gap-6 text-brand xl:-ml-2 xl:gap-5" aria-label={`${badge.stars}/5`}>
                 {Array.from({ length: badge.stars }, (_, i) => (
                   <Icon key={i} name="star" className="size-16 xl:size-24" />
                 ))}

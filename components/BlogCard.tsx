@@ -18,7 +18,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         />
       </div>
       <div className="relative px-22 pb-26 pt-56 sm:px-30 xl:h-214 xl:p-0">
-        <p className="absolute -top-64 left-22 flex h-84 w-66 flex-col items-center justify-center r-6 bg-[#84020a] text-white sm:left-26 xl:-top-71 xl:left-26 xl:h-88 xl:w-69">
+        <p className="absolute -top-64 left-22 flex h-84 w-66 flex-col items-center justify-center r-6 bg-brand text-white sm:left-26 xl:-top-71 xl:left-26 xl:h-88 xl:w-69">
           <span className="fs-25 font-semibold leading-none xl:fs-27">{post.day}</span>
           <span className="mt-5 font-inter fs-13 uppercase leading-none xl:fs-14">{post.month}</span>
           <span className="mt-3 font-inter fs-13 leading-none xl:fs-14">{post.year}</span>
@@ -34,7 +34,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <h3 className="mt-16 pr-56 fs-21 font-bold leading-[1.25] tracking-[-0.025em] text-ink xl:absolute xl:left-32 xl:top-58 xl:mt-0 xl:whitespace-nowrap xl:pr-0 xl:fs-25 xl:leading-29">
           <Lines lines={post.titleLines} />
         </h3>
-        <span className="absolute right-22 top-66 flex size-44 items-center justify-center rounded-full bg-[#fde4e4] text-[#b3121f] transition-colors duration-200 group-hover:bg-brand group-hover:text-white sm:right-30 xl:right-32 xl:top-57">
+        <span className="absolute right-22 top-66 flex size-44 items-center justify-center rounded-full bg-blush text-brand transition-colors duration-200 group-hover:bg-brand group-hover:text-white sm:right-30 xl:right-32 xl:top-57">
           <Icon name="arrow-right" className="size-20 transition-transform duration-300 group-hover:translate-x-3" />
         </span>
         <p className="mt-12 fs-16 leading-[1.5] text-[#666b75] xl:absolute xl:left-32 xl:top-125 xl:mt-0 xl:whitespace-nowrap xl:fs-17 xl:leading-[1.53125rem]">

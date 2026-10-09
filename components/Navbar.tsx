@@ -100,7 +100,7 @@ export default function Navbar() {
 
           <Link
             href={links.getAQuote}
-            className="hidden h-44 items-center justify-center gap-10 rounded-full bg-[#741415] px-22 fs-15 font-bold text-white transition-colors duration-200 hover:bg-ink sm:flex xl:h-50 xl:w-178 xl:gap-12 xl:px-0 xl:fs-16"
+            className="hidden h-44 items-center justify-center gap-10 rounded-full bg-brand px-22 fs-15 font-bold text-white transition-colors duration-200 hover:bg-ink sm:flex xl:h-50 xl:w-178 xl:gap-12 xl:px-0 xl:fs-16"
           >
             {text.getAQuote}
             <Icon name="arrow-up-right" className="size-16 xl:size-17" />
@@ -180,7 +180,7 @@ export default function Navbar() {
           <Link
             href={links.getAQuote}
             onClick={closeMenu}
-            className="mt-20 flex h-48 items-center justify-center gap-10 rounded-full bg-[#741415] fs-15 font-bold text-white sm:hidden"
+            className="mt-20 flex h-48 items-center justify-center gap-10 rounded-full bg-brand fs-15 font-bold text-white sm:hidden"
           >
             {text.getAQuote}
             <Icon name="arrow-up-right" className="size-16" />

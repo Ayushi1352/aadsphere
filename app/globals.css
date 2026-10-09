@@ -20,11 +20,11 @@
   --font-montserrat: var(--font-montserrat-face), ui-sans-serif, system-ui, sans-serif;
   --font-inter: var(--font-inter-face), ui-sans-serif, system-ui, sans-serif;
 
-  --color-hero: #6c1b1a;
+  --color-hero: #6e0c12;
   --color-brand: #6e0c12;
-  --color-brand-dark: #5b0000;
-  --color-accent: #b8000e;
-  --color-cta: #d10c1f;
+  --color-brand-dark: #56080e;
+  --color-accent: #6e0c12;
+  --color-cta: #6e0c12;
   --color-ink: #141414;
   --color-body: #5a5a5a;
   --color-slate: #5f6779;

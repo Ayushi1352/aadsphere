@@ -25,7 +25,7 @@ export default function StepDetails() {
               <div className="relative aspect-366/264 overflow-hidden r-14 xl:r-18">
                 <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 64rem) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
-              <span className="absolute left-0 top-0 flex size-64 items-center justify-center rounded-br-[0.875rem] rounded-tl-[0.875rem] bg-[#74090d] fs-24 font-bold leading-none text-white xl:size-84 xl:fs-32">
+              <span className="absolute left-0 top-0 flex size-64 items-center justify-center rounded-br-[0.875rem] rounded-tl-[0.875rem] bg-brand fs-24 font-bold leading-none text-white xl:size-84 xl:fs-32">
                 {step.number}
               </span>
             </div>

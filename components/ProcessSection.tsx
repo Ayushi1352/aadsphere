@@ -30,8 +30,8 @@ export default function ProcessSection() {
               <div className="relative size-200 overflow-hidden rounded-full sm:size-250">
                 <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 40rem) 250px, 200px" className="object-cover" />
               </div>
-              <span className="absolute -left-28 -top-12 z-10 fs-48 font-extrabold leading-none tracking-[-0.03em] text-[#6e0a12] sm:-left-48 sm:-top-14 sm:fs-57">{step.number}</span>
-              <span className="absolute -bottom-4 -right-10 z-10 flex size-76 items-center justify-center rounded-full border-[0.3125rem] border-white bg-[#7b0d10] text-white transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 sm:bottom-4 sm:-right-19 sm:size-94">
+              <span className="absolute -left-28 -top-12 z-10 fs-48 font-extrabold leading-none tracking-[-0.03em] text-brand sm:-left-48 sm:-top-14 sm:fs-57">{step.number}</span>
+              <span className="absolute -bottom-4 -right-10 z-10 flex size-76 items-center justify-center rounded-full border-[0.3125rem] border-white bg-brand text-white transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 sm:bottom-4 sm:-right-19 sm:size-94">
                 <Icon name={step.icon} className="size-34 sm:size-42" />
               </span>
             </div>

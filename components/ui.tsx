@@ -50,7 +50,7 @@ export function DotGrid({
   gap = 22,
   gapY = gap,
   size = 6,
-  color = "#9a1a22",
+  color = "#6e0c12",
   className = "",
 }: {
   cols: number;

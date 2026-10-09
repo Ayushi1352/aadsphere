@@ -14,7 +14,7 @@ export default function QuoteIntro() {
       </p>
       <h2 className="mt-18 fs-38 font-black leading-[1.06] tracking-[-0.015em] text-[#0e1118] sm:fs-56 xl:ml-3 xl:mt-23 xl:fs-72 xl:leading-75">
         {headingLines.map((line) => (
-          <span key={line.text} className={`block ${line.highlight ? "text-[#74121a]" : ""}`}>
+          <span key={line.text} className={`block ${line.highlight ? "text-brand" : ""}`}>
             {line.text}
           </span>
         ))}
@@ -26,7 +26,7 @@ export default function QuoteIntro() {
       <ul className="mt-30 space-y-22 xl:mt-35 xl:space-y-34">
         {features.map((feature) => (
           <li key={feature.title} className="flex items-center gap-20 xl:gap-37">
-            <span className="flex size-88 shrink-0 items-center justify-center r-14 bg-[#fbeeee] text-[#74121a] xl:h-118 xl:w-121 xl:r-18">
+            <span className="flex size-88 shrink-0 items-center justify-center r-14 bg-[#fbeeee] text-brand xl:h-118 xl:w-121 xl:r-18">
               <Icon name={feature.icon} className="size-44 xl:size-62" />
             </span>
             <span className="block">

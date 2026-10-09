@@ -15,7 +15,7 @@ export default function ServiceCard({ service, className = "" }: { service: Serv
           sizes="(min-width: 80rem) 22vw, (min-width: 40rem) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-0 top-0 flex size-56 items-center justify-center bg-[#74090d] fs-20 font-bold leading-none text-white xl:size-61 xl:fs-22">
+        <span className="absolute left-0 top-0 flex size-56 items-center justify-center bg-brand fs-20 font-bold leading-none text-white xl:size-61 xl:fs-22">
           {service.number}
         </span>
       </div>
@@ -31,7 +31,7 @@ export default function ServiceCard({ service, className = "" }: { service: Serv
             </span>
           ))}
         </h3>
-        <span className="absolute bottom-28 right-22 flex size-46 items-center justify-center rounded-full bg-[#790c0f] text-white transition-colors duration-200 group-hover:bg-ink xl:bottom-auto xl:right-23 xl:top-45 xl:size-47">
+        <span className="absolute bottom-28 right-22 flex size-46 items-center justify-center rounded-full bg-brand text-white transition-colors duration-200 group-hover:bg-ink xl:bottom-auto xl:right-23 xl:top-45 xl:size-47">
           <Icon name="arrow-right" className="size-18 transition-transform duration-300 group-hover:translate-x-3" />
         </span>
       </div>

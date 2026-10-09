@@ -31,7 +31,6 @@ export const site = {
   faq: sec.FAQ.variants.AdvertisingFAQ1,
   policies: sec.Policies.variants.AdvertisingPolicies1,
   sitemap: sec.Sitemap.variants.AdvertisingSitemap1,
-  help: sec.Help.variants.AdvertisingHelp1,
 };
 
 export type SiteData = typeof site;
