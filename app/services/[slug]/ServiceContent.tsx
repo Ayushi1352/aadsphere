@@ -12,7 +12,7 @@ type TextBlock = { title: string; lines: string[] };
 function Block({ block, className }: { block: TextBlock; className: string }) {
   return (
     <div className={className}>
-      <h2 className="fs-24 font-extrabold leading-[1.2] tracking-[-0.013em] text-[#0b0d10] sm:fs-32 xl:fs-54 xl:leading-56">{block.title}</h2>
+      <h2 className="fs-24 font-bold leading-[1.2] text-[#0b0d10] sm:fs-32 xl:fs-57 xl:leading-56 xl:tracking-[-0.031em]">{block.title}</h2>
       <p className="mt-12 fs-16 font-medium leading-[1.75] text-[#3d424c] sm:fs-19 xl:mt-25 xl:whitespace-nowrap xl:fs-31 xl:leading-[3.15625rem] xl:tracking-[-0.005em]">
         <Lines lines={block.lines} />
       </p>
@@ -29,18 +29,18 @@ export default function ServiceContent({ heading }: { heading: HeadingLine[] }) 
       </div>
 
       <div data-reveal-group="up" className="xl:pl-185 xl:pr-52">
-        <p className="mt-32 flex items-center gap-14 fs-15 font-semibold uppercase leading-none tracking-[0.2em] text-[#2a2a2c] sm:fs-19 xl:mt-68 xl:gap-22 xl:fs-26 xl:leading-30">
-          <span className="h-2 w-44 bg-brand xl:h-3 xl:w-80" aria-hidden="true" />
+        <p className="mt-32 flex items-center gap-14 fs-15 font-semibold uppercase leading-none tracking-[0.2em] text-[#2a2a2c] sm:fs-19 xl:mt-68 xl:gap-22 xl:fs-27 xl:leading-30">
+          <span className="h-2 w-44 bg-brand-red xl:h-3 xl:w-80" aria-hidden="true" />
           {label}
         </p>
-        <h1 className="mt-14 fs-36 font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0b0d10] sm:fs-56 xl:mt-29 xl:fs-89 xl:leading-96">
+        <h1 className="mt-14 fs-36 font-bold leading-[1.15] text-[#0b0d10] sm:fs-56 xl:mt-29 xl:fs-94 xl:leading-96 xl:tracking-[-0.039em]">
           {heading.map((part) => (
-            <span key={part.text} className={part.highlight ? "text-brand" : ""}>
+            <span key={part.text} className={part.highlight ? "text-brand-red" : ""}>
               {part.text}
             </span>
           ))}
         </h1>
-        <p className="mt-14 fs-16 font-medium leading-[1.75] text-[#3d424c] sm:fs-19 xl:mt-24 xl:whitespace-nowrap xl:fs-31 xl:leading-52 xl:tracking-[0.004em]">
+        <p className="mt-14 fs-16 font-medium leading-[1.75] text-[#3d424c] sm:fs-19 xl:mt-27 xl:whitespace-nowrap xl:fs-31 xl:leading-52 xl:tracking-[0.004em]">
           <Lines lines={introLines} />
         </p>
 
@@ -52,11 +52,11 @@ export default function ServiceContent({ heading }: { heading: HeadingLine[] }) 
       <ul className="mt-36 grid gap-20 lg:grid-cols-2 xl:ml-63 xl:mt-64 xl:w-1571 xl:grid-cols-[768fr_765fr] xl:gap-33">
         {features.map((feature, i) => (
           <li key={feature.title} data-reveal={i % 2 === 1 ? "right" : "left"} className="group flex gap-18 r-18 bg-[#fdf3f4] p-22 sm:gap-28 sm:p-32 xl:relative xl:block xl:h-292 xl:r-26 xl:p-0">
-            <span className="flex size-80 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3 items-center justify-center r-18 bg-linear-to-b from-[#fdeef0] to-[#fbdfe2] text-brand shadow-[0_0.5rem_1.25rem_rgba(110,12,29,0.1)] sm:size-120 xl:absolute xl:left-54 xl:top-47 xl:size-165 xl:r-30">
+            <span className="flex size-80 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3 items-center justify-center r-18 bg-linear-to-b from-[#fdeef0] to-[#fbdfe2] text-brand-red shadow-[0_0.5rem_1.25rem_rgba(110,12,29,0.1)] sm:size-120 xl:absolute xl:left-54 xl:top-47 xl:size-165 xl:r-30">
               <Icon name={feature.icon} className="size-44 sm:size-64 xl:size-100" />
             </span>
             <div className="xl:absolute xl:left-271 xl:top-54">
-              <h3 className="fs-20 font-extrabold leading-[1.2] tracking-[-0.03em] text-[#0b0d10] sm:fs-26 xl:whitespace-nowrap xl:fs-37 xl:leading-48">{feature.title}</h3>
+              <h3 className="fs-20 font-bold leading-[1.2] text-[#0b0d10] sm:fs-26 xl:whitespace-nowrap xl:fs-40 xl:leading-48 xl:tracking-[-0.07em]">{feature.title}</h3>
               <p className="mt-8 fs-16 font-medium leading-[1.65] text-[#3d424c] sm:fs-19 xl:mt-10 xl:whitespace-nowrap xl:fs-27 xl:leading-45 xl:tracking-[-0.005em]">
                 <Lines lines={feature.lines} />
               </p>

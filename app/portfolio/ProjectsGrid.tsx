@@ -24,12 +24,12 @@ export default function ProjectsGrid() {
   return (
     <section ref={sectionRef} className="scroll-mt-80 px-20 py-32 sm:px-32 sm:py-40 xl:scroll-mt-120 xl:px-0 xl:py-48">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
-        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold" />
+        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-brand-red" />
         <h2 className="mt-18 fs-30 font-black leading-[1.1] tracking-[-0.02em] text-[#0b0b0c] sm:fs-52 xl:mt-34 xl:fs-70 xl:leading-70">
           {headingLines.map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
-                <span key={part.text} className={part.highlight ? "text-brand" : ""}>
+                <span key={part.text} className={part.highlight ? "text-brand-red" : ""}>
                   {part.text}
                 </span>
               ))}
@@ -57,7 +57,7 @@ export default function ProjectsGrid() {
             <h3 className="mt-18 fs-22 font-black leading-[1.2] tracking-[0.01em] text-[#0b0b0c] sm:fs-25 xl:mt-19 xl:fs-32 xl:leading-38">{project.title}</h3>
             <ul className="mt-14 flex flex-wrap gap-10 xl:mt-21 xl:gap-11">
               {project.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-blush px-18 py-9 fs-15 font-medium leading-none text-brand xl:flex xl:h-45 xl:items-center xl:px-22 xl:py-0 xl:fs-19">
+                <li key={tag} className="rounded-full bg-blush px-18 py-9 fs-15 font-medium leading-none text-brand-red xl:flex xl:h-45 xl:items-center xl:px-22 xl:py-0 xl:fs-19">
                   {tag}
                 </li>
               ))}
@@ -72,7 +72,7 @@ export default function ProjectsGrid() {
             type="button"
             onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand-red hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.previous}
           </button>
@@ -83,7 +83,7 @@ export default function ProjectsGrid() {
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
               aria-current={currentPage === page ? "page" : undefined}
-              className={`size-44 rounded-full fs-14 font-semibold transition-colors ${currentPage === page ? "bg-brand text-white" : "bg-white text-ink hover:bg-brand hover:text-white"}`}
+              className={`size-44 rounded-full fs-14 font-semibold transition-colors ${currentPage === page ? "bg-brand-red text-white" : "bg-white text-ink hover:bg-brand-red hover:text-white"}`}
             >
               {page}
             </button>
@@ -92,7 +92,7 @@ export default function ProjectsGrid() {
             type="button"
             onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
             disabled={currentPage === pageCount}
-            className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-44 rounded-full bg-white px-16 fs-14 font-semibold text-ink transition-colors hover:bg-brand-red hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.next}
           </button>

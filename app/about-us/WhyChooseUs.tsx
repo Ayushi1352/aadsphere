@@ -9,12 +9,12 @@ export default function WhyChooseUs() {
   return (
     <section className="px-20 py-32 sm:px-32 sm:py-40 xl:h-800 xl:p-0">
       <div data-reveal-group="up" className="flex flex-col items-center text-center xl:pt-48">
-        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold" />
+        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-brand-red" />
           <h2 className="mt-18 fs-28 font-extrabold leading-[1.1] text-ink sm:fs-52 xl:mt-24 xl:fs-63 xl:leading-60">
           {headingLines.map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
-                <span key={part.text} className={part.highlight ? "text-brand" : ""}>
+                <span key={part.text} className={part.highlight ? "text-brand-red" : ""}>
                   {part.text}
                 </span>
               ))}
@@ -32,7 +32,7 @@ export default function WhyChooseUs() {
             key={reason.number}
             className={`group relative flex gap-18 overflow-hidden r-14 p-22 transition-[translate,box-shadow] duration-300 hover:-translate-y-6 sm:gap-24 sm:p-28 xl:block xl:p-0 ${
               reason.featured
-                ? "bg-[linear-gradient(135deg,#56080e_0%,#6e0c12_50%,#56080e_100%)] text-white shadow-[0_0.75rem_1.75rem_rgba(110,12,18,0.22)]"
+                ? "bg-[linear-gradient(45deg,var(--color-brand-red)_0%,#6e0c12_50%,var(--color-brand-red)_100%)] text-white shadow-[0_0.75rem_1.75rem_rgba(214,12,20,0.22)]"
                 : "border border-[#f3e9ea] bg-white shadow-[0_0.25rem_1.25rem_rgba(110,12,18,0.06)]"
             }`}
           >
@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
 
             <span
               className={`relative flex size-76 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 items-center justify-center r-14 sm:size-96 xl:absolute xl:top-36 xl:size-113 xl:r-16 ${reason.featured ? "xl:left-31" : "xl:left-29"} ${
-                reason.featured ? "bg-white/[0.13] text-white" : "bg-[#fcefef] text-brand"
+                reason.featured ? "bg-white/[0.13] text-white" : "bg-[#fcefef] text-brand-red"
               }`}
             >
               <Icon name={reason.icon} className="size-44 sm:size-56 xl:size-70" />
@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
                 {reason.number}
                 <span
                   aria-hidden="true"
-                  className={`h-2 w-86 bg-linear-to-r to-transparent ${reason.featured ? "from-[#6e0c12]" : "from-[#f0959c]"}`}
+                  className={`h-2 w-86 bg-linear-to-r to-transparent ${reason.featured ? "from-brand-red" : "from-[#f0959c]"}`}
                 />
               </p>
               <h3 className={`mt-12 fs-20 font-extrabold leading-[1.2] tracking-[-0.01em] sm:fs-23 xl:mt-14 xl:whitespace-nowrap xl:fs-25 xl:leading-30 ${reason.featured ? "text-white" : "text-ink"}`}>
