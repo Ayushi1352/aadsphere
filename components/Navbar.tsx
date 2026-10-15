@@ -58,7 +58,7 @@ export default function Navbar() {
                   </Link>
                   <span
                     aria-hidden="true"
-                    className={`absolute -inset-x-16 bottom-1 h-4 bg-brand-dark transition-transform duration-200 group-hover:scale-x-100 ${
+                    className={`absolute -inset-x-16 bottom-21 h-4 bg-brand-dark transition-transform duration-200 group-hover:scale-x-100 ${
                       active ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
