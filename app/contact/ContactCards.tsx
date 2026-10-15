@@ -29,8 +29,8 @@ export default function ContactCards() {
             <Icon name={card.icon} className="size-40 text-[#0f0f0c] transition-transform duration-300 group-hover:scale-110 xl:size-52" />
             <h2 className="mt-22 fs-24 font-bold leading-[1.15] tracking-[-0.02em] text-brand sm:fs-28 xl:mt-40 xl:whitespace-nowrap xl:fs-34 xl:leading-42 xl:tracking-[-0.03em]">{card.title}</h2>
             <p className={`mt-10 fs-16 tracking-[-0.02em] text-[#1d1d1d] sm:fs-17 xl:mt-14 xl:fs-19 ${card.lines.length > 2 ? "leading-[1.45] xl:leading-[1.7rem]" : "leading-[1.7] xl:leading-32"}`}>
-              {card.lines.map((line) => (
-                <span key={line} className="block">
+              {card.lines.map((line, i) => (
+                <span key={i} className="block">
                   {line}
                 </span>
               ))}
