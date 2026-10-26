@@ -22,62 +22,62 @@ export default function TestimonialsSection() {
   const current = testimonials[slider.index];
 
   return (
-    <section className="relative px-20 py-32 sm:px-32 sm:py-40 xl:h-769 xl:p-0">
-      <div className="lg:flex lg:items-center lg:gap-48 xl:block">
-        <div data-reveal-group="left" className="lg:w-[56%] xl:w-auto">
-          <SectionLabel text={label} tracking="tracking-[0.34em]" className="xl:absolute xl:left-112 xl:top-48" />
-          <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:absolute xl:left-112 xl:top-85 xl:mt-0 xl:whitespace-nowrap xl:fs-74 xl:leading-70" />
-          <p className="mt-16 max-w-620 font-text fs-17 leading-[1.5] text-[#6a7080] sm:fs-20 xl:absolute xl:left-112 xl:top-236 xl:mt-0 xl:max-w-none xl:whitespace-nowrap xl:fs-25 xl:leading-33 xl:tracking-[0.01em]">
+    <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(769*var(--unit))] lg:p-0">
+      <div className="lg:items-center lg:gap-[calc(48*var(--unit))] lg:block">
+        <div data-reveal-group="left" className="lg:w-auto">
+          <SectionLabel text={label} tracking="tracking-[0.34em]" className="lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(48*var(--unit))]" />
+          <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(85*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(74*var(--unit))] lg:leading-[calc(70*var(--unit))]" />
+          <p className="mt-[calc(16*var(--unit))] max-w-[calc(620*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(17*var(--unit))] leading-[1.5] text-[#6a7080] sm:text-[calc(20*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(236*var(--unit))] lg:mt-0 lg:max-w-none lg:whitespace-nowrap lg:text-[calc(25*var(--unit))] lg:leading-[calc(33*var(--unit))] lg:tracking-[0.01em]">
             <Lines lines={descriptionLines} />
           </p>
 
           {/* Quote card */}
           <div
-            className="relative mt-32 r-28 bg-[#f6f6f8] px-22 pb-26 pt-24 sm:px-32 sm:pb-32 sm:pt-30 xl:absolute xl:left-112 xl:top-339 xl:mt-0 xl:h-335 xl:w-803 xl:r-36 xl:p-0"
+            className="relative mt-[calc(32*var(--unit))] rounded-[calc(28*var(--unit))] bg-[#f6f6f8] px-[calc(22*var(--unit))] pb-[calc(26*var(--unit))] pt-[calc(24*var(--unit))] sm:px-[calc(32*var(--unit))] sm:pb-[calc(32*var(--unit))] sm:pt-[calc(30*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(339*var(--unit))] lg:mt-0 lg:h-[calc(335*var(--unit))] lg:w-[calc(803*var(--unit))] lg:rounded-[calc(36*var(--unit))] lg:p-0"
             {...slider.swipe}
           >
-            <span className="flex size-60 items-center justify-center rounded-full bg-blush text-brand xl:absolute xl:left-31 xl:top-22 xl:size-76">
-              <Icon name="quote" className="size-38 xl:size-50" />
+            <span className="flex size-[calc(60*var(--unit))] items-center justify-center rounded-full bg-[#fbe9e9] text-[#6e0c12] lg:absolute lg:left-[calc(31*var(--unit))] lg:top-[calc(22*var(--unit))] lg:size-[calc(76*var(--unit))]">
+              <Icon name="quote" className="size-[calc(38*var(--unit))] lg:size-[calc(50*var(--unit))]" />
             </span>
 
-            <div key={slider.index} className="animate-fade-in">
-              <blockquote className="mt-18 font-text fs-17 leading-[1.6] tracking-[-0.01em] text-[#333333] sm:fs-20 xl:absolute xl:left-139 xl:top-51 xl:mt-0 xl:whitespace-nowrap xl:fs-24 xl:leading-32 xl:tracking-[0.005em]">
+            <div key={slider.index} className="translate-y-0 transition-[opacity,translate] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
+              <blockquote className="mt-[calc(18*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(17*var(--unit))] leading-[1.6] tracking-[-0.01em] text-[#333333] sm:text-[calc(20*var(--unit))] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(51*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(32*var(--unit))] lg:tracking-[0.005em]">
                 <Lines lines={current.quoteLines} />
               </blockquote>
 
-              <span className="mt-22 block h-px bg-[#e2e2e6] xl:absolute xl:left-139 xl:top-205 xl:mt-0 xl:w-616" aria-hidden="true" />
+              <span className="mt-[calc(22*var(--unit))] block h-px bg-[#e2e2e6] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(205*var(--unit))] lg:mt-0 lg:w-[calc(616*var(--unit))]" aria-hidden="true" />
 
-              <div className="mt-20 flex items-center gap-16 sm:pr-130 xl:absolute xl:left-139 xl:top-224 xl:mt-0 xl:gap-25 xl:pr-0">
+              <div className="mt-[calc(20*var(--unit))] flex items-center gap-[calc(16*var(--unit))] sm:pr-[calc(130*var(--unit))] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(224*var(--unit))] lg:mt-0 lg:gap-[calc(25*var(--unit))] lg:pr-0">
                 {current.avatar ? (
-                  <Image src={current.avatar} alt={current.name} width={74} height={74} className="size-60 shrink-0 rounded-full object-cover xl:size-76" />
+                  <Image src={current.avatar} alt={current.name} width={74} height={74} className="size-[calc(60*var(--unit))] shrink-0 rounded-full object-cover lg:size-[calc(76*var(--unit))]" />
                 ) : (
-                  <span className="flex size-60 shrink-0 items-center justify-center rounded-full bg-brand fs-20 font-bold text-white xl:size-76 xl:fs-24" aria-hidden="true">
+                  <span className="flex size-[calc(60*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[#6e0c12] text-[calc(20*var(--unit))] font-bold text-white lg:size-[calc(76*var(--unit))] lg:text-[calc(24*var(--unit))]" aria-hidden="true">
                     {initials(current.name)}
                   </span>
                 )}
                 <div>
-                  <p className="fs-19 font-bold leading-[1.2] tracking-[-0.01em] text-ink xl:fs-24 xl:leading-28">{current.name}</p>
-                  <p className="mt-4 font-text fs-14 leading-[1.3] text-[#6f6f6f] xl:mt-5 xl:fs-17 xl:leading-22">{current.role}</p>
+                  <p className="text-[calc(19*var(--unit))] font-bold leading-[1.2] tracking-[-0.01em] text-[#141414] lg:text-[calc(24*var(--unit))] lg:leading-[calc(28*var(--unit))]">{current.name}</p>
+                  <p className="mt-[calc(4*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(14*var(--unit))] leading-[1.3] text-[#6f6f6f] lg:mt-[calc(5*var(--unit))] lg:text-[calc(17*var(--unit))] lg:leading-[calc(22*var(--unit))]">{current.role}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-20 flex gap-12 sm:absolute sm:bottom-36 sm:right-32 sm:mt-0 xl:bottom-auto xl:left-632 xl:right-auto xl:top-236 xl:gap-15">
+            <div className="mt-[calc(20*var(--unit))] flex gap-[calc(12*var(--unit))] sm:absolute sm:bottom-[calc(36*var(--unit))] sm:right-[calc(32*var(--unit))] sm:mt-0 lg:bottom-auto lg:left-[calc(632*var(--unit))] lg:right-auto lg:top-[calc(236*var(--unit))] lg:gap-[calc(15*var(--unit))]">
               <button
                 type="button"
                 onClick={slider.prev}
                 aria-label={carouselText.previous}
-                className="flex size-46 cursor-pointer items-center justify-center rounded-full bg-[#e9eaec] text-[#333333] transition-colors duration-200 hover:bg-ink hover:text-white xl:size-54"
+                className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[#e9eaec] text-[#333333] transition-colors duration-200 hover:bg-[#141414] hover:text-white lg:size-[calc(54*var(--unit))]"
               >
-                <Icon name="chevron-left" className="size-22 xl:size-26" />
+                <Icon name="chevron-left" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
               </button>
               <button
                 type="button"
                 onClick={slider.next}
                 aria-label={carouselText.next}
-                className="flex size-46 cursor-pointer items-center justify-center rounded-full bg-brand text-white transition-colors duration-200 hover:bg-ink xl:size-54"
+                className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[#6e0c12] text-white transition-colors duration-200 hover:bg-[#141414] lg:size-[calc(54*var(--unit))]"
               >
-                <Icon name="chevron-right" className="size-22 xl:size-26" />
+                <Icon name="chevron-right" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
               </button>
             </div>
           </div>
@@ -86,28 +86,28 @@ export default function TestimonialsSection() {
             count={testimonials.length}
             active={slider.index}
             onSelect={slider.goTo}
-            className="mt-18 xl:absolute xl:left-112 xl:top-693 xl:mt-0 xl:w-803"
+            className="mt-[calc(18*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(693*var(--unit))] lg:mt-0 lg:w-[calc(803*var(--unit))]"
           />
         </div>
 
         {/* Photo */}
-        <div className="mt-48 lg:mt-0 lg:grow xl:mt-0">
-          <div data-reveal="right" className="relative mx-auto aspect-712/624 w-full max-w-520 xl:absolute xl:left-946 xl:top-72 xl:mx-0 xl:h-624 xl:w-688 xl:max-w-none">
-            <span className="absolute right-0 top-0 h-[75.6%] w-[63.5%] rounded-[9%/8.5%] bg-brand" aria-hidden="true" />
-            <DotGrid cols={4} rows={4} gap={21} size={5} color="#e3b7ba" className="absolute right-[5.6%] top-[6%] hidden animate-float sm:block" />
+        <div className="mt-[calc(48*var(--unit))] lg:grow lg:mt-0">
+          <div data-reveal="right" className="relative mx-auto aspect-712/624 w-full max-w-[calc(520*var(--unit))] lg:absolute lg:left-[calc(946*var(--unit))] lg:top-[calc(72*var(--unit))] lg:mx-0 lg:h-[calc(624*var(--unit))] lg:w-[calc(688*var(--unit))] lg:max-w-none">
+            <span className="absolute right-0 top-0 h-[75.6%] w-[63.5%] rounded-[9%/8.5%] bg-[#6e0c12]" aria-hidden="true" />
+            <DotGrid cols={4} rows={4} gap={21} size={5} color="#e3b7ba" data-float="6000" className="absolute right-[5.6%] top-[6%] hidden sm:block" />
             <div className="absolute left-0 top-[9%] h-[91%] w-[85.25%] overflow-hidden rounded-[7.5%_7.5%_7.5%_22%/8%_8%_8%_23.5%]">
               {/* Each testimonial has its own photo, so it changes together with the name. */}
-              <div key={slider.index} className="absolute inset-0 animate-fade-in">
+              <div key={slider.index} className="absolute inset-0 translate-y-0 transition-[opacity,translate] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
                 <Image src={current.image.src} alt={current.image.alt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </div>
-            <div className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] animate-float r-16 bg-white px-16 py-12 shadow-[0_0.5rem_1.75rem_rgba(20,20,20,0.12)] sm:px-24 sm:py-16 xl:h-91 xl:w-285 xl:r-22 xl:px-31 xl:py-0 xl:pt-19">
-              <p className="flex gap-6 text-brand xl:-ml-2 xl:gap-5" aria-label={`${badge.stars}/5`}>
+            <div data-float="6000" className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] rounded-[calc(16*var(--unit))] bg-white px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] shadow-[0_calc(8*var(--unit))_calc(28*var(--unit))_rgba(20,20,20,0.12)] sm:px-[calc(24*var(--unit))] sm:py-[calc(16*var(--unit))] lg:h-[calc(91*var(--unit))] lg:w-[calc(285*var(--unit))] lg:rounded-[calc(22*var(--unit))] lg:px-[calc(31*var(--unit))] lg:py-0 lg:pt-[calc(19*var(--unit))]">
+              <p className="flex gap-[calc(6*var(--unit))] text-[#6e0c12] lg:-ml-[calc(2*var(--unit))] lg:gap-[calc(5*var(--unit))]" aria-label={`${badge.stars}/5`}>
                 {Array.from({ length: badge.stars }, (_, i) => (
-                  <Icon key={i} name="star" className="size-16 xl:size-24" />
+                  <Icon key={i} name="star" className="size-[calc(16*var(--unit))] lg:size-[calc(24*var(--unit))]" />
                 ))}
               </p>
-              <p className="mt-6 whitespace-nowrap fs-13 font-semibold leading-[1.3] tracking-[-0.01em] text-ink sm:fs-15 xl:mt-8 xl:fs-18 xl:leading-22">{badge.text}</p>
+              <p className="mt-[calc(6*var(--unit))] whitespace-nowrap text-[calc(13*var(--unit))] font-semibold leading-[1.3] tracking-[-0.01em] text-[#141414] sm:text-[calc(15*var(--unit))] lg:mt-[calc(8*var(--unit))] lg:text-[calc(18*var(--unit))] lg:leading-[calc(22*var(--unit))]">{badge.text}</p>
             </div>
           </div>
         </div>

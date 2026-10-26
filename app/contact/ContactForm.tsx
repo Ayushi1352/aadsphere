@@ -9,7 +9,7 @@ const { form } = site.contactPage;
 const { map } = contact;
 
 const inputClass =
-  "block h-56 w-full r-4 bg-white px-20 fs-17 text-ink outline-none placeholder:text-[#4f4f4f] focus:ring-2 focus:ring-black/40 xl:h-70 xl:px-26 xl:fs-20";
+  "block h-[calc(56*var(--unit))] w-full rounded-[calc(4*var(--unit))] bg-white px-[calc(20*var(--unit))] text-[calc(17*var(--unit))] text-[#141414] outline-none placeholder:text-[#4f4f4f] focus:ring-2 focus:ring-black/40 lg:h-[calc(70*var(--unit))] lg:px-[calc(26*var(--unit))] lg:text-[calc(20*var(--unit))]";
 
 /** Maroon block with the map on the left and the message form on the right. */
 export default function ContactForm() {
@@ -22,38 +22,38 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="my-32 bg-hero font-montserrat sm:my-40 lg:flex lg:items-start xl:my-48 xl:h-800">
+    <section className="my-[calc(32*var(--unit))] bg-[#6e0c12] font-(family-name:--font-montserrat-face) sm:my-[calc(40*var(--unit))] lg:flex lg:items-start lg:my-[calc(48*var(--unit))] lg:h-[calc(800*var(--unit))]">
       <iframe
         src={map.src}
         title={map.title}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         data-reveal="fade"
-        className="block h-360 w-full border-0 sm:h-460 lg:h-640 lg:w-[42%] lg:shrink-0 xl:h-800 xl:w-708"
+        className="block h-[calc(360*var(--unit))] w-full border-0 sm:h-[calc(460*var(--unit))] lg:shrink-0 lg:h-[calc(800*var(--unit))] lg:w-[calc(708*var(--unit))]"
       />
 
-      <div data-reveal-group="right" className="px-20 py-48 sm:px-32 sm:py-64 lg:grow xl:px-0 xl:pb-0 xl:pl-151 xl:pr-81 xl:pt-64">
-        <h2 className="fs-34 font-extrabold leading-[1.15] tracking-[-0.02em] text-white sm:fs-48 xl:whitespace-nowrap xl:fs-66 xl:leading-77">
+      <div data-reveal-group="right" className="px-[calc(20*var(--unit))] py-[calc(48*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(64*var(--unit))] lg:grow lg:px-0 lg:pb-0 lg:pl-[calc(151*var(--unit))] lg:pr-[calc(81*var(--unit))] lg:pt-[calc(64*var(--unit))]">
+        <h2 className="text-[calc(34*var(--unit))] font-extrabold leading-[1.15] tracking-[-0.02em] text-white sm:text-[calc(48*var(--unit))] lg:whitespace-nowrap lg:text-[calc(66*var(--unit))] lg:leading-[calc(77*var(--unit))]">
           <Lines lines={form.headingLines} />
         </h2>
-        <p className="mt-14 fs-17 leading-[1.5] text-white/95 sm:fs-19 xl:mt-13 xl:whitespace-nowrap xl:fs-24 xl:leading-34 xl:tracking-[-0.03em]">
+        <p className="mt-[calc(14*var(--unit))] text-[calc(17*var(--unit))] leading-[1.5] text-white/95 sm:text-[calc(19*var(--unit))] lg:mt-[calc(13*var(--unit))] lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(34*var(--unit))] lg:tracking-[-0.03em]">
           <Lines lines={form.descriptionLines} />
         </p>
 
-        <form onSubmit={onSubmit} className="mt-28 grid gap-20 sm:grid-cols-2 xl:mt-32 xl:gap-x-23 xl:gap-y-20">
+        <form onSubmit={onSubmit} className="mt-[calc(28*var(--unit))] grid gap-[calc(20*var(--unit))] sm:grid-cols-2 lg:mt-[calc(32*var(--unit))] lg:gap-x-[calc(23*var(--unit))] lg:gap-y-[calc(20*var(--unit))]">
           <input name="fullName" type="text" required autoComplete="name" aria-label={form.fullName} placeholder={form.fullName} className={inputClass} />
           <input name="email" type="email" required autoComplete="email" aria-label={form.email} placeholder={form.email} className={inputClass} />
-          <input name="website" type="url" aria-label={form.website} placeholder={form.website} className={`${inputClass} sm:col-span-2 xl:h-71`} />
-          <textarea name="message" required aria-label={form.message} placeholder={form.message} className={`${inputClass} h-144 resize-y py-18 sm:col-span-2 xl:mt-2 xl:h-104 xl:py-22`} />
-          <div className="relative sm:col-span-2 xl:mt-14">
+          <input name="website" type="url" aria-label={form.website} placeholder={form.website} className={`${inputClass} sm:col-span-2 lg:h-[calc(71*var(--unit))]`} />
+          <textarea name="message" required aria-label={form.message} placeholder={form.message} className={`${inputClass} h-[calc(144*var(--unit))] resize-y py-[calc(18*var(--unit))] sm:col-span-2 lg:mt-[calc(2*var(--unit))] lg:h-[calc(104*var(--unit))] lg:py-[calc(22*var(--unit))]`} />
+          <div className="relative sm:col-span-2 lg:mt-[calc(14*var(--unit))]">
             <button
               type="submit"
-              className="h-60 cursor-pointer bg-[#0f0f0c] px-40 fs-18 font-extrabold uppercase tracking-[-0.01em] text-white transition-colors duration-200 hover:bg-white hover:text-[#0f0f0c] xl:h-77 xl:w-289 xl:px-0 xl:fs-23"
+              className="h-[calc(60*var(--unit))] cursor-pointer bg-[#0f0f0c] px-[calc(40*var(--unit))] text-[calc(18*var(--unit))] font-extrabold uppercase tracking-[-0.01em] text-white transition-colors duration-200 hover:bg-white hover:text-[#0f0f0c] lg:h-[calc(77*var(--unit))] lg:w-[calc(289*var(--unit))] lg:px-0 lg:text-[calc(23*var(--unit))]"
             >
               {form.submit}
             </button>
             {sent && (
-              <p role="status" className="mt-16 fs-16 font-medium text-white xl:absolute xl:inset-x-0 xl:top-full xl:mt-14">
+              <p role="status" className="mt-[calc(16*var(--unit))] text-[calc(16*var(--unit))] font-medium text-white lg:absolute lg:inset-x-0 lg:top-full lg:mt-[calc(14*var(--unit))]">
                 {form.success}
               </p>
             )}

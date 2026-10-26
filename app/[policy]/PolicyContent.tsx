@@ -9,32 +9,32 @@ export default function PolicyContent({ slug }: { slug: string }) {
   const policy = items.find((item) => item.slug === slug) ?? items[0];
 
   return (
-    <section className="px-20 py-32 sm:px-32 sm:py-40 lg:flex lg:items-start lg:gap-48 xl:gap-80 xl:px-98 xl:py-48">
+    <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:flex lg:items-start lg:gap-[calc(80*var(--unit))] lg:px-[calc(98*var(--unit))] lg:py-[calc(48*var(--unit))]">
       <article data-reveal-group="up" className="min-w-0 lg:grow">
-        <p className="flex items-center gap-8 sm:gap-14 font-inter fs-11 sm:fs-13 font-medium uppercase leading-none tracking-[0.1em] sm:tracking-[0.2em] text-[#4d525c] xl:fs-14">
-          <span className="h-2 w-24 sm:w-40 shrink-0 bg-accent" aria-hidden="true" />
+        <p className="flex items-center gap-[calc(8*var(--unit))] sm:gap-[calc(14*var(--unit))] font-(family-name:--font-inter-face) text-[calc(11*var(--unit))] sm:text-[calc(13*var(--unit))] font-medium uppercase leading-none tracking-[0.1em] sm:tracking-[0.2em] text-[#4d525c] lg:text-[calc(14*var(--unit))]">
+          <span className="h-[calc(2*var(--unit))] w-[calc(24*var(--unit))] sm:w-[calc(40*var(--unit))] shrink-0 bg-[#6e0c12]" aria-hidden="true" />
           <span className="whitespace-nowrap">{updatedLabel} {policy.updated}</span>
         </p>
-        <p className="mt-20 font-text fs-17 leading-[1.7] text-body sm:fs-19 xl:mt-26 xl:fs-22 xl:leading-37">{policy.intro}</p>
+        <p className="mt-[calc(20*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(17*var(--unit))] leading-[1.7] text-[#5a5a5a] sm:text-[calc(19*var(--unit))] lg:mt-[calc(26*var(--unit))] lg:text-[calc(22*var(--unit))] lg:leading-[calc(37*var(--unit))]">{policy.intro}</p>
 
         {policy.sections.map((section, i) => (
-          <section key={section.title} className="mt-34 xl:mt-48">
-            <h2 className="flex items-baseline gap-14 fs-23 font-bold leading-[1.25] text-ink sm:fs-28 xl:gap-18 xl:fs-34">
-              <span className="fs-18 font-extrabold text-brand xl:fs-22">{String(i + 1).padStart(2, "0")}</span>
+          <section key={section.title} className="mt-[calc(34*var(--unit))] lg:mt-[calc(48*var(--unit))]">
+            <h2 className="flex items-baseline gap-[calc(14*var(--unit))] text-[calc(23*var(--unit))] font-bold leading-[1.25] text-[#141414] sm:text-[calc(28*var(--unit))] lg:gap-[calc(18*var(--unit))] lg:text-[calc(34*var(--unit))]">
+              <span className="text-[calc(18*var(--unit))] font-extrabold text-[#6e0c12] lg:text-[calc(22*var(--unit))]">{String(i + 1).padStart(2, "0")}</span>
               {section.title}
             </h2>
-            <span className="mt-12 block h-3 w-48 bg-accent xl:mt-14" aria-hidden="true" />
+            <span className="mt-[calc(12*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(48*var(--unit))] bg-[#6e0c12] lg:mt-[calc(14*var(--unit))]" aria-hidden="true" />
             {section.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="mt-14 font-text fs-16 leading-[1.75] text-body sm:fs-18 xl:mt-18 xl:fs-20 xl:leading-34">
+              <p key={paragraph} className="mt-[calc(14*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.75] text-[#5a5a5a] sm:text-[calc(18*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
                 {paragraph}
               </p>
             ))}
             {section.points.length > 0 && (
-              <ul className="mt-16 space-y-12 xl:mt-20 xl:space-y-14">
+              <ul className="mt-[calc(16*var(--unit))] space-y-[calc(12*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:space-y-[calc(14*var(--unit))]">
                 {section.points.map((point) => (
-                  <li key={point} className="flex items-start gap-14 font-text fs-16 leading-[1.6] text-[#333333] sm:fs-18 xl:fs-20">
-                    <span className="mt-1 flex size-26 shrink-0 items-center justify-center rounded-full bg-blush text-brand xl:size-30">
-                      <Icon name="check" className="size-14 xl:size-16" />
+                  <li key={point} className="flex items-start gap-[calc(14*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.6] text-[#333333] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
+                    <span className="mt-[calc(1*var(--unit))] flex size-[calc(26*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[#fbe9e9] text-[#6e0c12] lg:size-[calc(30*var(--unit))]">
+                      <Icon name="check" className="size-[calc(14*var(--unit))] lg:size-[calc(16*var(--unit))]" />
                     </span>
                     {point}
                   </li>
@@ -45,33 +45,33 @@ export default function PolicyContent({ slug }: { slug: string }) {
         ))}
       </article>
 
-      <aside data-reveal-group="right" className="mt-48 space-y-24 lg:sticky lg:top-24 lg:mt-0 lg:w-320 lg:shrink-0 xl:w-400">
-        <nav aria-label={otherHeading} className="r-14 border border-[#f0f0f2] bg-[#f9f9fb] p-24 xl:p-32">
-          <h2 className="fs-21 font-extrabold leading-none text-ink xl:fs-24">{otherHeading}</h2>
-          <span className="mt-12 block h-3 w-48 bg-accent" aria-hidden="true" />
-          <ul className="mt-10">
+      <aside data-reveal-group="right" className="mt-[calc(48*var(--unit))] space-y-[calc(24*var(--unit))] lg:sticky lg:top-[calc(24*var(--unit))] lg:mt-0 lg:shrink-0 lg:w-[calc(400*var(--unit))]">
+        <nav aria-label={otherHeading} className="rounded-[calc(14*var(--unit))] border border-[#f0f0f2] bg-[#f9f9fb] p-[calc(24*var(--unit))] lg:p-[calc(32*var(--unit))]">
+          <h2 className="text-[calc(21*var(--unit))] font-extrabold leading-none text-[#141414] lg:text-[calc(24*var(--unit))]">{otherHeading}</h2>
+          <span className="mt-[calc(12*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(48*var(--unit))] bg-[#6e0c12]" aria-hidden="true" />
+          <ul className="mt-[calc(10*var(--unit))]">
             {items.map((item, i) => (
               <li key={item.slug} className={i > 0 ? "border-t border-[#ececef]" : ""}>
                 <Link
                   href={`/${item.slug}`}
                   aria-current={item.slug === slug ? "page" : undefined}
-                  className={`flex items-center justify-between gap-12 py-16 fs-17 font-semibold transition-colors duration-200 hover:text-brand xl:fs-19 ${
-                    item.slug === slug ? "text-brand" : "text-[#2b3340]"
+                  className={`flex items-center justify-between gap-[calc(12*var(--unit))] py-[calc(16*var(--unit))] text-[calc(17*var(--unit))] font-semibold transition-colors duration-200 hover:text-[#6e0c12] lg:text-[calc(19*var(--unit))] ${
+                    item.slug === slug ? "text-[#6e0c12]" : "text-[#2b3340]"
                   }`}
                 >
                   {item.title}
-                  <Icon name="chevron-right" className="size-17 shrink-0" />
+                  <Icon name="chevron-right" className="size-[calc(17*var(--unit))] shrink-0" />
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className="r-14 bg-hero p-24 text-white xl:p-32">
-          <h2 className="fs-21 font-bold leading-[1.25] xl:fs-24">{contactHeading}</h2>
-          <p className="mt-8 font-text fs-16 leading-[1.6] text-white/85 xl:fs-17">{contactText}</p>
-          <a href={contact.emailHref} className="mt-18 inline-flex items-center gap-10 break-all fs-17 font-bold underline-offset-4 hover:underline xl:fs-19">
-            <Icon name="mail" className="size-20 shrink-0" />
+        <div className="rounded-[calc(14*var(--unit))] bg-[#6e0c12] p-[calc(24*var(--unit))] text-white lg:p-[calc(32*var(--unit))]">
+          <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.25] lg:text-[calc(24*var(--unit))]">{contactHeading}</h2>
+          <p className="mt-[calc(8*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.6] text-white/85 lg:text-[calc(17*var(--unit))]">{contactText}</p>
+          <a href={contact.emailHref} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
+            <Icon name="mail" className="size-[calc(20*var(--unit))] shrink-0" />
             {contact.email}
           </a>
         </div>

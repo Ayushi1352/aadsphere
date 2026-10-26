@@ -34,57 +34,57 @@ export default function JobList() {
   }
 
   return (
-    <section className="px-20 py-32 sm:px-32 sm:py-40 xl:py-48 xl:pl-63 xl:pr-52">
-      <div data-reveal="zoom" className="flex flex-col lg:flex-row gap-0 r-16 overflow-hidden">
+    <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:py-[calc(48*var(--unit))] lg:pl-[calc(63*var(--unit))] lg:pr-[calc(52*var(--unit))]">
+      <div data-reveal="zoom" className="flex flex-col lg:flex-row gap-0 rounded-[calc(16*var(--unit))] overflow-hidden">
         {/* ── Left: CTA ── */}
-        <div className="flex flex-col justify-center gap-18 bg-hero px-24 py-30 sm:px-40 sm:py-40 lg:w-1/2 xl:px-52 xl:py-52">
-          <h2 className="fs-26 font-bold leading-[1.2] text-white sm:fs-32 xl:fs-40">
+        <div className="flex flex-col justify-center gap-[calc(18*var(--unit))] bg-[#6e0c12] px-[calc(24*var(--unit))] py-[calc(30*var(--unit))] sm:px-[calc(40*var(--unit))] sm:py-[calc(40*var(--unit))] lg:w-1/2 lg:px-[calc(52*var(--unit))] lg:py-[calc(52*var(--unit))]">
+          <h2 className="text-[calc(26*var(--unit))] font-bold leading-[1.2] text-white sm:text-[calc(32*var(--unit))] lg:text-[calc(40*var(--unit))]">
             {cta.heading}
           </h2>
-          <p className="font-text fs-16 leading-[1.6] text-white/85 sm:fs-18 xl:fs-20">
+          <p className="font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.6] text-white/85 sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
             {cta.description}
           </p>
-          <div className="mt-6 flex items-center gap-14">
-            <span className="flex size-48 items-center justify-center rounded-full bg-white/15">
-              <Icon name="mail" className="size-22 text-white" />
+          <div className="mt-[calc(6*var(--unit))] flex items-center gap-[calc(14*var(--unit))]">
+            <span className="flex size-[calc(48*var(--unit))] items-center justify-center rounded-full bg-white/15">
+              <Icon name="mail" className="size-[calc(22*var(--unit))] text-white" />
             </span>
-            <span className="font-text fs-16 text-white/90 sm:fs-18">{applicationForm.contactEmail}</span>
+            <span className="font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] text-white/90 sm:text-[calc(18*var(--unit))]">{applicationForm.contactEmail}</span>
           </div>
-          <div className="flex items-center gap-14">
-            <span className="flex size-48 items-center justify-center rounded-full bg-white/15">
-              <Icon name="phone" className="size-22 text-white" />
+          <div className="flex items-center gap-[calc(14*var(--unit))]">
+            <span className="flex size-[calc(48*var(--unit))] items-center justify-center rounded-full bg-white/15">
+              <Icon name="phone" className="size-[calc(22*var(--unit))] text-white" />
             </span>
-            <span className="font-text fs-16 text-white/90 sm:fs-18">{applicationForm.contactPhone}</span>
+            <span className="font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] text-white/90 sm:text-[calc(18*var(--unit))]">{applicationForm.contactPhone}</span>
           </div>
         </div>
 
         {/* ── Right: Application Form ── */}
-        <div className="bg-[#f9f9fb] px-24 py-30 sm:px-36 sm:py-36 lg:w-1/2 xl:px-44 xl:py-44">
+        <div className="bg-[#f9f9fb] px-[calc(24*var(--unit))] py-[calc(30*var(--unit))] sm:px-[calc(36*var(--unit))] sm:py-[calc(36*var(--unit))] lg:w-1/2 lg:px-[calc(44*var(--unit))] lg:py-[calc(44*var(--unit))]">
           {submitted ? (
-            <div className="flex flex-col items-center justify-center gap-16 py-40 text-center">
-              <span className="flex size-72 items-center justify-center rounded-full bg-[#e6f9ed]">
-                <Icon name="check" className="size-36 text-[#22c55e]" />
+            <div className="flex flex-col items-center justify-center gap-[calc(16*var(--unit))] py-[calc(40*var(--unit))] text-center">
+              <span className="flex size-[calc(72*var(--unit))] items-center justify-center rounded-full bg-[#e6f9ed]">
+                <Icon name="check" className="size-[calc(36*var(--unit))] text-[#22c55e]" />
               </span>
-              <h3 className="fs-24 font-bold text-ink xl:fs-28">{applicationForm.successHeading}</h3>
-              <p className="max-w-340 font-text fs-16 leading-[1.5] text-body">
+              <h3 className="text-[calc(24*var(--unit))] font-bold text-[#141414] lg:text-[calc(28*var(--unit))]">{applicationForm.successHeading}</h3>
+              <p className="max-w-[calc(340*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.5] text-[#5a5a5a]">
                 {applicationForm.successMessage}
               </p>
             </div>
           ) : (
             <>
-              <h3 className="fs-22 font-bold text-ink xl:fs-26">{applicationForm.heading}</h3>
-              <p className="mt-6 font-text fs-15 leading-[1.5] text-body xl:fs-16">
+              <h3 className="text-[calc(22*var(--unit))] font-bold text-[#141414] lg:text-[calc(26*var(--unit))]">{applicationForm.heading}</h3>
+              <p className="mt-[calc(6*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] leading-[1.5] text-[#5a5a5a] lg:text-[calc(16*var(--unit))]">
                 {applicationForm.description}
               </p>
 
-              <form onSubmit={handleSubmit} className="mt-22 flex flex-col gap-16 xl:mt-28">
+              <form onSubmit={handleSubmit} className="mt-[calc(22*var(--unit))] flex flex-col gap-[calc(16*var(--unit))] lg:mt-[calc(28*var(--unit))]">
                 <input
                   required
                   name="name"
                   placeholder={applicationForm.fullName}
                   value={formData.name}
                   onChange={handleChange}
-                  className="h-48 rounded-10 border border-[#ddd] bg-white px-16 font-text fs-15 text-ink outline-none transition-colors focus:border-brand xl:h-52"
+                  className="h-[calc(48*var(--unit))] rounded-10 border border-[#ddd] bg-white px-[calc(16*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#141414] outline-none transition-colors focus:border-[#6e0c12] lg:h-[calc(52*var(--unit))]"
                 />
                 <input
                   required
@@ -93,7 +93,7 @@ export default function JobList() {
                   placeholder={applicationForm.emailLabel}
                   value={formData.email}
                   onChange={handleChange}
-                  className="h-48 rounded-10 border border-[#ddd] bg-white px-16 font-text fs-15 text-ink outline-none transition-colors focus:border-brand xl:h-52"
+                  className="h-[calc(48*var(--unit))] rounded-10 border border-[#ddd] bg-white px-[calc(16*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#141414] outline-none transition-colors focus:border-[#6e0c12] lg:h-[calc(52*var(--unit))]"
                 />
                 <input
                   name="phone"
@@ -101,13 +101,13 @@ export default function JobList() {
                   placeholder={applicationForm.phoneLabel}
                   value={formData.phone}
                   onChange={handleChange}
-                  className="h-48 rounded-10 border border-[#ddd] bg-white px-16 font-text fs-15 text-ink outline-none transition-colors focus:border-brand xl:h-52"
+                  className="h-[calc(48*var(--unit))] rounded-10 border border-[#ddd] bg-white px-[calc(16*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#141414] outline-none transition-colors focus:border-[#6e0c12] lg:h-[calc(52*var(--unit))]"
                 />
                 <select
                   name="position"
                   value={formData.position}
                   onChange={handleChange}
-                  className="h-48 rounded-10 border border-[#ddd] bg-white px-16 font-text fs-15 text-ink outline-none transition-colors focus:border-brand xl:h-52"
+                  className="h-[calc(48*var(--unit))] rounded-10 border border-[#ddd] bg-white px-[calc(16*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#141414] outline-none transition-colors focus:border-[#6e0c12] lg:h-[calc(52*var(--unit))]"
                 >
                   <option value="">{applicationForm.positionLabel}</option>
                   {applicationForm.positions.map((pos: string) => (
@@ -125,12 +125,12 @@ export default function JobList() {
                     className="hidden"
                     id="resume-upload"
                   />
-                  <div className="flex items-center gap-8">
+                  <div className="flex items-center gap-[calc(8*var(--unit))]">
                     <label
                       htmlFor="resume-upload"
-                      className="flex h-48 grow cursor-pointer items-center gap-12 rounded-10 border border-dashed border-[#bbb] bg-white px-16 font-text fs-15 text-body transition-colors hover:border-brand hover:text-brand xl:h-52"
+                      className="flex h-[calc(48*var(--unit))] grow cursor-pointer items-center gap-[calc(12*var(--unit))] rounded-10 border border-dashed border-[#bbb] bg-white px-[calc(16*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#5a5a5a] transition-colors hover:border-[#6e0c12] hover:text-[#6e0c12] lg:h-[calc(52*var(--unit))]"
                     >
-                      <Icon name="arrow-up-right" className="size-18 shrink-0 -rotate-45" />
+                      <Icon name="arrow-up-right" className="size-[calc(18*var(--unit))] shrink-0 -rotate-45" />
                       <span className="truncate">{fileName || applicationForm.resumeLabel}</span>
                     </label>
                     {fileName && (
@@ -141,9 +141,9 @@ export default function JobList() {
                           if (fileRef.current) fileRef.current.value = "";
                         }}
                         aria-label={applicationForm.removeResume}
-                        className="flex size-42 shrink-0 cursor-pointer items-center justify-center rounded-10 border border-[#ddd] bg-white text-[#888] transition-colors hover:border-brand hover:text-brand xl:size-48"
+                        className="flex size-[calc(42*var(--unit))] shrink-0 cursor-pointer items-center justify-center rounded-10 border border-[#ddd] bg-white text-[#888] transition-colors hover:border-[#6e0c12] hover:text-[#6e0c12] lg:size-[calc(48*var(--unit))]"
                       >
-                        <Icon name="x" className="size-18" />
+                        <Icon name="x" className="size-[calc(18*var(--unit))]" />
                       </button>
                     )}
                   </div>
@@ -155,15 +155,15 @@ export default function JobList() {
                   rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  className="rounded-10 border border-[#ddd] bg-white px-16 py-12 font-text fs-15 text-ink outline-none transition-colors focus:border-brand"
+                  className="rounded-10 border border-[#ddd] bg-white px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(15*var(--unit))] text-[#141414] outline-none transition-colors focus:border-[#6e0c12]"
                 />
 
                 <button
                   type="submit"
-                  className="mt-4 inline-flex h-52 items-center justify-center gap-10 rounded-full bg-brand px-30 fs-16 font-bold text-white transition-colors duration-200 hover:bg-ink xl:h-56 xl:fs-17"
+                  className="mt-[calc(4*var(--unit))] inline-flex h-[calc(52*var(--unit))] items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[#6e0c12] px-[calc(30*var(--unit))] text-[calc(16*var(--unit))] font-bold text-white transition-colors duration-200 hover:bg-[#141414] lg:h-[calc(56*var(--unit))] lg:text-[calc(17*var(--unit))]"
                 >
                   {applicationForm.submit}
-                  <Icon name="arrow-right" className="size-18" />
+                  <Icon name="arrow-right" className="size-[calc(18*var(--unit))]" />
                 </button>
               </form>
             </>

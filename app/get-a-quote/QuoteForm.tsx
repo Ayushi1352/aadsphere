@@ -8,16 +8,16 @@ import { site } from "@/data";
 const { form } = site.quote;
 
 const inputClass =
-  "block h-48 w-full r-8 border border-[#e3e5e9] bg-white px-16 fs-16 text-ink outline-none transition-colors duration-200 placeholder:text-[#7b808a] focus:border-brand xl:h-49 xl:px-17 xl:fs-17";
+  "block h-[calc(48*var(--unit))] w-full rounded-[calc(8*var(--unit))] border border-[#e3e5e9] bg-white px-[calc(16*var(--unit))] text-[calc(16*var(--unit))] text-[#141414] outline-none transition-colors duration-200 placeholder:text-[#7b808a] focus:border-[#6e0c12] lg:h-[calc(49*var(--unit))] lg:px-[calc(17*var(--unit))] lg:text-[calc(17*var(--unit))]";
 
 function Field({ label, required, htmlFor, children, className = "" }: { label: string; required?: boolean; htmlFor: string; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
-      <label htmlFor={htmlFor} className="block fs-16 font-bold leading-none text-[#14171d] xl:fs-18 xl:leading-20">
+      <label htmlFor={htmlFor} className="block text-[calc(16*var(--unit))] font-bold leading-none text-[#14171d] lg:text-[calc(18*var(--unit))] lg:leading-[calc(20*var(--unit))]">
         {label}
-        {required && <span className="ml-8 text-brand">*</span>}
+        {required && <span className="ml-[calc(8*var(--unit))] text-[#6e0c12]">*</span>}
       </label>
-      <div className="mt-10 xl:mt-11">{children}</div>
+      <div className="mt-[calc(10*var(--unit))] lg:mt-[calc(11*var(--unit))]">{children}</div>
     </div>
   );
 }
@@ -26,17 +26,17 @@ function Select({ id, placeholder, options, required }: { id: string; placeholde
   const [value, setValue] = useState("");
   return (
     <div className="relative">
-      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${inputClass} cursor-pointer appearance-none pr-44 xl:h-52`} style={value ? undefined : { color: "#7b808a" }}>
+      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${inputClass} cursor-pointer appearance-none pr-[calc(44*var(--unit))] lg:h-[calc(52*var(--unit))]`} style={value ? undefined : { color: "#7b808a" }}>
         <option value="" disabled>
           {placeholder}
         </option>
         {options.map((option) => (
-          <option key={option} value={option} className="text-ink">
+          <option key={option} value={option} className="text-[#141414]">
             {option}
           </option>
         ))}
       </select>
-      <Icon name="chevron-down" className="pointer-events-none absolute right-16 top-1/2 size-20 -translate-y-1/2 text-[#3d424c]" />
+      <Icon name="chevron-down" className="pointer-events-none absolute right-[calc(16*var(--unit))] top-1/2 size-[calc(20*var(--unit))] -translate-y-1/2 text-[#3d424c]" />
     </div>
   );
 }
@@ -52,14 +52,14 @@ export default function QuoteForm() {
   };
 
   return (
-    <div data-reveal="right" className="mt-48 r-16 border border-[#e8e9ec] bg-[#fbfbfc] p-22 shadow-[0_0.25rem_1.5rem_rgba(20,20,20,0.04)] sm:p-32 lg:mt-0 lg:grow xl:w-760 xl:flex-none xl:r-20 xl:pb-31 xl:pl-37 xl:pr-32 xl:pt-20">
-      <h2 className="fs-30 font-black leading-[1.1] text-[#0e1118] sm:fs-36 xl:fs-43 xl:leading-48">
+    <div data-reveal="right" className="mt-[calc(48*var(--unit))] rounded-[calc(16*var(--unit))] border border-[#e8e9ec] bg-[#fbfbfc] p-[calc(22*var(--unit))] shadow-[0_calc(4*var(--unit))_calc(24*var(--unit))_rgba(20,20,20,0.04)] sm:p-[calc(32*var(--unit))] lg:mt-0 lg:grow lg:w-[calc(760*var(--unit))] lg:flex-none lg:rounded-[calc(20*var(--unit))] lg:pb-[calc(31*var(--unit))] lg:pl-[calc(37*var(--unit))] lg:pr-[calc(32*var(--unit))] lg:pt-[calc(20*var(--unit))]">
+      <h2 className="text-[calc(30*var(--unit))] font-black leading-[1.1] text-[#0e1118] sm:text-[calc(36*var(--unit))] lg:text-[calc(43*var(--unit))] lg:leading-[calc(48*var(--unit))]">
         {form.heading}
-        <span className="text-brand">{form.headingHighlight}</span>
+        <span className="text-[#6e0c12]">{form.headingHighlight}</span>
       </h2>
-      <p className="mt-10 fs-16 leading-[1.4] text-[#4c5159] xl:fs-19 xl:leading-24 xl:tracking-[0.008em]">{form.description}</p>
+      <p className="mt-[calc(10*var(--unit))] text-[calc(16*var(--unit))] leading-[1.4] text-[#4c5159] lg:text-[calc(19*var(--unit))] lg:leading-[calc(24*var(--unit))] lg:tracking-[0.008em]">{form.description}</p>
 
-      <form onSubmit={onSubmit} className="mt-24 grid gap-x-20 gap-y-22 sm:grid-cols-2 xl:mt-29 xl:grid-cols-[331fr_329fr] xl:gap-x-30 xl:gap-y-26">
+      <form onSubmit={onSubmit} className="mt-[calc(24*var(--unit))] grid gap-x-[calc(20*var(--unit))] gap-y-[calc(22*var(--unit))] sm:grid-cols-2 lg:mt-[calc(29*var(--unit))] lg:grid-cols-[331fr_329fr] lg:gap-x-[calc(30*var(--unit))] lg:gap-y-[calc(26*var(--unit))]">
         <Field label={form.fullName.label} required htmlFor="fullName">
           <input id="fullName" name="fullName" type="text" required autoComplete="name" placeholder={form.fullName.placeholder} className={inputClass} />
         </Field>
@@ -76,7 +76,7 @@ export default function QuoteForm() {
           <Select id="service" placeholder={form.service.placeholder} options={form.service.options} required />
         </Field>
         <Field label={form.details.label} required htmlFor="details" className="sm:col-span-2">
-          <textarea id="details" name="details" required placeholder={form.details.placeholder} className={`${inputClass} h-124 resize-y py-14 xl:h-124`} />
+          <textarea id="details" name="details" required placeholder={form.details.placeholder} className={`${inputClass} h-[calc(124*var(--unit))] resize-y py-[calc(14*var(--unit))] lg:h-[calc(124*var(--unit))]`} />
         </Field>
         <Field label={form.budget.label} htmlFor="budget">
           <Select id="budget" placeholder={form.budget.placeholder} options={form.budget.options} />
@@ -85,16 +85,16 @@ export default function QuoteForm() {
           <Select id="timeline" placeholder={form.timeline.placeholder} options={form.timeline.options} />
         </Field>
 
-        <div className="sm:col-span-2 xl:mt-7">
+        <div className="sm:col-span-2 lg:mt-[calc(7*var(--unit))]">
           <button
             type="submit"
-            className="flex h-58 w-full cursor-pointer items-center justify-center gap-16 r-10 bg-linear-to-r from-[#56080e] to-[#6e0c12] fs-18 font-extrabold text-white transition-opacity duration-200 hover:opacity-90 xl:h-64 xl:gap-20 xl:r-12 xl:fs-21"
+            className="flex h-[calc(58*var(--unit))] w-full cursor-pointer items-center justify-center gap-[calc(16*var(--unit))] rounded-[calc(10*var(--unit))] bg-linear-to-r from-[#56080e] to-[#6e0c12] text-[calc(18*var(--unit))] font-extrabold text-white transition-opacity duration-200 hover:opacity-90 lg:h-[calc(64*var(--unit))] lg:gap-[calc(20*var(--unit))] lg:rounded-[calc(12*var(--unit))] lg:text-[calc(21*var(--unit))]"
           >
             {form.submit}
-            <Icon name="arrow-right" className="size-22 xl:size-24" />
+            <Icon name="arrow-right" className="size-[calc(22*var(--unit))] lg:size-[calc(24*var(--unit))]" />
           </button>
           {sent && (
-            <p role="status" className="mt-14 fs-15 font-medium text-[#1a7a3c]">
+            <p role="status" className="mt-[calc(14*var(--unit))] text-[calc(15*var(--unit))] font-medium text-[#1a7a3c]">
               {form.success}
             </p>
           )}

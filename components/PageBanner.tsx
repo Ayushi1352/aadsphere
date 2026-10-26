@@ -21,29 +21,29 @@ export default function PageBanner({ title, crumbs, isDetail }: PageBannerProps)
   const isDetailPage = isDetail ?? Boolean(crumbs && crumbs.length > 0);
 
   return (
-    <section className="relative mb-32 overflow-hidden bg-hero px-20 py-52 sm:mb-40 xl:mb-48 sm:px-32 sm:py-64 xl:flex xl:min-h-460 xl:flex-col xl:justify-center xl:p-0 xl:pl-145 xl:pr-52 xl:py-60">
+    <section className="relative mb-[calc(32*var(--unit))] overflow-hidden bg-[#6e0c12] px-[calc(20*var(--unit))] py-[calc(52*var(--unit))] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(64*var(--unit))] lg:flex lg:min-h-[calc(460*var(--unit))] lg:flex-col lg:justify-center lg:p-0 lg:pl-[calc(145*var(--unit))] lg:pr-[calc(52*var(--unit))] lg:py-[calc(60*var(--unit))]">
       {/* Two soft rounded shapes behind the title */}
       <span
         aria-hidden="true"
-        className="pointer-events-none animate-float-slow absolute -top-30 left-[28%] size-200 rounded-[34%_34%_34%_0] bg-black/[0.17] sm:size-260 xl:left-191 xl:top-8 xl:size-350"
+        data-float="10000" className="pointer-events-none absolute -top-[calc(30*var(--unit))] left-[28%] size-[calc(200*var(--unit))] rounded-[34%_34%_34%_0] bg-black/[0.17] sm:size-[calc(260*var(--unit))] lg:left-[calc(191*var(--unit))] lg:top-[calc(8*var(--unit))] lg:size-[calc(350*var(--unit))]"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none animate-float-slow [animation-delay:-5s] absolute -left-40 top-[38%] size-200 rounded-[36%_0_36%_0] bg-black/[0.17] sm:size-260 xl:left-51 xl:top-148 xl:size-350"
+        data-float="10000" data-float-delay="-5000" className="pointer-events-none absolute -left-[calc(40*var(--unit))] top-[38%] size-[calc(200*var(--unit))] rounded-[36%_0_36%_0] bg-black/[0.17] sm:size-[calc(260*var(--unit))] lg:left-[calc(51*var(--unit))] lg:top-[calc(148*var(--unit))] lg:size-[calc(350*var(--unit))]"
       />
 
-      <div className="relative z-10 max-w-1480">
+      <div className="relative z-10 max-w-[calc(1480*var(--unit))]">
         <h1
-          className={`animate-from-left font-extrabold tracking-[-0.02em] text-white ${
+          className={`translate-x-0 transition-[opacity,translate] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none font-extrabold tracking-[-0.02em] text-white ${
             isDetailPage
-              ? "fs-32 leading-[1.2] sm:fs-44 sm:leading-[1.18] xl:fs-56 xl:leading-[1.15]"
-              : "fs-38 leading-[1.1] sm:fs-56 sm:leading-[1.1] xl:fs-84 xl:leading-96"
+              ? "text-[calc(32*var(--unit))] leading-[1.2] sm:text-[calc(44*var(--unit))] sm:leading-[1.18] lg:text-[calc(56*var(--unit))] lg:leading-[1.15]"
+              : "text-[calc(38*var(--unit))] leading-[1.1] sm:text-[calc(56*var(--unit))] sm:leading-[1.1] lg:text-[calc(84*var(--unit))] lg:leading-[calc(96*var(--unit))]"
           }`}
         >
           {title}
         </h1>
-        <nav aria-label={breadcrumbLabel} className="animate-rise [animation-delay:250ms] mt-16 sm:mt-20 xl:mt-22">
-          <ol className="m-0 flex flex-wrap list-none items-center gap-x-10 gap-y-6 p-0 fs-15 font-medium leading-normal text-white/90 sm:fs-17 xl:gap-x-12 xl:fs-18">
+        <nav aria-label={breadcrumbLabel} className="translate-y-0 transition-[opacity,translate] delay-250 duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[calc(40*var(--unit))] starting:opacity-0 motion-reduce:transition-none mt-[calc(16*var(--unit))] sm:mt-[calc(20*var(--unit))] lg:mt-[calc(22*var(--unit))]">
+          <ol className="m-0 flex flex-wrap list-none items-center gap-x-[calc(10*var(--unit))] gap-y-[calc(6*var(--unit))] p-0 text-[calc(15*var(--unit))] font-medium leading-normal text-white/90 sm:text-[calc(17*var(--unit))] lg:gap-x-[calc(12*var(--unit))] lg:text-[calc(18*var(--unit))]">
             <li className="shrink-0">
               <Link href={home.href} className="transition-opacity duration-200 hover:opacity-75">
                 {home.label}
@@ -60,7 +60,7 @@ export default function PageBanner({ title, crumbs, isDetail }: PageBannerProps)
               </Fragment>
             ))}
             <li aria-hidden="true" className="shrink-0 text-white/60">{separator}</li>
-            <li aria-current="page" className="max-w-600 truncate text-white sm:max-w-800 xl:max-w-1000">
+            <li aria-current="page" className="max-w-[calc(600*var(--unit))] truncate text-white sm:max-w-[calc(800*var(--unit))] lg:max-w-[calc(1000*var(--unit))]">
               {title}
             </li>
           </ol>

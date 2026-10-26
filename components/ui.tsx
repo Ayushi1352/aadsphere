@@ -8,7 +8,7 @@ export function Lines({ lines }: { lines: string[] }) {
   return (
     <>
       {lines.map((line, i) => (
-        <span key={i} className="xl:block">
+        <span key={i} className="lg:block">
           {line}
           {i < lines.length - 1 ? " " : ""}
         </span>
@@ -20,12 +20,12 @@ export function Lines({ lines }: { lines: string[] }) {
 /** Small uppercase label with a red line on both sides ("—— OUR SERVICES ——"). */
 export function SectionLabel({ text, tracking = "tracking-[0.27em]", className = "" }: { text: string; tracking?: string; className?: string }) {
   return (
-    <p className={`flex items-center gap-14 xl:gap-22 ${className}`}>
-      <span className="h-2 w-32 bg-accent xl:w-52" aria-hidden="true" />
-      <span className={`font-inter fs-13 font-medium uppercase leading-none text-[#3d4350] xl:fs-16 ${tracking}`}>
+    <p className={`flex items-center gap-[calc(14*var(--unit))] lg:gap-[calc(22*var(--unit))] ${className}`}>
+      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-[#6e0c12] lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
+      <span className={`font-(family-name:--font-inter-face) text-[calc(13*var(--unit))] font-medium uppercase leading-none text-[#3d4350] lg:text-[calc(16*var(--unit))] ${tracking}`}>
         {text}
       </span>
-      <span className="h-2 w-32 bg-accent xl:w-52" aria-hidden="true" />
+      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-[#6e0c12] lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
     </p>
   );
 }
@@ -33,9 +33,9 @@ export function SectionLabel({ text, tracking = "tracking-[0.27em]", className =
 /** Two-line section heading: black first line, maroon second line. */
 export function SectionHeading({ lines, className = "" }: { lines: HeadingLine[]; className?: string }) {
   return (
-    <h2 className={`font-bold text-ink ${className}`}>
+    <h2 className={`font-bold text-[#141414] ${className}`}>
       {lines.map((line, i) => (
-        <span key={i} className={`block ${line.highlight ? "text-brand" : ""}`}>
+        <span key={i} className={`block ${line.highlight ? "text-[#6e0c12]" : ""}`}>
           {line.text}
         </span>
       ))}
@@ -43,7 +43,10 @@ export function SectionHeading({ lines, className = "" }: { lines: HeadingLine[]
   );
 }
 
-/** Decorative grid of small dots. `gap` is the distance between dots in design pixels. */
+/**
+ * Decorative grid of small dots. `gap` is the distance between dots in design pixels.
+ * data-float / data-float-delay are passed on so the grid can drift (see ScrollReveal).
+ */
 export function DotGrid({
   cols,
   rows,
@@ -52,6 +55,7 @@ export function DotGrid({
   size = 6,
   color = "#6e0c12",
   className = "",
+  ...floatProps
 }: {
   cols: number;
   rows: number;
@@ -60,18 +64,21 @@ export function DotGrid({
   size?: number;
   color?: string;
   className?: string;
+  "data-float"?: string;
+  "data-float-delay"?: string;
 }) {
-  const rem = (px: number) => `${px / 16}rem`;
+  const px = (n: number) => `calc(${n} * var(--unit, 1px))`;
   return (
     <span
+      {...floatProps}
       aria-hidden="true"
       className={`pointer-events-none block ${className}`}
       style={{
-        width: rem((cols - 1) * gap + size),
-        height: rem((rows - 1) * gapY + size),
-        backgroundImage: `radial-gradient(circle, ${color} ${rem(size / 2 - 0.4)}, transparent ${rem(size / 2)})`,
-        backgroundSize: `${rem(gap)} ${rem(gapY)}`,
-        backgroundPosition: `${rem(-(gap - size) / 2)} ${rem(-(gapY - size) / 2)}`,
+        width: px((cols - 1) * gap + size),
+        height: px((rows - 1) * gapY + size),
+        backgroundImage: `radial-gradient(circle, ${color} ${px(size / 2 - 0.4)}, transparent ${px(size / 2)})`,
+        backgroundSize: `${px(gap)} ${px(gapY)}`,
+        backgroundPosition: `${px(-(gap - size) / 2)} ${px(-(gapY - size) / 2)}`,
       }}
     />
   );

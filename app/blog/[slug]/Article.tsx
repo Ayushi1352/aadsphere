@@ -30,24 +30,24 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
   const articleTitle = usesDesignedTitle ? headingLines : highlightLastWords(matchingPost.titleLines, 2);
 
   return (
-    <article className="min-w-0 lg:grow xl:w-1042 xl:flex-none">
-      <div className="relative aspect-1042/448 overflow-hidden r-12 xl:r-16">
-        <Image src={articleImage.src} alt={articleImage.alt} fill preload sizes="(min-width: 64rem) 62vw, 100vw" className="animate-zoom-out object-cover" />
+    <article className="min-w-0 lg:grow lg:w-[calc(1042*var(--unit))] lg:flex-none">
+      <div className="relative aspect-1042/448 overflow-hidden rounded-[calc(12*var(--unit))] lg:rounded-[calc(16*var(--unit))]">
+        <Image src={articleImage.src} alt={articleImage.alt} fill preload sizes="(min-width: 64rem) 62vw, 100vw" className="scale-100 object-cover transition-[scale] duration-1600 ease-[cubic-bezier(0.22,1,0.36,1)] starting:scale-114 motion-reduce:transition-none" />
       </div>
 
-      <p data-reveal="up" className="mt-22 flex flex-wrap items-center gap-x-14 gap-y-4 fs-14 font-medium uppercase leading-none text-[#4b4f57] sm:fs-16 xl:mt-34 xl:gap-x-18 xl:pl-7 xl:fs-18">
+      <p data-reveal="up" className="mt-[calc(22*var(--unit))] flex flex-wrap items-center gap-x-[calc(14*var(--unit))] gap-y-[calc(4*var(--unit))] text-[calc(14*var(--unit))] font-medium uppercase leading-none text-[#4b4f57] sm:text-[calc(16*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:gap-x-[calc(18*var(--unit))] lg:pl-[calc(7*var(--unit))] lg:text-[calc(18*var(--unit))]">
         {articleDate}
-        <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
-        <span className="font-semibold text-brand-red">{articleCategory}</span>
-        <span className="h-14 w-px bg-[#9a9da3]" aria-hidden="true" />
+        <span className="h-[calc(14*var(--unit))] w-px bg-[#9a9da3]" aria-hidden="true" />
+        <span className="font-semibold text-[#d60c14]">{articleCategory}</span>
+        <span className="h-[calc(14*var(--unit))] w-px bg-[#9a9da3]" aria-hidden="true" />
         {author}
       </p>
 
-      <h1 data-reveal="up" className="mt-14 fs-32 font-bold leading-[1.12] tracking-[-0.01em] text-[#0d0612] sm:fs-48 xl:mt-20 xl:whitespace-nowrap xl:pl-7 xl:fs-67 xl:leading-70">
+      <h1 data-reveal="up" className="mt-[calc(14*var(--unit))] text-[calc(32*var(--unit))] font-bold leading-[1.12] tracking-[-0.01em] text-[#0d0612] sm:text-[calc(48*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:whitespace-nowrap lg:pl-[calc(7*var(--unit))] lg:text-[calc(67*var(--unit))] lg:leading-[calc(70*var(--unit))]">
         {articleTitle.map((line, i) => (
-          <span key={i} className="xl:block">
+          <span key={i} className="lg:block">
             {line.map((part) => (
-              <span key={part.text} className={part.highlight ? "text-brand-red" : ""}>
+              <span key={part.text} className={part.highlight ? "text-[#d60c14]" : ""}>
                 {part.text}
               </span>
             ))}{" "}
@@ -55,7 +55,7 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
         ))}
       </h1>
 
-      <div data-reveal-group="up" className="mt-16 space-y-18 fs-16 font-medium leading-[1.65] text-[#555a62] sm:fs-18 xl:mt-22 xl:space-y-30 xl:whitespace-nowrap xl:pl-11 xl:fs-22 xl:leading-[2.03125rem] xl:tracking-[-0.015em]">
+      <div data-reveal-group="up" className="mt-[calc(16*var(--unit))] space-y-[calc(18*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.65] text-[#555a62] sm:text-[calc(18*var(--unit))] lg:mt-[calc(22*var(--unit))] lg:space-y-[calc(30*var(--unit))] lg:whitespace-nowrap lg:pl-[calc(11*var(--unit))] lg:text-[calc(22*var(--unit))] lg:leading-[calc(32.5*var(--unit))] lg:tracking-[-0.015em]">
         {paragraphs.map((lines, i) => (
           <p key={i}>
             <Lines lines={lines} />
@@ -63,19 +63,19 @@ export default function Article({ currentSlug }: { currentSlug?: string }) {
         ))}
       </div>
 
-      <blockquote data-reveal="left" className="relative mt-28 flex items-center gap-18 overflow-hidden r-12 bg-linear-to-r from-[#fdeeef] to-[#fbe3e4] p-22 sm:gap-28 sm:p-30 xl:mt-34 xl:block xl:h-140 xl:r-16 xl:p-0">
-        <span className="absolute -bottom-90 -right-40 size-200 rounded-full bg-[#f9d5d6]/60" aria-hidden="true" />
-        <span className="absolute -right-70 -top-120 size-260 rounded-full bg-[#fbe0e1]/50" aria-hidden="true" />
-        <Icon name="quote-slant" className="relative h-44 w-56 shrink-0 text-brand-red xl:absolute xl:left-48 xl:top-23 xl:size-80" />
-        <p className="relative fs-17 font-medium leading-[1.5] text-[#44484f] sm:fs-21 xl:absolute xl:left-152 xl:top-31 xl:whitespace-nowrap xl:fs-24 xl:leading-36">
+      <blockquote data-reveal="left" className="relative mt-[calc(28*var(--unit))] flex items-center gap-[calc(18*var(--unit))] overflow-hidden rounded-[calc(12*var(--unit))] bg-linear-to-r from-[#fdeeef] to-[#fbe3e4] p-[calc(22*var(--unit))] sm:gap-[calc(28*var(--unit))] sm:p-[calc(30*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:block lg:h-[calc(140*var(--unit))] lg:rounded-[calc(16*var(--unit))] lg:p-0">
+        <span className="absolute -bottom-[calc(90*var(--unit))] -right-[calc(40*var(--unit))] size-[calc(200*var(--unit))] rounded-full bg-[#f9d5d6]/60" aria-hidden="true" />
+        <span className="absolute -right-[calc(70*var(--unit))] -top-[calc(120*var(--unit))] size-[calc(260*var(--unit))] rounded-full bg-[#fbe0e1]/50" aria-hidden="true" />
+        <Icon name="quote-slant" className="relative h-[calc(44*var(--unit))] w-[calc(56*var(--unit))] shrink-0 text-[#d60c14] lg:absolute lg:left-[calc(48*var(--unit))] lg:top-[calc(23*var(--unit))] lg:size-[calc(80*var(--unit))]" />
+        <p className="relative text-[calc(17*var(--unit))] font-medium leading-[1.5] text-[#44484f] sm:text-[calc(21*var(--unit))] lg:absolute lg:left-[calc(152*var(--unit))] lg:top-[calc(31*var(--unit))] lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(36*var(--unit))]">
           <Lines lines={quoteLines} />
         </p>
       </blockquote>
 
       {sections.map((section, i) => (
-        <section key={section.title} data-reveal="up" className={`mt-28 xl:pl-11 ${i === 0 ? "xl:mt-36" : "xl:mt-22"}`}>
-          <h2 className="fs-21 font-bold leading-[1.2] text-[#0d0612] sm:fs-25 xl:fs-30 xl:leading-36">{section.title}</h2>
-          <p className="mt-8 fs-16 font-medium leading-[1.6] text-[#555a62] sm:fs-18 xl:mt-9 xl:whitespace-nowrap xl:fs-22 xl:leading-[1.85625rem] xl:tracking-[-0.015em]">
+        <section key={section.title} data-reveal="up" className={`mt-[calc(28*var(--unit))] lg:pl-[calc(11*var(--unit))] ${i === 0 ? "lg:mt-[calc(36*var(--unit))]" : "lg:mt-[calc(22*var(--unit))]"}`}>
+          <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[#0d0612] sm:text-[calc(25*var(--unit))] lg:text-[calc(30*var(--unit))] lg:leading-[calc(36*var(--unit))]">{section.title}</h2>
+          <p className="mt-[calc(8*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.6] text-[#555a62] sm:text-[calc(18*var(--unit))] lg:mt-[calc(9*var(--unit))] lg:whitespace-nowrap lg:text-[calc(22*var(--unit))] lg:leading-[calc(29.7*var(--unit))] lg:tracking-[-0.015em]">
             <Lines lines={section.lines} />
           </p>
         </section>

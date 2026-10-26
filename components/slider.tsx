@@ -54,9 +54,9 @@ export function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={text[direction]}
-      className={`hidden md:flex size-44 cursor-pointer items-center justify-center rounded-full bg-white text-brand shadow-[0_0.25rem_1rem_rgba(20,20,20,0.12)] transition-colors duration-200 hover:bg-brand hover:text-white xl:size-52 ${className}`}
+      className={`hidden md:flex size-[calc(44*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-white text-[#6e0c12] shadow-[0_calc(4*var(--unit))_calc(16*var(--unit))_rgba(20,20,20,0.12)] transition-colors duration-200 hover:bg-[#6e0c12] hover:text-white lg:size-[calc(52*var(--unit))] ${className}`}
     >
-      <Icon name={icon} className="size-20 xl:size-22" />
+      <Icon name={icon} className="size-[calc(20*var(--unit))] lg:size-[calc(22*var(--unit))]" />
     </button>
   );
 }
@@ -82,9 +82,9 @@ export function SliderDots({
           onClick={() => onSelect(i)}
           aria-label={fill(text.goToSlideN, { n: i + 1 })}
           aria-current={i === active}
-          className="flex size-28 cursor-pointer items-center justify-center"
+          className="flex size-[calc(28*var(--unit))] cursor-pointer items-center justify-center"
         >
-          <span className={`block size-12 rounded-full transition-colors duration-200 ${i === active ? "bg-brand" : "bg-[#dfe0e2]"}`} />
+          <span className={`block size-[calc(12*var(--unit))] rounded-full transition-colors duration-200 ${i === active ? "bg-[#6e0c12]" : "bg-[#dfe0e2]"}`} />
         </button>
       ))}
     </div>

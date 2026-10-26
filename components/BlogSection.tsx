@@ -12,22 +12,22 @@ export default function BlogSection() {
   const ordered = rotate(posts, slider.index);
 
   return (
-    <section className="relative px-20 py-32 sm:px-32 sm:py-40 xl:h-798 xl:p-0">
-      <div data-reveal-group="up" className="flex flex-col items-center text-center xl:pt-48">
+    <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(798*var(--unit))] lg:p-0">
+      <div data-reveal-group="up" className="flex flex-col items-center text-center lg:pt-[calc(48*var(--unit))]">
         <SectionLabel text={label} tracking="tracking-[0.22em]" />
-        <SectionHeading lines={headingLines} className="mt-18 fs-28 leading-[1.08] sm:fs-52 xl:mt-15 xl:fs-65 xl:leading-62 xl:tracking-[-0.01em]" />
-        <p className="mt-18 max-w-640 font-inter fs-16 leading-[1.7] text-slate sm:fs-18 xl:mt-9 xl:max-w-none xl:fs-20 xl:leading-28 xl:tracking-[0.012em]">
+        <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(15*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(62*var(--unit))] lg:tracking-[-0.01em]" />
+        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-(family-name:--font-inter-face) text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(9*var(--unit))] lg:max-w-none lg:text-[calc(20*var(--unit))] lg:leading-[calc(28*var(--unit))] lg:tracking-[0.012em]">
           <Lines lines={descriptionLines} />
         </p>
       </div>
 
-      <div data-reveal="up" className="relative mt-36 xl:absolute xl:left-78 xl:top-286 xl:mt-0 xl:w-1535">
-        <div className="-m-12 overflow-hidden p-12" {...slider.swipe}>
-          <ul key={slider.index} className="flex animate-slide-in gap-24 xl:gap-25">
+      <div data-reveal="up" className="relative mt-[calc(36*var(--unit))] lg:absolute lg:left-[calc(78*var(--unit))] lg:top-[calc(286*var(--unit))] lg:mt-0 lg:w-[calc(1535*var(--unit))]">
+        <div className="-m-[calc(12*var(--unit))] overflow-hidden p-[calc(12*var(--unit))]" {...slider.swipe}>
+          <ul key={slider.index} className="flex translate-x-0 transition-[opacity,translate] duration-450 ease-out starting:translate-x-[calc(24*var(--unit))] starting:opacity-0 motion-reduce:transition-none gap-[calc(24*var(--unit))] lg:gap-[calc(25*var(--unit))]">
             {ordered.map((post) => (
               <li
                 key={post.href}
-                className="w-full shrink-0 md:w-[calc((100%-1.5rem)/2)] xl:w-495"
+                className="w-full shrink-0 md:w-[calc((100%-calc(24*var(--unit)))/2)] lg:w-[calc(495*var(--unit))]"
               >
                 <BlogCard post={post} />
               </li>
@@ -35,11 +35,11 @@ export default function BlogSection() {
           </ul>
         </div>
 
-        <ArrowButton direction="previous" icon="chevron-left" onClick={slider.prev} className="hidden md:flex absolute -left-14 top-[26%] z-10 xl:-left-15 xl:top-165" />
-        <ArrowButton direction="next" icon="chevron-right" onClick={slider.next} className="hidden md:flex absolute -right-14 top-[26%] z-10 xl:-right-21 xl:top-165" />
+        <ArrowButton direction="previous" icon="chevron-left" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[26%] z-10 lg:-left-[calc(15*var(--unit))] lg:top-[calc(165*var(--unit))]" />
+        <ArrowButton direction="next" icon="chevron-right" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[26%] z-10 lg:-right-[calc(21*var(--unit))] lg:top-[calc(165*var(--unit))]" />
       </div>
 
-      <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} className="mt-24 xl:absolute xl:inset-x-0 xl:top-730 xl:mt-0" />
+      <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(730*var(--unit))] lg:mt-0" />
     </section>
   );
 }

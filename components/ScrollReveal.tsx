@@ -5,25 +5,53 @@ import { useEffect } from "react";
 const TARGETS = "[data-reveal], [data-reveal-group] > *";
 const STAGGER_MS = 110;
 const MAX_STAGGER_STEPS = 6;
+const DESIGN_WIDTH = 1686;
+const DESKTOP_MIN = 1024;
+
+/** Starting point of each animation, in design pixels (see --unit in app/layout.tsx). */
+const FROM: Record<string, (u: number) => Keyframe> = {
+  up: (u) => ({ opacity: 0, translate: `0 ${40 * u}px` }),
+  down: (u) => ({ opacity: 0, translate: `0 ${-40 * u}px` }),
+  left: (u) => ({ opacity: 0, translate: `${-56 * u}px 0` }),
+  right: (u) => ({ opacity: 0, translate: `${56 * u}px 0` }),
+  zoom: () => ({ opacity: 0, scale: "0.9" }),
+  fade: () => ({ opacity: 0 }),
+  line: () => ({ opacity: 0, scale: "0 1" }),
+};
 
 /**
  * Plays the scroll animations of the whole site.
  *
  * Mark an element with data-reveal="up | down | left | right | zoom | fade | line",
  * or mark a parent with data-reveal-group="..." to animate each of its children.
- * The element stays hidden (see globals.css) until it scrolls into view; this
- * component then sets data-shown on it, which starts the CSS animation.
+ * "left" means the element comes in from the left side, "right" from the right.
  * Elements that come into view together are staggered one after another.
+ *
+ * Decorative shapes marked with data-float="<duration in ms>" drift up and down
+ * forever; data-float-delay="<ms>" (may be negative) offsets them from each other.
+ *
+ * Everything runs through the Web Animations API, so no CSS is needed. Without
+ * JavaScript, or with reduced motion turned on, every element is simply visible
+ * and nothing moves.
  */
 export default function ScrollReveal() {
   useEffect(() => {
-    const root = document.documentElement;
-    const seen = new WeakSet<Element>();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const show = (el: HTMLElement, delay = 0) => {
-      const extra = Number(el.dataset.revealDelay ?? 0);
-      el.style.setProperty("--reveal-delay", `${delay + extra}ms`);
-      el.dataset.shown = "";
+    const seen = new WeakSet<Element>();
+    // Same value as --unit: on laptops the design scales down with the screen.
+    const unit = () => (window.innerWidth >= DESKTOP_MIN && window.innerWidth < DESIGN_WIDTH ? window.innerWidth / DESIGN_WIDTH : 1);
+
+    const play = (el: HTMLElement, delay = 0) => {
+      const kind = el.dataset.reveal || el.parentElement?.dataset.revealGroup || "up";
+      const from = (FROM[kind] ?? FROM.up)(unit());
+      el.animate([{ offset: 0, ...from }], {
+        duration: 800,
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        delay: delay + Number(el.dataset.revealDelay ?? 0),
+        fill: "backwards",
+      });
+      el.style.opacity = "";
     };
 
     const io = new IntersectionObserver(
@@ -37,21 +65,42 @@ export default function ScrollReveal() {
           io.unobserve(el);
           const step = perParent.get(el.parentElement) ?? 0;
           perParent.set(el.parentElement, step + 1);
-          show(el, passed ? 0 : Math.min(step, MAX_STAGGER_STEPS) * STAGGER_MS);
+          play(el, passed ? 0 : Math.min(step, MAX_STAGGER_STEPS) * STAGGER_MS);
         }
       },
       { rootMargin: "0px 0px -6% 0px", threshold: 0.05 },
     );
 
-    const scan = () => {
-      document.querySelectorAll<HTMLElement>(TARGETS).forEach((el) => {
-        if (seen.has(el) || "shown" in el.dataset) return;
-        seen.add(el);
-        io.observe(el);
+    // On the first scan the page is already painted, so whatever is on screen
+    // stays as it is. Everything below the fold is hidden until it scrolls in.
+    // Later scans (another page opened, a slider moved) run before the browser
+    // paints the new elements, so those can all be hidden and animated.
+    const float = (el: HTMLElement) => {
+      const lift = { translate: `0 ${-12 * unit()}px`, easing: "ease-in-out" };
+      el.animate([{ translate: "0 0", easing: "ease-in-out" }, lift, { translate: "0 0" }], {
+        duration: Number(el.dataset.float) || 6000,
+        delay: Number(el.dataset.floatDelay ?? 0),
+        iterations: Infinity,
       });
     };
 
-    // New elements appear when the visitor opens another page or moves a slider.
+    let firstScan = true;
+    const scan = () => {
+      document.querySelectorAll<HTMLElement>("[data-float]").forEach((el) => {
+        if (seen.has(el)) return;
+        seen.add(el);
+        float(el);
+      });
+      document.querySelectorAll<HTMLElement>(TARGETS).forEach((el) => {
+        if (seen.has(el)) return;
+        seen.add(el);
+        if (firstScan && el.getBoundingClientRect().top < window.innerHeight) return;
+        el.style.opacity = "0";
+        io.observe(el);
+      });
+      firstScan = false;
+    };
+
     let frame = 0;
     const mo = new MutationObserver(() => {
       cancelAnimationFrame(frame);
@@ -60,7 +109,6 @@ export default function ScrollReveal() {
 
     scan();
     mo.observe(document.body, { childList: true, subtree: true });
-    root.dataset.revealReady = "";
 
     return () => {
       cancelAnimationFrame(frame);

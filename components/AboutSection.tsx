@@ -13,26 +13,26 @@ const { tagline, headingLines, descriptionLines, images, experience } = site.abo
  */
 export default function AboutSection({ compact = false }: { compact?: boolean }) {
   return (
-    <section className="relative px-20 py-32 sm:px-32 sm:py-40 xl:h-776 xl:p-0">
+    <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(776*var(--unit))] lg:p-0">
       <div className="contents">
-        <div className="lg:flex lg:items-center lg:gap-40 xl:block">
+        <div className="lg:items-center lg:gap-[calc(40*var(--unit))] lg:block">
           {/* Text */}
-          <div className="lg:w-1/2 xl:w-auto">
-            <p data-reveal="left" className="flex flex-wrap items-center gap-x-18 fs-13 font-semibold uppercase leading-none tracking-[0.3em] text-[#222222] xl:absolute xl:left-64 xl:top-111 xl:fs-16 xl:font-medium">
+          <div className="lg:w-auto">
+            <p data-reveal="left" className="flex flex-wrap items-center gap-x-[calc(18*var(--unit))] text-[calc(13*var(--unit))] font-semibold uppercase leading-none tracking-[0.3em] text-[#222222] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(111*var(--unit))] lg:text-[calc(16*var(--unit))] lg:font-medium">
               {tagline.map((word, i) => (
-                <span key={word} className="flex items-center gap-18">
-                  {i > 0 && <span className="-ml-[0.3em] h-12 w-2 bg-accent xl:h-11" aria-hidden="true" />}
+                <span key={word} className="flex items-center gap-[calc(18*var(--unit))]">
+                  {i > 0 && <span className="-ml-[0.3em] h-[calc(12*var(--unit))] w-[calc(2*var(--unit))] bg-[#6e0c12] lg:h-[calc(11*var(--unit))]" aria-hidden="true" />}
                   {word}
                 </span>
               ))}
             </p>
 
             {/* On desktop every line sits on a white strip that overlaps the photo. */}
-            <h2 data-reveal="left" className="mt-20 fs-36 leading-[1.14] tracking-[-0.03em] text-ink sm:fs-52 xl:absolute xl:left-64 xl:top-153 xl:z-20 xl:mt-0 xl:fs-70 xl:leading-73 xl:tracking-[-0.004em]">
+            <h2 data-reveal="left" className="mt-[calc(20*var(--unit))] text-[calc(36*var(--unit))] leading-[1.14] tracking-[-0.03em] text-[#141414] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(153*var(--unit))] lg:z-20 lg:mt-0 lg:text-[calc(70*var(--unit))] lg:leading-[calc(73*var(--unit))] lg:tracking-[-0.004em]">
               {headingLines.map((line, i) => (
-                <span key={i} className={`xl:block xl:w-fit xl:min-w-639 xl:whitespace-nowrap xl:bg-white xl:pr-21 ${i === 0 ? "xl:pt-8" : ""}`}>
+                <span key={i} className={`lg:block lg:w-fit lg:min-w-[calc(639*var(--unit))] lg:whitespace-nowrap lg:bg-white lg:pr-[calc(21*var(--unit))] ${i === 0 ? "lg:pt-[calc(8*var(--unit))]" : ""}`}>
                   {line.map((part) => (
-                    <span key={part.text} className={part.highlight ? "font-extrabold text-brand" : "font-normal"}>
+                    <span key={part.text} className={part.highlight ? "font-extrabold text-[#6e0c12]" : "font-normal"}>
                       {part.text}
                     </span>
                   ))}{" "}
@@ -40,22 +40,22 @@ export default function AboutSection({ compact = false }: { compact?: boolean })
               ))}
             </h2>
 
-            <span data-reveal="line" className="mt-24 block h-3 w-70 bg-accent xl:absolute xl:left-64 xl:top-477 xl:mt-0" aria-hidden="true" />
+            <span data-reveal="line" className="origin-left mt-[calc(24*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(70*var(--unit))] bg-[#6e0c12] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(477*var(--unit))] lg:mt-0" aria-hidden="true" />
 
-            <p data-reveal="left" className="mt-22 max-w-540 font-text fs-16 leading-[1.75] text-body sm:fs-18 xl:absolute xl:left-64 xl:top-506 xl:mt-0 xl:max-w-none xl:whitespace-nowrap xl:fs-21 xl:leading-35 xl:tracking-[0.03em]">
+            <p data-reveal="left" className="mt-[calc(22*var(--unit))] max-w-[calc(540*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.75] text-[#5a5a5a] sm:text-[calc(18*var(--unit))] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(506*var(--unit))] lg:mt-0 lg:max-w-none lg:whitespace-nowrap lg:text-[calc(21*var(--unit))] lg:leading-[calc(35*var(--unit))] lg:tracking-[0.03em]">
               <Lines lines={descriptionLines} />
             </p>
           </div>
 
           {/* Photos */}
-          <div className="mt-40 lg:mt-0 lg:w-1/2 xl:w-auto">
-            <div className="relative mx-auto aspect-458/680 w-full max-w-420 xl:absolute xl:left-598 xl:top-48 xl:mx-0 xl:h-680 xl:w-458 xl:max-w-none">
-              <span data-reveal="zoom" className="absolute left-[12%] top-0 h-[14.3%] w-[34.5%] bg-brand" aria-hidden="true" />
+          <div className="mt-[calc(40*var(--unit))] lg:mt-0 lg:w-auto">
+            <div className="relative mx-auto aspect-458/680 w-full max-w-[calc(420*var(--unit))] lg:absolute lg:left-[calc(598*var(--unit))] lg:top-[calc(48*var(--unit))] lg:mx-0 lg:h-[calc(680*var(--unit))] lg:w-[calc(458*var(--unit))] lg:max-w-none">
+              <span data-reveal="zoom" className="absolute left-[12%] top-0 h-[14.3%] w-[34.5%] bg-[#6e0c12]" aria-hidden="true" />
               <div data-reveal="down" className="absolute left-[19.65%] top-[4.1%] h-[67.95%] w-[80.35%] overflow-hidden">
                 <Image src={images.primary.src} alt={images.primary.alt} fill sizes="(min-width: 80rem) 22vw, 340px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
-              <span data-reveal="zoom" className="absolute left-0 top-[56.8%] h-[19.4%] w-[17.9%] bg-brand" aria-hidden="true" />
-              <DotGrid cols={4} rows={4} gap={22} className="absolute -left-43 top-[85.6%] hidden animate-float xl:block" />
+              <span data-reveal="zoom" className="absolute left-0 top-[56.8%] h-[19.4%] w-[17.9%] bg-[#6e0c12]" aria-hidden="true" />
+              <DotGrid cols={4} rows={4} gap={22} data-float="6000" className="absolute -left-[calc(43*var(--unit))] top-[85.6%] hidden lg:block" />
               <div data-reveal="left" data-reveal-delay="150" className="absolute left-[6.35%] top-[60.4%] h-[39.6%] w-[77.7%] border-2 border-white bg-white">
                 <div className="relative size-full overflow-hidden">
                   <Image src={images.secondary.src} alt={images.secondary.alt} fill sizes="(min-width: 80rem) 21vw, 330px" className="object-cover transition-transform duration-700 hover:scale-105" />
@@ -66,45 +66,45 @@ export default function AboutSection({ compact = false }: { compact?: boolean })
         </div>
 
         {/* 10 years experience panel */}
-        <div className="relative -mx-20 mt-56 overflow-hidden bg-panel px-20 py-56 sm:-mx-32 sm:px-32 sm:py-72 xl:absolute xl:right-0 xl:top-48 xl:mx-0 xl:mt-0 xl:h-680 xl:w-606 xl:p-0">
+        <div className="relative -mx-[calc(20*var(--unit))] mt-[calc(56*var(--unit))] overflow-hidden bg-[#fbf6f3] px-[calc(20*var(--unit))] py-[calc(56*var(--unit))] sm:-mx-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(72*var(--unit))] lg:absolute lg:right-0 lg:top-[calc(48*var(--unit))] lg:mx-0 lg:mt-0 lg:h-[calc(680*var(--unit))] lg:w-[calc(606*var(--unit))] lg:p-0">
           <span
             aria-hidden="true"
-            className="absolute left-118 top-25 hidden size-410 rounded-full border-[0.5rem] border-transparent border-r-[#f6e6e4] border-t-[#f8ecea] xl:block"
+            className="absolute left-[calc(118*var(--unit))] top-[calc(25*var(--unit))] hidden size-[calc(410*var(--unit))] rounded-full border-[calc(8*var(--unit))] border-transparent border-r-[#f6e6e4] border-t-[#f8ecea] lg:block"
             style={{ transform: "rotate(8deg)" }}
           />
-          <div className="relative mx-auto max-w-540 xl:mx-0 xl:max-w-none">
-            <div className="flex items-center gap-24 xl:block">
+          <div className="relative mx-auto max-w-[calc(540*var(--unit))] lg:mx-0 lg:max-w-none">
+            <div className="flex items-center gap-[calc(24*var(--unit))] lg:block">
               <p
                 data-reveal="up"
-                className="fs-150 font-black leading-[0.8] tracking-[-0.04em] text-brand sm:fs-200 xl:absolute xl:left-58 xl:top-153 xl:origin-left xl:scale-x-[0.93] xl:fs-262 xl:leading-205"
+                className="text-[calc(150*var(--unit))] font-black leading-[0.8] tracking-[-0.04em] text-[#6e0c12] sm:text-[calc(200*var(--unit))] lg:absolute lg:left-[calc(58*var(--unit))] lg:top-[calc(153*var(--unit))] lg:origin-left lg:scale-x-[0.93] lg:text-[calc(262*var(--unit))] lg:leading-[calc(205*var(--unit))]"
                 style={{ WebkitBoxReflect: "below -0.06em linear-gradient(transparent 70%, rgba(255,255,255,0.09))" }}
               >
                 <CountUp value={experience.number} />
               </p>
-              <div data-reveal="right" className="xl:absolute xl:left-339 xl:top-245">
-                <p className="fs-15 font-medium uppercase leading-[1.7] tracking-[0.47em] text-[#222222] sm:fs-18 xl:fs-20 xl:leading-34">
+              <div data-reveal="right" className="lg:absolute lg:left-[calc(339*var(--unit))] lg:top-[calc(245*var(--unit))]">
+                <p className="text-[calc(15*var(--unit))] font-medium uppercase leading-[1.7] tracking-[0.47em] text-[#222222] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
                   {experience.labelLines.map((line) => (
                     <span key={line} className="block">
                       {line}
                     </span>
                   ))}
                 </p>
-                <span className="mt-14 block h-3 w-69 bg-accent xl:mt-12" aria-hidden="true" />
+                <span className="mt-[calc(14*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(69*var(--unit))] bg-[#6e0c12] lg:mt-[calc(12*var(--unit))]" aria-hidden="true" />
               </div>
             </div>
 
-            <h3 data-reveal="up" className="mt-44 fs-21 font-bold leading-[1.2] text-ink sm:fs-25 xl:absolute xl:left-63 xl:top-408 xl:mt-0 xl:whitespace-nowrap">{experience.title}</h3>
-            <p data-reveal="up" className="mt-14 font-text fs-16 leading-[1.7] text-body sm:fs-18 xl:absolute xl:left-63 xl:top-448 xl:mt-0 xl:whitespace-nowrap xl:fs-21 xl:leading-32 xl:tracking-[0.005em]">
+            <h3 data-reveal="up" className="mt-[calc(44*var(--unit))] text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[#141414] sm:text-[calc(25*var(--unit))] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(408*var(--unit))] lg:mt-0 lg:whitespace-nowrap">{experience.title}</h3>
+            <p data-reveal="up" className="mt-[calc(14*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] leading-[1.7] text-[#5a5a5a] sm:text-[calc(18*var(--unit))] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(448*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(21*var(--unit))] lg:leading-[calc(32*var(--unit))] lg:tracking-[0.005em]">
               <Lines lines={experience.descriptionLines} />
             </p>
             {!compact && (
               <Link
                 href={experience.link.href}
                 data-reveal="up"
-                className="group mt-28 flex items-center justify-between border-b border-[#d9818a] pb-10 fs-18 font-semibold text-brand xl:absolute xl:left-63 xl:top-581 xl:mt-0 xl:h-36 xl:w-475 xl:items-start xl:pb-0 xl:fs-20 xl:leading-28"
+                className="group mt-[calc(28*var(--unit))] flex items-center justify-between border-b border-[#d9818a] pb-[calc(10*var(--unit))] text-[calc(18*var(--unit))] font-semibold text-[#6e0c12] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(581*var(--unit))] lg:mt-0 lg:h-[calc(36*var(--unit))] lg:w-[calc(475*var(--unit))] lg:items-start lg:pb-0 lg:text-[calc(20*var(--unit))] lg:leading-[calc(28*var(--unit))]"
               >
                 {experience.link.label}
-                <Icon name="arrow-up-right" className="size-26 transition-transform duration-200 group-hover:-translate-y-2 group-hover:translate-x-2 xl:mt-2" />
+                <Icon name="arrow-up-right" className="size-[calc(26*var(--unit))] transition-transform duration-200 group-hover:-translate-y-[calc(2*var(--unit))] group-hover:translate-x-[calc(2*var(--unit))] lg:mt-[calc(2*var(--unit))]" />
               </Link>
             )}
           </div>

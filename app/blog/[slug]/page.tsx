@@ -41,7 +41,7 @@ export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]
   return (
     <main className="grow">
       <PageBanner title={postTitle} crumbs={[breadcrumb]} />
-      <div className="px-20 py-32 font-montserrat sm:px-32 sm:py-40 lg:flex lg:items-start lg:gap-32 xl:gap-37 xl:px-0 xl:py-48 xl:pl-63 xl:pr-52">
+      <div className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] font-(family-name:--font-montserrat-face) sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:flex lg:items-start lg:gap-[calc(37*var(--unit))] lg:px-0 lg:py-[calc(48*var(--unit))] lg:pl-[calc(63*var(--unit))] lg:pr-[calc(52*var(--unit))]">
         <Article currentSlug={slug} />
         <Sidebar currentSlug={slug} />
       </div>
