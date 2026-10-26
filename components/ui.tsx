@@ -8,7 +8,7 @@ export function Lines({ lines }: { lines: string[] }) {
   return (
     <>
       {lines.map((line, i) => (
-        <span key={i} className="lg:block">
+          <span key={i} className="lg:block">
           {line}
           {i < lines.length - 1 ? " " : ""}
         </span>
@@ -21,11 +21,11 @@ export function Lines({ lines }: { lines: string[] }) {
 export function SectionLabel({ text, tracking = "tracking-[0.27em]", className = "" }: { text: string; tracking?: string; className?: string }) {
   return (
     <p className={`flex items-center gap-[calc(14*var(--unit))] lg:gap-[calc(22*var(--unit))] ${className}`}>
-      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-[#6e0c12] lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
-      <span className={`font-(family-name:--font-inter-face) text-[calc(13*var(--unit))] font-medium uppercase leading-none text-[#3d4350] lg:text-[calc(16*var(--unit))] ${tracking}`}>
+      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-primary lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
+      <span className={`font-ui text-[calc(13*var(--unit))] font-medium uppercase leading-none text-[#3d4350] lg:text-[calc(16*var(--unit))] ${tracking}`}>
         {text}
       </span>
-      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-[#6e0c12] lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
+      <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-primary lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
     </p>
   );
 }
@@ -33,9 +33,9 @@ export function SectionLabel({ text, tracking = "tracking-[0.27em]", className =
 /** Two-line section heading: black first line, maroon second line. */
 export function SectionHeading({ lines, className = "" }: { lines: HeadingLine[]; className?: string }) {
   return (
-    <h2 className={`font-bold text-[#141414] ${className}`}>
+    <h2 className={`font-bold text-ink ${className}`}>
       {lines.map((line, i) => (
-        <span key={i} className={`block ${line.highlight ? "text-[#6e0c12]" : ""}`}>
+        <span key={i} className={`block ${line.highlight ? "text-primary" : ""}`}>
           {line.text}
         </span>
       ))}
@@ -53,7 +53,7 @@ export function DotGrid({
   gap = 22,
   gapY = gap,
   size = 6,
-  color = "#6e0c12",
+  color = "var(--color-primary)",
   className = "",
   ...floatProps
 }: {

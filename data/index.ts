@@ -6,6 +6,7 @@ import siteData from "./site.json";
 const sec = siteData.Advertising.sections;
 
 export const site = {
+  theme: siteData.Advertising.theme,
   siteMeta: sec.SiteMeta.variants.AdvertisingSiteMeta1,
   navbar: sec.Header.variants.AdvertisingHeader1,
   footer: sec.Footer.variants.AdvertisingFooter1,

@@ -26,7 +26,7 @@ export default function ServicesGrid() {
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} />
         <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(68*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
-        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-(family-name:--font-inter-face) text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(16*var(--unit))] lg:max-w-none lg:text-[calc(21*var(--unit))] lg:leading-[calc(31*var(--unit))] lg:tracking-[-0.005em]">
+        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-ui text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(16*var(--unit))] lg:max-w-none lg:text-[calc(21*var(--unit))] lg:leading-[calc(31*var(--unit))] lg:tracking-[-0.005em]">
           <Lines lines={descriptionLines} />
         </p>
       </div>
@@ -45,7 +45,7 @@ export default function ServicesGrid() {
             type="button"
             onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[#141414] transition-colors hover:bg-[#6e0c12] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-ink transition-colors hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.previous}
           </button>
@@ -56,7 +56,7 @@ export default function ServicesGrid() {
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
               aria-current={currentPage === page ? "page" : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-[#6e0c12] text-white" : "bg-white text-[#141414] hover:bg-[#6e0c12] hover:text-white"}`}
+              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-primary text-white" : "bg-white text-ink hover:bg-primary hover:text-white"}`}
             >
               {page}
             </button>
@@ -65,7 +65,7 @@ export default function ServicesGrid() {
             type="button"
             onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
             disabled={currentPage === pageCount}
-            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[#141414] transition-colors hover:bg-[#6e0c12] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-ink transition-colors hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.next}
           </button>

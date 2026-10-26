@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
-import QuoteIntro from "./QuoteIntro";
-import QuoteForm from "./QuoteForm";
+import QuoteIntro from "@/components/QuoteIntro";
+import QuoteForm from "@/components/QuoteForm";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.quote.meta;

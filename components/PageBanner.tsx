@@ -21,7 +21,7 @@ export default function PageBanner({ title, crumbs, isDetail }: PageBannerProps)
   const isDetailPage = isDetail ?? Boolean(crumbs && crumbs.length > 0);
 
   return (
-    <section className="relative mb-[calc(32*var(--unit))] overflow-hidden bg-[#6e0c12] px-[calc(20*var(--unit))] py-[calc(52*var(--unit))] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(64*var(--unit))] lg:flex lg:min-h-[calc(460*var(--unit))] lg:flex-col lg:justify-center lg:p-0 lg:pl-[calc(145*var(--unit))] lg:pr-[calc(52*var(--unit))] lg:py-[calc(60*var(--unit))]">
+    <section className="relative mb-[calc(32*var(--unit))] overflow-hidden bg-primary px-[calc(20*var(--unit))] py-[calc(52*var(--unit))] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(64*var(--unit))] lg:flex lg:min-h-[calc(460*var(--unit))] lg:flex-col lg:justify-center lg:p-0 lg:pl-[calc(145*var(--unit))] lg:pr-[calc(52*var(--unit))] lg:py-[calc(60*var(--unit))]">
       {/* Two soft rounded shapes behind the title */}
       <span
         aria-hidden="true"

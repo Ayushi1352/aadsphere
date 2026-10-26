@@ -24,19 +24,19 @@ export default function ProjectsGrid() {
   return (
     <section ref={sectionRef} className="scroll-mt-[calc(80*var(--unit))] px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:scroll-mt-[calc(120*var(--unit))] lg:px-0 lg:py-[calc(48*var(--unit))]">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
-        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-[#d60c14]" />
+        <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-accent" />
         <h2 className="mt-[calc(18*var(--unit))] text-[calc(30*var(--unit))] font-black leading-[1.1] tracking-[-0.02em] text-[#0b0b0c] sm:text-[calc(52*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:text-[calc(70*var(--unit))] lg:leading-[calc(70*var(--unit))]">
           {headingLines.map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
-                <span key={part.text} className={part.highlight ? "text-[#d60c14]" : ""}>
+                <span key={part.text} className={part.highlight ? "text-accent" : ""}>
                   {part.text}
                 </span>
               ))}
             </span>
           ))}
         </h2>
-        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-(family-name:--font-inter-face) text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:max-w-none lg:text-[calc(23*var(--unit))] lg:leading-[calc(33*var(--unit))] lg:tracking-[0.005em]">
+        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-ui text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:max-w-none lg:text-[calc(23*var(--unit))] lg:leading-[calc(33*var(--unit))] lg:tracking-[0.005em]">
           <Lines lines={descriptionLines} />
         </p>
       </div>
@@ -57,7 +57,7 @@ export default function ProjectsGrid() {
             <h3 className="mt-[calc(18*var(--unit))] text-[calc(22*var(--unit))] font-black leading-[1.2] tracking-[0.01em] text-[#0b0b0c] sm:text-[calc(25*var(--unit))] lg:mt-[calc(19*var(--unit))] lg:text-[calc(32*var(--unit))] lg:leading-[calc(38*var(--unit))]">{project.title}</h3>
             <ul className="mt-[calc(14*var(--unit))] flex flex-wrap gap-[calc(10*var(--unit))] lg:mt-[calc(21*var(--unit))] lg:gap-[calc(11*var(--unit))]">
               {project.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-[#fbe9e9] px-[calc(18*var(--unit))] py-[calc(9*var(--unit))] text-[calc(15*var(--unit))] font-medium leading-none text-[#d60c14] lg:flex lg:h-[calc(45*var(--unit))] lg:items-center lg:px-[calc(22*var(--unit))] lg:py-0 lg:text-[calc(19*var(--unit))]">
+                <li key={tag} className="rounded-full bg-accent-tint-9 px-[calc(18*var(--unit))] py-[calc(9*var(--unit))] text-[calc(15*var(--unit))] font-medium leading-none text-accent lg:flex lg:h-[calc(45*var(--unit))] lg:items-center lg:px-[calc(22*var(--unit))] lg:py-0 lg:text-[calc(19*var(--unit))]">
                   {tag}
                 </li>
               ))}
@@ -72,7 +72,7 @@ export default function ProjectsGrid() {
             type="button"
             onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[#141414] transition-colors hover:bg-[#d60c14] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-ink transition-colors hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.previous}
           </button>
@@ -83,7 +83,7 @@ export default function ProjectsGrid() {
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
               aria-current={currentPage === page ? "page" : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-[#d60c14] text-white" : "bg-white text-[#141414] hover:bg-[#d60c14] hover:text-white"}`}
+              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-accent text-white" : "bg-white text-ink hover:bg-accent hover:text-white"}`}
             >
               {page}
             </button>
@@ -92,7 +92,7 @@ export default function ProjectsGrid() {
             type="button"
             onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
             disabled={currentPage === pageCount}
-            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[#141414] transition-colors hover:bg-[#d60c14] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-[calc(44*var(--unit))] rounded-full bg-white px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-ink transition-colors hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {paginationText.next}
           </button>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
 import CtaStrip from "@/components/CtaStrip";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui";
-import FaqList from "./FaqList";
+import FaqList from "@/components/FaqList";
 import { site } from "@/data";
 
 const { title, meta, label, headingLines, descriptionLines, cta } = site.faq;
@@ -17,7 +17,7 @@ export default function FaqsPage() {
         <div data-reveal-group="up" className="flex flex-col items-center text-center">
           <SectionLabel text={label} />
           <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
-          <p className="mt-[calc(18*var(--unit))] max-w-[calc(680*var(--unit))] font-(family-name:--font-red-hat-text) text-[calc(16*var(--unit))] font-medium leading-[1.7] text-[#5a5a5a] sm:text-[calc(18*var(--unit))] lg:mt-[calc(14*var(--unit))] lg:max-w-none lg:text-[calc(19*var(--unit))] lg:leading-[calc(29*var(--unit))]">
+          <p className="mt-[calc(18*var(--unit))] max-w-[calc(680*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.7] text-body sm:text-[calc(18*var(--unit))] lg:mt-[calc(14*var(--unit))] lg:max-w-none lg:text-[calc(19*var(--unit))] lg:leading-[calc(29*var(--unit))]">
             <Lines lines={descriptionLines} />
           </p>
         </div>

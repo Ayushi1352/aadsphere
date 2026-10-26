@@ -8,14 +8,14 @@ import { site } from "@/data";
 const { form } = site.quote;
 
 const inputClass =
-  "block h-[calc(48*var(--unit))] w-full rounded-[calc(8*var(--unit))] border border-[#e3e5e9] bg-white px-[calc(16*var(--unit))] text-[calc(16*var(--unit))] text-[#141414] outline-none transition-colors duration-200 placeholder:text-[#7b808a] focus:border-[#6e0c12] lg:h-[calc(49*var(--unit))] lg:px-[calc(17*var(--unit))] lg:text-[calc(17*var(--unit))]";
+  "block h-[calc(48*var(--unit))] w-full rounded-[calc(8*var(--unit))] border border-[#e3e5e9] bg-white px-[calc(16*var(--unit))] text-[calc(16*var(--unit))] text-ink outline-none transition-colors duration-200 placeholder:text-[#7b808a] focus:border-primary lg:h-[calc(49*var(--unit))] lg:px-[calc(17*var(--unit))] lg:text-[calc(17*var(--unit))]";
 
 function Field({ label, required, htmlFor, children, className = "" }: { label: string; required?: boolean; htmlFor: string; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
       <label htmlFor={htmlFor} className="block text-[calc(16*var(--unit))] font-bold leading-none text-[#14171d] lg:text-[calc(18*var(--unit))] lg:leading-[calc(20*var(--unit))]">
         {label}
-        {required && <span className="ml-[calc(8*var(--unit))] text-[#6e0c12]">*</span>}
+        {required && <span className="ml-[calc(8*var(--unit))] text-primary">*</span>}
       </label>
       <div className="mt-[calc(10*var(--unit))] lg:mt-[calc(11*var(--unit))]">{children}</div>
     </div>
@@ -31,7 +31,7 @@ function Select({ id, placeholder, options, required }: { id: string; placeholde
           {placeholder}
         </option>
         {options.map((option) => (
-          <option key={option} value={option} className="text-[#141414]">
+          <option key={option} value={option} className="text-ink">
             {option}
           </option>
         ))}
@@ -52,10 +52,10 @@ export default function QuoteForm() {
   };
 
   return (
-    <div data-reveal="right" className="mt-[calc(48*var(--unit))] rounded-[calc(16*var(--unit))] border border-[#e8e9ec] bg-[#fbfbfc] p-[calc(22*var(--unit))] shadow-[0_calc(4*var(--unit))_calc(24*var(--unit))_rgba(20,20,20,0.04)] sm:p-[calc(32*var(--unit))] lg:mt-0 lg:grow lg:w-[calc(760*var(--unit))] lg:flex-none lg:rounded-[calc(20*var(--unit))] lg:pb-[calc(31*var(--unit))] lg:pl-[calc(37*var(--unit))] lg:pr-[calc(32*var(--unit))] lg:pt-[calc(20*var(--unit))]">
+    <div data-reveal="right" className="mt-[calc(48*var(--unit))] rounded-[calc(16*var(--unit))] border border-[#e8e9ec] bg-[#fbfbfc] p-[calc(22*var(--unit))] shadow-[0_calc(4*var(--unit))_calc(24*var(--unit))_color-mix(in_srgb,var(--color-ink)_4%,transparent)] sm:p-[calc(32*var(--unit))] lg:mt-0 lg:grow lg:w-[calc(760*var(--unit))] lg:flex-none lg:rounded-[calc(20*var(--unit))] lg:pb-[calc(31*var(--unit))] lg:pl-[calc(37*var(--unit))] lg:pr-[calc(32*var(--unit))] lg:pt-[calc(20*var(--unit))]">
       <h2 className="text-[calc(30*var(--unit))] font-black leading-[1.1] text-[#0e1118] sm:text-[calc(36*var(--unit))] lg:text-[calc(43*var(--unit))] lg:leading-[calc(48*var(--unit))]">
         {form.heading}
-        <span className="text-[#6e0c12]">{form.headingHighlight}</span>
+        <span className="text-primary">{form.headingHighlight}</span>
       </h2>
       <p className="mt-[calc(10*var(--unit))] text-[calc(16*var(--unit))] leading-[1.4] text-[#4c5159] lg:text-[calc(19*var(--unit))] lg:leading-[calc(24*var(--unit))] lg:tracking-[0.008em]">{form.description}</p>
 
@@ -88,7 +88,7 @@ export default function QuoteForm() {
         <div className="sm:col-span-2 lg:mt-[calc(7*var(--unit))]">
           <button
             type="submit"
-            className="flex h-[calc(58*var(--unit))] w-full cursor-pointer items-center justify-center gap-[calc(16*var(--unit))] rounded-[calc(10*var(--unit))] bg-linear-to-r from-[#56080e] to-[#6e0c12] text-[calc(18*var(--unit))] font-extrabold text-white transition-opacity duration-200 hover:opacity-90 lg:h-[calc(64*var(--unit))] lg:gap-[calc(20*var(--unit))] lg:rounded-[calc(12*var(--unit))] lg:text-[calc(21*var(--unit))]"
+            className="flex h-[calc(58*var(--unit))] w-full cursor-pointer items-center justify-center gap-[calc(16*var(--unit))] rounded-[calc(10*var(--unit))] bg-linear-to-r from-primary-shade-77 to-primary text-[calc(18*var(--unit))] font-extrabold text-white transition-opacity duration-200 hover:opacity-90 lg:h-[calc(64*var(--unit))] lg:gap-[calc(20*var(--unit))] lg:rounded-[calc(12*var(--unit))] lg:text-[calc(21*var(--unit))]"
           >
             {form.submit}
             <Icon name="arrow-right" className="size-[calc(22*var(--unit))] lg:size-[calc(24*var(--unit))]" />

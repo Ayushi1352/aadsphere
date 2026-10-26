@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
-import ServicesGrid from "./ServicesGrid";
+import ServicesGrid from "@/components/ServicesGrid";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.servicesPage.meta;

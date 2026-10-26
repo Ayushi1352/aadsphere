@@ -16,7 +16,7 @@ export default function ServicesSection() {
       <div data-reveal-group="up" className="flex flex-col items-center text-center lg:pt-[calc(48*var(--unit))]">
         <SectionLabel text={label} />
         <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(68*var(--unit))] lg:leading-[calc(65*var(--unit))]" />
-        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-(family-name:--font-inter-face) text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(13*var(--unit))] lg:max-w-none lg:text-[calc(20*var(--unit))] lg:leading-[calc(31*var(--unit))] lg:tracking-[0.025em]">
+        <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-ui text-[calc(16*var(--unit))] leading-[1.7] text-[#5f6779] sm:text-[calc(18*var(--unit))] lg:mt-[calc(13*var(--unit))] lg:max-w-none lg:text-[calc(20*var(--unit))] lg:leading-[calc(31*var(--unit))] lg:tracking-[0.025em]">
           <Lines lines={descriptionLines} />
         </p>
       </div>

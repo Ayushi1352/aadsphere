@@ -18,11 +18,11 @@ export default function Footer() {
     <footer className="relative mt-[calc(24*var(--unit))] bg-[#0c0e10] text-white sm:mt-[calc(32*var(--unit))] lg:mt-[calc(36*var(--unit))]">
       {/* Call to action strip */}
       <div className="px-[calc(16*var(--unit))] pt-[calc(18*var(--unit))] sm:px-[calc(32*var(--unit))] sm:pt-[calc(22*var(--unit))] lg:px-[calc(60*var(--unit))] lg:pt-[calc(24*var(--unit))]">
-        <div data-reveal="up" className="rounded-[calc(12*var(--unit))] border border-[#451217] bg-linear-to-r from-[#1c0d10] via-[#170c0e] to-[#1a0d0f] px-[calc(18*var(--unit))] py-[calc(16*var(--unit))] sm:px-[calc(28*var(--unit))] sm:py-[calc(22*var(--unit))] lg:flex lg:items-center lg:justify-between lg:gap-[calc(28*var(--unit))]">
-          <div className="border-l-3 border-[#d60c14] pl-[calc(14*var(--unit))] sm:pl-[calc(20*var(--unit))]">
-            <p className="text-[calc(13*var(--unit))] font-bold uppercase leading-none tracking-[0.16em] text-[#d60c14] sm:text-[calc(16*var(--unit))]">{cta.eyebrow}</p>
+        <div data-reveal="up" className="rounded-[calc(12*var(--unit))] border border-primary-shade-70 bg-linear-to-r from-primary-shade-31 via-primary-shade-25 to-primary-shade-31 px-[calc(18*var(--unit))] py-[calc(16*var(--unit))] sm:px-[calc(28*var(--unit))] sm:py-[calc(22*var(--unit))] lg:flex lg:items-center lg:justify-between lg:gap-[calc(28*var(--unit))]">
+          <div className="border-l-3 border-accent pl-[calc(14*var(--unit))] sm:pl-[calc(20*var(--unit))]">
+            <p className="text-[calc(13*var(--unit))] font-bold uppercase leading-none tracking-[0.16em] text-accent sm:text-[calc(16*var(--unit))]">{cta.eyebrow}</p>
             <p className="mt-[calc(6*var(--unit))] text-[calc(20*var(--unit))] font-bold leading-tight sm:mt-[calc(8*var(--unit))] sm:text-[calc(28*var(--unit))] lg:text-[calc(34*var(--unit))] lg:leading-[calc(38*var(--unit))]">
-              {cta.heading} <em className="font-extrabold text-[#d60c14]">{cta.headingHighlight}</em>
+              {cta.heading} <em className="font-extrabold text-accent">{cta.headingHighlight}</em>
             </p>
           </div>
           <span className="hidden h-[calc(56*var(--unit))] w-px bg-[#3a3d42] lg:block" aria-hidden="true" />
@@ -31,7 +31,7 @@ export default function Footer() {
           </p>
           <Link
             href={cta.button.href}
-            className="mt-[calc(14*var(--unit))] inline-flex h-[calc(44*var(--unit))] shrink-0 items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[#d60c14] px-[calc(22*var(--unit))] text-[calc(14*var(--unit))] font-bold text-white transition-colors duration-200 hover:bg-white hover:text-[#d60c14] sm:mt-[calc(16*var(--unit))] sm:h-[calc(52*var(--unit))] sm:px-[calc(28*var(--unit))] sm:text-[calc(16*var(--unit))] lg:h-[calc(56*var(--unit))] lg:px-[calc(32*var(--unit))] lg:text-[calc(18*var(--unit))]"
+            className="mt-[calc(14*var(--unit))] inline-flex h-[calc(44*var(--unit))] shrink-0 items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-accent px-[calc(22*var(--unit))] text-[calc(14*var(--unit))] font-bold text-white transition-colors duration-200 hover:bg-white hover:text-accent sm:mt-[calc(16*var(--unit))] sm:h-[calc(52*var(--unit))] sm:px-[calc(28*var(--unit))] sm:text-[calc(16*var(--unit))] lg:h-[calc(56*var(--unit))] lg:px-[calc(32*var(--unit))] lg:text-[calc(18*var(--unit))]"
           >
             {cta.button.label}
             <Icon name="arrow-right" className="size-[calc(18*var(--unit))] sm:size-[calc(20*var(--unit))] lg:size-[calc(22*var(--unit))]" />
@@ -57,7 +57,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex size-[calc(34*var(--unit))] items-center justify-center rounded-[calc(8*var(--unit))] border border-[#23262b] bg-[#14171a] text-white transition-[translate,color,background-color,border-color] duration-200 hover:-translate-y-[calc(2*var(--unit))] hover:border-[#d60c14] hover:bg-[#d60c14] sm:size-[calc(38*var(--unit))] lg:size-[calc(46*var(--unit))]"
+                  className="flex size-[calc(34*var(--unit))] items-center justify-center rounded-[calc(8*var(--unit))] border border-[#23262b] bg-[#14171a] text-white transition-[translate,color,background-color,border-color] duration-200 hover:-translate-y-[calc(2*var(--unit))] hover:border-accent hover:bg-accent sm:size-[calc(38*var(--unit))] lg:size-[calc(46*var(--unit))]"
                 >
                   <Icon name={social.icon} className="size-[calc(17*var(--unit))] sm:size-[calc(19*var(--unit))] lg:size-[calc(23*var(--unit))]" />
                 </a>
@@ -74,13 +74,13 @@ export default function Footer() {
             className="col-span-1 sm:col-span-4 lg:col-span-3 lg:border-l lg:border-[#1c2023] lg:pl-[calc(24*var(--unit))]"
           >
             <h3 className="text-[calc(15*var(--unit))] font-extrabold leading-none tracking-tight text-white sm:text-[calc(18*var(--unit))] lg:text-[calc(23*var(--unit))]">{column.heading}</h3>
-            <span className="mt-[calc(6*var(--unit))] block h-[calc(2*var(--unit))] w-[calc(24*var(--unit))] bg-[#d60c14] sm:mt-[calc(8*var(--unit))] sm:h-[calc(3*var(--unit))] sm:w-[calc(32*var(--unit))] lg:w-[calc(36*var(--unit))]" aria-hidden="true" />
+            <span className="mt-[calc(6*var(--unit))] block h-[calc(2*var(--unit))] w-[calc(24*var(--unit))] bg-accent sm:mt-[calc(8*var(--unit))] sm:h-[calc(3*var(--unit))] sm:w-[calc(32*var(--unit))] lg:w-[calc(36*var(--unit))]" aria-hidden="true" />
             <ul className="mt-[calc(8*var(--unit))] space-y-[calc(6*var(--unit))] sm:mt-[calc(12*var(--unit))] sm:space-y-[calc(8*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:space-y-[calc(12*var(--unit))]">
               {column.links.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="flex items-center justify-between gap-[calc(2*var(--unit))] text-[calc(12*var(--unit))] font-medium leading-[1.3] text-[#e2e2e2] transition-colors duration-200 hover:text-[#d60c14] sm:text-[calc(14*var(--unit))] lg:text-[calc(18*var(--unit))]"
+                    className="flex items-center justify-between gap-[calc(2*var(--unit))] text-[calc(12*var(--unit))] font-medium leading-[1.3] text-[#e2e2e2] transition-colors duration-200 hover:text-accent sm:text-[calc(14*var(--unit))] lg:text-[calc(18*var(--unit))]"
                   >
                     <span>{link.name}</span>
                     <Icon name="chevron-right" className="size-[calc(11*var(--unit))] shrink-0 text-[#888] sm:size-[calc(13*var(--unit))] lg:size-[calc(17*var(--unit))]" />
@@ -94,12 +94,12 @@ export default function Footer() {
         {/* Contact info column */}
         <div className="col-span-1 sm:col-span-4 lg:col-span-3 lg:border-l lg:border-[#1c2023] lg:pl-[calc(24*var(--unit))]">
           <h3 className="text-[calc(15*var(--unit))] font-extrabold leading-none tracking-tight text-white sm:text-[calc(18*var(--unit))] lg:text-[calc(23*var(--unit))]">{text.contactHeading}</h3>
-          <span className="mt-[calc(6*var(--unit))] block h-[calc(2*var(--unit))] w-[calc(24*var(--unit))] bg-[#d60c14] sm:mt-[calc(8*var(--unit))] sm:h-[calc(3*var(--unit))] sm:w-[calc(32*var(--unit))] lg:w-[calc(36*var(--unit))]" aria-hidden="true" />
+          <span className="mt-[calc(6*var(--unit))] block h-[calc(2*var(--unit))] w-[calc(24*var(--unit))] bg-accent sm:mt-[calc(8*var(--unit))] sm:h-[calc(3*var(--unit))] sm:w-[calc(32*var(--unit))] lg:w-[calc(36*var(--unit))]" aria-hidden="true" />
           <ul className="mt-[calc(8*var(--unit))] space-y-[calc(7*var(--unit))] sm:mt-[calc(12*var(--unit))] sm:space-y-[calc(8*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:space-y-[calc(15*var(--unit))]">
             {contactItems.map((item) => {
               const body = (
                 <>
-                  <span className="flex size-[calc(26*var(--unit))] shrink-0 items-center justify-center rounded-[calc(6*var(--unit))] bg-[#d60c14] text-white sm:size-[calc(32*var(--unit))] lg:size-[calc(44*var(--unit))]">
+                  <span className="flex size-[calc(26*var(--unit))] shrink-0 items-center justify-center rounded-[calc(6*var(--unit))] bg-accent text-white sm:size-[calc(32*var(--unit))] lg:size-[calc(44*var(--unit))]">
                     <Icon name={item.icon} className="size-[calc(13*var(--unit))] sm:size-[calc(16*var(--unit))] lg:size-[calc(22*var(--unit))]" />
                   </span>
                   <span className="min-w-0 text-[calc(11*var(--unit))] font-medium leading-[1.35] tracking-tight text-[#ededed] sm:text-[calc(13*var(--unit))] lg:text-[calc(18*var(--unit))] lg:leading-[calc(25*var(--unit))]">
@@ -115,7 +115,7 @@ export default function Footer() {
               return (
                 <li key={item.icon} className="min-w-0">
                   {item.href ? (
-                    <a href={item.href} className={`${className} transition-colors duration-200 hover:text-[#d60c14]`}>
+                    <a href={item.href} className={`${className} transition-colors duration-200 hover:text-accent`}>
                       {body}
                     </a>
                   ) : (
@@ -129,14 +129,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#1f2326] px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] font-(family-name:--font-inter-face) text-[calc(13*var(--unit))] tracking-tight text-[#c8c8c8] sm:px-[calc(32*var(--unit))] sm:py-[calc(16*var(--unit))] lg:px-[calc(60*var(--unit))] lg:text-[calc(18*var(--unit))]">
+      <div className="border-t border-[#1f2326] px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] font-ui text-[calc(13*var(--unit))] tracking-tight text-[#c8c8c8] sm:px-[calc(32*var(--unit))] sm:py-[calc(16*var(--unit))] lg:px-[calc(60*var(--unit))] lg:text-[calc(18*var(--unit))]">
         <div className="flex flex-col gap-[calc(8*var(--unit))] sm:flex-row sm:items-center sm:justify-between">
           <p>{text.copyright}</p>
           <ul className="flex flex-wrap items-center gap-y-[calc(4*var(--unit))]">
             {bottomLinks.map((link, i) => (
               <li key={link.name} className="flex items-center">
                 {i > 0 && <span className="mx-[calc(10*var(--unit))] h-[calc(12*var(--unit))] w-px bg-[#6a6d70] sm:mx-[calc(14*var(--unit))] sm:h-[calc(16*var(--unit))]" aria-hidden="true" />}
-                <Link href={link.href} className="transition-colors duration-200 hover:text-[#d60c14]">
+                <Link href={link.href} className="transition-colors duration-200 hover:text-accent">
                   {link.name}
                 </Link>
               </li>

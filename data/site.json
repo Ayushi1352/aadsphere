@@ -1,5 +1,80 @@
 {
   "Advertising": {
+    "theme": {
+      "colors": {
+        "primary": "#6e0c12",
+        "accent": "#d60c14",
+        "ink": "#141414",
+        "body": "#5a5a5a",
+        "page": "#f5f5f5"
+      },
+      "fonts": {
+        "main": {
+          "family": "Red Hat Display",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
+          ],
+          "italic": false
+        },
+        "text": {
+          "family": "Red Hat Text",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            400,
+            500
+          ],
+          "italic": false
+        },
+        "ui": {
+          "family": "Inter",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            400,
+            500,
+            600
+          ],
+          "italic": false
+        },
+        "article": {
+          "family": "Montserrat",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            400,
+            500,
+            600,
+            700,
+            800
+          ],
+          "italic": false
+        },
+        "hero": {
+          "family": "Krona One",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            400
+          ],
+          "italic": false
+        },
+        "alt": {
+          "family": "Poppins",
+          "fallback": "Arial, sans-serif",
+          "weights": [
+            300,
+            400,
+            500,
+            600,
+            700
+          ],
+          "italic": false
+        }
+      }
+    },
     "templateComponents": {
       "template-1": {
         "shared": {
@@ -76,7 +151,6 @@
             ]
           },
           "service-detail": {
-            "expand": "items",
             "components": [
               {
                 "key": "PageBanner",
@@ -113,7 +187,6 @@
             ]
           },
           "blog-detail": {
-            "expand": "slugs",
             "components": [
               {
                 "key": "PageBanner",
@@ -284,35 +357,35 @@
                 "children": [
                   {
                     "name": "Digital Advertising",
-                    "href": "/services/digital-advertising"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Social Media Marketing",
-                    "href": "/services/social-media-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Brand Strategy",
-                    "href": "/services/brand-strategy"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Performance Marketing",
-                    "href": "/services/performance-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Creative Design",
-                    "href": "/services/creative-design"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Consulting",
-                    "href": "/services/consulting"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Media Planning",
-                    "href": "/services/media-planning"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Campaign Management",
-                    "href": "/services/campaign-management"
+                    "href": "/services/service-details"
                   }
                 ]
               },
@@ -567,7 +640,7 @@
                   "Search Engine",
                   "Optimization"
                 ],
-                "href": "/services/search-engine-optimization",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-seo.webp",
                   "alt": "Two marketers reviewing search results on a laptop"
@@ -580,7 +653,7 @@
                   "Brand Strategy",
                   "& Identity"
                 ],
-                "href": "/services/brand-strategy",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-branding.webp",
                   "alt": "Brand strategists discussing ideas at a laptop"
@@ -593,7 +666,7 @@
                   "Performance",
                   "Marketing"
                 ],
-                "href": "/services/performance-marketing",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-performance.webp",
                   "alt": "Performance charts on a tablet during a review"
@@ -606,7 +679,7 @@
                   "Marketing",
                   "Consulting"
                 ],
-                "href": "/services/consulting",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-consulting.webp",
                   "alt": "Consultants smiling around a laptop"
@@ -818,7 +891,7 @@
                   "that help you attract the right audience, boost",
                   "brand visibility, and drive measurable growth."
                 ],
-                "href": "/blog/effective-digital-marketing-strategies-for-business-growth",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-digital-marketing.webp",
                   "alt": "Laptop showing a digital marketing dashboard"
@@ -841,7 +914,7 @@
                   "make smarter decisions, improve efficiency,",
                   "and achieve long-term success."
                 ],
-                "href": "/blog/how-data-driven-decisions-can-transform-your-business",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-data-driven.webp",
                   "alt": "Business charts being reviewed next to a laptop"
@@ -864,7 +937,7 @@
                   "your brand, increase engagement, and create",
                   "new opportunities for business growth."
                 ],
-                "href": "/blog/the-power-of-social-media-for-modern-businesses",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-social-media.webp",
                   "alt": "Phone with social media reactions floating above it"
@@ -972,35 +1045,35 @@
                 "links": [
                   {
                     "name": "Digital Advertising",
-                    "href": "/services/digital-advertising"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Social Media Marketing",
-                    "href": "/services/social-media-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Brand Strategy",
-                    "href": "/services/brand-strategy"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Performance Marketing",
-                    "href": "/services/performance-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Creative Design",
-                    "href": "/services/creative-design"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Consulting",
-                    "href": "/services/consulting"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Media Planning",
-                    "href": "/services/media-planning"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Campaign Management",
-                    "href": "/services/campaign-management"
+                    "href": "/services/service-details"
                   }
                 ]
               }
@@ -1194,7 +1267,7 @@
                   "Digital",
                   "Advertising"
                 ],
-                "href": "/services/digital-advertising",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-seo.webp",
                   "alt": "Two marketers reviewing ad results on a laptop"
@@ -1207,7 +1280,7 @@
                   "Social Media",
                   "Marketing"
                 ],
-                "href": "/services/social-media-marketing",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/portfolio-social-campaign.webp",
                   "alt": "Three phones showing social media creatives"
@@ -1220,7 +1293,7 @@
                   "Brand",
                   "Strategy"
                 ],
-                "href": "/services/brand-strategy",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-branding.webp",
                   "alt": "Brand strategists discussing ideas at a laptop"
@@ -1233,7 +1306,7 @@
                   "Performance",
                   "Marketing"
                 ],
-                "href": "/services/performance-marketing",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-performance.webp",
                   "alt": "Performance charts on a tablet during a review"
@@ -1246,7 +1319,7 @@
                   "Creative",
                   "Design"
                 ],
-                "href": "/services/creative-design",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/about-designer.webp",
                   "alt": "Designer reviewing brand colour charts at a desk"
@@ -1258,7 +1331,7 @@
                 "titleLines": [
                   "Consulting"
                 ],
-                "href": "/services/consulting",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/service-consulting.webp",
                   "alt": "Consultants smiling around a laptop"
@@ -1271,7 +1344,7 @@
                   "Media",
                   "Planning"
                 ],
-                "href": "/services/media-planning",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/blog-data-driven.webp",
                   "alt": "Business charts being reviewed next to a laptop"
@@ -1284,7 +1357,7 @@
                   "Campaign",
                   "Management"
                 ],
-                "href": "/services/campaign-management",
+                "href": "/services/service-details",
                 "image": {
                   "src": "/images/about-team.webp",
                   "alt": "Team reviewing campaign material around a laptop"
@@ -1303,6 +1376,16 @@
               "href": "/services"
             },
             "label": "Our Service",
+            "heading": [
+              {
+                "text": "Branding ",
+                "highlight": false
+              },
+              {
+                "text": "Design",
+                "highlight": true
+              }
+            ],
             "image": {
               "src": "/images/service-detail.webp",
               "alt": "Three brand strategists working together at a laptop"
@@ -1368,134 +1451,6 @@
                   "Our relationship doesn’t end with the design. We provide continuous support and",
                   "guidance to ensure your brand remains consistent and evolves with your business",
                   "needs."
-                ]
-              }
-            ],
-            "items": [
-              {
-                "slug": "brand-strategy",
-                "name": "Branding Design",
-                "heading": [
-                  {
-                    "text": "Branding ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Design",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "search-engine-optimization",
-                "name": "Search Engine Optimization",
-                "heading": [
-                  {
-                    "text": "Search Engine ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Optimization",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "performance-marketing",
-                "name": "Performance Marketing",
-                "heading": [
-                  {
-                    "text": "Performance ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Marketing",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "consulting",
-                "name": "Marketing Consulting",
-                "heading": [
-                  {
-                    "text": "Marketing ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Consulting",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "digital-advertising",
-                "name": "Digital Advertising",
-                "heading": [
-                  {
-                    "text": "Digital ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Advertising",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "social-media-marketing",
-                "name": "Social Media Marketing",
-                "heading": [
-                  {
-                    "text": "Social Media ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Marketing",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "creative-design",
-                "name": "Creative Design",
-                "heading": [
-                  {
-                    "text": "Creative ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Design",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "media-planning",
-                "name": "Media Planning",
-                "heading": [
-                  {
-                    "text": "Media ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Planning",
-                    "highlight": true
-                  }
-                ]
-              },
-              {
-                "slug": "campaign-management",
-                "name": "Campaign Management",
-                "heading": [
-                  {
-                    "text": "Campaign ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Management",
-                    "highlight": true
-                  }
                 ]
               }
             ]
@@ -1659,7 +1614,7 @@
                   "that help you attract the right audience, boost",
                   "brand visibility, and drive measurable growth."
                 ],
-                "href": "/blog/effective-digital-marketing-strategies-for-business-growth",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-digital-marketing.webp",
                   "alt": "Laptop showing a digital marketing dashboard"
@@ -1682,7 +1637,7 @@
                   "make smarter decisions, improve efficiency,",
                   "and achieve long-term success."
                 ],
-                "href": "/blog/how-data-driven-decisions-can-transform-your-business",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-data-driven.webp",
                   "alt": "Business charts being reviewed next to a laptop"
@@ -1705,7 +1660,7 @@
                   "your brand, increase engagement, and create",
                   "new opportunities for business growth."
                 ],
-                "href": "/blog/the-power-of-social-media-for-modern-businesses",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-social-media.webp",
                   "alt": "Phone with social media reactions floating above it"
@@ -1728,7 +1683,7 @@
                   "why it matters, and how to build one that",
                   "keeps your business memorable."
                 ],
-                "href": "/blog/everything-you-should-know-about-brand-strategy",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/blog-detail.webp",
                   "alt": "Three brand strategists reviewing ideas on a laptop"
@@ -1751,7 +1706,7 @@
                   "and learn how strong visuals turn first",
                   "impressions into lasting recognition."
                 ],
-                "href": "/blog/creative-design-trends-that-make-your-brand-stand-out",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/about-designer.webp",
                   "alt": "Designer reviewing brand colour charts at a desk"
@@ -1774,7 +1729,7 @@
                   "set realistic budgets, and plan media that",
                   "delivers more from every rupee spent."
                 ],
-                "href": "/blog/smart-media-planning-tips-for-higher-campaign-roi",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/service-detail.webp",
                   "alt": "Three strategists planning media together at a laptop"
@@ -1797,7 +1752,7 @@
                   "from cost per lead to return on ad spend,",
                   "and use them to improve every campaign."
                 ],
-                "href": "/blog/performance-marketing-metrics-every-business-should-track",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/portfolio-trading-platform.webp",
                   "alt": "Performance dashboard on a laptop screen"
@@ -1820,7 +1775,7 @@
                   "missed opportunities, sharpen your strategy,",
                   "and speed up sustainable growth."
                 ],
-                "href": "/blog/why-marketing-consulting-matters-for-growing-brands",
+                "href": "/blog/blog-details",
                 "image": {
                   "src": "/images/about-team.webp",
                   "alt": "Team reviewing campaign material around a laptop"
@@ -1842,16 +1797,6 @@
               "title": "Everything You Should Know About Brand Strategy - AdSphere",
               "description": "A strong brand strategy is the foundation of every successful business."
             },
-            "slugs": [
-              "everything-you-should-know-about-brand-strategy",
-              "effective-digital-marketing-strategies-for-business-growth",
-              "how-data-driven-decisions-can-transform-your-business",
-              "the-power-of-social-media-for-modern-businesses",
-              "creative-design-trends-that-make-your-brand-stand-out",
-              "smart-media-planning-tips-for-higher-campaign-roi",
-              "performance-marketing-metrics-every-business-should-track",
-              "why-marketing-consulting-matters-for-growing-brands"
-            ],
             "image": {
               "src": "/images/blog-detail.webp",
               "alt": "Three brand strategists reviewing ideas on a laptop"
@@ -1948,44 +1893,6 @@
                 }
               ],
               "recentHeading": "Recent Posts",
-              "recentPosts": [
-                {
-                  "titleLines": [
-                    "Effective Digital Marketing",
-                    "Strategies for Business Growth"
-                  ],
-                  "date": "Aug 20, 2025",
-                  "href": "/blog/effective-digital-marketing-strategies-for-business-growth",
-                  "image": {
-                    "src": "/images/blog-digital-marketing.webp",
-                    "alt": "Laptop showing a digital marketing dashboard"
-                  }
-                },
-                {
-                  "titleLines": [
-                    "How Data-Driven Decisions",
-                    "Can Transform Your Business"
-                  ],
-                  "date": "Aug 25, 2025",
-                  "href": "/blog/how-data-driven-decisions-can-transform-your-business",
-                  "image": {
-                    "src": "/images/blog-data-driven.webp",
-                    "alt": "Business charts being reviewed next to a laptop"
-                  }
-                },
-                {
-                  "titleLines": [
-                    "The Power of Social Media",
-                    "for Modern Businesses"
-                  ],
-                  "date": "Aug 14, 2025",
-                  "href": "/blog/the-power-of-social-media-for-modern-businesses",
-                  "image": {
-                    "src": "/images/blog-social-media.webp",
-                    "alt": "Phone with social media reactions floating above it"
-                  }
-                }
-              ],
               "tagsHeading": "Tags",
               "tags": [
                 {
@@ -2360,58 +2267,6 @@
                 ]
               }
             ],
-            "openings": {
-              "label": "Open Positions",
-              "headingLines": [
-                {
-                  "text": "Find The Role",
-                  "highlight": false
-                },
-                {
-                  "text": "That Fits You",
-                  "highlight": true
-                }
-              ],
-              "applyLabel": "Apply Now",
-              "applyHref": "/contact",
-              "jobs": [
-                {
-                  "title": "Digital Marketing Executive",
-                  "department": "Marketing",
-                  "type": "Full Time",
-                  "location": "New Delhi, India",
-                  "description": "Plan, run and report on paid and organic campaigns across search and social platforms."
-                },
-                {
-                  "title": "Graphic Designer",
-                  "department": "Creative",
-                  "type": "Full Time",
-                  "location": "New Delhi, India",
-                  "description": "Design brand identities, social creatives and campaign visuals for a wide range of clients."
-                },
-                {
-                  "title": "SEO Specialist",
-                  "department": "Marketing",
-                  "type": "Full Time",
-                  "location": "Hybrid",
-                  "description": "Improve search visibility through research, on-page work, technical fixes and content planning."
-                },
-                {
-                  "title": "Content Writer",
-                  "department": "Content",
-                  "type": "Part Time",
-                  "location": "Remote",
-                  "description": "Write clear, engaging blogs, ad copy and website content that matches each brand voice."
-                },
-                {
-                  "title": "Client Relationship Manager",
-                  "department": "Client Success",
-                  "type": "Full Time",
-                  "location": "New Delhi, India",
-                  "description": "Be the main point of contact for clients and make sure every project is delivered smoothly."
-                }
-              ]
-            },
             "cta": {
               "heading": "Don’t see the right role?",
               "description": "Send us your profile anyway. We are always happy to hear from talented people.",
@@ -2767,39 +2622,39 @@
                 "links": [
                   {
                     "name": "Digital Advertising",
-                    "href": "/services/digital-advertising"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Social Media Marketing",
-                    "href": "/services/social-media-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Brand Strategy",
-                    "href": "/services/brand-strategy"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Performance Marketing",
-                    "href": "/services/performance-marketing"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Creative Design",
-                    "href": "/services/creative-design"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Consulting",
-                    "href": "/services/consulting"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Media Planning",
-                    "href": "/services/media-planning"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Campaign Management",
-                    "href": "/services/campaign-management"
+                    "href": "/services/service-details"
                   },
                   {
                     "name": "Search Engine Optimization",
-                    "href": "/services/search-engine-optimization"
+                    "href": "/services/service-details"
                   }
                 ]
               },
@@ -2808,19 +2663,19 @@
                 "links": [
                   {
                     "name": "Everything You Should Know About Brand Strategy",
-                    "href": "/blog/everything-you-should-know-about-brand-strategy"
+                    "href": "/blog/blog-details"
                   },
                   {
                     "name": "Effective Digital Marketing Strategies",
-                    "href": "/blog/effective-digital-marketing-strategies-for-business-growth"
+                    "href": "/blog/blog-details"
                   },
                   {
                     "name": "How Data-Driven Decisions Can Transform Your Business",
-                    "href": "/blog/how-data-driven-decisions-can-transform-your-business"
+                    "href": "/blog/blog-details"
                   },
                   {
                     "name": "The Power of Social Media",
-                    "href": "/blog/the-power-of-social-media-for-modern-businesses"
+                    "href": "/blog/blog-details"
                   }
                 ]
               },

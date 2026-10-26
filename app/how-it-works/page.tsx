@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
 import ProcessSection from "@/components/ProcessSection";
-import StepDetails from "./StepDetails";
+import StepDetails from "@/components/StepDetails";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.howItWorks.meta;

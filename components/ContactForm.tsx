@@ -9,7 +9,7 @@ const { form } = site.contactPage;
 const { map } = contact;
 
 const inputClass =
-  "block h-[calc(56*var(--unit))] w-full rounded-[calc(4*var(--unit))] bg-white px-[calc(20*var(--unit))] text-[calc(17*var(--unit))] text-[#141414] outline-none placeholder:text-[#4f4f4f] focus:ring-2 focus:ring-black/40 lg:h-[calc(70*var(--unit))] lg:px-[calc(26*var(--unit))] lg:text-[calc(20*var(--unit))]";
+  "block h-[calc(56*var(--unit))] w-full rounded-[calc(4*var(--unit))] bg-white px-[calc(20*var(--unit))] text-[calc(17*var(--unit))] text-ink outline-none placeholder:text-[#4f4f4f] focus:ring-2 focus:ring-black/40 lg:h-[calc(70*var(--unit))] lg:px-[calc(26*var(--unit))] lg:text-[calc(20*var(--unit))]";
 
 /** Maroon block with the map on the left and the message form on the right. */
 export default function ContactForm() {
@@ -22,7 +22,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="my-[calc(32*var(--unit))] bg-[#6e0c12] font-(family-name:--font-montserrat-face) sm:my-[calc(40*var(--unit))] lg:flex lg:items-start lg:my-[calc(48*var(--unit))] lg:h-[calc(800*var(--unit))]">
+    <section className="my-[calc(32*var(--unit))] bg-primary font-article sm:my-[calc(40*var(--unit))] lg:flex lg:items-start lg:my-[calc(48*var(--unit))] lg:h-[calc(800*var(--unit))]">
       <iframe
         src={map.src}
         title={map.title}

@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import PageBanner from "@/components/PageBanner";
+import PolicyContent from "@/components/PolicyContent";
+import { site } from "@/data";
+
+const policy = site.policies.items.find((item) => item.slug === "cookie-policy")!;
+
+export const metadata: Metadata = { title: `${policy.title} - ${site.siteMeta.brandName}`, description: policy.description };
+
+export default function PolicyPage() {
+  return (
+    <main className="grow">
+      <PageBanner title={policy.title} />
+      <PolicyContent slug={policy.slug} />
+    </main>
+  );
+}

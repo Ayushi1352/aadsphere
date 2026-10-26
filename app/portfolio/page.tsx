@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
-import ProjectsGrid from "./ProjectsGrid";
+import ProjectsGrid from "@/components/ProjectsGrid";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.portfolio.meta;

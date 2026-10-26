@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
-import BlogGrid from "./BlogGrid";
+import BlogGrid from "@/components/BlogGrid";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.blogPage.meta;

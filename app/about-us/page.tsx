@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
 import AboutSection from "@/components/AboutSection";
 import ImpactSection from "@/components/ImpactSection";
-import AboutStory from "./AboutStory";
-import WhyChooseUs from "./WhyChooseUs";
+import AboutStory from "@/components/AboutStory";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import { site } from "@/data";
 
 export const metadata: Metadata = site.aboutPage.meta;
