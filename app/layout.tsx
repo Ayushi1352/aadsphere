@@ -22,28 +22,27 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang={site.siteMeta.lang}
       data-scroll-behavior="smooth"
-      className={`scroll-smooth ${fontVariables}`}
+      // --unit is one design pixel: 1px below 1024px, then the 1686px design scaled to the screen width, capped at 1920px
+      // (120rem, not 1920px: Tailwind sorts px breakpoints before rem ones, so a px value would lose to lg:).
+      // Width only, so browser zoom and short screens keep the same desktop layout instead of reflowing it.
+      // Tailwind v4 leaves buttons on the default cursor, so everything clickable gets the pointer.
+      className={`${fontVariables} scroll-smooth antialiased motion-reduce:scroll-auto [--unit:1px] lg:[--unit:calc(100vw/1686)] min-[120rem]:[--unit:calc(1920px/1686)] [&_:where(a[href],button:not(:disabled),select,summary,label[for],[role=button])]:cursor-pointer`}
     >
       <head>
         <style dangerouslySetInnerHTML={{ __html: themeCss }} />
       </head>
-      <body>
+      <body className="min-h-screen bg-page font-main text-ink">
         <ScrollReveal />
         {/*
-          Sizing: the design was drawn 1686px wide and every size in the site is
-          written as a number of design pixels, calc(N*var(--unit)).
-          --unit is 1px on phones and tablets and on screens 1686px and wider. On
-          laptops (1024px-1686px) it shrinks with the screen, so the desktop layout
-          scales down in proportion instead of breaking. The variable is set only
-          on this wrapper, so nothing outside the site's own markup is affected.
+          The whole site sits in one frame, at most 1920px wide and centred. Up to 1920px it fills the
+          screen, so nothing changes; on wider screens or when the browser is zoomed out the page stays
+          in the middle with equal space on both sides instead of stretching.
+          Navbar and Footer live here once, so every page gets them automatically.
         */}
-        <div className="min-h-screen bg-page font-main text-ink antialiased [--unit:1px] lg:[--unit:min(1px,calc(100vw/1686))]">
-          {/* Navbar and Footer live here once, so every page gets them automatically. */}
-          <div className="mx-auto flex min-h-screen w-full max-w-[calc(1686*var(--unit))] flex-col overflow-x-clip bg-white">
-            <Navbar />
-            <ScrollToTop>{children}</ScrollToTop>
-            <Footer />
-          </div>
+        <div className="mx-auto flex min-h-screen w-full max-w-[120rem] flex-col overflow-x-clip bg-white">
+          <Navbar />
+          <ScrollToTop>{children}</ScrollToTop>
+          <Footer />
         </div>
       </body>
     </html>

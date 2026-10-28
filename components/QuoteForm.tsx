@@ -26,7 +26,7 @@ function Select({ id, placeholder, options, required }: { id: string; placeholde
   const [value, setValue] = useState("");
   return (
     <div className="relative">
-      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${inputClass} cursor-pointer appearance-none pr-[calc(44*var(--unit))] lg:h-[calc(52*var(--unit))]`} style={value ? undefined : { color: "#7b808a" }}>
+      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${inputClass} cursor-pointer appearance-none pr-[calc(44*var(--unit))] lg:h-[calc(52*var(--unit))] ${value ? "" : "text-[#7b808a]!"}`}>
         <option value="" disabled>
           {placeholder}
         </option>

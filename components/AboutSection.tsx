@@ -69,20 +69,18 @@ export default function AboutSection({ compact = false }: { compact?: boolean })
         <div className="relative -mx-[calc(20*var(--unit))] mt-[calc(56*var(--unit))] overflow-hidden bg-primary-tint-4 px-[calc(20*var(--unit))] py-[calc(56*var(--unit))] sm:-mx-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(72*var(--unit))] lg:absolute lg:right-0 lg:top-[calc(48*var(--unit))] lg:mx-0 lg:mt-0 lg:h-[calc(680*var(--unit))] lg:w-[calc(606*var(--unit))] lg:p-0">
           <span
             aria-hidden="true"
-            className="absolute left-[calc(118*var(--unit))] top-[calc(25*var(--unit))] hidden size-[calc(410*var(--unit))] rounded-full border-[calc(8*var(--unit))] border-transparent border-r-accent-tint-11 border-t-accent-tint-9 lg:block"
-            style={{ transform: "rotate(8deg)" }}
+            className="absolute left-[calc(118*var(--unit))] top-[calc(25*var(--unit))] hidden size-[calc(410*var(--unit))] rounded-full border-[calc(8*var(--unit))] border-transparent border-r-accent-tint-11 border-t-accent-tint-9 rotate-8 lg:block"
           />
           <div className="relative mx-auto max-w-[calc(540*var(--unit))] lg:mx-0 lg:max-w-none">
-            <div className="flex items-center gap-[calc(24*var(--unit))] lg:block">
+            <div className="flex items-center gap-[calc(16*var(--unit))] sm:gap-[calc(24*var(--unit))] lg:block">
               <p
                 data-reveal="up"
-                className="text-[calc(150*var(--unit))] font-black leading-[0.8] tracking-[-0.04em] text-primary sm:text-[calc(200*var(--unit))] lg:absolute lg:left-[calc(58*var(--unit))] lg:top-[calc(153*var(--unit))] lg:origin-left lg:scale-x-[0.93] lg:text-[calc(262*var(--unit))] lg:leading-[calc(205*var(--unit))]"
-                style={{ WebkitBoxReflect: "below -0.06em linear-gradient(transparent 70%, rgba(255,255,255,0.09))" }}
+                className="shrink-0 text-[calc(110*var(--unit))] font-black leading-[0.8] tracking-[-0.04em] text-primary sm:text-[calc(200*var(--unit))] lg:absolute lg:left-[calc(58*var(--unit))] lg:top-[calc(153*var(--unit))] lg:origin-left lg:scale-x-[0.93] lg:text-[calc(262*var(--unit))] lg:leading-[calc(205*var(--unit))] [-webkit-box-reflect:below_-0.06em_linear-gradient(transparent_70%,rgba(255,255,255,0.09))]"
               >
                 <CountUp value={experience.number} />
               </p>
-              <div data-reveal="right" className="lg:absolute lg:left-[calc(339*var(--unit))] lg:top-[calc(245*var(--unit))]">
-                <p className="text-[calc(15*var(--unit))] font-medium uppercase leading-[1.7] tracking-[0.47em] text-[#222222] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
+              <div data-reveal="right" className="min-w-0 lg:absolute lg:left-[calc(339*var(--unit))] lg:top-[calc(245*var(--unit))]">
+                <p className="text-[calc(13*var(--unit))] font-medium uppercase leading-[1.7] tracking-[0.25em] text-[#222222] sm:text-[calc(18*var(--unit))] sm:tracking-[0.47em] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
                   {experience.labelLines.map((line) => (
                     <span key={line} className="block">
                       {line}
