@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import type { FormEvent } from "react";
 import { Lines } from "@/components/ui";
+import { useSentMessage } from "@/components/useSentMessage";
 import { contact, site } from "@/data";
 
 const { form } = site.contactPage;
@@ -13,12 +13,12 @@ const inputClass =
 
 /** Maroon block with the map on the left and the message form on the right. */
 export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const { sent, show, hide } = useSentMessage();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.currentTarget.reset();
-    setSent(true);
+    show();
   };
 
   return (
@@ -40,7 +40,7 @@ export default function ContactForm() {
           <Lines lines={form.descriptionLines} />
         </p>
 
-        <form onSubmit={onSubmit} className="mt-[calc(28*var(--unit))] grid gap-[calc(20*var(--unit))] sm:grid-cols-2 lg:mt-[calc(32*var(--unit))] lg:gap-x-[calc(23*var(--unit))] lg:gap-y-[calc(20*var(--unit))]">
+        <form onSubmit={onSubmit} onInput={hide} onChange={hide} className="mt-[calc(28*var(--unit))] grid gap-[calc(20*var(--unit))] sm:grid-cols-2 lg:mt-[calc(32*var(--unit))] lg:gap-x-[calc(23*var(--unit))] lg:gap-y-[calc(20*var(--unit))]">
           <input name="fullName" type="text" required autoComplete="name" aria-label={form.fullName} placeholder={form.fullName} className={inputClass} />
           <input name="email" type="email" required autoComplete="email" aria-label={form.email} placeholder={form.email} className={inputClass} />
           <input name="website" type="url" aria-label={form.website} placeholder={form.website} className={`${inputClass} sm:col-span-2 lg:h-[calc(71*var(--unit))]`} />

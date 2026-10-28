@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import Icon from "@/components/icons";
+import { useSentMessage } from "@/components/useSentMessage";
 import { site } from "@/data";
 
 const { form } = site.quote;
@@ -43,12 +44,11 @@ function Select({ id, placeholder, options, required }: { id: string; placeholde
 
 /** "Request a Quote" form card. */
 export default function QuoteForm() {
-  const [sent, setSent] = useState(false);
+  const { sent, show, hide, formKey } = useSentMessage();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    event.currentTarget.reset();
-    setSent(true);
+    show();
   };
 
   return (
@@ -59,7 +59,8 @@ export default function QuoteForm() {
       </h2>
       <p className="mt-[calc(10*var(--unit))] text-[calc(16*var(--unit))] leading-[1.4] text-[#4c5159] lg:text-[calc(19*var(--unit))] lg:leading-[calc(24*var(--unit))] lg:tracking-[0.008em]">{form.description}</p>
 
-      <form onSubmit={onSubmit} className="mt-[calc(24*var(--unit))] grid gap-x-[calc(20*var(--unit))] gap-y-[calc(22*var(--unit))] sm:grid-cols-2 lg:mt-[calc(29*var(--unit))] lg:grid-cols-[331fr_329fr] lg:gap-x-[calc(30*var(--unit))] lg:gap-y-[calc(26*var(--unit))]">
+      {/* A new key after every submit starts the form over, so the dropdowns are emptied too. */}
+      <form key={formKey} onSubmit={onSubmit} onInput={hide} onChange={hide} className="mt-[calc(24*var(--unit))] grid gap-x-[calc(20*var(--unit))] gap-y-[calc(22*var(--unit))] sm:grid-cols-2 lg:mt-[calc(29*var(--unit))] lg:grid-cols-[331fr_329fr] lg:gap-x-[calc(30*var(--unit))] lg:gap-y-[calc(26*var(--unit))]">
         <Field label={form.fullName.label} required htmlFor="fullName">
           <input id="fullName" name="fullName" type="text" required autoComplete="name" placeholder={form.fullName.placeholder} className={inputClass} />
         </Field>

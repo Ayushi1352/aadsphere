@@ -1,22 +1,20 @@
 "use client";
 
 import { useState, useRef, type FormEvent, type ChangeEvent } from "react";
+import { useSentMessage } from "@/components/useSentMessage";
 import Icon from "@/components/icons";
 import { site } from "@/data";
 
 const { cta, applicationForm } = site.career;
 
+const emptyForm = { name: "", email: "", phone: "", position: "", message: "" };
+
 /** CTA on the left + Job Application form on the right. */
 export default function JobList() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    position: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyForm);
   const [fileName, setFileName] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  // The thank-you message replaces the form for a few seconds, then an empty form comes back.
+  const { sent: submitted, show } = useSentMessage();
   const fileRef = useRef<HTMLInputElement>(null);
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
@@ -30,7 +28,9 @@ export default function JobList() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setFormData(emptyForm);
+    setFileName("");
+    show();
   }
 
   return (
