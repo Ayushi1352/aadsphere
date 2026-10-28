@@ -7,6 +7,12 @@ const STAGGER_MS = 110;
 const MAX_STAGGER_STEPS = 6;
 const DESIGN_WIDTH = 1686;
 const DESKTOP_MIN = 1024;
+const MAX_WIDTH = 1920;
+
+// Streamed content lands in the DOM before React hydrates it, and changing it then
+// makes hydration report a mismatch. So an element is only touched once React has
+// attached its fiber to it (hydrated).
+const isHydrated = (element: Element) => Object.keys(element).some((key) => key.startsWith("__reactFiber$"));
 
 /** Starting point of each animation, in design pixels (see --unit in app/layout.tsx). */
 const FROM: Record<string, (u: number) => Keyframe> = {
@@ -39,8 +45,8 @@ export default function ScrollReveal() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const seen = new WeakSet<Element>();
-    // Same value as --unit: on laptops the design scales down with the screen.
-    const unit = () => (window.innerWidth >= DESKTOP_MIN && window.innerWidth < DESIGN_WIDTH ? window.innerWidth / DESIGN_WIDTH : 1);
+    // Same value as --unit in app/layout.tsx: from 1024px the design follows the screen, up to 1920px.
+    const unit = () => (window.innerWidth >= DESKTOP_MIN ? Math.min(window.innerWidth, MAX_WIDTH) / DESIGN_WIDTH : 1);
 
     const play = (el: HTMLElement, delay = 0) => {
       const kind = el.dataset.reveal || el.parentElement?.dataset.revealGroup || "up";
@@ -84,24 +90,30 @@ export default function ScrollReveal() {
       });
     };
 
+    // Elements React has not hydrated yet are left alone and picked up on the next frame.
+    // Until the whole first page has hydrated, whatever is on screen is still left visible.
     let firstScan = true;
+    let frame = 0;
     const scan = () => {
+      let pending = false;
       document.querySelectorAll<HTMLElement>("[data-float]").forEach((el) => {
         if (seen.has(el)) return;
+        if (!isHydrated(el)) return void (pending = true);
         seen.add(el);
         float(el);
       });
       document.querySelectorAll<HTMLElement>(TARGETS).forEach((el) => {
         if (seen.has(el)) return;
+        if (!isHydrated(el)) return void (pending = true);
         seen.add(el);
         if (firstScan && el.getBoundingClientRect().top < window.innerHeight) return;
         el.style.opacity = "0";
         io.observe(el);
       });
-      firstScan = false;
+      if (pending) frame = requestAnimationFrame(scan);
+      else firstScan = false;
     };
 
-    let frame = 0;
     const mo = new MutationObserver(() => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(scan);

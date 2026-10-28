@@ -5,7 +5,7 @@ import { site } from "@/data";
 
 const policy = site.policies.items.find((item) => item.slug === "cookie-policy")!;
 
-export const metadata: Metadata = { title: `${policy.title} - ${site.siteMeta.brandName}`, description: policy.description };
+export const metadata: Metadata = policy.meta;
 
 export default function PolicyPage() {
   return (

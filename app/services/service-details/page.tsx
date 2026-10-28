@@ -3,13 +3,10 @@ import PageBanner from "@/components/PageBanner";
 import ServiceContent from "@/components/ServiceContent";
 import { site } from "@/data";
 
-const { title, introLines, breadcrumb } = site.serviceDetail;
+const { title, meta, breadcrumb } = site.serviceDetail;
 
 // One common detail page for every service: all service links point here.
-export const metadata: Metadata = {
-  title: `${title} - ${site.siteMeta.brandName}`,
-  description: introLines.join(" "),
-};
+export const metadata: Metadata = meta;
 
 export default function ServiceDetailPage() {
   return (

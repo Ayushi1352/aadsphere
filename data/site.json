@@ -1371,6 +1371,10 @@
         "variants": {
           "AdvertisingServiceDetail1": {
             "title": "Services Detail",
+            "meta": {
+              "title": "Services Detail - AdSphere",
+              "description": "We create powerful and memorable brand identities that help your business stand out in a competitive market. Our branding design services combine strategy, creativity, and market insight to build a consistent and impactful brand presence across all touchpoints."
+            },
             "breadcrumb": {
               "label": "Services",
               "href": "/services"
@@ -2382,7 +2386,10 @@
                 "slug": "privacy-policy",
                 "title": "Privacy Policy",
                 "updated": "January 1, 2026",
-                "description": "How AdSphere collects, uses and protects your personal information.",
+                "meta": {
+                  "title": "Privacy Policy - AdSphere",
+                  "description": "How AdSphere collects, uses and protects your personal information."
+                },
                 "intro": "This Privacy Policy explains what information AdSphere collects when you use our website or services, how we use it, and the choices you have.",
                 "sections": [
                   {
@@ -2443,7 +2450,10 @@
                 "slug": "terms-and-conditions",
                 "title": "Terms & Conditions",
                 "updated": "January 1, 2026",
-                "description": "The terms that apply when you use the AdSphere website and services.",
+                "meta": {
+                  "title": "Terms & Conditions - AdSphere",
+                  "description": "The terms that apply when you use the AdSphere website and services."
+                },
                 "intro": "These Terms & Conditions govern your use of the AdSphere website and services. By using our website you agree to these terms.",
                 "sections": [
                   {
@@ -2498,7 +2508,10 @@
                 "slug": "cookie-policy",
                 "title": "Cookie Policy",
                 "updated": "January 1, 2026",
-                "description": "How and why AdSphere uses cookies on this website.",
+                "meta": {
+                  "title": "Cookie Policy - AdSphere",
+                  "description": "How and why AdSphere uses cookies on this website."
+                },
                 "intro": "This Cookie Policy explains what cookies are, which ones we use on this website, and how you can control them.",
                 "sections": [
                   {
