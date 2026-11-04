@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import ProcessSection from "@/components/ProcessSection";
-import StepDetails from "@/components/StepDetails";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { StepDetails } from "@/components/sections/StepDetails";
 
-export const metadata: Metadata = site.howItWorks.meta;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
+
+export const metadata: Metadata = commonData.howItWorksBreadcrumb.meta;
 
 export default function HowItWorksPage() {
   return (
-    <main className="grow">
-      <PageBanner title={site.howItWorks.title} />
-      <ProcessSection />
-      <StepDetails />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.howItWorksBreadcrumb} ui={commonData.globalUI} />
+      <ProcessSection data={sectionData.Process?.variants?.AdvertisingProcess1} />
+      <StepDetails data={sectionData.HowItWorks?.variants?.AdvertisingHowItWorks1} />
     </main>
   );
 }

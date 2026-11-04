@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import ServiceContent from "@/components/ServiceContent";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { ServiceContent } from "@/components/sections/ServiceContent";
 
-const { title, meta, breadcrumb } = site.serviceDetail;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
 
 // One common detail page for every service: all service links point here.
-export const metadata: Metadata = meta;
+export const metadata: Metadata = commonData.serviceDetailBreadcrumb.meta;
 
 export default function ServiceDetailPage() {
   return (
-    <main className="grow">
-      <PageBanner title={title} crumbs={[breadcrumb]} />
-      <ServiceContent />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.serviceDetailBreadcrumb} ui={commonData.globalUI} />
+      <ServiceContent data={sectionData.ServiceDetail?.variants?.AdvertisingServiceDetail1} />
     </main>
   );
 }

@@ -1,21 +1,47 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/*
-  The design is drawn on a 1686px wide canvas. Every size is written in design pixels as
-  calc(N*var(--unit)); --unit is set on <html> in app/layout.tsx (1px below 1024px, then it
-  follows the screen up to 1920px), so the desktop layout keeps the design's exact proportions.
-*/
-@theme {
-  /* Brand colours. These are only defaults: site.json (theme.colors) overrides them in app/layout.tsx. */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --font-primary: Arial, sans-serif;
+  --font-text: Arial, sans-serif;
+  --font-ui: Arial, sans-serif;
+  --font-article: Arial, sans-serif;
+  --font-hero: Arial, sans-serif;
+  --font-alt: Arial, sans-serif;
+
+  /* AdSphere theme */
+  /* Brand */
   --color-primary: #6e0c12;
   --color-accent: #d60c14;
-  --color-ink: #141414;
-  --color-body: #5a5a5a;
-  /* Shown on both sides of the page when the screen is wider than 1920px (or the browser is zoomed out). */
-  --color-page: #f5f5f5;
+  --color-white: #ffffff;
+  --color-black: #000000;
 
-  /* Lighter (tint-N) and darker (shade-N) versions, N = % of the brand colour mixed with white / black.
-     They follow the brand colours automatically, so they never need editing. */
+  /* Text */
+  --color-heading: #141414;
+  --color-text: #5a5a5a;
+  --color-text-dark: #333333;
+  --color-text-body-dark: #3d424c;
+  --color-text-soft: #6f6f6f;
+  --color-eyebrow: #222222;
+  --color-section-label: #3d4350;
+  --color-section-text: #5f6779;
+  --color-card-text: #555a62;
+  --color-card-meta: #4d525c;
+  --color-icon-muted: #888888;
+  --color-success: #1a7a3c;
+
+  /* Backgrounds and borders */
+  --color-bg-backdrop: #f5f5f5;
+  --color-surface: #f9f9fb;
+  --color-border: #ececef;
+  --color-border-soft: #f0f0f2;
+
+  /* Lighter (tint-N) and darker (shade-N) versions of the brand colours, N = % of the brand colour mixed with white / black. */
   --color-primary-tint-2: color-mix(in srgb, var(--color-primary) 2%, white);
   --color-primary-tint-4: color-mix(in srgb, var(--color-primary) 4%, white);
   --color-primary-tint-6: color-mix(in srgb, var(--color-primary) 6%, white);
@@ -39,11 +65,106 @@
   --color-accent-tint-43: color-mix(in srgb, var(--color-accent) 43%, white);
   --color-accent-tint-55: color-mix(in srgb, var(--color-accent) 55%, white);
 
-  /* Fonts from site.json (theme.fonts) via app/fonts.generated.ts; the second part is the fallback. */
-  --font-main: var(--font-main-face, Arial, sans-serif);
-  --font-text: var(--font-text-face, Arial, sans-serif);
-  --font-ui: var(--font-ui-face, Arial, sans-serif);
-  --font-article: var(--font-article-face, Arial, sans-serif);
-  --font-hero: var(--font-hero-face, Arial, sans-serif);
-  --font-alt: var(--font-alt-face, Arial, sans-serif);
+  /* Header */
+  --color-nav-link: #1f1f1f;
+  --color-nav-sublink: #4a4a4a;
+  --color-nav-divider: #e6e6e6;
+  --color-nav-border: #eeeeee;
+
+  /* Footer */
+  --color-footer-bg: #0c0e10;
+  --color-footer-cta-text: #e3e3e3;
+  --color-footer-cta-divider: #3a3d42;
+  --color-footer-description: #d6d6d6;
+  --color-footer-social-bg: #14171a;
+  --color-footer-social-border: #23262b;
+  --color-footer-column-border: #1c2023;
+  --color-footer-link: #e2e2e2;
+  --color-footer-contact-text: #ededed;
+  --color-footer-bottom-border: #1f2326;
+  --color-footer-copyright: #c8c8c8;
+  --color-footer-link-divider: #6a6d70;
+
+  /* About, stats and testimonials */
+  --color-story-text: #454545;
+  --color-stat-label: #3f3f3f;
+  --color-testimonial-text: #6a7080;
+  --color-testimonial-card-bg: #f6f6f8;
+  --color-testimonial-divider: #e2e2e6;
+  --color-testimonial-button-bg: #e9eaec;
+  --color-slider-dot: #dfe0e2;
+
+  /* Blog */
+  --color-blog-heading: #0d0612;
+  --color-blog-text: #44484f;
+  --color-blog-text-soft: #4b4f57;
+  --color-blog-excerpt: #666b75;
+  --color-blog-meta-dot: #9a9da3;
+  --color-blog-card-bg: #fcfcfc;
+  --color-sidebar-heading: #2b3340;
+  --color-sidebar-bg: #fdfdfd;
+
+  /* Services and portfolio */
+  --color-service-detail-heading: #0b0d10;
+  --color-service-detail-subheading: #2a2a2c;
+  --color-portfolio-heading: #0b0b0c;
+
+  /* Get a quote */
+  --color-quote-heading: #0e1118;
+  --color-quote-text: #5a5f6b;
+  --color-quote-text-soft: #5f6470;
+  --color-quote-label: #4c5159;
+  --color-quote-placeholder: #7b808a;
+  --color-quote-border: #e8e9ec;
+  --color-quote-input-text: #14171d;
+  --color-quote-input-border: #e3e5e9;
+  --color-quote-input-bg: #fbfbfc;
+
+  /* Contact */
+  --color-contact-dark: #0f0f0c;
+  --color-contact-text: #4f4f4f;
+  --color-contact-card-text: #1d1d1d;
+  --color-contact-card-bg: #f4f3f1;
+
+  /* Career */
+  --color-job-border: #dddddd;
+  --color-job-border-hover: #bbbbbb;
+  --color-job-success: #22c55e;
+  --color-job-success-bg: #e6f9ed;
+
+  /* Transparent colours */
+  --color-white-9: rgba(255, 255, 255, 0.09);
+  --color-white-13: rgba(255, 255, 255, 0.13);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-75: rgba(255, 255, 255, 0.75);
+  --color-white-85: rgba(255, 255, 255, 0.85);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-95: rgba(255, 255, 255, 0.95);
+  --color-black-17: rgba(0, 0, 0, 0.17);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-accent-tint-13-50: color-mix(in oklab, var(--color-accent-tint-13) 50%, transparent);
+  --color-accent-tint-17-60: color-mix(in oklab, var(--color-accent-tint-17) 60%, transparent);
+
+  /* Shadows */
+  --color-heading-4: color-mix(in srgb, var(--color-heading) 4%, transparent);
+  --color-heading-8: color-mix(in srgb, var(--color-heading) 8%, transparent);
+  --color-heading-9: color-mix(in srgb, var(--color-heading) 9%, transparent);
+  --color-heading-10: color-mix(in srgb, var(--color-heading) 10%, transparent);
+  --color-heading-12: color-mix(in srgb, var(--color-heading) 12%, transparent);
+  --color-heading-14: color-mix(in srgb, var(--color-heading) 14%, transparent);
+  --color-heading-50: color-mix(in oklab, var(--color-heading) 50%, transparent);
+  --color-primary-6: color-mix(in srgb, var(--color-primary) 6%, transparent);
+  --color-primary-8: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  --color-primary-10: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --color-primary-12: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  --color-primary-14: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  --color-primary-16: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  --color-accent-22: color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-heading);
+  background-color: var(--color-bg-backdrop);
 }

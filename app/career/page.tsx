@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import CareerPerks from "@/components/CareerPerks";
-import JobList from "@/components/JobList";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { CareerPerks } from "@/components/sections/CareerPerks";
+import { JobList } from "@/components/sections/JobList";
 
-export const metadata: Metadata = site.career.meta;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
+
+export const metadata: Metadata = commonData.careerBreadcrumb.meta;
 
 export default function CareerPage() {
   return (
-    <main className="grow">
-      <PageBanner title={site.career.title} />
-      <CareerPerks />
-      <JobList />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.careerBreadcrumb} ui={commonData.globalUI} />
+      <CareerPerks data={sectionData.Career?.variants?.AdvertisingCareer1} />
+      <JobList data={sectionData.Career?.variants?.AdvertisingCareer1} />
     </main>
   );
 }

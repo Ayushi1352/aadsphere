@@ -1,0 +1,53 @@
+"use client";
+
+import { useState } from "react";
+import { Icon } from "@/components/ui/Icon";
+import type { FaqData } from "@/types/templates.types";
+
+/** Accordion of questions: one answer is open at a time. */
+export const FaqList = ({ data }: { data?: FaqData }) => {
+  const [open, setOpen] = useState<number | null>(0);
+  if (!data) return null;
+  const { faqs } = data;
+
+  return (
+    <ul data-reveal-group="up" className="mx-auto mt-[calc(36*var(--unit))] max-w-[calc(1240*var(--unit))] space-y-[calc(14*var(--unit))] lg:mt-[calc(56*var(--unit))] lg:space-y-[calc(18*var(--unit))]">
+      {faqs.map((faq, i) => {
+        const isOpen = open === i;
+        return (
+          <li key={faq.question} className={`rounded-[calc(14*var(--unit))] border transition-colors duration-200 ${isOpen ? "border-[var(--color-accent-tint-21)] bg-[var(--color-accent-tint-5)]" : "border-[var(--color-border)] bg-[var(--color-surface)]"}`}>
+            <h3>
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                aria-controls={`faq-${i}`}
+                className="flex w-full cursor-pointer items-center justify-between gap-[calc(16*var(--unit))] px-[calc(20*var(--unit))] py-[calc(18*var(--unit))] text-left text-[calc(17*var(--unit))] font-bold leading-[1.35] text-[var(--color-heading)] sm:px-[calc(28*var(--unit))] sm:text-[calc(20*var(--unit))] lg:px-[calc(36*var(--unit))] lg:py-[calc(26*var(--unit))] lg:text-[calc(23*var(--unit))]"
+              >
+                {faq.question}
+                <span
+                  className={`flex size-[calc(38*var(--unit))] shrink-0 items-center justify-center rounded-full transition-colors duration-200 lg:size-[calc(46*var(--unit))] ${
+                    isOpen ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-accent-tint-9)] text-[var(--color-primary)]"
+                  }`}
+                >
+                  {isOpen ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="size-[calc(18*var(--unit))] lg:size-[calc(20*var(--unit))]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                  ) : (
+                    <Icon name="LuPlus" className="size-[calc(18*var(--unit))] lg:size-[calc(20*var(--unit))]" />
+                  )}
+                </span>
+              </button>
+            </h3>
+            {isOpen && (
+              <p id={`faq-${i}`} className="translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none px-[calc(20*var(--unit))] pb-[calc(22*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-text)] sm:px-[calc(28*var(--unit))] sm:text-[calc(18*var(--unit))] lg:px-[calc(36*var(--unit))] lg:pb-[calc(30*var(--unit))] lg:pr-[calc(110*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
+                {faq.answer}
+              </p>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};

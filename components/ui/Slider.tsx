@@ -1,0 +1,93 @@
+"use client";
+
+import { useCallback, useRef, useState } from "react";
+import type { TouchEvent } from "react";
+import { Icon } from "@/components/ui/Icon";
+import { fill } from "@/components/ui/fill";
+
+/** Index state for a looping slider, plus swipe handlers for touch screens. */
+export function useSlider(count: number) {
+  const [index, setIndex] = useState(0);
+  const startX = useRef<number | null>(null);
+
+  const goTo = useCallback((i: number) => setIndex(((i % count) + count) % count), [count]);
+  const next = useCallback(() => setIndex((i) => (i + 1) % count), [count]);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + count) % count), [count]);
+
+  const swipe = {
+    onTouchStart: (e: TouchEvent) => {
+      startX.current = e.touches[0].clientX;
+    },
+    onTouchEnd: (e: TouchEvent) => {
+      if (startX.current === null) return;
+      const dx = e.changedTouches[0].clientX - startX.current;
+      startX.current = null;
+      if (dx < -40) next();
+      if (dx > 40) prev();
+    },
+  };
+
+  return { index, goTo, next, prev, swipe };
+}
+
+/** Items starting from the active one, wrapping around (the active item comes first). */
+export function rotate<T>(items: T[], start: number): T[] {
+  return items.slice(start).concat(items.slice(0, start));
+}
+
+/** Round white arrow button used at the sides of the card carousels. */
+export const ArrowButton = ({
+  label,
+  icon,
+  onClick,
+  className = "",
+}: {
+  label?: string;
+  icon: string;
+  onClick: () => void;
+  className?: string;
+}) => {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className={`hidden md:flex size-[calc(44*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-white)] text-[var(--color-primary)] [box-shadow:0_calc(4*var(--unit))_calc(16*var(--unit))_var(--color-heading-12)] transition-colors duration-200 hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] lg:size-[calc(52*var(--unit))] ${className}`}
+    >
+      <Icon name={icon} className="size-[calc(20*var(--unit))] lg:size-[calc(22*var(--unit))]" />
+    </button>
+  );
+};
+
+/** Row of dots under a slider. */
+export const SliderDots = ({
+  count,
+  active,
+  onSelect,
+  label = "",
+  className = "",
+}: {
+  count: number;
+  active: number;
+  onSelect: (i: number) => void;
+  /** Accessible name of each dot, e.g. "Go to slide {n}". */
+  label?: string;
+  className?: string;
+}) => {
+  return (
+    <div className={`flex items-center justify-center ${className}`}>
+      {Array.from({ length: count }, (_, i) => (
+        <button
+          key={i}
+          type="button"
+          onClick={() => onSelect(i)}
+          aria-label={fill(label, { n: i + 1 })}
+          aria-current={i === active}
+          className="flex size-[calc(28*var(--unit))] cursor-pointer items-center justify-center"
+        >
+          <span className={`block size-[calc(12*var(--unit))] rounded-full transition-colors duration-200 ${i === active ? "bg-[var(--color-primary)]" : "bg-[var(--color-slider-dot)]"}`} />
+        </button>
+      ))}
+    </div>
+  );
+};

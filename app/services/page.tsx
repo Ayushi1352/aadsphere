@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import ServicesGrid from "@/components/ServicesGrid";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
 
-export const metadata: Metadata = site.servicesPage.meta;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
+
+export const metadata: Metadata = commonData.servicesBreadcrumb.meta;
 
 export default function ServicesPage() {
   return (
-    <main className="grow">
-      <PageBanner title={site.servicesPage.title} />
-      <ServicesGrid />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.servicesBreadcrumb} ui={commonData.globalUI} />
+      <ServicesGrid data={sectionData.ServicesGrid?.variants?.AdvertisingServicesGrid1} ui={commonData.globalUI} />
     </main>
   );
 }

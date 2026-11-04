@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import SitemapLinks from "@/components/SitemapLinks";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { SitemapLinks } from "@/components/sections/SitemapLinks";
 
-export const metadata: Metadata = site.sitemap.meta;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
+
+export const metadata: Metadata = commonData.sitemapBreadcrumb.meta;
 
 export default function SitemapPage() {
   return (
-    <main className="grow">
-      <PageBanner title={site.sitemap.title} />
-      <SitemapLinks />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.sitemapBreadcrumb} ui={commonData.globalUI} />
+      <SitemapLinks data={sectionData.SitemapPage?.variants?.AdvertisingSitemapPage1} />
     </main>
   );
 }

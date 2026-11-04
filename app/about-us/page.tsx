@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import AboutSection from "@/components/AboutSection";
-import ImpactSection from "@/components/ImpactSection";
-import AboutStory from "@/components/AboutStory";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import { site } from "@/data";
+import rawData from "@/data/templates.json";
+import type { AdvertisingTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { AboutStory } from "@/components/sections/AboutStory";
+import { ImpactSection } from "@/components/sections/ImpactSection";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 
-export const metadata: Metadata = site.aboutPage.meta;
+const templateData: AdvertisingTemplateData = rawData;
+const sectionData = templateData.categories.Advertising.sections;
+const commonData = templateData.common;
+
+export const metadata: Metadata = commonData.aboutBreadcrumb.meta;
 
 export default function AboutUsPage() {
   return (
-    <main className="grow">
-      <PageBanner title={site.aboutPage.title} />
-      <AboutSection compact />
-      <AboutStory />
-      <ImpactSection />
-      <WhyChooseUs />
+    <main className="flex-1">
+      <Breadcrumb data={commonData.aboutBreadcrumb} ui={commonData.globalUI} />
+      <AboutSection data={sectionData.AboutUs?.variants?.AdvertisingAboutUs1} compact />
+      <AboutStory data={sectionData.AboutStory?.variants?.AdvertisingAboutStory1} />
+      <ImpactSection data={sectionData.Impact?.variants?.AdvertisingImpact1} />
+      <WhyChooseUs data={sectionData.WhyChooseUs?.variants?.AdvertisingWhyChooseUs1} />
     </main>
   );
 }
