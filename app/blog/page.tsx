@@ -8,7 +8,7 @@ const templateData: AdvertisingTemplateData = rawData;
 const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = commonData.blogsBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.blogsBreadcrumb?.seo };
 
 export default function BlogPage() {
   return (

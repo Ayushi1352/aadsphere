@@ -3,13 +3,15 @@ import Link from "next/link";
 import type { BreadcrumbData, GlobalUIData } from "@/types/templates.types";
 
 /** Maroon banner at the top of every inner page: page title + "Home / Page" breadcrumb.
- *  `crumbs` in templates.json add extra segments between Home and the current page title,
- *  e.g. [{ "label": "Services", "href": "/services" }]; pages with crumbs are detail pages.
+ *  `paths` in templates.json is the whole trail, Home first and the current page last;
+ *  a trail with steps between them (e.g. Home / Services / Services Detail) is a detail page.
  */
 export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUIData }) => {
   if (!data) return null;
-  const { title, crumbs } = data;
-  const isDetailPage = Boolean(crumbs && crumbs.length > 0);
+  const { title, paths: crumbs } = data;
+  const links = crumbs.slice(0, -1);
+  const current = crumbs[crumbs.length - 1];
+  const isDetailPage = crumbs.length > 2;
 
   return (
     <section className="relative mb-[calc(32*var(--unit))] overflow-hidden bg-[var(--color-primary)] px-[calc(20*var(--unit))] py-[calc(52*var(--unit))] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(64*var(--unit))] lg:flex lg:min-h-[calc(460*var(--unit))] lg:flex-col lg:justify-center lg:p-0 lg:pl-[calc(145*var(--unit))] lg:pr-[calc(52*var(--unit))] lg:py-[calc(60*var(--unit))]">
@@ -35,25 +37,24 @@ export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUID
         </h1>
         <nav aria-label={ui?.breadcrumbLabel} className="translate-y-0 transition-[opacity,transform] delay-250 duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[calc(40*var(--unit))] starting:opacity-0 motion-reduce:transition-none mt-[calc(16*var(--unit))] sm:mt-[calc(20*var(--unit))] lg:mt-[calc(22*var(--unit))]">
           <ol className="m-0 flex flex-wrap list-none items-center gap-x-[calc(10*var(--unit))] gap-y-[calc(6*var(--unit))] p-0 text-[calc(15*var(--unit))] font-medium leading-normal text-[var(--color-white-90)] sm:text-[calc(17*var(--unit))] lg:gap-x-[calc(12*var(--unit))] lg:text-[calc(18*var(--unit))]">
-            <li className="shrink-0">
-              <Link href={ui?.homeUrl ?? "/"} className="transition-opacity duration-200 hover:opacity-75">
-                {ui?.homeLabel}
-              </Link>
-            </li>
-            {crumbs?.map((crumb) => (
-              <Fragment key={crumb.href}>
-                <li aria-hidden="true" className="shrink-0 text-[var(--color-white-60)]">{ui?.breadcrumbSeparator}</li>
+            {links.map((crumb, index) => (
+              <Fragment key={crumb.id}>
+                {index > 0 && <li aria-hidden="true" className="shrink-0 text-[var(--color-white-60)]">{ui?.breadcrumbSeparator}</li>}
                 <li className="shrink-0">
-                  <Link href={crumb.href} className="transition-opacity duration-200 hover:opacity-75">
+                  <Link href={crumb.url} className="transition-opacity duration-200 hover:opacity-75">
                     {crumb.label}
                   </Link>
                 </li>
               </Fragment>
             ))}
-            <li aria-hidden="true" className="shrink-0 text-[var(--color-white-60)]">{ui?.breadcrumbSeparator}</li>
-            <li aria-current="page" className="max-w-[calc(600*var(--unit))] truncate text-[var(--color-white)] sm:max-w-[calc(800*var(--unit))] lg:max-w-[calc(1000*var(--unit))]">
-              {title}
-            </li>
+            {current && (
+              <>
+                {links.length > 0 && <li aria-hidden="true" className="shrink-0 text-[var(--color-white-60)]">{ui?.breadcrumbSeparator}</li>}
+                <li aria-current="page" className="max-w-[calc(600*var(--unit))] truncate text-[var(--color-white)] sm:max-w-[calc(800*var(--unit))] lg:max-w-[calc(1000*var(--unit))]">
+                  {current.label}
+                </li>
+              </>
+            )}
           </ol>
         </nav>
       </div>

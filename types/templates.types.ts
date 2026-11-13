@@ -1,6 +1,6 @@
 // Types for data/templates.json. Generated from the JSON shape; keep them in step when the JSON changes.
 
-export interface PageMeta {
+export interface SeoData {
   title: string;
   description: string;
 }
@@ -10,10 +10,17 @@ export interface LinkItem {
   href: string;
 }
 
+/** One step of the breadcrumb trail; the last step is the current page (empty url). */
+export interface BreadcrumbPath {
+  id: string;
+  label: string;
+  url: string;
+}
+
 export interface BreadcrumbData {
   title: string;
-  meta: PageMeta;
-  crumbs?: LinkItem[];
+  seo: SeoData;
+  paths: BreadcrumbPath[];
 }
 
 export interface ThemeFonts {
@@ -31,16 +38,15 @@ export interface ThemeData {
 
 export interface SiteMetadataData {
   title: string;
+  siteName: string;
   description: string;
+  icon: string;
   lang: string;
-  brandName: string;
 }
 
 export interface GlobalUIData {
   breadcrumbLabel: string;
   breadcrumbSeparator: string;
-  homeLabel: string;
-  homeUrl: string;
   previousLabel: string;
   nextLabel: string;
   goToSlideLabel: string;

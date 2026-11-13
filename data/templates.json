@@ -12,15 +12,14 @@
     },
     "metadata": {
       "title": "AdSphere - Advertising Agency | Turning Ideas into Impact",
+      "siteName": "AdSphere",
       "description": "AdSphere helps brands grow through strategic advertising, creative storytelling, and digital solutions that deliver real results.",
-      "lang": "en",
-      "brandName": "AdSphere"
+      "icon": "/icon.png",
+      "lang": "en"
     },
     "globalUI": {
       "breadcrumbLabel": "Breadcrumb",
       "breadcrumbSeparator": "/",
-      "homeLabel": "Home",
-      "homeUrl": "/",
       "previousLabel": "Previous",
       "nextLabel": "Next",
       "goToSlideLabel": "Go to slide {n}"
@@ -51,120 +50,298 @@
     },
     "aboutBreadcrumb": {
       "title": "About Us",
-      "meta": {
+      "seo": {
         "title": "About Us - AdSphere Advertising Agency",
         "description": "AdSphere is a results-driven advertising agency creating impactful marketing strategies that connect businesses with their audience."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "about-us",
+          "label": "About Us",
+          "url": ""
+        }
+      ]
     },
     "servicesBreadcrumb": {
       "title": "Services",
-      "meta": {
+      "seo": {
         "title": "Services - AdSphere Advertising Agency",
         "description": "Digital marketing, branding, paid advertising and consulting services designed to grow your business."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "services",
+          "label": "Services",
+          "url": ""
+        }
+      ]
     },
     "serviceDetailBreadcrumb": {
       "title": "Services Detail",
-      "crumbs": [
-        {
-          "label": "Services",
-          "href": "/services"
-        }
-      ],
-      "meta": {
+      "seo": {
         "title": "Services Detail - AdSphere",
         "description": "We create powerful and memorable brand identities that help your business stand out in a competitive market. Our branding design services combine strategy, creativity, and market insight to build a consistent and impactful brand presence across all touchpoints."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "services",
+          "label": "Services",
+          "url": "/services"
+        },
+        {
+          "id": "service-details",
+          "label": "Services Detail",
+          "url": ""
+        }
+      ]
     },
     "portfolioBreadcrumb": {
       "title": "Portfolio",
-      "meta": {
+      "seo": {
         "title": "Portfolio - AdSphere Advertising Agency",
         "description": "Explore recent AdSphere projects across branding, websites, apps and marketing campaigns."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "portfolio",
+          "label": "Portfolio",
+          "url": ""
+        }
+      ]
     },
     "blogsBreadcrumb": {
       "title": "Blog",
-      "meta": {
+      "seo": {
         "title": "Blogs - AdSphere Advertising Agency",
         "description": "Expert tips, industry insights and practical strategies to help your brand grow in the digital world."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "blog",
+          "label": "Blog",
+          "url": ""
+        }
+      ]
     },
     "blogDetailBreadcrumb": {
       "title": "Blogs Details",
-      "crumbs": [
-        {
-          "label": "Blog",
-          "href": "/blog"
-        }
-      ],
-      "meta": {
+      "seo": {
         "title": "Everything You Should Know About Brand Strategy - AdSphere",
         "description": "A strong brand strategy is the foundation of every successful business."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "blog",
+          "label": "Blog",
+          "url": "/blog"
+        },
+        {
+          "id": "blog-details",
+          "label": "Blogs Details",
+          "url": ""
+        }
+      ]
     },
     "quoteBreadcrumb": {
       "title": "Get a Quote",
-      "meta": {
+      "seo": {
         "title": "Get a Quote - AdSphere Advertising Agency",
         "description": "Tell us about your project and get a customized quote with the right strategy, timeline and pricing."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "get-a-quote",
+          "label": "Get a Quote",
+          "url": ""
+        }
+      ]
     },
     "contactBreadcrumb": {
       "title": "Contact us",
-      "meta": {
+      "seo": {
         "title": "Contact Us - AdSphere Advertising Agency",
         "description": "Have a project in mind? Reach AdSphere by phone, email or the contact form."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "contact",
+          "label": "Contact us",
+          "url": ""
+        }
+      ]
     },
     "howItWorksBreadcrumb": {
       "title": "How It Works",
-      "meta": {
+      "seo": {
         "title": "How It Works - AdSphere Advertising Agency",
         "description": "A simple, transparent four-step process that turns your goals into measurable growth."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "how-it-works",
+          "label": "How It Works",
+          "url": ""
+        }
+      ]
     },
     "careerBreadcrumb": {
       "title": "Career",
-      "meta": {
+      "seo": {
         "title": "Career - AdSphere Advertising Agency",
         "description": "Join the AdSphere team. Explore open roles in marketing, design, strategy and client success."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "career",
+          "label": "Career",
+          "url": ""
+        }
+      ]
     },
     "faqsBreadcrumb": {
       "title": "FAQs",
-      "meta": {
+      "seo": {
         "title": "FAQs - AdSphere Advertising Agency",
         "description": "Answers to common questions about AdSphere services, pricing, timelines and how we work."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "faqs",
+          "label": "FAQs",
+          "url": ""
+        }
+      ]
     },
     "privacyBreadcrumb": {
       "title": "Privacy Policy",
-      "meta": {
+      "seo": {
         "title": "Privacy Policy - AdSphere",
         "description": "How AdSphere collects, uses and protects your personal information."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "privacy-policy",
+          "label": "Privacy Policy",
+          "url": ""
+        }
+      ]
     },
     "termsBreadcrumb": {
       "title": "Terms & Conditions",
-      "meta": {
+      "seo": {
         "title": "Terms & Conditions - AdSphere",
         "description": "The terms that apply when you use the AdSphere website and services."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "terms-and-conditions",
+          "label": "Terms & Conditions",
+          "url": ""
+        }
+      ]
     },
     "cookieBreadcrumb": {
       "title": "Cookie Policy",
-      "meta": {
+      "seo": {
         "title": "Cookie Policy - AdSphere",
         "description": "How and why AdSphere uses cookies on this website."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "cookie-policy",
+          "label": "Cookie Policy",
+          "url": ""
+        }
+      ]
     },
     "sitemapBreadcrumb": {
       "title": "Sitemap",
-      "meta": {
+      "seo": {
         "title": "Sitemap - AdSphere Advertising Agency",
         "description": "A list of every page on the AdSphere website."
-      }
+      },
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "sitemap",
+          "label": "Sitemap",
+          "url": ""
+        }
+      ]
     },
     "Footer": {
       "cta": {

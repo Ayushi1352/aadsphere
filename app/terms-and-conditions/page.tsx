@@ -8,7 +8,7 @@ const templateData: AdvertisingTemplateData = rawData;
 const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = commonData.termsBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.termsBreadcrumb?.seo };
 
 export default function TermsAndConditionsPage() {
   return (

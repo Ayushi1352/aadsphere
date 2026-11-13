@@ -8,7 +8,7 @@ const templateData: AdvertisingTemplateData = rawData;
 const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = commonData.cookieBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.cookieBreadcrumb?.seo };
 
 export default function CookiePolicyPage() {
   return (

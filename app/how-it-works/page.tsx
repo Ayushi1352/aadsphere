@@ -9,7 +9,7 @@ const templateData: AdvertisingTemplateData = rawData;
 const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = commonData.howItWorksBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.howItWorksBreadcrumb?.seo };
 
 export default function HowItWorksPage() {
   return (

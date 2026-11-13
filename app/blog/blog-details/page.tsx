@@ -9,7 +9,7 @@ const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
 // One common detail page for every blog post: all blog links point here.
-export const metadata: Metadata = commonData.blogDetailBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.blogDetailBreadcrumb?.seo };
 
 export default function BlogDetailPage() {
   return (

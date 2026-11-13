@@ -9,7 +9,7 @@ const sectionData = templateData.categories.Advertising.sections;
 const commonData = templateData.common;
 
 // One common detail page for every service: all service links point here.
-export const metadata: Metadata = commonData.serviceDetailBreadcrumb.meta;
+export const metadata: Metadata = { ...commonData.serviceDetailBreadcrumb?.seo };
 
 export default function ServiceDetailPage() {
   return (
