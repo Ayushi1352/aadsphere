@@ -37,7 +37,7 @@ const FaqList = ({ data }: { data?: FaqData }) => {
                       <line x1="5" y1="12" x2="19" y2="12" />
                     </svg>
                   ) : (
-                    <Icon name="LuPlus" className="size-[calc(18*var(--unit))] lg:size-[calc(20*var(--unit))]" />
+                    <Icon name={data.openIcon} className="size-[calc(18*var(--unit))] lg:size-[calc(20*var(--unit))]" />
                   )}
                 </span>
               </button>

@@ -33,7 +33,7 @@ export const Footer = ({ data }: FooterProps) => {
             className="mt-[calc(14*var(--unit))] inline-flex h-[calc(44*var(--unit))] shrink-0 items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[var(--color-accent)] px-[calc(22*var(--unit))] text-[calc(14*var(--unit))] font-bold text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-white)] hover:text-[var(--color-accent)] sm:mt-[calc(16*var(--unit))] sm:h-[calc(52*var(--unit))] sm:px-[calc(28*var(--unit))] sm:text-[calc(16*var(--unit))] lg:h-[calc(56*var(--unit))] lg:px-[calc(32*var(--unit))] lg:text-[calc(18*var(--unit))]"
           >
             {cta.button.label}
-            <Icon name="LuArrowRight" className="size-[calc(18*var(--unit))] sm:size-[calc(20*var(--unit))] lg:size-[calc(22*var(--unit))]" />
+            <Icon name={cta.buttonIcon} className="size-[calc(18*var(--unit))] sm:size-[calc(20*var(--unit))] lg:size-[calc(22*var(--unit))]" />
           </Link>
         </div>
       </div>
@@ -43,7 +43,7 @@ export const Footer = ({ data }: FooterProps) => {
         {/* Brand & About */}
         <div className="col-span-2 sm:col-span-4 lg:col-span-3">
           <Link href={data.logoUrl} aria-label={data.logoLabel} className="block w-fit">
-            <Image src={data.logo} alt={data.logoAlt} width={900} height={217} className="h-auto w-[calc(140*var(--unit))] sm:w-[calc(180*var(--unit))] lg:w-[calc(250*var(--unit))] brightness-[1.3] saturate-[1.15]" />
+            <Image src={data.logo} alt={data.logoAlt} width={data.logoWidth} height={data.logoHeight} className="h-auto w-[calc(140*var(--unit))] sm:w-[calc(180*var(--unit))] lg:w-[calc(250*var(--unit))] brightness-[1.3] saturate-[1.15]" />
           </Link>
           <p className="mt-[calc(10*var(--unit))] max-w-[calc(380*var(--unit))] text-[calc(13*var(--unit))] leading-[1.6] text-[var(--color-footer-description)] sm:mt-[calc(12*var(--unit))] sm:text-[calc(14*var(--unit))] lg:text-[calc(18*var(--unit))] lg:leading-[calc(28*var(--unit))]">
             <Lines lines={data.descriptionLines} />
@@ -82,7 +82,7 @@ export const Footer = ({ data }: FooterProps) => {
                     className="flex items-center justify-between gap-[calc(2*var(--unit))] text-[calc(12*var(--unit))] font-medium leading-[1.3] text-[var(--color-footer-link)] transition-colors duration-200 hover:text-[var(--color-accent)] sm:text-[calc(14*var(--unit))] lg:text-[calc(18*var(--unit))]"
                   >
                     <span>{link.label}</span>
-                    <Icon name="LuChevronRight" className="size-[calc(11*var(--unit))] shrink-0 text-[var(--color-icon-muted)] sm:size-[calc(13*var(--unit))] lg:size-[calc(17*var(--unit))]" />
+                    <Icon name={data.linkIcon} className="size-[calc(11*var(--unit))] shrink-0 text-[var(--color-icon-muted)] sm:size-[calc(13*var(--unit))] lg:size-[calc(17*var(--unit))]" />
                   </Link>
                 </li>
               ))}

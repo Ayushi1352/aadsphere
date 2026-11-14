@@ -5,7 +5,7 @@ import type { PolicyPagesProps } from '@/types/templates.types';
 /** Text of one policy with a side box that links to the other policies. */
 export const PolicyPages = ({ data, slug }: PolicyPagesProps) => {
   if (!data) return null;
-  const { items, updatedLabel, otherHeading, contactHeading, contactText, contactEmail, contactEmailUrl } = data;
+  const { items, updatedLabel, otherHeading, contactHeading, contactText, contactEmail, contactEmailUrl, contactEmailIcon, pointIcon, linkIcon } = data;
   const policy = items.find((item) => item.slug === slug) ?? items[0];
 
   return (
@@ -34,7 +34,7 @@ export const PolicyPages = ({ data, slug }: PolicyPagesProps) => {
                 {section.points.map((point) => (
                   <li key={point} className="flex items-start gap-[calc(14*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-text-dark)] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
                     <span className="mt-[calc(1*var(--unit))] flex size-[calc(26*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] lg:size-[calc(30*var(--unit))]">
-                      <Icon name="LuCheck" className="size-[calc(14*var(--unit))] lg:size-[calc(16*var(--unit))]" />
+                      <Icon name={pointIcon} className="size-[calc(14*var(--unit))] lg:size-[calc(16*var(--unit))]" />
                     </span>
                     {point}
                   </li>
@@ -53,14 +53,14 @@ export const PolicyPages = ({ data, slug }: PolicyPagesProps) => {
             {items.map((item, i) => (
               <li key={item.id} className={i > 0 ? 'border-t border-[var(--color-border)]' : ''}>
                 <Link
-                  href={`/${item.slug}`}
+                  href={item.url}
                   aria-current={item.slug === slug ? 'page' : undefined}
                   className={`flex items-center justify-between gap-[calc(12*var(--unit))] py-[calc(16*var(--unit))] text-[calc(17*var(--unit))] font-semibold transition-colors duration-200 hover:text-[var(--color-primary)] lg:text-[calc(19*var(--unit))] ${
                     item.slug === slug ? 'text-[var(--color-primary)]' : 'text-[var(--color-sidebar-heading)]'
                   }`}
                 >
                   {item.title}
-                  <Icon name="LuChevronRight" className="size-[calc(17*var(--unit))] shrink-0" />
+                  <Icon name={linkIcon} className="size-[calc(17*var(--unit))] shrink-0" />
                 </Link>
               </li>
             ))}
@@ -71,7 +71,7 @@ export const PolicyPages = ({ data, slug }: PolicyPagesProps) => {
           <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.25] lg:text-[calc(24*var(--unit))]">{contactHeading}</h2>
           <p className="mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-white-85)] lg:text-[calc(17*var(--unit))]">{contactText}</p>
           <a href={contactEmailUrl} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
-            <Icon name="MdEmail" className="size-[calc(20*var(--unit))] shrink-0" />
+            <Icon name={contactEmailIcon} className="size-[calc(20*var(--unit))] shrink-0" />
             {contactEmail}
           </a>
         </div>

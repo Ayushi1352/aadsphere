@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Icon } from '@/components/ui/Icon';
 import { DotGrid, Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
 import { SliderDots, useSlider } from '@/components/ui/Slider';
+import { fill } from '@/components/ui/fill';
 import type { TestimonialsProps } from '@/types/templates.types';
 
 
@@ -37,10 +38,10 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
             {...slider.swipe}
           >
             <span className="flex size-[calc(60*var(--unit))] items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] lg:absolute lg:left-[calc(31*var(--unit))] lg:top-[calc(22*var(--unit))] lg:size-[calc(76*var(--unit))]">
-              <Icon name="RiDoubleQuotesL" className="size-[calc(38*var(--unit))] lg:size-[calc(50*var(--unit))]" />
+              <Icon name={data.quoteIcon} className="size-[calc(38*var(--unit))] lg:size-[calc(50*var(--unit))]" />
             </span>
 
-            <div key={slider.index} className="translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
+            <div key={current.id} className="translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
               <blockquote className="mt-[calc(18*var(--unit))] font-text text-[calc(17*var(--unit))] leading-[1.6] tracking-[-0.01em] text-[var(--color-text-dark)] sm:text-[calc(20*var(--unit))] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(51*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(32*var(--unit))] lg:tracking-[0.005em]">
                 <Lines lines={current.quoteLines} />
               </blockquote>
@@ -49,7 +50,7 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
 
               <div className="mt-[calc(20*var(--unit))] flex items-center gap-[calc(16*var(--unit))] sm:pr-[calc(130*var(--unit))] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(224*var(--unit))] lg:mt-0 lg:gap-[calc(25*var(--unit))] lg:pr-0">
                 {current.avatar ? (
-                  <Image src={current.avatar} alt={current.name} width={74} height={74} className="size-[calc(60*var(--unit))] shrink-0 rounded-full object-cover lg:size-[calc(76*var(--unit))]" />
+                  <Image src={current.avatar} alt={current.name} width={data.avatarSize} height={data.avatarSize} className="size-[calc(60*var(--unit))] shrink-0 rounded-full object-cover lg:size-[calc(76*var(--unit))]" />
                 ) : (
                   <span className="flex size-[calc(60*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-[calc(20*var(--unit))] font-bold text-[var(--color-white)] lg:size-[calc(76*var(--unit))] lg:text-[calc(24*var(--unit))]" aria-hidden="true">
                     {initials(current.name)}
@@ -69,7 +70,7 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
                 aria-label={data.previousLabel}
                 className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-testimonial-button-bg)] text-[var(--color-text-dark)] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:size-[calc(54*var(--unit))]"
               >
-                <Icon name="LuChevronLeft" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
+                <Icon name={data.previousIcon} className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
               </button>
               <button
                 type="button"
@@ -77,7 +78,7 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
                 aria-label={data.nextLabel}
                 className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-heading)] lg:size-[calc(54*var(--unit))]"
               >
-                <Icon name="LuChevronRight" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
+                <Icon name={data.nextIcon} className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
               </button>
             </div>
           </div>
@@ -98,14 +99,14 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
             <DotGrid cols={4} rows={4} gap={21} size={5} color="var(--color-primary-tint-26)" data-float="6000" className="absolute right-[5.6%] top-[6%] hidden sm:block" />
             <div className="absolute left-0 top-[9%] h-[91%] w-[85.25%] overflow-hidden rounded-[7.5%_7.5%_7.5%_22%/8%_8%_8%_23.5%]">
               {/* Each testimonial has its own photo, so it changes together with the name. */}
-              <div key={slider.index} className="absolute inset-0 translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
+              <div key={current.id} className="absolute inset-0 translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
                 <Image src={current.image} alt={current.imageAlt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </div>
             <div data-float="6000" className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] rounded-[calc(16*var(--unit))] bg-[var(--color-white)] px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] [box-shadow:0_calc(8*var(--unit))_calc(28*var(--unit))_var(--color-heading-12)] sm:px-[calc(24*var(--unit))] sm:py-[calc(16*var(--unit))] lg:h-[calc(91*var(--unit))] lg:w-[calc(285*var(--unit))] lg:rounded-[calc(22*var(--unit))] lg:px-[calc(31*var(--unit))] lg:py-0 lg:pt-[calc(19*var(--unit))]">
-              <p className="flex gap-[calc(6*var(--unit))] text-[var(--color-primary)] lg:-ml-[calc(2*var(--unit))] lg:gap-[calc(5*var(--unit))]" aria-label={`${badge.stars}/5`}>
+              <p className="flex gap-[calc(6*var(--unit))] text-[var(--color-primary)] lg:-ml-[calc(2*var(--unit))] lg:gap-[calc(5*var(--unit))]" aria-label={fill(badge.starsLabel, { stars: badge.stars })}>
                 {Array.from({ length: badge.stars }, (_, i) => (
-                  <Icon key={i} name="MdStar" className="size-[calc(16*var(--unit))] lg:size-[calc(24*var(--unit))]" />
+                  <Icon key={i} name={badge.starIcon} className="size-[calc(16*var(--unit))] lg:size-[calc(24*var(--unit))]" />
                 ))}
               </p>
               <p className="mt-[calc(6*var(--unit))] whitespace-nowrap text-[calc(13*var(--unit))] font-semibold leading-[1.3] tracking-[-0.01em] text-[var(--color-heading)] sm:text-[calc(15*var(--unit))] lg:mt-[calc(8*var(--unit))] lg:text-[calc(18*var(--unit))] lg:leading-[calc(22*var(--unit))]">{badge.text}</p>

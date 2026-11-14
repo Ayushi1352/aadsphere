@@ -102,7 +102,7 @@ export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
                 className="group mt-[calc(28*var(--unit))] flex items-center justify-between border-b border-[var(--color-accent-tint-55)] pb-[calc(10*var(--unit))] text-[calc(18*var(--unit))] font-semibold text-[var(--color-primary)] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(581*var(--unit))] lg:mt-0 lg:h-[calc(36*var(--unit))] lg:w-[calc(475*var(--unit))] lg:items-start lg:pb-0 lg:text-[calc(20*var(--unit))] lg:leading-[calc(28*var(--unit))]"
               >
                 {experience.link.label}
-                <Icon name="LuArrowUpRight" className="size-[calc(26*var(--unit))] transition-transform duration-200 group-hover:-translate-y-[calc(2*var(--unit))] group-hover:translate-x-[calc(2*var(--unit))] lg:mt-[calc(2*var(--unit))]" />
+                <Icon name={experience.linkIcon} className="size-[calc(26*var(--unit))] transition-transform duration-200 group-hover:-translate-y-[calc(2*var(--unit))] group-hover:translate-x-[calc(2*var(--unit))] lg:mt-[calc(2*var(--unit))]" />
               </Link>
             )}
           </div>

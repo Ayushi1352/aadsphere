@@ -83,13 +83,13 @@ const JobList = ({ data }: CareerProps) => {
           </p>
           <div className="mt-[calc(6*var(--unit))] flex items-center gap-[calc(14*var(--unit))]">
             <span className="flex size-[calc(48*var(--unit))] items-center justify-center rounded-full bg-[var(--color-white-15)]">
-              <Icon name="MdEmail" className="size-[calc(22*var(--unit))] text-[var(--color-white)]" />
+              <Icon name={applicationForm.emailIcon} className="size-[calc(22*var(--unit))] text-[var(--color-white)]" />
             </span>
             <span className="font-text text-[calc(16*var(--unit))] text-[var(--color-white-90)] sm:text-[calc(18*var(--unit))]">{applicationForm.contactEmail}</span>
           </div>
           <div className="flex items-center gap-[calc(14*var(--unit))]">
             <span className="flex size-[calc(48*var(--unit))] items-center justify-center rounded-full bg-[var(--color-white-15)]">
-              <Icon name="LuPhone" className="size-[calc(22*var(--unit))] text-[var(--color-white)]" />
+              <Icon name={applicationForm.phoneIcon} className="size-[calc(22*var(--unit))] text-[var(--color-white)]" />
             </span>
             <span className="font-text text-[calc(16*var(--unit))] text-[var(--color-white-90)] sm:text-[calc(18*var(--unit))]">{applicationForm.contactPhone}</span>
           </div>
@@ -100,7 +100,7 @@ const JobList = ({ data }: CareerProps) => {
           {submitted ? (
             <div className="flex flex-col items-center justify-center gap-[calc(16*var(--unit))] py-[calc(40*var(--unit))] text-center">
               <span className="flex size-[calc(72*var(--unit))] items-center justify-center rounded-full bg-[var(--color-job-success-bg)]">
-                <Icon name="LuCheck" className="size-[calc(36*var(--unit))] text-[var(--color-job-success)]" />
+                <Icon name={applicationForm.successIcon} className="size-[calc(36*var(--unit))] text-[var(--color-job-success)]" />
               </span>
               <h3 className="text-[calc(24*var(--unit))] font-bold text-[var(--color-heading)] lg:text-[calc(28*var(--unit))]">{applicationForm.successHeading}</h3>
               <p className="max-w-[calc(340*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.5] text-[var(--color-text)]">
@@ -157,7 +157,7 @@ const JobList = ({ data }: CareerProps) => {
                   <input
                     ref={fileRef}
                     type="file"
-                    accept=".pdf,.doc,.docx"
+                    accept={applicationForm.resumeAccept}
                     onChange={handleFile}
                     className="hidden"
                     id="resume-upload"
@@ -167,7 +167,7 @@ const JobList = ({ data }: CareerProps) => {
                       htmlFor="resume-upload"
                       className="flex h-[calc(48*var(--unit))] grow cursor-pointer items-center gap-[calc(12*var(--unit))] rounded-10 border border-dashed border-[var(--color-job-border-hover)] bg-[var(--color-white)] px-[calc(16*var(--unit))] font-text text-[calc(15*var(--unit))] text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:h-[calc(52*var(--unit))]"
                     >
-                      <Icon name="LuArrowUpRight" className="size-[calc(18*var(--unit))] shrink-0 -rotate-45" />
+                      <Icon name={applicationForm.uploadIcon} className="size-[calc(18*var(--unit))] shrink-0 -rotate-45" />
                       <span className="truncate">{fileName || applicationForm.resumeLabel}</span>
                     </label>
                     {fileName && (
@@ -180,7 +180,7 @@ const JobList = ({ data }: CareerProps) => {
                         aria-label={applicationForm.removeResume}
                         className="flex size-[calc(42*var(--unit))] shrink-0 cursor-pointer items-center justify-center rounded-10 border border-[var(--color-job-border)] bg-[var(--color-white)] text-[var(--color-icon-muted)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:size-[calc(48*var(--unit))]"
                       >
-                        <Icon name="LuX" className="size-[calc(18*var(--unit))]" />
+                        <Icon name={applicationForm.removeIcon} className="size-[calc(18*var(--unit))]" />
                       </button>
                     )}
                   </div>
@@ -200,7 +200,7 @@ const JobList = ({ data }: CareerProps) => {
                   className="mt-[calc(4*var(--unit))] inline-flex h-[calc(52*var(--unit))] items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[var(--color-primary)] px-[calc(30*var(--unit))] text-[calc(16*var(--unit))] font-bold text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-heading)] lg:h-[calc(56*var(--unit))] lg:text-[calc(17*var(--unit))]"
                 >
                   {applicationForm.submit}
-                  <Icon name="LuArrowRight" className="size-[calc(18*var(--unit))]" />
+                  <Icon name={applicationForm.submitIcon} className="size-[calc(18*var(--unit))]" />
                 </button>
               </form>
             </>

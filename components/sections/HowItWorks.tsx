@@ -38,7 +38,7 @@ export const HowItWorks = ({ data }: HowItWorksProps) => {
                 {step.points.map((point) => (
                   <li key={point} className="flex items-center gap-[calc(14*var(--unit))] text-[calc(16*var(--unit))] font-semibold text-[var(--color-heading)] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
                     <span className="flex size-[calc(28*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] lg:size-[calc(32*var(--unit))]">
-                      <Icon name="LuCheck" className="size-[calc(16*var(--unit))] lg:size-[calc(18*var(--unit))]" />
+                      <Icon name={data.pointIcon} className="size-[calc(16*var(--unit))] lg:size-[calc(18*var(--unit))]" />
                     </span>
                     {point}
                   </li>

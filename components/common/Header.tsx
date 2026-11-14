@@ -31,8 +31,8 @@ export const Header = ({ data }: HeaderProps) => {
           <Image
             src={data.logo}
             alt={data.logoAlt}
-            width={900}
-            height={217}
+            width={data.logoWidth}
+            height={data.logoHeight}
             preload
             className="h-auto w-[calc(168*var(--unit))] sm:w-[calc(200*var(--unit))] lg:w-[calc(322*var(--unit))]"
           />
@@ -54,7 +54,7 @@ export const Header = ({ data }: HeaderProps) => {
                     }`}
                   >
                     {item.label}
-                    {item.children.length > 0 && <Icon name="LuPlus" className="size-[calc(13*var(--unit))]" />}
+                    {item.children.length > 0 && <Icon name={data.submenuIcon} className="size-[calc(13*var(--unit))]" />}
                   </Link>
                   <span
                     aria-hidden="true"
@@ -87,7 +87,7 @@ export const Header = ({ data }: HeaderProps) => {
           {/* Phone */}
           <a href={data.phoneUrl} className="hidden items-center gap-[calc(16*var(--unit))] md:flex">
             <span className="flex size-[calc(42*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-tint-6)] text-[var(--color-primary)] lg:size-[calc(46*var(--unit))]">
-              <Icon name="LuPhone" className="size-[calc(19*var(--unit))] lg:size-[calc(21*var(--unit))]" />
+              <Icon name={data.phoneIcon} className="size-[calc(19*var(--unit))] lg:size-[calc(21*var(--unit))]" />
             </span>
             <span className="block">
               <span className="block font-ui text-[calc(12*var(--unit))] leading-none tracking-[-0.01em] text-[var(--color-text-soft)] lg:text-[calc(13*var(--unit))]">{data.phoneLabel}</span>
@@ -103,7 +103,7 @@ export const Header = ({ data }: HeaderProps) => {
             className="hidden h-[calc(44*var(--unit))] items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[var(--color-primary)] px-[calc(22*var(--unit))] text-[calc(15*var(--unit))] font-bold text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-heading)] sm:flex lg:h-[calc(50*var(--unit))] lg:w-[calc(178*var(--unit))] lg:gap-[calc(12*var(--unit))] lg:px-0 lg:text-[calc(16*var(--unit))]"
           >
             {data.buttonText}
-            <Icon name="LuArrowUpRight" className="size-[calc(16*var(--unit))] lg:size-[calc(17*var(--unit))]" />
+            <Icon name={data.buttonIcon} className="size-[calc(16*var(--unit))] lg:size-[calc(17*var(--unit))]" />
           </Link>
 
           {/* Mobile menu button */}
@@ -114,7 +114,7 @@ export const Header = ({ data }: HeaderProps) => {
             aria-expanded={menuOpen}
             className="ml-[calc(14*var(--unit))] flex size-[calc(44*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-primary-tint-6)] text-[var(--color-primary)] lg:hidden"
           >
-            <Icon name={menuOpen ? 'LuX' : 'LuMenu'} className="size-[calc(22*var(--unit))]" />
+            <Icon name={menuOpen ? data.closeMenuIcon : data.openMenuIcon} className="size-[calc(22*var(--unit))]" />
           </button>
         </div>
       </div>
@@ -148,7 +148,7 @@ export const Header = ({ data }: HeaderProps) => {
                         aria-expanded={expanded}
                         className="flex size-[calc(40*var(--unit))] cursor-pointer items-center justify-center text-[var(--color-primary)]"
                       >
-                        <Icon name="LuPlus" className={`size-[calc(16*var(--unit))] transition-transform duration-200 ${expanded ? 'rotate-45' : ''}`} />
+                        <Icon name={data.submenuIcon} className={`size-[calc(16*var(--unit))] transition-transform duration-200 ${expanded ? 'rotate-45' : ''}`} />
                       </button>
                     )}
                   </div>
@@ -170,7 +170,7 @@ export const Header = ({ data }: HeaderProps) => {
 
           <a href={data.phoneUrl} className="mt-[calc(20*var(--unit))] flex items-center gap-[calc(14*var(--unit))] md:hidden">
             <span className="flex size-[calc(42*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-tint-6)] text-[var(--color-primary)]">
-              <Icon name="LuPhone" className="size-[calc(19*var(--unit))]" />
+              <Icon name={data.phoneIcon} className="size-[calc(19*var(--unit))]" />
             </span>
             <span className="block">
               <span className="block font-ui text-[calc(12*var(--unit))] leading-none text-[var(--color-text-soft)]">{data.phoneLabel}</span>
@@ -183,7 +183,7 @@ export const Header = ({ data }: HeaderProps) => {
             className="mt-[calc(20*var(--unit))] flex h-[calc(48*var(--unit))] items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[var(--color-primary)] text-[calc(15*var(--unit))] font-bold text-[var(--color-white)] sm:hidden"
           >
             {data.buttonText}
-            <Icon name="LuArrowUpRight" className="size-[calc(16*var(--unit))]" />
+            <Icon name={data.buttonIcon} className="size-[calc(16*var(--unit))]" />
           </Link>
         </nav>
       )}

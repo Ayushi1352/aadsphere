@@ -30,14 +30,14 @@ export const Services = ({ data }: ServicesProps) => {
                 key={service.id}
                 className="w-full shrink-0 sm:w-[calc((100%-calc(24*var(--unit)))/2)] lg:w-[calc(366*var(--unit))]"
               >
-                <ServiceCard service={service} />
+                <ServiceCard service={service} icon={data.cardIcon} />
               </li>
             ))}
           </ul>
         </div>
 
-        <ArrowButton label={data.previousLabel} icon="LuArrowLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[38%] z-10 lg:-left-[calc(18*var(--unit))] lg:top-[calc(166*var(--unit))]" />
-        <ArrowButton label={data.nextLabel} icon="LuArrowRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[38%] z-10 lg:-right-[calc(20*var(--unit))] lg:top-[calc(166*var(--unit))]" />
+        <ArrowButton label={data.previousLabel} icon={data.previousIcon} onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[38%] z-10 lg:-left-[calc(18*var(--unit))] lg:top-[calc(166*var(--unit))]" />
+        <ArrowButton label={data.nextLabel} icon={data.nextIcon} onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[38%] z-10 lg:-right-[calc(20*var(--unit))] lg:top-[calc(166*var(--unit))]" />
       </div>
 
       <SliderDots count={services.length} active={slider.index} onSelect={slider.goTo} label={data.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(735*var(--unit))] lg:mt-0" />

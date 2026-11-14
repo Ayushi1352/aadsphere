@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/Icon';
 import type { ServiceCardProps } from '@/types/templates.types';
 
 /** One service card: photo with number badge, category, title and arrow. Used on Home and Services. */
-export const ServiceCard = ({ service, className = '' }: ServiceCardProps) => {
+export const ServiceCard = ({ service, icon, className = '' }: ServiceCardProps) => {
   return (
     <Link href={service.url} className={`group block bg-[var(--color-surface)] [box-shadow:0_calc(2.4*var(--unit))_calc(12*var(--unit))_var(--color-heading-8)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(28*var(--unit))_var(--color-primary-16)] ${className}`}>
       <div className="relative aspect-[366/264] overflow-hidden">
@@ -32,7 +32,7 @@ export const ServiceCard = ({ service, className = '' }: ServiceCardProps) => {
           ))}
         </h3>
         <span className="absolute bottom-[calc(28*var(--unit))] right-[calc(22*var(--unit))] flex size-[calc(46*var(--unit))] items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] transition-colors duration-200 group-hover:bg-[var(--color-heading)] lg:bottom-auto lg:right-[calc(23*var(--unit))] lg:top-[calc(45*var(--unit))] lg:size-[calc(47*var(--unit))]">
-          <Icon name="LuArrowRight" className="size-[calc(18*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(3*var(--unit))]" />
+          <Icon name={icon} className="size-[calc(18*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(3*var(--unit))]" />
         </span>
       </div>
     </Link>

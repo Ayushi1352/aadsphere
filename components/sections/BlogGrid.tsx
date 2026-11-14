@@ -34,7 +34,7 @@ export const BlogGrid = ({ data }: BlogGridProps) => {
       <ul data-reveal-group="up" className="mt-[calc(36*var(--unit))] grid gap-[calc(24*var(--unit))] md:grid-cols-2 lg:ml-[calc(77*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:w-[calc(1535*var(--unit))] lg:grid-cols-3 lg:gap-x-[calc(25*var(--unit))] lg:gap-y-[calc(65*var(--unit))]">
         {visiblePosts.map((post) => (
           <li key={post.id}>
-            <BlogCard post={post} />
+            <BlogCard post={post} icon={data.cardIcon} categorySeparator={data.categorySeparator} />
           </li>
         ))}
       </ul>

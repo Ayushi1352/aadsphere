@@ -31,7 +31,7 @@ export const SitemapPage = ({ data }: SitemapPageProps) => {
                     className="flex items-center justify-between gap-[calc(12*var(--unit))] py-[calc(13*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.4] text-[var(--color-text-dark)] transition-colors duration-200 hover:text-[var(--color-primary)] lg:py-[calc(15*var(--unit))] lg:text-[calc(18*var(--unit))]"
                   >
                     {link.label}
-                    <Icon name="LuChevronRight" className="size-[calc(17*var(--unit))] shrink-0 text-[var(--color-primary)]" />
+                    <Icon name={data.linkIcon} className="size-[calc(17*var(--unit))] shrink-0 text-[var(--color-primary)]" />
                   </Link>
                 </li>
               ))}

@@ -50,7 +50,6 @@ export type ThemeFontVariables = CSSProperties & {
 
 export interface SiteMetadataData {
   title: string;
-  siteName: string;
   description: string;
   icon: string;
   lang: string;
@@ -75,6 +74,12 @@ export interface SliderLabels {
 }
 
 /** Labels of the page numbers under a paged grid; "{n}" is the page number. */
+/** Icons of a slider's previous / next arrows. */
+export interface SliderIcons {
+  previousIcon: string;
+  nextIcon: string;
+}
+
 export interface PaginationLabels {
   label: string;
   goToPageN: string;
@@ -88,6 +93,7 @@ export interface FooterCta {
   headingHighlight: string;
   descriptionLines: string[];
   button: LinkItem;
+  buttonIcon: string;
 }
 
 export interface SocialLink {
@@ -121,10 +127,13 @@ export interface FooterData {
   logoAlt: string;
   logoUrl: string;
   logoLabel: string;
+  logoWidth: number;
+  logoHeight: number;
   descriptionLines: string[];
   cta: FooterCta;
   socialLinks: SocialLink[];
   columns: FooterColumn[];
+  linkIcon: string;
   contactTitle: string;
   contactIcons: FooterContactIcons;
   addressLines: string[];
@@ -150,16 +159,23 @@ export interface HeaderData {
   logoAlt: string;
   logoUrl: string;
   logoLabel: string;
+  logoWidth: number;
+  logoHeight: number;
   navLinks: HeaderNavLink[];
+  submenuIcon: string;
   menuLabel: string;
   mobileMenuLabel: string;
   openMenuLabel: string;
   closeMenuLabel: string;
+  openMenuIcon: string;
+  closeMenuIcon: string;
   phoneLabel: string;
   phone: string;
   phoneUrl: string;
+  phoneIcon: string;
   buttonText: string;
   buttonUrl: string;
+  buttonIcon: string;
 }
 
 export interface HeaderProps {
@@ -194,6 +210,7 @@ export interface AboutUsExperience {
   title: string;
   descriptionLines: string[];
   link: LinkItem;
+  linkIcon: string;
 }
 
 export interface AboutUsData {
@@ -243,11 +260,12 @@ export interface ServicesService {
   imageAlt: string;
 }
 
-export interface ServicesData extends SliderLabels {
+export interface ServicesData extends SliderLabels, SliderIcons {
   label: string;
   headingLines: HeadingPart[];
   descriptionLines: string[];
   services: ServicesService[];
+  cardIcon: string;
 }
 
 export interface ServicesProps {
@@ -277,6 +295,9 @@ export interface ProcessProps {
 
 export interface TestimonialsBadge {
   stars: number;
+  /** "{stars}" is the number of stars. */
+  starsLabel: string;
+  starIcon: string;
   text: string;
 }
 
@@ -290,11 +311,13 @@ export interface TestimonialsTestimonial {
   imageAlt: string;
 }
 
-export interface TestimonialsData extends SliderLabels {
+export interface TestimonialsData extends SliderLabels, SliderIcons {
   label: string;
   headingLines: HeadingPart[];
   descriptionLines: string[];
   badge: TestimonialsBadge;
+  quoteIcon: string;
+  avatarSize: number;
   testimonials: TestimonialsTestimonial[];
 }
 
@@ -317,13 +340,17 @@ export interface BlogsPost {
 
 export interface BlogCardProps {
   post: BlogsPost;
+  icon: string;
+  categorySeparator: string;
 }
 
-export interface BlogsData extends SliderLabels {
+export interface BlogsData extends SliderLabels, SliderIcons {
   label: string;
   headingLines: HeadingPart[];
   descriptionLines: string[];
   posts: BlogsPost[];
+  cardIcon: string;
+  categorySeparator: string;
 }
 
 export interface BlogsProps {
@@ -370,6 +397,7 @@ export interface ServicesGridService {
 
 export interface ServiceCardProps {
   service: ServicesGridService;
+  icon: string;
   className?: string;
 }
 
@@ -379,6 +407,7 @@ export interface ServicesGridData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   services: ServicesGridService[];
+  cardIcon: string;
   pageSize: number;
 }
 
@@ -462,6 +491,8 @@ export interface BlogGridData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   posts: BlogGridPost[];
+  cardIcon: string;
+  categorySeparator: string;
   pageSize: number;
 }
 
@@ -485,8 +516,11 @@ export interface BlogDetailSidebarCategory {
 export interface BlogDetailSidebar {
   categoriesHeading: string;
   categories: BlogDetailSidebarCategory[];
+  categoryIcon: string;
   recentHeading: string;
   recentCount: number;
+  recentImageWidth: number;
+  recentImageHeight: number;
   tagsHeading: string;
   tags: NavLink[];
 }
@@ -500,6 +534,7 @@ export interface BlogDetailData {
   headingLines: HeadingPart[][];
   paragraphs: string[][];
   quoteLines: string[];
+  quoteIcon: string;
   sections: BlogDetailSection[];
   sidebar: BlogDetailSidebar;
 }
@@ -531,6 +566,8 @@ export interface QuoteForm {
   heading: string;
   headingHighlight: string;
   description: string;
+  requiredMark: string;
+  selectIcon: string;
   fullName: FormField;
   email: FormField;
   phone: FormField;
@@ -540,6 +577,7 @@ export interface QuoteForm {
   budget: FormSelectField;
   timeline: FormSelectField;
   submit: string;
+  submitIcon: string;
   success: string;
 }
 
@@ -576,6 +614,7 @@ export interface ContactForm {
 
 export interface ContactData {
   cards: ContactCard[];
+  linkIcon: string;
   mapTitle: string;
   mapUrl: string;
   form: ContactForm;
@@ -599,6 +638,7 @@ export interface CtaData {
   heading: string;
   description: string;
   button: LinkItem;
+  buttonIcon: string;
 }
 
 export interface CtaStripProps {
@@ -610,6 +650,7 @@ export interface HowItWorksData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   steps: HowItWorksStep[];
+  pointIcon: string;
   cta: CtaData;
 }
 
@@ -624,21 +665,33 @@ export interface CareerPerk {
   lines: string[];
 }
 
+export interface CareerCta {
+  heading: string;
+  description: string;
+}
+
 export interface CareerApplicationForm {
   heading: string;
   description: string;
   contactEmail: string;
   contactPhone: string;
+  emailIcon: string;
+  phoneIcon: string;
   fullName: string;
   emailLabel: string;
   phoneLabel: string;
   positionLabel: string;
   positions: string[];
   resumeLabel: string;
+  resumeAccept: string;
+  uploadIcon: string;
+  removeIcon: string;
   coverNote: string;
   submit: string;
+  submitIcon: string;
   successHeading: string;
   successMessage: string;
+  successIcon: string;
   removeResume: string;
 }
 
@@ -647,7 +700,7 @@ export interface CareerData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   perks: CareerPerk[];
-  cta: CtaData;
+  cta: CareerCta;
   applicationForm: CareerApplicationForm;
 }
 
@@ -666,6 +719,7 @@ export interface FaqData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   faqs: FaqFaq[];
+  openIcon: string;
   cta: CtaData;
 }
 
@@ -683,6 +737,7 @@ export interface PolicyPagesItemSection {
 export interface PolicyPagesItem {
   id: string;
   slug: string;
+  url: string;
   title: string;
   updated: string;
   intro: string;
@@ -696,6 +751,9 @@ export interface PolicyPagesData {
   contactText: string;
   contactEmail: string;
   contactEmailUrl: string;
+  contactEmailIcon: string;
+  pointIcon: string;
+  linkIcon: string;
   items: PolicyPagesItem[];
 }
 
@@ -716,6 +774,7 @@ export interface SitemapPageData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   groups: SitemapPageGroup[];
+  linkIcon: string;
 }
 
 export interface SitemapPageProps {

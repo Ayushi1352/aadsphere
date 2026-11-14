@@ -17,7 +17,7 @@ export const CtaStrip = ({ cta }: CtaStripProps) => {
         className="group inline-flex h-[calc(54*var(--unit))] shrink-0 items-center justify-center gap-[calc(12*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(30*var(--unit))] text-[calc(16*var(--unit))] font-bold text-[var(--color-primary)] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:h-[calc(62*var(--unit))] lg:px-[calc(38*var(--unit))] lg:text-[calc(18*var(--unit))]"
       >
         {cta.button.label}
-        <Icon name="LuArrowRight" className="size-[calc(20*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(4*var(--unit))]" />
+        <Icon name={cta.buttonIcon} className="size-[calc(20*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(4*var(--unit))]" />
       </Link>
     </div>
   );

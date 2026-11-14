@@ -5,7 +5,7 @@ import { Lines } from '@/components/ui/Text';
 import type { BlogCardProps } from '@/types/templates.types';
 
 /** One blog card: photo with date badge, categories, title, arrow and excerpt. Used on Home and Blog. */
-export const BlogCard = ({ post }: BlogCardProps) => {
+export const BlogCard = ({ post, icon, categorySeparator }: BlogCardProps) => {
   return (
     <Link href={post.url} className="group block overflow-hidden rounded-[calc(14*var(--unit))] bg-[var(--color-blog-card-bg)] [box-shadow:0_calc(2.4*var(--unit))_calc(14.4*var(--unit))_var(--color-heading-9)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(28*var(--unit))_var(--color-primary-16)]">
       <div className="relative aspect-[495/222] overflow-hidden">
@@ -26,7 +26,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
         <p className="flex flex-wrap items-center gap-x-[calc(16*var(--unit))] gap-y-[calc(4*var(--unit))] font-ui text-[calc(11*var(--unit))] font-medium uppercase leading-none tracking-[0.17em] text-[var(--color-card-meta)] lg:absolute lg:left-[calc(32*var(--unit))] lg:top-[calc(32*var(--unit))] lg:gap-x-[calc(16*var(--unit))] lg:text-[calc(12*var(--unit))]">
           {post.categories.map((category, i) => (
             <span key={category} className="flex items-center gap-[calc(16*var(--unit))]">
-              {i > 0 && <span aria-hidden="true">/</span>}
+              {i > 0 && <span aria-hidden="true">{categorySeparator}</span>}
               {category}
             </span>
           ))}
@@ -35,7 +35,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           <Lines lines={post.titleLines} />
         </h3>
         <span className="absolute right-[calc(22*var(--unit))] top-[calc(66*var(--unit))] flex size-[calc(44*var(--unit))] items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] transition-colors duration-200 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] sm:right-[calc(30*var(--unit))] lg:right-[calc(32*var(--unit))] lg:top-[calc(57*var(--unit))]">
-          <Icon name="LuArrowRight" className="size-[calc(20*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(3*var(--unit))]" />
+          <Icon name={icon} className="size-[calc(20*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(3*var(--unit))]" />
         </span>
         <p className="mt-[calc(12*var(--unit))] text-[calc(16*var(--unit))] leading-[1.5] text-[var(--color-blog-excerpt)] lg:absolute lg:left-[calc(32*var(--unit))] lg:top-[calc(125*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(17*var(--unit))] lg:leading-[calc(24.5*var(--unit))]">
           <Lines lines={post.excerptLines} />

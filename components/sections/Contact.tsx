@@ -32,7 +32,7 @@ const ContactCards = ({ data }: ContactProps) => {
               }`}
             >
               {card.link.label}
-              <Icon name="LuArrowUpRight" className="size-[calc(18*var(--unit))] text-[var(--color-contact-card-text)] lg:size-[calc(24*var(--unit))]" />
+              <Icon name={data.linkIcon} className="size-[calc(18*var(--unit))] text-[var(--color-contact-card-text)] lg:size-[calc(24*var(--unit))]" />
             </a>
           </li>
         ))}

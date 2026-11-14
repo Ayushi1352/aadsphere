@@ -29,14 +29,14 @@ export const Blogs = ({ data }: BlogsProps) => {
                 key={post.id}
                 className="w-full shrink-0 md:w-[calc((100%-calc(24*var(--unit)))/2)] lg:w-[calc(495*var(--unit))]"
               >
-                <BlogCard post={post} />
+                <BlogCard post={post} icon={data.cardIcon} categorySeparator={data.categorySeparator} />
               </li>
             ))}
           </ul>
         </div>
 
-        <ArrowButton label={data.previousLabel} icon="LuChevronLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[26%] z-10 lg:-left-[calc(15*var(--unit))] lg:top-[calc(165*var(--unit))]" />
-        <ArrowButton label={data.nextLabel} icon="LuChevronRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[26%] z-10 lg:-right-[calc(21*var(--unit))] lg:top-[calc(165*var(--unit))]" />
+        <ArrowButton label={data.previousLabel} icon={data.previousIcon} onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[26%] z-10 lg:-left-[calc(15*var(--unit))] lg:top-[calc(165*var(--unit))]" />
+        <ArrowButton label={data.nextLabel} icon={data.nextIcon} onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[26%] z-10 lg:-right-[calc(21*var(--unit))] lg:top-[calc(165*var(--unit))]" />
       </div>
 
       <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} label={data.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(730*var(--unit))] lg:mt-0" />

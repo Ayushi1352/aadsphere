@@ -8,7 +8,7 @@ import type { BlogDetailData, BlogDetailProps, BlogDetailSidebar, BlogGridPost }
 /** Common article shown for every blog post. */
 const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
   if (!data) return null;
-  const { image, imageAlt, date, category, author, headingLines, paragraphs, quoteLines, sections } = data;
+  const { image, imageAlt, date, category, author, headingLines, paragraphs, quoteLines, quoteIcon, sections } = data;
   return (
     <article className="min-w-0 lg:grow lg:w-[calc(1042*var(--unit))] lg:flex-none">
       <div className="relative aspect-[1042/448] overflow-hidden rounded-[calc(12*var(--unit))] lg:rounded-[calc(16*var(--unit))]">
@@ -46,7 +46,7 @@ const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
       <blockquote data-reveal="left" className="relative mt-[calc(28*var(--unit))] flex items-center gap-[calc(18*var(--unit))] overflow-hidden rounded-[calc(12*var(--unit))] bg-gradient-to-r from-[var(--color-accent-tint-7)] to-[var(--color-accent-tint-11)] p-[calc(22*var(--unit))] sm:gap-[calc(28*var(--unit))] sm:p-[calc(30*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:block lg:h-[calc(140*var(--unit))] lg:rounded-[calc(16*var(--unit))] lg:p-0">
         <span className="absolute -bottom-[calc(90*var(--unit))] -right-[calc(40*var(--unit))] size-[calc(200*var(--unit))] rounded-full bg-[var(--color-accent-tint-17-60)]" aria-hidden="true" />
         <span className="absolute -right-[calc(70*var(--unit))] -top-[calc(120*var(--unit))] size-[calc(260*var(--unit))] rounded-full bg-[var(--color-accent-tint-13-50)]" aria-hidden="true" />
-        <Icon name="FaQuoteLeft" className="relative h-[calc(44*var(--unit))] w-[calc(56*var(--unit))] shrink-0 text-[var(--color-accent)] lg:absolute lg:left-[calc(48*var(--unit))] lg:top-[calc(23*var(--unit))] lg:size-[calc(80*var(--unit))]" />
+        <Icon name={quoteIcon} className="relative h-[calc(44*var(--unit))] w-[calc(56*var(--unit))] shrink-0 text-[var(--color-accent)] lg:absolute lg:left-[calc(48*var(--unit))] lg:top-[calc(23*var(--unit))] lg:size-[calc(80*var(--unit))]" />
         <p className="relative text-[calc(17*var(--unit))] font-medium leading-[1.5] text-[var(--color-blog-text)] sm:text-[calc(21*var(--unit))] lg:absolute lg:left-[calc(152*var(--unit))] lg:top-[calc(31*var(--unit))] lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(36*var(--unit))]">
           <Lines lines={quoteLines} />
         </p>
@@ -78,7 +78,7 @@ function Box({ heading, children, className = '' }: { heading: string; children:
 /** Right column of a blog post: categories, recent posts and tags. */
 const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: BlogGridPost[] }) => {
   if (!data) return null;
-  const { categoriesHeading, categories, recentHeading, recentCount, tagsHeading, tags } = data;
+  const { categoriesHeading, categories, categoryIcon, recentHeading, recentCount, recentImageWidth, recentImageHeight, tagsHeading, tags } = data;
   const recentPostsList = posts.slice(0, recentCount);
 
   return (
@@ -90,7 +90,7 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
               <Link href={item.url} className="group flex items-center py-[calc(15*var(--unit))] text-[calc(17*var(--unit))] font-medium leading-none text-[var(--color-sidebar-heading)] transition-colors duration-200 hover:text-[var(--color-accent)] lg:h-[calc(60.5*var(--unit))] lg:py-0 lg:text-[calc(20*var(--unit))]">
                 {item.label}
                 <span className="ml-auto flex h-[calc(28*var(--unit))] w-[calc(42*var(--unit))] items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[calc(15*var(--unit))] text-[var(--color-accent)] lg:h-[calc(30*var(--unit))] lg:w-[calc(44*var(--unit))] lg:text-[calc(17*var(--unit))]">{item.count}</span>
-                <Icon name="LuChevronRight" className="ml-[calc(18*var(--unit))] mr-[calc(2*var(--unit))] size-[calc(16*var(--unit))] transition-transform duration-200 group-hover:translate-x-[calc(3*var(--unit))] lg:ml-[calc(20*var(--unit))] lg:size-[calc(18*var(--unit))]" />
+                <Icon name={categoryIcon} className="ml-[calc(18*var(--unit))] mr-[calc(2*var(--unit))] size-[calc(16*var(--unit))] transition-transform duration-200 group-hover:translate-x-[calc(3*var(--unit))] lg:ml-[calc(20*var(--unit))] lg:size-[calc(18*var(--unit))]" />
               </Link>
             </li>
           ))}
@@ -102,7 +102,7 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
           {recentPostsList.map((post, i) => (
             <li key={post.id} className={i > 0 ? 'border-t border-[var(--color-border)]' : ''}>
               <Link href={post.url} className="group flex items-center gap-[calc(18*var(--unit))] py-[calc(18*var(--unit))] lg:gap-[calc(22*var(--unit))] lg:py-[calc(21*var(--unit))]">
-                <Image src={post.image} alt={post.imageAlt} width={137} height={109} className="h-[calc(88*var(--unit))] w-[calc(110*var(--unit))] shrink-0 rounded-[calc(6*var(--unit))] object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[calc(109*var(--unit))] lg:w-[calc(137*var(--unit))]" />
+                <Image src={post.image} alt={post.imageAlt} width={recentImageWidth} height={recentImageHeight} className="h-[calc(88*var(--unit))] w-[calc(110*var(--unit))] shrink-0 rounded-[calc(6*var(--unit))] object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[calc(109*var(--unit))] lg:w-[calc(137*var(--unit))]" />
                 <span className="block min-w-0">
                   <span className="block text-[calc(16*var(--unit))] font-bold leading-[1.35] text-[var(--color-blog-heading)] transition-colors duration-200 group-hover:text-[var(--color-accent)] lg:text-[calc(19*var(--unit))] lg:leading-[calc(26*var(--unit))]">
                     {post.titleLines.join(' ')}

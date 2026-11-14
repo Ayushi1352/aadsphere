@@ -32,9 +32,9 @@ export const ServicesGrid = ({ data }: ServicesGridProps) => {
       </div>
 
       <ul data-reveal-group="up" className="mt-[calc(36*var(--unit))] grid gap-[calc(24*var(--unit))] sm:grid-cols-2 lg:ml-[calc(84*var(--unit))] lg:mt-[calc(42*var(--unit))] lg:w-[calc(1533*var(--unit))] lg:grid-cols-4 lg:gap-x-[calc(24*var(--unit))] lg:gap-y-[calc(53*var(--unit))]">
-        {visibleServices.map((service, i) => (
-          <li key={i}>
-            <ServiceCard service={service} className="overflow-hidden rounded-[calc(6*var(--unit))]" />
+        {visibleServices.map((service) => (
+          <li key={service.id}>
+            <ServiceCard service={service} icon={data.cardIcon} className="overflow-hidden rounded-[calc(6*var(--unit))]" />
           </li>
         ))}
       </ul>

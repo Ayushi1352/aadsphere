@@ -12,7 +12,6 @@
     },
     "metadata": {
       "title": "AdSphere - Advertising Agency | Turning Ideas into Impact",
-      "siteName": "AdSphere",
       "description": "AdSphere helps brands grow through strategic advertising, creative storytelling, and digital solutions that deliver real results.",
       "icon": "/icon.png",
       "lang": "en"
@@ -306,6 +305,8 @@
       "logoAlt": "AdSphere Advertising Agency",
       "logoUrl": "/",
       "logoLabel": "AdSphere home",
+      "logoWidth": 900,
+      "logoHeight": 217,
       "descriptionLines": [
         "We help brands grow through strategic",
         "advertising, creative storytelling, and ",
@@ -322,7 +323,8 @@
         "button": {
           "label": "Get Started Today",
           "url": "/contact"
-        }
+        },
+        "buttonIcon": "LuArrowRight"
       },
       "socialLinks": [
         {
@@ -444,6 +446,7 @@
           ]
         }
       ],
+      "linkIcon": "LuChevronRight",
       "contactTitle": "Contact Us",
       "contactIcons": {
         "address": "MdLocationOn",
@@ -494,6 +497,8 @@
               "logoAlt": "AdSphere Advertising Agency",
               "logoUrl": "/",
               "logoLabel": "AdSphere home",
+              "logoWidth": 900,
+              "logoHeight": 217,
               "navLinks": [
                 {
                   "id": "home",
@@ -573,15 +578,20 @@
                   "children": []
                 }
               ],
+              "submenuIcon": "LuPlus",
               "menuLabel": "Main",
               "mobileMenuLabel": "Mobile",
               "openMenuLabel": "Open menu",
               "closeMenuLabel": "Close menu",
+              "openMenuIcon": "LuMenu",
+              "closeMenuIcon": "LuX",
               "phoneLabel": "Need help? Talk to Us",
               "phone": "+1 0000000000",
               "phoneUrl": "tel:+10000000000",
+              "phoneIcon": "LuPhone",
               "buttonText": "Get a Quote",
-              "buttonUrl": "/get-a-quote"
+              "buttonUrl": "/get-a-quote",
+              "buttonIcon": "LuArrowUpRight"
             }
           }
         },
@@ -677,7 +687,8 @@
                 "link": {
                   "label": "Read More",
                   "url": "/about-us"
-                }
+                },
+                "linkIcon": "LuArrowUpRight"
               }
             }
           }
@@ -836,6 +847,9 @@
                   "imageAlt": "Consultants smiling around a laptop"
                 }
               ],
+              "cardIcon": "LuArrowRight",
+              "previousIcon": "LuArrowLeft",
+              "nextIcon": "LuArrowRight",
               "previousLabel": "Previous",
               "nextLabel": "Next",
               "goToSlideLabel": "Go to slide {n}"
@@ -937,8 +951,12 @@
               ],
               "badge": {
                 "stars": 5,
+                "starsLabel": "{stars}/5",
+                "starIcon": "MdStar",
                 "text": "Trusted by 500+ Businesses"
               },
+              "quoteIcon": "RiDoubleQuotesL",
+              "avatarSize": 74,
               "testimonials": [
                 {
                   "id": "michael-roberts",
@@ -997,6 +1015,8 @@
                   "imageAlt": "Ananya Verma smiling at work"
                 }
               ],
+              "previousIcon": "LuChevronLeft",
+              "nextIcon": "LuChevronRight",
               "previousLabel": "Previous",
               "nextLabel": "Next",
               "goToSlideLabel": "Go to slide {n}"
@@ -1089,6 +1109,10 @@
                   "imageAlt": "Phone with social media reactions floating above it"
                 }
               ],
+              "cardIcon": "LuArrowRight",
+              "categorySeparator": "/",
+              "previousIcon": "LuChevronLeft",
+              "nextIcon": "LuChevronRight",
               "previousLabel": "Previous",
               "nextLabel": "Next",
               "goToSlideLabel": "Go to slide {n}"
@@ -1342,6 +1366,7 @@
                   "imageAlt": "Team reviewing campaign material around a laptop"
                 }
               ],
+              "cardIcon": "LuArrowRight",
               "pageSize": 8
             }
           }
@@ -1741,6 +1766,8 @@
                   "imageAlt": "Team reviewing campaign material around a laptop"
                 }
               ],
+              "cardIcon": "LuArrowRight",
+              "categorySeparator": "/",
               "pageSize": 6
             }
           }
@@ -1787,6 +1814,7 @@
                 "“A well-crafted brand strategy turns your vision into",
                 "recognition and your audience into loyal customers.”"
               ],
+              "quoteIcon": "FaQuoteLeft",
               "sections": [
                 {
                   "id": "why-brand-strategy-matters",
@@ -1849,8 +1877,11 @@
                     "url": "/blog"
                   }
                 ],
+                "categoryIcon": "LuChevronRight",
                 "recentHeading": "Recent Posts",
                 "recentCount": 3,
+                "recentImageWidth": 137,
+                "recentImageHeight": 109,
                 "tagsHeading": "Tags",
                 "tags": [
                   {
@@ -1959,6 +1990,8 @@
                 "heading": "Request a ",
                 "headingHighlight": "Quote",
                 "description": "Fill out the form below and we’ll get back to you with a customized quote.",
+                "requiredMark": "*",
+                "selectIcon": "LuChevronDown",
                 "fullName": {
                   "label": "Full Name",
                   "placeholder": "Enter your full name"
@@ -2014,6 +2047,7 @@
                   ]
                 },
                 "submit": "Submit Request",
+                "submitIcon": "LuArrowRight",
                 "success": "Thank you! Your request has been noted. Our team will get back to you shortly."
               }
             }
@@ -2064,6 +2098,7 @@
                   }
                 }
               ],
+              "linkIcon": "LuArrowUpRight",
               "mapTitle": "Map of San Francisco, USA",
               "mapUrl": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed",
               "form": {
@@ -2157,13 +2192,15 @@
                   "imageAlt": "Team celebrating results around a laptop"
                 }
               ],
+              "pointIcon": "LuCheck",
               "cta": {
                 "heading": "Ready to start your project?",
                 "description": "Tell us about your goals and we will prepare a plan that fits your business.",
                 "button": {
                   "label": "Get a Quote",
                   "url": "/get-a-quote"
-                }
+                },
+                "buttonIcon": "LuArrowRight"
               }
             }
           }
@@ -2226,17 +2263,15 @@
               ],
               "cta": {
                 "heading": "Don’t see the right role?",
-                "description": "Send us your profile anyway. We are always happy to hear from talented people.",
-                "button": {
-                  "label": "Contact Us",
-                  "url": "/contact"
-                }
+                "description": "Send us your profile anyway. We are always happy to hear from talented people."
               },
               "applicationForm": {
                 "heading": "Apply Now",
                 "description": "Attach your resume and tell us about yourself.",
                 "contactEmail": "info@xyz.com",
                 "contactPhone": "+1 0000000000",
+                "emailIcon": "MdEmail",
+                "phoneIcon": "LuPhone",
                 "fullName": "Full Name",
                 "emailLabel": "Email Address",
                 "phoneLabel": "Phone Number",
@@ -2250,10 +2285,15 @@
                   "Other"
                 ],
                 "resumeLabel": "Attach Resume (PDF, DOC)",
+                "resumeAccept": ".pdf,.doc,.docx",
+                "uploadIcon": "LuArrowUpRight",
+                "removeIcon": "LuX",
                 "coverNote": "Cover note (optional)",
                 "submit": "Submit Application",
+                "submitIcon": "LuArrowRight",
                 "successHeading": "Application Sent!",
                 "successMessage": "Thank you for applying. We will review your profile and get back to you soon.",
+                "successIcon": "LuCheck",
                 "removeResume": "Remove resume"
               }
             }
@@ -2319,13 +2359,15 @@
                   "answer": "We offer both project-based and ongoing engagements. The terms are agreed with you before the work begins."
                 }
               ],
+              "openIcon": "LuPlus",
               "cta": {
                 "heading": "Still have questions?",
                 "description": "Our team is here to help you with anything you need to know.",
                 "button": {
                   "label": "Contact Us",
                   "url": "/contact"
-                }
+                },
+                "buttonIcon": "LuArrowRight"
               }
             }
           }
@@ -2339,10 +2381,14 @@
               "contactText": "Write to us and our team will be happy to help.",
               "contactEmail": "info@xyz.com",
               "contactEmailUrl": "mailto:info@xyz.com",
+              "contactEmailIcon": "MdEmail",
+              "pointIcon": "LuCheck",
+              "linkIcon": "LuChevronRight",
               "items": [
                 {
                   "id": "privacy-policy",
                   "slug": "privacy-policy",
+                  "url": "/privacy-policy",
                   "title": "Privacy Policy",
                   "updated": "January 1, 2026",
                   "intro": "This Privacy Policy explains what information AdSphere collects when you use our website or services, how we use it, and the choices you have.",
@@ -2410,6 +2456,7 @@
                 {
                   "id": "terms-and-conditions",
                   "slug": "terms-and-conditions",
+                  "url": "/terms-and-conditions",
                   "title": "Terms & Conditions",
                   "updated": "January 1, 2026",
                   "intro": "These Terms & Conditions govern your use of the AdSphere website and services. By using our website you agree to these terms.",
@@ -2471,6 +2518,7 @@
                 {
                   "id": "cookie-policy",
                   "slug": "cookie-policy",
+                  "url": "/cookie-policy",
                   "title": "Cookie Policy",
                   "updated": "January 1, 2026",
                   "intro": "This Cookie Policy explains what cookies are, which ones we use on this website, and how you can control them.",
@@ -2710,7 +2758,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "linkIcon": "LuChevronRight"
             }
           }
         }
