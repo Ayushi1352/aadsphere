@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { Lines, SectionLabel } from "@/components/ui/Text";
-import type { WhyChooseUsData } from "@/types/templates.types";
+import type { WhyChooseUsProps } from "@/types/templates.types";
 
 /** "Why Choose Us": heading plus six reason cards (the featured one is solid red). */
-export const WhyChooseUs = ({ data }: { data?: WhyChooseUsData }) => {
+export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, reasons } = data;
   return (

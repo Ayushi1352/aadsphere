@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { BlogCard } from "@/components/sections/BlogCard";
+import { BlogCard } from "@/components/ui/BlogCard";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
 import { fill } from "@/components/ui/fill";
-import type { GlobalUIData, BlogGridData } from "@/types/templates.types";
+import type { BlogGridProps } from "@/types/templates.types";
 
 
 /** Heading plus a paginated grid of blog cards. */
-export const BlogGrid = ({ data, ui }: { data?: BlogGridData; ui?: GlobalUIData }) => {
+export const BlogGrid = ({ data }: BlogGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
   if (!data) return null;
@@ -47,7 +47,7 @@ export const BlogGrid = ({ data, ui }: { data?: BlogGridData; ui?: GlobalUIData 
             disabled={currentPage === 1}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.previousLabel}
+            {pagination.previousLabel}
           </button>
           {Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => (
             <button
@@ -67,7 +67,7 @@ export const BlogGrid = ({ data, ui }: { data?: BlogGridData; ui?: GlobalUIData 
             disabled={currentPage === pageCount}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.nextLabel}
+            {pagination.nextLabel}
           </button>
         </nav>
       )}

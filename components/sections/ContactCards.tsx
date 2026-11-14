@@ -1,26 +1,10 @@
 import { Icon } from "@/components/ui/Icon";
-import { fill } from "@/components/ui/fill";
-import type { CompanyData, ContactData } from "@/types/templates.types";
+import type { ContactCardsProps } from "@/types/templates.types";
 
 /** Three info cards: headquarters, email address and phone number. */
-export const ContactCards = ({ data, company }: { data?: ContactData; company?: CompanyData }) => {
-  if (!data || !company) return null;
-  // {placeholders} in templates.json are filled with the contact details written once in common.company.
-  const values = {
-    phone: company.phone,
-    phoneHref: company.phoneHref,
-    altPhone: company.altPhone,
-    email: company.email,
-    emailHref: company.emailHref,
-    supportEmail: company.supportEmail,
-    directionsHref: company.directionsHref,
-  };
-  // "{addressLines}" expands to every line of the address.
-  const cards = data.cards.map((card) => ({
-    ...card,
-    lines: card.lines.flatMap((line) => (line === "{addressLines}" ? company.addressLines : [fill(line, values)])),
-    link: { ...card.link, href: fill(card.link.href, values) },
-  }));
+export const ContactCards = ({ data }: ContactCardsProps) => {
+  if (!data) return null;
+  const { cards } = data;
   return (
     <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] font-article sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:px-0 lg:py-[calc(48*var(--unit))]">
       <ul data-reveal-group="up" className="grid gap-[calc(24*var(--unit))] md:grid-cols-2 lg:grid-cols-3 lg:mx-auto lg:w-[calc(1240*var(--unit))] lg:gap-[calc(24*var(--unit))]">

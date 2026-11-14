@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { Lines } from "@/components/ui/Text";
-import type { ServiceDetailData } from "@/types/templates.types";
+import type { ServiceContentProps } from "@/types/templates.types";
 
 type TextBlock = { title: string; lines: string[] };
 
@@ -18,7 +18,7 @@ function Block({ block, className }: { block: TextBlock; className: string }) {
 }
 
 /** Common article for every service: photo, intro, text blocks and two feature cards. */
-export const ServiceContent = ({ data }: { data?: ServiceDetailData }) => {
+export const ServiceContent = ({ data }: ServiceContentProps) => {
   if (!data) return null;
   const { label, heading, image, introLines, sections, features, closingSections } = data;
   return (

@@ -1,11 +1,11 @@
 "use client";
 
-import { ServiceCard } from "@/components/sections/ServiceCard";
+import { ServiceCard } from "@/components/ui/ServiceCard";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
 import { ArrowButton, SliderDots, rotate, useSlider } from "@/components/ui/Slider";
-import type { GlobalUIData, ServicesData } from "@/types/templates.types";
+import type { ServicesSectionProps } from "@/types/templates.types";
 
-export const ServicesSection = ({ data, ui }: { data?: ServicesData; ui?: GlobalUIData }) => {
+export const ServicesSection = ({ data }: ServicesSectionProps) => {
   const slider = useSlider(data?.services.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, services } = data;
@@ -36,11 +36,11 @@ export const ServicesSection = ({ data, ui }: { data?: ServicesData; ui?: Global
           </ul>
         </div>
 
-        <ArrowButton label={ui?.previousLabel} icon="LuArrowLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[38%] z-10 lg:-left-[calc(18*var(--unit))] lg:top-[calc(166*var(--unit))]" />
-        <ArrowButton label={ui?.nextLabel} icon="LuArrowRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[38%] z-10 lg:-right-[calc(20*var(--unit))] lg:top-[calc(166*var(--unit))]" />
+        <ArrowButton label={data.previousLabel} icon="LuArrowLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[38%] z-10 lg:-left-[calc(18*var(--unit))] lg:top-[calc(166*var(--unit))]" />
+        <ArrowButton label={data.nextLabel} icon="LuArrowRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[38%] z-10 lg:-right-[calc(20*var(--unit))] lg:top-[calc(166*var(--unit))]" />
       </div>
 
-      <SliderDots count={services.length} active={slider.index} onSelect={slider.goTo} label={ui?.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(735*var(--unit))] lg:mt-0" />
+      <SliderDots count={services.length} active={slider.index} onSelect={slider.goTo} label={data.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(735*var(--unit))] lg:mt-0" />
     </section>
   );
 };

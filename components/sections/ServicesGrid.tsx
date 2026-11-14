@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ServiceCard } from "@/components/sections/ServiceCard";
+import { ServiceCard } from "@/components/ui/ServiceCard";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
 import { fill } from "@/components/ui/fill";
-import type { GlobalUIData, ServicesGridData } from "@/types/templates.types";
+import type { ServicesGridProps } from "@/types/templates.types";
 
 
 /** Heading plus a paginated grid of service cards. */
-export const ServicesGrid = ({ data, ui }: { data?: ServicesGridData; ui?: GlobalUIData }) => {
+export const ServicesGrid = ({ data }: ServicesGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
   if (!data) return null;
@@ -47,7 +47,7 @@ export const ServicesGrid = ({ data, ui }: { data?: ServicesGridData; ui?: Globa
             disabled={currentPage === 1}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.previousLabel}
+            {pagination.previousLabel}
           </button>
           {Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => (
             <button
@@ -67,7 +67,7 @@ export const ServicesGrid = ({ data, ui }: { data?: ServicesGridData; ui?: Globa
             disabled={currentPage === pageCount}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.nextLabel}
+            {pagination.nextLabel}
           </button>
         </nav>
       )}

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Lines } from "@/components/ui/Text";
-import type { HeroData } from "@/types/templates.types";
+import type { HeroSectionProps } from "@/types/templates.types";
 
-export const HeroSection = ({ data }: { data?: HeroData }) => {
+export const HeroSection = ({ data }: HeroSectionProps) => {
   if (!data) return null;
   const { headingLines, descriptionLines, button, image } = data;
   return (

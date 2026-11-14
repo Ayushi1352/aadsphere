@@ -4,14 +4,16 @@ import type { AdvertisingTemplateData } from "@/types/templates.types";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { BlogDetail } from "@/components/sections/BlogDetail";
 
-const templateData: AdvertisingTemplateData = rawData;
-const sectionData = templateData.categories.Advertising.sections;
-const commonData = templateData.common;
-
 // One common detail page for every blog post: all blog links point here.
-export const metadata: Metadata = { ...commonData.blogDetailBreadcrumb?.seo };
+export const metadata: Metadata = { ...(rawData as AdvertisingTemplateData).common.blogDetailBreadcrumb?.seo };
 
 export default function BlogDetailPage() {
+  const templateData: AdvertisingTemplateData = rawData;
+  const sectionData = templateData?.categories?.Advertising?.sections;
+  const commonData = templateData?.common;
+
+  if (!sectionData || !commonData) return null;
+
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.blogDetailBreadcrumb} ui={commonData.globalUI} />

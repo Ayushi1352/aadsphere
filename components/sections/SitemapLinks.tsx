@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { SitemapPageData } from "@/types/templates.types";
+import type { SitemapLinksProps } from "@/types/templates.types";
 
 /** Every page of the website, grouped into boxes of links. */
-export const SitemapLinks = ({ data }: { data?: SitemapPageData }) => {
+export const SitemapLinks = ({ data }: SitemapLinksProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, groups } = data;
   return (

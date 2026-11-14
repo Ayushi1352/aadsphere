@@ -19,34 +19,7 @@
     },
     "globalUI": {
       "breadcrumbLabel": "Breadcrumb",
-      "breadcrumbSeparator": "/",
-      "previousLabel": "Previous",
-      "nextLabel": "Next",
-      "goToSlideLabel": "Go to slide {n}"
-    },
-    "company": {
-      "phone": "+1 0000000000",
-      "phoneHref": "tel:+10000000000",
-      "footerPhone": "+1 0000000000",
-      "footerPhoneHref": "tel:+10000000000",
-      "altPhone": "+1 0000000000",
-      "email": "info@xyz.com",
-      "emailHref": "mailto:info@xyz.com",
-      "supportEmail": "support@xyz.com",
-      "addressLines": [
-        "123 Business Avenue,",
-        "Suite 400, San Francisco,",
-        "CA 94107, USA"
-      ],
-      "directionsHref": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107",
-      "map": {
-        "title": "Map of San Francisco, USA",
-        "src": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed"
-      },
-      "hoursLines": [
-        "Mon - Fri: 9:00 AM - 6:00 PM",
-        "Sat - Sun: Closed"
-      ]
+      "breadcrumbSeparator": "/"
     },
     "aboutBreadcrumb": {
       "title": "About Us",
@@ -491,6 +464,19 @@
           "name": "Sitemap",
           "href": "/sitemap"
         }
+      ],
+      "addressLines": [
+        "123 Business Avenue,",
+        "Suite 400, San Francisco,",
+        "CA 94107, USA"
+      ],
+      "phone": "+1 0000000000",
+      "phoneHref": "tel:+10000000000",
+      "email": "info@xyz.com",
+      "emailHref": "mailto:info@xyz.com",
+      "hoursLines": [
+        "Mon - Fri: 9:00 AM - 6:00 PM",
+        "Sat - Sun: Closed"
       ]
     }
   },
@@ -581,7 +567,9 @@
               "links": {
                 "home": "/",
                 "getAQuote": "/get-a-quote"
-              }
+              },
+              "phone": "+1 0000000000",
+              "phoneHref": "tel:+10000000000"
             }
           }
         },
@@ -845,7 +833,10 @@
                     "alt": "Consultants smiling around a laptop"
                   }
                 }
-              ]
+              ],
+              "previousLabel": "Previous",
+              "nextLabel": "Next",
+              "goToSlideLabel": "Go to slide {n}"
             }
           }
         },
@@ -1011,7 +1002,10 @@
                     "alt": "Ananya Verma smiling at work"
                   }
                 }
-              ]
+              ],
+              "previousLabel": "Previous",
+              "nextLabel": "Next",
+              "goToSlideLabel": "Go to slide {n}"
             }
           }
         },
@@ -1103,7 +1097,10 @@
                     "alt": "Phone with social media reactions floating above it"
                   }
                 }
-              ]
+              ],
+              "previousLabel": "Previous",
+              "nextLabel": "Next",
+              "goToSlideLabel": "Go to slide {n}"
             }
           }
         },
@@ -1232,7 +1229,9 @@
             "AdvertisingServicesGrid1": {
               "pagination": {
                 "label": "Service pagination",
-                "goToPageN": "Go to service page {n}"
+                "goToPageN": "Go to service page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
               },
               "label": "Our Services",
               "headingLines": [
@@ -1448,7 +1447,9 @@
             "AdvertisingPortfolio1": {
               "pagination": {
                 "label": "Portfolio pagination",
-                "goToPageN": "Go to portfolio page {n}"
+                "goToPageN": "Go to portfolio page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
               },
               "label": "Our Portfolio",
               "headingLines": [
@@ -1556,7 +1557,9 @@
             "AdvertisingBlogGrid1": {
               "pagination": {
                 "label": "Blog pagination",
-                "goToPageN": "Go to blog page {n}"
+                "goToPageN": "Go to blog page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
               },
               "label": "Our Blogs",
               "headingLines": [
@@ -2027,38 +2030,44 @@
                   "icon": "MdLocationOn",
                   "title": "Headquarters",
                   "lines": [
-                    "{addressLines}"
+                    "123 Business Avenue,",
+                    "Suite 400, San Francisco,",
+                    "CA 94107, USA"
                   ],
                   "link": {
                     "label": "Get Direction",
-                    "href": "{directionsHref}"
+                    "href": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
                   }
                 },
                 {
                   "icon": "MdChat",
                   "title": "Email Address",
                   "lines": [
-                    "{email}",
-                    "{supportEmail}"
+                    "info@xyz.com",
+                    "support@xyz.com"
                   ],
                   "link": {
                     "label": "Send Message",
-                    "href": "{emailHref}"
+                    "href": "mailto:info@xyz.com"
                   }
                 },
                 {
                   "icon": "MdPhone",
                   "title": "Phone Number",
                   "lines": [
-                    "{phone}",
-                    "{altPhone}"
+                    "+1 0000000000",
+                    "+1 0000000000"
                   ],
                   "link": {
                     "label": "Call Anytime",
-                    "href": "{phoneHref}"
+                    "href": "tel:+10000000000"
                   }
                 }
               ],
+              "map": {
+                "title": "Map of San Francisco, USA",
+                "src": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed"
+              },
               "form": {
                 "headingLines": [
                   "Have Any Project on",
@@ -2322,6 +2331,8 @@
               "otherHeading": "Other Policies",
               "contactHeading": "Questions about this policy?",
               "contactText": "Write to us and our team will be happy to help.",
+              "contactEmail": "info@xyz.com",
+              "contactEmailHref": "mailto:info@xyz.com",
               "items": [
                 {
                   "slug": "privacy-policy",
@@ -2649,7 +2660,7 @@
       "templateComponents": {
         "shared": {
           "Header": "AdvertisingHeader1",
-          "Footer": "common.Footer"
+          "Footer": "AdvertisingFooter1"
         },
         "pages": {
           "home": {
@@ -2688,7 +2699,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2720,7 +2731,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2740,7 +2751,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2760,7 +2771,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2780,7 +2791,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2800,7 +2811,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2820,7 +2831,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2840,7 +2851,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2860,7 +2871,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2884,7 +2895,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2904,7 +2915,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2924,7 +2935,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2944,7 +2955,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2964,7 +2975,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -2984,7 +2995,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           },
@@ -3004,7 +3015,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "AdvertisingFooter1"
               }
             ]
           }

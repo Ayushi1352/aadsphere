@@ -5,13 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
-import type { CompanyData, HeaderData } from "@/types/templates.types";
+import type { HeaderProps } from "@/types/templates.types";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export const Header = ({ data, company }: { data?: HeaderData; company?: CompanyData }) => {
+export const Header = ({ data }: HeaderProps) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
@@ -85,14 +85,14 @@ export const Header = ({ data, company }: { data?: HeaderData; company?: Company
 
         <div className="ml-auto flex items-center">
           {/* Phone */}
-          <a href={company?.phoneHref} className="hidden items-center gap-[calc(16*var(--unit))] md:flex">
+          <a href={data.phoneHref} className="hidden items-center gap-[calc(16*var(--unit))] md:flex">
             <span className="flex size-[calc(42*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-tint-6)] text-[var(--color-primary)] lg:size-[calc(46*var(--unit))]">
               <Icon name="LuPhone" className="size-[calc(19*var(--unit))] lg:size-[calc(21*var(--unit))]" />
             </span>
             <span className="block">
               <span className="block font-ui text-[calc(12*var(--unit))] leading-none tracking-[-0.01em] text-[var(--color-text-soft)] lg:text-[calc(13*var(--unit))]">{text.needHelp}</span>
               <span className="mt-[calc(8*var(--unit))] block font-ui text-[calc(17*var(--unit))] font-medium leading-none tracking-[-0.03em] text-[var(--color-heading)] lg:mt-[calc(10*var(--unit))] lg:text-[calc(20*var(--unit))]">
-                {company?.phone}
+                {data.phone}
               </span>
             </span>
           </a>
@@ -168,13 +168,13 @@ export const Header = ({ data, company }: { data?: HeaderData; company?: Company
             })}
           </ul>
 
-          <a href={company?.phoneHref} className="mt-[calc(20*var(--unit))] flex items-center gap-[calc(14*var(--unit))] md:hidden">
+          <a href={data.phoneHref} className="mt-[calc(20*var(--unit))] flex items-center gap-[calc(14*var(--unit))] md:hidden">
             <span className="flex size-[calc(42*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-tint-6)] text-[var(--color-primary)]">
               <Icon name="LuPhone" className="size-[calc(19*var(--unit))]" />
             </span>
             <span className="block">
               <span className="block font-ui text-[calc(12*var(--unit))] leading-none text-[var(--color-text-soft)]">{text.needHelp}</span>
-              <span className="mt-[calc(8*var(--unit))] block font-ui text-[calc(17*var(--unit))] font-medium leading-none text-[var(--color-heading)]">{company?.phone}</span>
+              <span className="mt-[calc(8*var(--unit))] block font-ui text-[calc(17*var(--unit))] font-medium leading-none text-[var(--color-heading)]">{data.phone}</span>
             </span>
           </a>
           <Link

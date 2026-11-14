@@ -3,12 +3,12 @@
 import { useState, useRef, type FormEvent, type ChangeEvent } from "react";
 import { useSentMessage } from "@/components/ui/useSentMessage";
 import { Icon } from "@/components/ui/Icon";
-import type { CareerData } from "@/types/templates.types";
+import type { JobListProps } from "@/types/templates.types";
 
 const emptyForm = { name: "", email: "", phone: "", position: "", message: "" };
 
 /** CTA on the left + Job Application form on the right. */
-export const JobList = ({ data }: { data?: CareerData }) => {
+export const JobList = ({ data }: JobListProps) => {
   const [formData, setFormData] = useState(emptyForm);
   const [fileName, setFileName] = useState("");
   // The thank-you message replaces the form for a few seconds, then an empty form comes back.

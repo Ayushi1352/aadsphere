@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { CareerData } from "@/types/templates.types";
+import type { CareerPerksProps } from "@/types/templates.types";
 
 /** Intro heading plus the four reasons to work at AdSphere. */
-export const CareerPerks = ({ data }: { data?: CareerData }) => {
+export const CareerPerks = ({ data }: CareerPerksProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, perks } = data;
   return (

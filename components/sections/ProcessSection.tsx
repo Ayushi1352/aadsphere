@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { DotGrid, Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { ProcessData } from "@/types/templates.types";
+import type { ProcessSectionProps } from "@/types/templates.types";
 
-export const ProcessSection = ({ data }: { data?: ProcessData }) => {
+export const ProcessSection = ({ data }: ProcessSectionProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, steps } = data;
   return (

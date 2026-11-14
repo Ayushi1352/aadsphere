@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import type { BreadcrumbData, GlobalUIData } from "@/types/templates.types";
+import type { BreadcrumbProps } from "@/types/templates.types";
 
 /** Maroon banner at the top of every inner page: page title + "Home / Page" breadcrumb.
  *  `paths` in templates.json is the whole trail, Home first and the current page last;
  *  a trail with steps between them (e.g. Home / Services / Services Detail) is a detail page.
  */
-export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUIData }) => {
+export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
   if (!data) return null;
   const { title, paths: crumbs } = data;
   const links = crumbs.slice(0, -1);

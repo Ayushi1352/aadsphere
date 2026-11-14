@@ -3,13 +3,13 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { DotGrid, Lines } from "@/components/ui/Text";
 import { CountUp } from "@/components/ui/CountUp";
-import type { AboutUsData } from "@/types/templates.types";
+import type { AboutSectionProps } from "@/types/templates.types";
 
 /**
  * `compact` is the version used on inner pages: it has no "Read More" link
  * (the visitor is already on the About page).
  */
-export const AboutSection = ({ data, compact = false }: { data?: AboutUsData; compact?: boolean }) => {
+export const AboutSection = ({ data, compact = false }: AboutSectionProps) => {
   if (!data) return null;
   const { tagline, headingLines, descriptionLines, images, experience } = data;
   return (

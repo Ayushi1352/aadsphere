@@ -2,9 +2,9 @@ import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { DotGrid, Lines } from "@/components/ui/Text";
 import { CountUp } from "@/components/ui/CountUp";
-import type { ImpactData } from "@/types/templates.types";
+import type { ImpactSectionProps } from "@/types/templates.types";
 
-export const ImpactSection = ({ data }: { data?: ImpactData }) => {
+export const ImpactSection = ({ data }: ImpactSectionProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, image, stats } = data;
   return (

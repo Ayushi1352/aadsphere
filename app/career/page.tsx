@@ -5,13 +5,15 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { CareerPerks } from "@/components/sections/CareerPerks";
 import { JobList } from "@/components/sections/JobList";
 
-const templateData: AdvertisingTemplateData = rawData;
-const sectionData = templateData.categories.Advertising.sections;
-const commonData = templateData.common;
-
-export const metadata: Metadata = { ...commonData.careerBreadcrumb?.seo };
+export const metadata: Metadata = { ...(rawData as AdvertisingTemplateData).common.careerBreadcrumb?.seo };
 
 export default function CareerPage() {
+  const templateData: AdvertisingTemplateData = rawData;
+  const sectionData = templateData?.categories?.Advertising?.sections;
+  const commonData = templateData?.common;
+
+  if (!sectionData || !commonData) return null;
+
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.careerBreadcrumb} ui={commonData.globalUI} />

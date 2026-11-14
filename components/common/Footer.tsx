@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Lines } from "@/components/ui/Text";
-import type { CompanyData, FooterData } from "@/types/templates.types";
+import type { FooterProps } from "@/types/templates.types";
 
-export const Footer = ({ data, company }: { data?: FooterData; company?: CompanyData }) => {
+export const Footer = ({ data }: FooterProps) => {
   if (!data) return null;
   const { cta, images, text, links, socials, columns, contactIcons, bottomLinks } = data;
   const contactItems = [
-    { icon: contactIcons.address, lines: company?.addressLines ?? [], href: "" },
-    { icon: contactIcons.phone, lines: company ? [company.footerPhone] : [], href: company?.footerPhoneHref ?? "" },
-    { icon: contactIcons.email, lines: company ? [company.email] : [], href: company?.emailHref ?? "" },
-    { icon: contactIcons.hours, lines: company?.hoursLines ?? [], href: "" },
+    { icon: contactIcons.address, lines: data.addressLines, href: "" },
+    { icon: contactIcons.phone, lines: [data.phone], href: data.phoneHref },
+    { icon: contactIcons.email, lines: [data.email], href: data.emailHref },
+    { icon: contactIcons.hours, lines: data.hoursLines, href: "" },
   ];
   return (
     <footer className="relative mt-[calc(24*var(--unit))] bg-[var(--color-footer-bg)] text-[var(--color-white)] sm:mt-[calc(32*var(--unit))] lg:mt-[calc(36*var(--unit))]">

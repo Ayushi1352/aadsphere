@@ -3,7 +3,7 @@
 import type { FormEvent } from "react";
 import { Lines } from "@/components/ui/Text";
 import { useSentMessage } from "@/components/ui/useSentMessage";
-import type { CompanyData, ContactData } from "@/types/templates.types";
+import type { ContactFormProps } from "@/types/templates.types";
 
 // Shared look of every field; inputs add their height (inputClass), the textarea its own.
 const fieldClass =
@@ -11,7 +11,7 @@ const fieldClass =
 const inputClass = `${fieldClass} h-[calc(56*var(--unit))] lg:h-[calc(70*var(--unit))]`;
 
 /** Maroon block with the map on the left and the message form on the right. */
-export const ContactForm = ({ data, company }: { data?: ContactData; company?: CompanyData }) => {
+export const ContactForm = ({ data }: ContactFormProps) => {
   const { sent, show, hide } = useSentMessage();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -20,9 +20,8 @@ export const ContactForm = ({ data, company }: { data?: ContactData; company?: C
     show();
   };
 
-  if (!data || !company) return null;
-  const { form } = data;
-  const { map } = company;
+  if (!data) return null;
+  const { form, map } = data;
 
   return (
     <section className="my-[calc(32*var(--unit))] bg-[var(--color-primary)] font-article sm:my-[calc(40*var(--unit))] lg:flex lg:items-start lg:my-[calc(48*var(--unit))] lg:h-[calc(800*var(--unit))]">

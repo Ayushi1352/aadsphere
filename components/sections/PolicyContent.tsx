@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import type { CompanyData, PolicyPagesData } from "@/types/templates.types";
+import type { PolicyContentProps } from "@/types/templates.types";
 
 /** Text of one policy with a side box that links to the other policies. */
-export const PolicyContent = ({ data, slug, company }: { data?: PolicyPagesData; slug: string; company?: CompanyData }) => {
+export const PolicyContent = ({ data, slug }: PolicyContentProps) => {
   if (!data) return null;
-  const { items, updatedLabel, otherHeading, contactHeading, contactText } = data;
+  const { items, updatedLabel, otherHeading, contactHeading, contactText, contactEmail, contactEmailHref } = data;
   const policy = items.find((item) => item.slug === slug) ?? items[0];
 
   return (
@@ -70,9 +70,9 @@ export const PolicyContent = ({ data, slug, company }: { data?: PolicyPagesData;
         <div className="rounded-[calc(14*var(--unit))] bg-[var(--color-primary)] p-[calc(24*var(--unit))] text-[var(--color-white)] lg:p-[calc(32*var(--unit))]">
           <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.25] lg:text-[calc(24*var(--unit))]">{contactHeading}</h2>
           <p className="mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-white-85)] lg:text-[calc(17*var(--unit))]">{contactText}</p>
-          <a href={company?.emailHref} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
+          <a href={contactEmailHref} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
             <Icon name="MdEmail" className="size-[calc(20*var(--unit))] shrink-0" />
-            {company?.email}
+            {contactEmail}
           </a>
         </div>
       </aside>

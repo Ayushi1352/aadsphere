@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { CtaStrip } from "@/components/sections/CtaStrip";
+import { CtaStrip } from "@/components/ui/CtaStrip";
 import { Icon } from "@/components/ui/Icon";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { HowItWorksData } from "@/types/templates.types";
+import type { StepDetailsProps } from "@/types/templates.types";
 
 /** Each step of the process explained in detail, with a photo and a short checklist. */
-export const StepDetails = ({ data }: { data?: HowItWorksData }) => {
+export const StepDetails = ({ data }: StepDetailsProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, steps, cta } = data;
   return (

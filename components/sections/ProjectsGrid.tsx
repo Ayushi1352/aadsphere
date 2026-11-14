@@ -4,11 +4,11 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { Lines, SectionLabel } from "@/components/ui/Text";
 import { fill } from "@/components/ui/fill";
-import type { GlobalUIData, PortfolioData } from "@/types/templates.types";
+import type { ProjectsGridProps } from "@/types/templates.types";
 
 
 /** Heading plus a paginated grid of portfolio projects (photo, name and tags). */
-export const ProjectsGrid = ({ data, ui }: { data?: PortfolioData; ui?: GlobalUIData }) => {
+export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
   if (!data) return null;
@@ -74,7 +74,7 @@ export const ProjectsGrid = ({ data, ui }: { data?: PortfolioData; ui?: GlobalUI
             disabled={currentPage === 1}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.previousLabel}
+            {pagination.previousLabel}
           </button>
           {Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => (
             <button
@@ -94,7 +94,7 @@ export const ProjectsGrid = ({ data, ui }: { data?: PortfolioData; ui?: GlobalUI
             disabled={currentPage === pageCount}
             className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {ui?.nextLabel}
+            {pagination.nextLabel}
           </button>
         </nav>
       )}

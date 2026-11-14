@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { DotGrid, Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
 import { SliderDots, useSlider } from "@/components/ui/Slider";
-import type { GlobalUIData, TestimonialsData } from "@/types/templates.types";
+import type { TestimonialsSectionProps } from "@/types/templates.types";
 
 
 function initials(name: string) {
@@ -15,7 +15,7 @@ function initials(name: string) {
     .join("");
 }
 
-export const TestimonialsSection = ({ data, ui }: { data?: TestimonialsData; ui?: GlobalUIData }) => {
+export const TestimonialsSection = ({ data }: TestimonialsSectionProps) => {
   const slider = useSlider(data?.testimonials.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, badge, testimonials } = data;
@@ -66,7 +66,7 @@ export const TestimonialsSection = ({ data, ui }: { data?: TestimonialsData; ui?
               <button
                 type="button"
                 onClick={slider.prev}
-                aria-label={ui?.previousLabel}
+                aria-label={data.previousLabel}
                 className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-testimonial-button-bg)] text-[var(--color-text-dark)] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:size-[calc(54*var(--unit))]"
               >
                 <Icon name="LuChevronLeft" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
@@ -74,7 +74,7 @@ export const TestimonialsSection = ({ data, ui }: { data?: TestimonialsData; ui?
               <button
                 type="button"
                 onClick={slider.next}
-                aria-label={ui?.nextLabel}
+                aria-label={data.nextLabel}
                 className="flex size-[calc(46*var(--unit))] cursor-pointer items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-heading)] lg:size-[calc(54*var(--unit))]"
               >
                 <Icon name="LuChevronRight" className="size-[calc(22*var(--unit))] lg:size-[calc(26*var(--unit))]" />
@@ -86,7 +86,7 @@ export const TestimonialsSection = ({ data, ui }: { data?: TestimonialsData; ui?
             count={testimonials.length}
             active={slider.index}
             onSelect={slider.goTo}
-            label={ui?.goToSlideLabel}
+            label={data.goToSlideLabel}
             className="mt-[calc(18*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(693*var(--unit))] lg:mt-0 lg:w-[calc(803*var(--unit))]"
           />
         </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import { BlogCard } from "@/components/sections/BlogCard";
+import { BlogCard } from "@/components/ui/BlogCard";
 import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
 import { ArrowButton, SliderDots, rotate, useSlider } from "@/components/ui/Slider";
-import type { BlogsData, GlobalUIData } from "@/types/templates.types";
+import type { BlogSectionProps } from "@/types/templates.types";
 
-export const BlogSection = ({ data, ui }: { data?: BlogsData; ui?: GlobalUIData }) => {
+export const BlogSection = ({ data }: BlogSectionProps) => {
   const slider = useSlider(data?.posts.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, posts } = data;
@@ -35,11 +35,11 @@ export const BlogSection = ({ data, ui }: { data?: BlogsData; ui?: GlobalUIData 
           </ul>
         </div>
 
-        <ArrowButton label={ui?.previousLabel} icon="LuChevronLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[26%] z-10 lg:-left-[calc(15*var(--unit))] lg:top-[calc(165*var(--unit))]" />
-        <ArrowButton label={ui?.nextLabel} icon="LuChevronRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[26%] z-10 lg:-right-[calc(21*var(--unit))] lg:top-[calc(165*var(--unit))]" />
+        <ArrowButton label={data.previousLabel} icon="LuChevronLeft" onClick={slider.prev} className="hidden md:flex absolute -left-[calc(14*var(--unit))] top-[26%] z-10 lg:-left-[calc(15*var(--unit))] lg:top-[calc(165*var(--unit))]" />
+        <ArrowButton label={data.nextLabel} icon="LuChevronRight" onClick={slider.next} className="hidden md:flex absolute -right-[calc(14*var(--unit))] top-[26%] z-10 lg:-right-[calc(21*var(--unit))] lg:top-[calc(165*var(--unit))]" />
       </div>
 
-      <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} label={ui?.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(730*var(--unit))] lg:mt-0" />
+      <SliderDots count={posts.length} active={slider.index} onSelect={slider.goTo} label={data.goToSlideLabel} className="mt-[calc(24*var(--unit))] lg:absolute lg:inset-x-0 lg:top-[calc(730*var(--unit))] lg:mt-0" />
     </section>
   );
 };

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import type { ServicesGridService } from "@/types/templates.types";
+import type { ServiceCardProps } from "@/types/templates.types";
 
 /** One service card: photo with number badge, category, title and arrow. Used on Home and Services. */
-export const ServiceCard = ({ service, className = "" }: { service: ServicesGridService; className?: string }) => {
+export const ServiceCard = ({ service, className = "" }: ServiceCardProps) => {
   return (
     <Link href={service.href} className={`group block bg-[var(--color-surface)] [box-shadow:0_calc(2.4*var(--unit))_calc(12*var(--unit))_var(--color-heading-8)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(28*var(--unit))_var(--color-primary-16)] ${className}`}>
       <div className="relative aspect-[366/264] overflow-hidden">
