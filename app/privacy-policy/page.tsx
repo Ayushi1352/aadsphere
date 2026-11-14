@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { AdvertisingTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { PolicyContent } from "@/components/sections/PolicyContent";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { AdvertisingTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { PolicyPages } from '@/components/sections/PolicyPages';
 
 export const metadata: Metadata = { ...(rawData as AdvertisingTemplateData).common.privacyBreadcrumb?.seo };
 
@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.privacyBreadcrumb} ui={commonData.globalUI} />
-      <PolicyContent data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} slug="privacy-policy" />
+      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} slug="privacy-policy" />
     </main>
   );
 }

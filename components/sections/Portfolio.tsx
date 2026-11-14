@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useRef, useState } from "react";
-import Image from "next/image";
-import { Lines, SectionLabel } from "@/components/ui/Text";
-import { fill } from "@/components/ui/fill";
-import type { ProjectsGridProps } from "@/types/templates.types";
+import { useRef, useState } from 'react';
+import Image from 'next/image';
+import { Lines, SectionLabel } from '@/components/ui/Text';
+import { fill } from '@/components/ui/fill';
+import type { PortfolioProps } from '@/types/templates.types';
 
 
 /** Heading plus a paginated grid of portfolio projects (photo, name and tags). */
-export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
+export const Portfolio = ({ data }: PortfolioProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
   if (!data) return null;
@@ -18,7 +18,7 @@ export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -29,7 +29,7 @@ export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
           {headingLines.map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
-                <span key={part.text} className={part.highlight ? "text-[var(--color-accent)]" : ""}>
+                <span key={part.text} className={part.highlight ? 'text-[var(--color-accent)]' : ''}>
                   {part.text}
                 </span>
               ))}
@@ -43,13 +43,13 @@ export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
 
       <ul data-reveal-group="zoom" className="mt-[calc(36*var(--unit))] grid gap-x-[calc(24*var(--unit))] gap-y-[calc(40*var(--unit))] sm:grid-cols-2 lg:grid-cols-3 lg:ml-[calc(141*var(--unit))] lg:mt-[calc(43*var(--unit))] lg:w-[calc(1396*var(--unit))] lg:gap-x-[calc(27*var(--unit))] lg:gap-y-[calc(58*var(--unit))]">
         {visibleProjects.map((project) => (
-          <li key={project.title} className="group">
+          <li key={project.id} className="group">
             <div className="overflow-hidden rounded-[calc(8*var(--unit))]">
             <Image
-              src={project.image.src}
-              alt={project.image.alt}
-              width={project.image.width}
-              height={project.image.height}
+              src={project.image}
+              alt={project.imageAlt}
+              width={project.imageWidth}
+              height={project.imageHeight}
               sizes="(min-width: 64rem) 27vw, (min-width: 40rem) 50vw, 100vw"
               className="h-auto w-full transition-transform duration-700 group-hover:scale-105"
             />
@@ -82,8 +82,8 @@ export const ProjectsGrid = ({ data }: ProjectsGridProps) => {
               type="button"
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
-              aria-current={currentPage === page ? "page" : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-[var(--color-accent)] text-[var(--color-white)]" : "bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-accent)] hover:text-[var(--color-white)]"}`}
+              aria-current={currentPage === page ? 'page' : undefined}
+              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? 'bg-[var(--color-accent)] text-[var(--color-white)]' : 'bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-accent)] hover:text-[var(--color-white)]'}`}
             >
               {page}
             </button>

@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import type { CtaStripProps } from "@/types/templates.types";
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import type { CtaStripProps } from '@/types/templates.types';
 
 
 /** Maroon strip with a short message and one button. Used at the end of inner pages. */
@@ -13,7 +13,7 @@ export const CtaStrip = ({ cta }: CtaStripProps) => {
         <p className="mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-white-85)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(10*var(--unit))] lg:text-[calc(20*var(--unit))]">{cta.description}</p>
       </div>
       <Link
-        href={cta.button.href}
+        href={cta.button.url}
         className="group inline-flex h-[calc(54*var(--unit))] shrink-0 items-center justify-center gap-[calc(12*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(30*var(--unit))] text-[calc(16*var(--unit))] font-bold text-[var(--color-primary)] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:h-[calc(62*var(--unit))] lg:px-[calc(38*var(--unit))] lg:text-[calc(18*var(--unit))]"
       >
         {cta.button.label}

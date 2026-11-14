@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { CtaStrip } from "@/components/ui/CtaStrip";
-import { Icon } from "@/components/ui/Icon";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { FaqData, FaqProps } from "@/types/templates.types";
+import { useState } from 'react';
+import { CtaStrip } from '@/components/ui/CtaStrip';
+import { Icon } from '@/components/ui/Icon';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import type { FaqData, FaqProps } from '@/types/templates.types';
 
 /** Accordion of questions: one answer is open at a time. */
 const FaqList = ({ data }: { data?: FaqData }) => {
@@ -17,7 +17,7 @@ const FaqList = ({ data }: { data?: FaqData }) => {
       {faqs.map((faq, i) => {
         const isOpen = open === i;
         return (
-          <li key={faq.question} className={`rounded-[calc(14*var(--unit))] border transition-colors duration-200 ${isOpen ? "border-[var(--color-accent-tint-21)] bg-[var(--color-accent-tint-5)]" : "border-[var(--color-border)] bg-[var(--color-surface)]"}`}>
+          <li key={faq.id} className={`rounded-[calc(14*var(--unit))] border transition-colors duration-200 ${isOpen ? 'border-[var(--color-accent-tint-21)] bg-[var(--color-accent-tint-5)]' : 'border-[var(--color-border)] bg-[var(--color-surface)]'}`}>
             <h3>
               <button
                 type="button"
@@ -29,7 +29,7 @@ const FaqList = ({ data }: { data?: FaqData }) => {
                 {faq.question}
                 <span
                   className={`flex size-[calc(38*var(--unit))] shrink-0 items-center justify-center rounded-full transition-colors duration-200 lg:size-[calc(46*var(--unit))] ${
-                    isOpen ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-accent-tint-9)] text-[var(--color-primary)]"
+                    isOpen ? 'bg-[var(--color-primary)] text-[var(--color-white)]' : 'bg-[var(--color-accent-tint-9)] text-[var(--color-primary)]'
                   }`}
                 >
                   {isOpen ? (

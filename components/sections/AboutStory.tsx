@@ -1,5 +1,5 @@
-import { Lines } from "@/components/ui/Text";
-import type { AboutStoryProps } from "@/types/templates.types";
+import { Lines } from '@/components/ui/Text';
+import type { AboutStoryProps } from '@/types/templates.types';
 
 /** The three centred paragraphs that tell the AdSphere story. */
 export const AboutStory = ({ data }: AboutStoryProps) => {

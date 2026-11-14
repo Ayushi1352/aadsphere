@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { DotGrid, Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import { SliderDots, useSlider } from "@/components/ui/Slider";
-import type { TestimonialsSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { DotGrid, Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { SliderDots, useSlider } from '@/components/ui/Slider';
+import type { TestimonialsProps } from '@/types/templates.types';
 
 
 function initials(name: string) {
   return name
-    .split(" ")
+    .split(' ')
     .map((word) => word[0])
     .slice(0, 2)
-    .join("");
+    .join('');
 }
 
-export const TestimonialsSection = ({ data }: TestimonialsSectionProps) => {
+export const Testimonials = ({ data }: TestimonialsProps) => {
   const slider = useSlider(data?.testimonials.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, badge, testimonials } = data;
@@ -99,7 +99,7 @@ export const TestimonialsSection = ({ data }: TestimonialsSectionProps) => {
             <div className="absolute left-0 top-[9%] h-[91%] w-[85.25%] overflow-hidden rounded-[7.5%_7.5%_7.5%_22%/8%_8%_8%_23.5%]">
               {/* Each testimonial has its own photo, so it changes together with the name. */}
               <div key={slider.index} className="absolute inset-0 translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
-                <Image src={current.image.src} alt={current.image.alt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover transition-transform duration-700 hover:scale-105" />
+                <Image src={current.image} alt={current.imageAlt} fill sizes="(min-width: 80rem) 36vw, 450px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </div>
             <div data-float="6000" className="absolute bottom-[5.3%] right-[3.5%] min-w-[40%] rounded-[calc(16*var(--unit))] bg-[var(--color-white)] px-[calc(16*var(--unit))] py-[calc(12*var(--unit))] [box-shadow:0_calc(8*var(--unit))_calc(28*var(--unit))_var(--color-heading-12)] sm:px-[calc(24*var(--unit))] sm:py-[calc(16*var(--unit))] lg:h-[calc(91*var(--unit))] lg:w-[calc(285*var(--unit))] lg:rounded-[calc(22*var(--unit))] lg:px-[calc(31*var(--unit))] lg:py-0 lg:pt-[calc(19*var(--unit))]">

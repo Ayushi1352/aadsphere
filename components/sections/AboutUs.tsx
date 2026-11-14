@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { DotGrid, Lines } from "@/components/ui/Text";
-import { CountUp } from "@/components/ui/CountUp";
-import type { AboutSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { DotGrid, Lines } from '@/components/ui/Text';
+import { CountUp } from '@/components/ui/CountUp';
+import type { AboutUsProps } from '@/types/templates.types';
 
 /**
  * `compact` is the version used on inner pages: it has no "Read More" link
  * (the visitor is already on the About page).
  */
-export const AboutSection = ({ data, compact = false }: AboutSectionProps) => {
+export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
   if (!data) return null;
-  const { tagline, headingLines, descriptionLines, images, experience } = data;
+  const { tagline, headingLines, descriptionLines, primaryImage, primaryImageAlt, secondaryImage, secondaryImageAlt, experience } = data;
   return (
     <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(776*var(--unit))] lg:p-0">
       <div className="contents">
@@ -30,12 +30,12 @@ export const AboutSection = ({ data, compact = false }: AboutSectionProps) => {
             {/* On desktop every line sits on a white strip that overlaps the photo. */}
             <h2 data-reveal="left" className="mt-[calc(20*var(--unit))] text-[calc(36*var(--unit))] leading-[1.14] tracking-[-0.03em] text-[var(--color-heading)] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(153*var(--unit))] lg:z-20 lg:mt-0 lg:text-[calc(70*var(--unit))] lg:leading-[calc(73*var(--unit))] lg:tracking-[-0.004em]">
               {headingLines.map((line, i) => (
-                <span key={i} className={`lg:block lg:w-fit lg:min-w-[calc(639*var(--unit))] lg:whitespace-nowrap lg:bg-[var(--color-white)] lg:pr-[calc(21*var(--unit))] ${i === 0 ? "lg:pt-[calc(8*var(--unit))]" : ""}`}>
+                <span key={i} className={`lg:block lg:w-fit lg:min-w-[calc(639*var(--unit))] lg:whitespace-nowrap lg:bg-[var(--color-white)] lg:pr-[calc(21*var(--unit))] ${i === 0 ? 'lg:pt-[calc(8*var(--unit))]' : ''}`}>
                   {line.map((part) => (
-                    <span key={part.text} className={part.highlight ? "font-extrabold text-[var(--color-primary)]" : "font-normal"}>
+                    <span key={part.text} className={part.highlight ? 'font-extrabold text-[var(--color-primary)]' : 'font-normal'}>
                       {part.text}
                     </span>
-                  ))}{" "}
+                  ))}{' '}
                 </span>
               ))}
             </h2>
@@ -52,13 +52,13 @@ export const AboutSection = ({ data, compact = false }: AboutSectionProps) => {
             <div className="relative mx-auto aspect-[458/680] w-full max-w-[calc(420*var(--unit))] lg:absolute lg:left-[calc(598*var(--unit))] lg:top-[calc(48*var(--unit))] lg:mx-0 lg:h-[calc(680*var(--unit))] lg:w-[calc(458*var(--unit))] lg:max-w-none">
               <span data-reveal="zoom" className="absolute left-[12%] top-0 h-[14.3%] w-[34.5%] bg-[var(--color-primary)]" aria-hidden="true" />
               <div data-reveal="down" className="absolute left-[19.65%] top-[4.1%] h-[67.95%] w-[80.35%] overflow-hidden">
-                <Image src={images.primary.src} alt={images.primary.alt} fill sizes="(min-width: 80rem) 22vw, 340px" className="object-cover transition-transform duration-700 hover:scale-105" />
+                <Image src={primaryImage} alt={primaryImageAlt} fill sizes="(min-width: 80rem) 22vw, 340px" className="object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <span data-reveal="zoom" className="absolute left-0 top-[56.8%] h-[19.4%] w-[17.9%] bg-[var(--color-primary)]" aria-hidden="true" />
               <DotGrid cols={4} rows={4} gap={22} data-float="6000" className="absolute -left-[calc(43*var(--unit))] top-[85.6%] hidden lg:block" />
               <div data-reveal="left" data-reveal-delay="150" className="absolute left-[6.35%] top-[60.4%] h-[39.6%] w-[77.7%] border-2 border-[var(--color-white)] bg-[var(--color-white)]">
                 <div className="relative size-full overflow-hidden">
-                  <Image src={images.secondary.src} alt={images.secondary.alt} fill sizes="(min-width: 80rem) 21vw, 330px" className="object-cover transition-transform duration-700 hover:scale-105" />
+                  <Image src={secondaryImage} alt={secondaryImageAlt} fill sizes="(min-width: 80rem) 21vw, 330px" className="object-cover transition-transform duration-700 hover:scale-105" />
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export const AboutSection = ({ data, compact = false }: AboutSectionProps) => {
             </p>
             {!compact && (
               <Link
-                href={experience.link.href}
+                href={experience.link.url}
                 data-reveal="up"
                 className="group mt-[calc(28*var(--unit))] flex items-center justify-between border-b border-[var(--color-accent-tint-55)] pb-[calc(10*var(--unit))] text-[calc(18*var(--unit))] font-semibold text-[var(--color-primary)] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(581*var(--unit))] lg:mt-0 lg:h-[calc(36*var(--unit))] lg:w-[calc(475*var(--unit))] lg:items-start lg:pb-0 lg:text-[calc(20*var(--unit))] lg:leading-[calc(28*var(--unit))]"
               >

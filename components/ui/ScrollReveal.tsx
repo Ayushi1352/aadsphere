@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-const TARGETS = "[data-reveal], [data-reveal-group] > *";
+const TARGETS = '[data-reveal], [data-reveal-group] > *';
 const STAGGER_MS = 110;
 const MAX_STAGGER_STEPS = 6;
 const DESIGN_WIDTH = 1686;
@@ -15,9 +15,9 @@ const FROM: Record<string, (u: number) => Keyframe> = {
   down: (u) => ({ opacity: 0, translate: `0 ${-40 * u}px` }),
   left: (u) => ({ opacity: 0, translate: `${-56 * u}px 0` }),
   right: (u) => ({ opacity: 0, translate: `${56 * u}px 0` }),
-  zoom: () => ({ opacity: 0, scale: "0.9" }),
+  zoom: () => ({ opacity: 0, scale: '0.9' }),
   fade: () => ({ opacity: 0 }),
-  line: () => ({ opacity: 0, scale: "0 1" }),
+  line: () => ({ opacity: 0, scale: '0 1' }),
 };
 
 /**
@@ -37,7 +37,7 @@ const FROM: Record<string, (u: number) => Keyframe> = {
  */
 export const ScrollReveal = () => {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const seen = new WeakSet<Element>();
     // Same value as --unit in app/layout.tsx: from 1024px the design follows the screen, up to 1920px.
@@ -47,20 +47,20 @@ export const ScrollReveal = () => {
     // attribute: React may still be hydrating them (streamed pages hydrate in pieces, and
     // can start again), and any attribute changed before then is reported as a mismatch.
     const hidden = new Map<Element, Animation>();
-    const hide = (el: HTMLElement) => hidden.set(el, el.animate([{ opacity: 0 }, { opacity: 0 }], { duration: 1, fill: "forwards" }));
+    const hide = (el: HTMLElement) => hidden.set(el, el.animate([{ opacity: 0 }, { opacity: 0 }], { duration: 1, fill: 'forwards' }));
     const show = (el: HTMLElement) => {
       hidden.get(el)?.cancel();
       hidden.delete(el);
     };
 
     const play = (el: HTMLElement, delay = 0) => {
-      const kind = el.dataset.reveal || el.parentElement?.dataset.revealGroup || "up";
+      const kind = el.dataset.reveal || el.parentElement?.dataset.revealGroup || 'up';
       const from = (FROM[kind] ?? FROM.up)(unit());
       el.animate([{ offset: 0, ...from }], {
         duration: 800,
-        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
         delay: delay + Number(el.dataset.revealDelay ?? 0),
-        fill: "backwards",
+        fill: 'backwards',
       });
       show(el);
     };
@@ -79,7 +79,7 @@ export const ScrollReveal = () => {
           play(el, passed ? 0 : Math.min(step, MAX_STAGGER_STEPS) * STAGGER_MS);
         }
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.05 },
+      { rootMargin: '0px 0px -6% 0px', threshold: 0.05 },
     );
 
     // On the first scan the page is already painted, so whatever is on screen
@@ -87,8 +87,8 @@ export const ScrollReveal = () => {
     // Later scans (another page opened, a slider moved) run before the browser
     // paints the new elements, so those can all be hidden and animated.
     const float = (el: HTMLElement) => {
-      const lift = { translate: `0 ${-12 * unit()}px`, easing: "ease-in-out" };
-      el.animate([{ translate: "0 0", easing: "ease-in-out" }, lift, { translate: "0 0" }], {
+      const lift = { translate: `0 ${-12 * unit()}px`, easing: 'ease-in-out' };
+      el.animate([{ translate: '0 0', easing: 'ease-in-out' }, lift, { translate: '0 0' }], {
         duration: Number(el.dataset.float) || 6000,
         delay: Number(el.dataset.floatDelay ?? 0),
         iterations: Infinity,
@@ -97,7 +97,7 @@ export const ScrollReveal = () => {
 
     let firstScan = true;
     const scan = () => {
-      document.querySelectorAll<HTMLElement>("[data-float]").forEach((el) => {
+      document.querySelectorAll<HTMLElement>('[data-float]').forEach((el) => {
         if (seen.has(el)) return;
         seen.add(el);
         float(el);

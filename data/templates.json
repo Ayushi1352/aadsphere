@@ -35,8 +35,7 @@
         },
         {
           "id": "about-us",
-          "label": "About Us",
-          "url": ""
+          "label": "About Us"
         }
       ]
     },
@@ -54,8 +53,7 @@
         },
         {
           "id": "services",
-          "label": "Services",
-          "url": ""
+          "label": "Services"
         }
       ]
     },
@@ -78,8 +76,7 @@
         },
         {
           "id": "service-details",
-          "label": "Services Detail",
-          "url": ""
+          "label": "Services Detail"
         }
       ]
     },
@@ -97,8 +94,7 @@
         },
         {
           "id": "portfolio",
-          "label": "Portfolio",
-          "url": ""
+          "label": "Portfolio"
         }
       ]
     },
@@ -116,8 +112,7 @@
         },
         {
           "id": "blog",
-          "label": "Blog",
-          "url": ""
+          "label": "Blog"
         }
       ]
     },
@@ -140,8 +135,7 @@
         },
         {
           "id": "blog-details",
-          "label": "Blogs Details",
-          "url": ""
+          "label": "Blogs Details"
         }
       ]
     },
@@ -159,8 +153,7 @@
         },
         {
           "id": "get-a-quote",
-          "label": "Get a Quote",
-          "url": ""
+          "label": "Get a Quote"
         }
       ]
     },
@@ -178,8 +171,7 @@
         },
         {
           "id": "contact",
-          "label": "Contact us",
-          "url": ""
+          "label": "Contact us"
         }
       ]
     },
@@ -197,8 +189,7 @@
         },
         {
           "id": "how-it-works",
-          "label": "How It Works",
-          "url": ""
+          "label": "How It Works"
         }
       ]
     },
@@ -216,8 +207,7 @@
         },
         {
           "id": "career",
-          "label": "Career",
-          "url": ""
+          "label": "Career"
         }
       ]
     },
@@ -235,8 +225,7 @@
         },
         {
           "id": "faqs",
-          "label": "FAQs",
-          "url": ""
+          "label": "FAQs"
         }
       ]
     },
@@ -254,8 +243,7 @@
         },
         {
           "id": "privacy-policy",
-          "label": "Privacy Policy",
-          "url": ""
+          "label": "Privacy Policy"
         }
       ]
     },
@@ -273,8 +261,7 @@
         },
         {
           "id": "terms-and-conditions",
-          "label": "Terms & Conditions",
-          "url": ""
+          "label": "Terms & Conditions"
         }
       ]
     },
@@ -292,8 +279,7 @@
         },
         {
           "id": "cookie-policy",
-          "label": "Cookie Policy",
-          "url": ""
+          "label": "Cookie Policy"
         }
       ]
     },
@@ -311,12 +297,20 @@
         },
         {
           "id": "sitemap",
-          "label": "Sitemap",
-          "url": ""
+          "label": "Sitemap"
         }
       ]
     },
     "Footer": {
+      "logo": "/images/logo-light.webp",
+      "logoAlt": "AdSphere Advertising Agency",
+      "logoUrl": "/",
+      "logoLabel": "AdSphere home",
+      "descriptionLines": [
+        "We help brands grow through strategic",
+        "advertising, creative storytelling, and ",
+        "digital solutions that deliver real results."
+      ],
       "cta": {
         "eyebrow": "Ready to grow?",
         "heading": "Let’s Create Something Great",
@@ -327,157 +321,167 @@
         ],
         "button": {
           "label": "Get Started Today",
-          "href": "/contact"
+          "url": "/contact"
         }
       },
-      "images": {
-        "logo": "/images/logo-light.webp"
-      },
-      "text": {
-        "logoAlt": "AdSphere Advertising Agency",
-        "homeLabel": "AdSphere home",
-        "descriptionLines": [
-          "We help brands grow through strategic",
-          "advertising, creative storytelling, and ",
-          "digital solutions that deliver real results."
-        ],
-        "contactHeading": "Contact Us",
-        "copyright": "© 2026 All Rights Reserved. Powered by Lestow."
-      },
-      "links": {
-        "home": "/"
-      },
-      "socials": [
+      "socialLinks": [
         {
-          "name": "Facebook",
+          "id": "facebook",
+          "label": "Facebook",
           "icon": "RiFacebookFill",
-          "href": "https://www.facebook.com/"
+          "url": "https://www.facebook.com/"
         },
         {
-          "name": "Instagram",
+          "id": "instagram",
+          "label": "Instagram",
           "icon": "RiInstagramLine",
-          "href": "https://www.instagram.com/"
+          "url": "https://www.instagram.com/"
         },
         {
-          "name": "LinkedIn",
+          "id": "linkedin",
+          "label": "LinkedIn",
           "icon": "RiLinkedinFill",
-          "href": "https://www.linkedin.com/"
+          "url": "https://www.linkedin.com/"
         },
         {
-          "name": "YouTube",
+          "id": "youtube",
+          "label": "YouTube",
           "icon": "RiYoutubeFill",
-          "href": "https://www.youtube.com/"
+          "url": "https://www.youtube.com/"
         }
       ],
       "columns": [
         {
+          "id": "quick-links",
           "heading": "Quick Links",
           "links": [
             {
-              "name": "Home",
-              "href": "/"
+              "id": "home",
+              "label": "Home",
+              "url": "/"
             },
             {
-              "name": "About Us",
-              "href": "/about-us"
+              "id": "about-us",
+              "label": "About Us",
+              "url": "/about-us"
             },
             {
-              "name": "Our Services",
-              "href": "/services"
+              "id": "our-services",
+              "label": "Our Services",
+              "url": "/services"
             },
             {
-              "name": "How It Works",
-              "href": "/how-it-works"
+              "id": "how-it-works",
+              "label": "How It Works",
+              "url": "/how-it-works"
             },
             {
-              "name": "Our Blog",
-              "href": "/blog"
+              "id": "our-blog",
+              "label": "Our Blog",
+              "url": "/blog"
             },
             {
-              "name": "FAQs",
-              "href": "/faqs"
+              "id": "faqs",
+              "label": "FAQs",
+              "url": "/faqs"
             },
             {
-              "name": "Career",
-              "href": "/career"
+              "id": "career",
+              "label": "Career",
+              "url": "/career"
             },
             {
-              "name": "Contact Us",
-              "href": "/contact"
+              "id": "contact-us",
+              "label": "Contact Us",
+              "url": "/contact"
             }
           ]
         },
         {
+          "id": "our-services",
           "heading": "Our Services",
           "links": [
             {
-              "name": "Digital Advertising",
-              "href": "/services/service-details"
+              "id": "digital-advertising",
+              "label": "Digital Advertising",
+              "url": "/services/service-details"
             },
             {
-              "name": "Social Media Marketing",
-              "href": "/services/service-details"
+              "id": "social-media-marketing",
+              "label": "Social Media Marketing",
+              "url": "/services/service-details"
             },
             {
-              "name": "Brand Strategy",
-              "href": "/services/service-details"
+              "id": "brand-strategy",
+              "label": "Brand Strategy",
+              "url": "/services/service-details"
             },
             {
-              "name": "Performance Marketing",
-              "href": "/services/service-details"
+              "id": "performance-marketing",
+              "label": "Performance Marketing",
+              "url": "/services/service-details"
             },
             {
-              "name": "Creative Design",
-              "href": "/services/service-details"
+              "id": "creative-design",
+              "label": "Creative Design",
+              "url": "/services/service-details"
             },
             {
-              "name": "Consulting",
-              "href": "/services/service-details"
+              "id": "consulting",
+              "label": "Consulting",
+              "url": "/services/service-details"
             },
             {
-              "name": "Media Planning",
-              "href": "/services/service-details"
+              "id": "media-planning",
+              "label": "Media Planning",
+              "url": "/services/service-details"
             },
             {
-              "name": "Campaign Management",
-              "href": "/services/service-details"
+              "id": "campaign-management",
+              "label": "Campaign Management",
+              "url": "/services/service-details"
             }
           ]
         }
       ],
+      "contactTitle": "Contact Us",
       "contactIcons": {
         "address": "MdLocationOn",
         "phone": "LuPhoneCall",
         "email": "MdEmail",
         "hours": "LuClock"
       },
-      "bottomLinks": [
-        {
-          "name": "Privacy Policy",
-          "href": "/privacy-policy"
-        },
-        {
-          "name": "Terms & Conditions",
-          "href": "/terms-and-conditions"
-        },
-        {
-          "name": "Sitemap",
-          "href": "/sitemap"
-        }
-      ],
       "addressLines": [
         "123 Business Avenue,",
         "Suite 400, San Francisco,",
         "CA 94107, USA"
       ],
       "phone": "+1 0000000000",
-      "phoneHref": "tel:+10000000000",
+      "phoneUrl": "tel:+10000000000",
       "email": "info@xyz.com",
-      "emailHref": "mailto:info@xyz.com",
+      "emailUrl": "mailto:info@xyz.com",
       "hoursLines": [
         "Mon - Fri: 9:00 AM - 6:00 PM",
         "Sat - Sun: Closed"
-      ]
+      ],
+      "bottomLinks": [
+        {
+          "id": "privacy-policy",
+          "label": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "id": "terms-and-conditions",
+          "label": "Terms & Conditions",
+          "url": "/terms-and-conditions"
+        },
+        {
+          "id": "sitemap",
+          "label": "Sitemap",
+          "url": "/sitemap"
+        }
+      ],
+      "copyrightText": "© 2026 All Rights Reserved. Powered by Lestow."
     }
   },
   "categories": {
@@ -486,90 +490,98 @@
         "Header": {
           "variants": {
             "AdvertisingHeader1": {
+              "logo": "/images/logo.webp",
+              "logoAlt": "AdSphere Advertising Agency",
+              "logoUrl": "/",
+              "logoLabel": "AdSphere home",
               "navLinks": [
                 {
-                  "name": "Home",
-                  "href": "/",
+                  "id": "home",
+                  "label": "Home",
+                  "url": "/",
                   "children": []
                 },
                 {
-                  "name": "About Us",
-                  "href": "/about-us",
+                  "id": "about-us",
+                  "label": "About Us",
+                  "url": "/about-us",
                   "children": []
                 },
                 {
-                  "name": "Services",
-                  "href": "/services",
+                  "id": "services",
+                  "label": "Services",
+                  "url": "/services",
                   "children": [
                     {
-                      "name": "Digital Advertising",
-                      "href": "/services/service-details"
+                      "id": "digital-advertising",
+                      "label": "Digital Advertising",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Social Media Marketing",
-                      "href": "/services/service-details"
+                      "id": "social-media-marketing",
+                      "label": "Social Media Marketing",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Brand Strategy",
-                      "href": "/services/service-details"
+                      "id": "brand-strategy",
+                      "label": "Brand Strategy",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Performance Marketing",
-                      "href": "/services/service-details"
+                      "id": "performance-marketing",
+                      "label": "Performance Marketing",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Creative Design",
-                      "href": "/services/service-details"
+                      "id": "creative-design",
+                      "label": "Creative Design",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Consulting",
-                      "href": "/services/service-details"
+                      "id": "consulting",
+                      "label": "Consulting",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Media Planning",
-                      "href": "/services/service-details"
+                      "id": "media-planning",
+                      "label": "Media Planning",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Campaign Management",
-                      "href": "/services/service-details"
+                      "id": "campaign-management",
+                      "label": "Campaign Management",
+                      "url": "/services/service-details"
                     }
                   ]
                 },
                 {
-                  "name": "Portfolio",
-                  "href": "/portfolio",
+                  "id": "portfolio",
+                  "label": "Portfolio",
+                  "url": "/portfolio",
                   "children": []
                 },
                 {
-                  "name": "Blog",
-                  "href": "/blog",
+                  "id": "blog",
+                  "label": "Blog",
+                  "url": "/blog",
                   "children": []
                 },
                 {
-                  "name": "Contact",
-                  "href": "/contact",
+                  "id": "contact",
+                  "label": "Contact",
+                  "url": "/contact",
                   "children": []
                 }
               ],
-              "text": {
-                "logoAlt": "AdSphere Advertising Agency",
-                "homeLabel": "AdSphere home",
-                "needHelp": "Need help? Talk to Us",
-                "getAQuote": "Get a Quote",
-                "openMenu": "Open menu",
-                "closeMenu": "Close menu",
-                "mainNavLabel": "Main",
-                "mobileNavLabel": "Mobile"
-              },
-              "images": {
-                "logo": "/images/logo.webp"
-              },
-              "links": {
-                "home": "/",
-                "getAQuote": "/get-a-quote"
-              },
+              "menuLabel": "Main",
+              "mobileMenuLabel": "Mobile",
+              "openMenuLabel": "Open menu",
+              "closeMenuLabel": "Close menu",
+              "phoneLabel": "Need help? Talk to Us",
               "phone": "+1 0000000000",
-              "phoneHref": "tel:+10000000000"
+              "phoneUrl": "tel:+10000000000",
+              "buttonText": "Get a Quote",
+              "buttonUrl": "/get-a-quote"
             }
           }
         },
@@ -596,12 +608,10 @@
               ],
               "button": {
                 "label": "Read More",
-                "href": "/about-us"
+                "url": "/about-us"
               },
-              "image": {
-                "src": "/images/hero-office.webp",
-                "alt": "Modern AdSphere office with a long meeting table and wall displays"
-              }
+              "image": "/images/hero-office.webp",
+              "imageAlt": "Modern AdSphere office with a long meeting table and wall displays"
             }
           }
         },
@@ -648,16 +658,10 @@
                 "that build brand awareness, attract the right",
                 "audience, and deliver measurable growth."
               ],
-              "images": {
-                "primary": {
-                  "src": "/images/about-designer.webp",
-                  "alt": "Designer reviewing brand colour charts at a desk"
-                },
-                "secondary": {
-                  "src": "/images/about-team.webp",
-                  "alt": "Team reviewing campaign material around a laptop"
-                }
-              },
+              "primaryImage": "/images/about-designer.webp",
+              "primaryImageAlt": "Designer reviewing brand colour charts at a desk",
+              "secondaryImage": "/images/about-team.webp",
+              "secondaryImageAlt": "Team reviewing campaign material around a laptop",
               "experience": {
                 "number": "10",
                 "labelLines": [
@@ -672,7 +676,7 @@
                 ],
                 "link": {
                   "label": "Read More",
-                  "href": "/about-us"
+                  "url": "/about-us"
                 }
               }
             }
@@ -721,12 +725,11 @@
                 "solutions to help brands grow, reach the right audience,",
                 "and achieve measurable success in the digital world."
               ],
-              "image": {
-                "src": "/images/impact-team.webp",
-                "alt": "Three colleagues working together on a laptop"
-              },
+              "image": "/images/impact-team.webp",
+              "imageAlt": "Three colleagues working together on a laptop",
               "stats": [
                 {
+                  "id": "years-of-experience",
                   "value": "10+",
                   "labelLines": [
                     "Years of",
@@ -735,6 +738,7 @@
                   "icon": "LuTrophy"
                 },
                 {
+                  "id": "successful-campaigns",
                   "value": "30k+",
                   "labelLines": [
                     "Successful",
@@ -743,6 +747,7 @@
                   "icon": "LuChartNoAxesCombined"
                 },
                 {
+                  "id": "happy-clients",
                   "value": "20k+",
                   "labelLines": [
                     "Happy",
@@ -751,6 +756,7 @@
                   "icon": "LuUsers"
                 },
                 {
+                  "id": "client-satisfaction",
                   "value": "98%",
                   "labelLines": [
                     "Client",
@@ -782,56 +788,52 @@
               ],
               "services": [
                 {
+                  "id": "search-engine-optimization",
                   "number": "01",
                   "category": "Digital Marketing",
                   "titleLines": [
                     "Search Engine",
                     "Optimization"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-seo.webp",
-                    "alt": "Two marketers reviewing search results on a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-seo.webp",
+                  "imageAlt": "Two marketers reviewing search results on a laptop"
                 },
                 {
+                  "id": "brand-strategy-and-identity",
                   "number": "02",
                   "category": "Branding",
                   "titleLines": [
                     "Brand Strategy",
                     "& Identity"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-branding.webp",
-                    "alt": "Brand strategists discussing ideas at a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-branding.webp",
+                  "imageAlt": "Brand strategists discussing ideas at a laptop"
                 },
                 {
+                  "id": "performance-marketing",
                   "number": "03",
                   "category": "Paid Advertising",
                   "titleLines": [
                     "Performance",
                     "Marketing"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-performance.webp",
-                    "alt": "Performance charts on a tablet during a review"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-performance.webp",
+                  "imageAlt": "Performance charts on a tablet during a review"
                 },
                 {
+                  "id": "marketing-consulting",
                   "number": "04",
                   "category": "Consulting",
                   "titleLines": [
                     "Marketing",
                     "Consulting"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-consulting.webp",
-                    "alt": "Consultants smiling around a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-consulting.webp",
+                  "imageAlt": "Consultants smiling around a laptop"
                 }
               ],
               "previousLabel": "Previous",
@@ -860,6 +862,7 @@
               ],
               "steps": [
                 {
+                  "id": "discover-and-understand",
                   "number": "01",
                   "title": "Discover & Understand",
                   "descriptionLines": [
@@ -868,12 +871,11 @@
                     "right opportunities."
                   ],
                   "icon": "LuUsers",
-                  "image": {
-                    "src": "/images/process-discover.webp",
-                    "alt": "Consultant and client reviewing a report"
-                  }
+                  "image": "/images/process-discover.webp",
+                  "imageAlt": "Consultant and client reviewing a report"
                 },
                 {
+                  "id": "plan-and-strategize",
                   "number": "02",
                   "title": "Plan & Strategize",
                   "descriptionLines": [
@@ -882,12 +884,11 @@
                     "and deliverables."
                   ],
                   "icon": "LuFilePen",
-                  "image": {
-                    "src": "/images/process-plan.webp",
-                    "alt": "Strategy charts shown on a tablet"
-                  }
+                  "image": "/images/process-plan.webp",
+                  "imageAlt": "Strategy charts shown on a tablet"
                 },
                 {
+                  "id": "execute-and-optimize",
                   "number": "03",
                   "title": "Execute & Optimize",
                   "descriptionLines": [
@@ -896,12 +897,11 @@
                     "optimizing for better results."
                   ],
                   "icon": "LuSettings",
-                  "image": {
-                    "src": "/images/process-execute.webp",
-                    "alt": "Marketer writing notes on campaign reports"
-                  }
+                  "image": "/images/process-execute.webp",
+                  "imageAlt": "Marketer writing notes on campaign reports"
                 },
                 {
+                  "id": "deliver-results",
                   "number": "04",
                   "title": "Deliver Results",
                   "descriptionLines": [
@@ -910,10 +910,8 @@
                     "grows with measurable impact."
                   ],
                   "icon": "LuChartNoAxesCombined",
-                  "image": {
-                    "src": "/images/process-deliver.webp",
-                    "alt": "Happy client celebrating growing results"
-                  }
+                  "image": "/images/process-deliver.webp",
+                  "imageAlt": "Happy client celebrating growing results"
                 }
               ]
             }
@@ -943,6 +941,7 @@
               },
               "testimonials": [
                 {
+                  "id": "michael-roberts",
                   "quoteLines": [
                     "Working with this team has been a game changer",
                     "for our brand. Their strategy, creativity, and dedication",
@@ -952,12 +951,11 @@
                   "name": "Michael Roberts",
                   "role": "CEO & Founder, Nexus Tech",
                   "avatar": "/images/testimonial-avatar.webp",
-                  "image": {
-                    "src": "/images/testimonial-client.webp",
-                    "alt": "Michael Roberts talking during a meeting"
-                  }
+                  "image": "/images/testimonial-client.webp",
+                  "imageAlt": "Michael Roberts talking during a meeting"
                 },
                 {
+                  "id": "priya-sharma",
                   "quoteLines": [
                     "AdSphere understood our goals from day one.",
                     "The campaigns they planned were sharp, on brand,",
@@ -967,12 +965,11 @@
                   "name": "Priya Sharma",
                   "role": "Marketing Head, UrbanNest",
                   "avatar": "",
-                  "image": {
-                    "src": "/images/process-execute.webp",
-                    "alt": "Priya Sharma at work"
-                  }
+                  "image": "/images/process-execute.webp",
+                  "imageAlt": "Priya Sharma at work"
                 },
                 {
+                  "id": "daniel-carter",
                   "quoteLines": [
                     "From brand identity to performance marketing,",
                     "every step was handled with clarity and care.",
@@ -982,12 +979,11 @@
                   "name": "Daniel Carter",
                   "role": "Director, BrightPath Retail",
                   "avatar": "",
-                  "image": {
-                    "src": "/images/process-deliver.webp",
-                    "alt": "Daniel Carter at his desk"
-                  }
+                  "image": "/images/process-deliver.webp",
+                  "imageAlt": "Daniel Carter at his desk"
                 },
                 {
+                  "id": "ananya-verma",
                   "quoteLines": [
                     "A reliable partner that communicates clearly",
                     "and delivers on time. Their data-driven approach",
@@ -997,10 +993,8 @@
                   "name": "Ananya Verma",
                   "role": "Co-Founder, FreshKart",
                   "avatar": "",
-                  "image": {
-                    "src": "/images/testimonial-ananya.webp",
-                    "alt": "Ananya Verma smiling at work"
-                  }
+                  "image": "/images/testimonial-ananya.webp",
+                  "imageAlt": "Ananya Verma smiling at work"
                 }
               ],
               "previousLabel": "Previous",
@@ -1029,6 +1023,7 @@
               ],
               "posts": [
                 {
+                  "id": "effective-digital-marketing-strategies-for-business-growth",
                   "day": "20",
                   "month": "Aug",
                   "year": "2025",
@@ -1045,13 +1040,12 @@
                     "that help you attract the right audience, boost",
                     "brand visibility, and drive measurable growth."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-digital-marketing.webp",
-                    "alt": "Laptop showing a digital marketing dashboard"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-digital-marketing.webp",
+                  "imageAlt": "Laptop showing a digital marketing dashboard"
                 },
                 {
+                  "id": "how-data-driven-decisions-can-transform-your-business",
                   "day": "25",
                   "month": "Aug",
                   "year": "2025",
@@ -1068,13 +1062,12 @@
                     "make smarter decisions, improve efficiency,",
                     "and achieve long-term success."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-data-driven.webp",
-                    "alt": "Business charts being reviewed next to a laptop"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-data-driven.webp",
+                  "imageAlt": "Business charts being reviewed next to a laptop"
                 },
                 {
+                  "id": "the-power-of-social-media-for-modern-businesses",
                   "day": "14",
                   "month": "Aug",
                   "year": "2025",
@@ -1091,11 +1084,9 @@
                     "your brand, increase engagement, and create",
                     "new opportunities for business growth."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-social-media.webp",
-                    "alt": "Phone with social media reactions floating above it"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-social-media.webp",
+                  "imageAlt": "Phone with social media reactions floating above it"
                 }
               ],
               "previousLabel": "Previous",
@@ -1155,6 +1146,7 @@
               ],
               "reasons": [
                 {
+                  "id": "strategic-approach",
                   "number": "01",
                   "title": "Strategic Approach",
                   "descriptionLines": [
@@ -1166,6 +1158,7 @@
                   "featured": false
                 },
                 {
+                  "id": "creative-excellence",
                   "number": "02",
                   "title": "Creative Excellence",
                   "descriptionLines": [
@@ -1177,6 +1170,7 @@
                   "featured": true
                 },
                 {
+                  "id": "measurable-results",
                   "number": "03",
                   "title": "Measurable Results",
                   "descriptionLines": [
@@ -1188,6 +1182,7 @@
                   "featured": false
                 },
                 {
+                  "id": "expert-team",
                   "number": "04",
                   "title": "Expert Team",
                   "descriptionLines": [
@@ -1199,6 +1194,7 @@
                   "featured": false
                 },
                 {
+                  "id": "end-to-end-solutions",
                   "number": "05",
                   "title": "End-to-End Solutions",
                   "descriptionLines": [
@@ -1210,6 +1206,7 @@
                   "featured": false
                 },
                 {
+                  "id": "long-term-partnership",
                   "number": "06",
                   "title": "Long-Term Partnership",
                   "descriptionLines": [
@@ -1250,107 +1247,99 @@
               ],
               "services": [
                 {
+                  "id": "digital-advertising",
                   "number": "01",
                   "category": "Paid Media",
                   "titleLines": [
                     "Digital",
                     "Advertising"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-seo.webp",
-                    "alt": "Two marketers reviewing ad results on a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-seo.webp",
+                  "imageAlt": "Two marketers reviewing ad results on a laptop"
                 },
                 {
+                  "id": "social-media-marketing",
                   "number": "02",
                   "category": "Social Media",
                   "titleLines": [
                     "Social Media",
                     "Marketing"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/portfolio-social-campaign.webp",
-                    "alt": "Three phones showing social media creatives"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/portfolio-social-campaign.webp",
+                  "imageAlt": "Three phones showing social media creatives"
                 },
                 {
+                  "id": "brand-strategy",
                   "number": "03",
                   "category": "Branding",
                   "titleLines": [
                     "Brand",
                     "Strategy"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-branding.webp",
-                    "alt": "Brand strategists discussing ideas at a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-branding.webp",
+                  "imageAlt": "Brand strategists discussing ideas at a laptop"
                 },
                 {
+                  "id": "performance-marketing",
                   "number": "04",
                   "category": "Paid Advertising",
                   "titleLines": [
                     "Performance",
                     "Marketing"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-performance.webp",
-                    "alt": "Performance charts on a tablet during a review"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-performance.webp",
+                  "imageAlt": "Performance charts on a tablet during a review"
                 },
                 {
+                  "id": "creative-design",
                   "number": "05",
                   "category": "Design",
                   "titleLines": [
                     "Creative",
                     "Design"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/about-designer.webp",
-                    "alt": "Designer reviewing brand colour charts at a desk"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/about-designer.webp",
+                  "imageAlt": "Designer reviewing brand colour charts at a desk"
                 },
                 {
+                  "id": "consulting",
                   "number": "06",
                   "category": "Consulting",
                   "titleLines": [
                     "Consulting"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/service-consulting.webp",
-                    "alt": "Consultants smiling around a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/service-consulting.webp",
+                  "imageAlt": "Consultants smiling around a laptop"
                 },
                 {
+                  "id": "media-planning",
                   "number": "07",
                   "category": "Planning",
                   "titleLines": [
                     "Media",
                     "Planning"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/blog-data-driven.webp",
-                    "alt": "Business charts being reviewed next to a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/blog-data-driven.webp",
+                  "imageAlt": "Business charts being reviewed next to a laptop"
                 },
                 {
+                  "id": "campaign-management",
                   "number": "08",
                   "category": "Campaigns",
                   "titleLines": [
                     "Campaign",
                     "Management"
                   ],
-                  "href": "/services/service-details",
-                  "image": {
-                    "src": "/images/about-team.webp",
-                    "alt": "Team reviewing campaign material around a laptop"
-                  }
+                  "url": "/services/service-details",
+                  "image": "/images/about-team.webp",
+                  "imageAlt": "Team reviewing campaign material around a laptop"
                 }
               ],
               "pageSize": 8
@@ -1371,10 +1360,8 @@
                   "highlight": true
                 }
               ],
-              "image": {
-                "src": "/images/service-detail.webp",
-                "alt": "Three brand strategists working together at a laptop"
-              },
+              "image": "/images/service-detail.webp",
+              "imageAlt": "Three brand strategists working together at a laptop",
               "introLines": [
                 "We create powerful and memorable brand identities that help your business",
                 "stand out in a competitive market. Our branding design services combine strategy,",
@@ -1383,6 +1370,7 @@
               ],
               "sections": [
                 {
+                  "id": "strategic-brand-identity",
                   "title": "Strategic Brand Identity",
                   "lines": [
                     "We start by understanding your business, target audience, and market position to",
@@ -1392,6 +1380,7 @@
                   ]
                 },
                 {
+                  "id": "creative-design-solutions",
                   "title": "Creative Design Solutions",
                   "lines": [
                     "Our design team develops unique and engaging brand assets that make your brand",
@@ -1402,6 +1391,7 @@
               ],
               "features": [
                 {
+                  "id": "custom-solutions",
                   "icon": "TbTargetArrow",
                   "title": "Custom Solutions",
                   "lines": [
@@ -1411,6 +1401,7 @@
                   ]
                 },
                 {
+                  "id": "in-time-results",
                   "icon": "MdBarChart",
                   "title": "In-time Results",
                   "lines": [
@@ -1422,6 +1413,7 @@
               ],
               "closingSections": [
                 {
+                  "id": "making-your-brand-future-ready",
                   "title": "Making Your Brand Future-Ready",
                   "lines": [
                     "A strong brand goes beyond just a logo. We create a complete visual identity system",
@@ -1431,6 +1423,7 @@
                   ]
                 },
                 {
+                  "id": "ongoing-support",
                   "title": "Ongoing Support",
                   "lines": [
                     "Our relationship doesn’t end with the design. We provide continuous support and",
@@ -1470,82 +1463,76 @@
               ],
               "projects": [
                 {
+                  "id": "brand-identity-design",
                   "title": "Brand Identity Design",
                   "tags": [
                     "Branding",
                     "Design"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-brand-identity.webp",
-                    "alt": "Red and white AdSphere notebooks and business cards",
-                    "width": 447,
-                    "height": 488
-                  }
+                  "image": "/images/portfolio-brand-identity.webp",
+                  "imageAlt": "Red and white AdSphere notebooks and business cards",
+                  "imageWidth": 447,
+                  "imageHeight": 488
                 },
                 {
+                  "id": "marketing-website",
                   "title": "Marketing Website",
                   "tags": [
                     "Development",
                     "Marketing"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-marketing-website.webp",
-                    "alt": "AdSphere marketing website shown on a laptop",
-                    "width": 447,
-                    "height": 488
-                  }
+                  "image": "/images/portfolio-marketing-website.webp",
+                  "imageAlt": "AdSphere marketing website shown on a laptop",
+                  "imageWidth": 447,
+                  "imageHeight": 488
                 },
                 {
+                  "id": "business-mobile-app",
                   "title": "Business Mobile App",
                   "tags": [
                     "Development",
                     "Design"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-mobile-app.webp",
-                    "alt": "AdSphere mobile app with growth chart on a phone",
-                    "width": 447,
-                    "height": 488
-                  }
+                  "image": "/images/portfolio-mobile-app.webp",
+                  "imageAlt": "AdSphere mobile app with growth chart on a phone",
+                  "imageWidth": 447,
+                  "imageHeight": 488
                 },
                 {
+                  "id": "social-media-campaign",
                   "title": "Social Media Campaign",
                   "tags": [
                     "Marketing",
                     "Design"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-social-campaign.webp",
-                    "alt": "Three phones showing AdSphere social media creatives",
-                    "width": 447,
-                    "height": 458
-                  }
+                  "image": "/images/portfolio-social-campaign.webp",
+                  "imageAlt": "Three phones showing AdSphere social media creatives",
+                  "imageWidth": 447,
+                  "imageHeight": 458
                 },
                 {
+                  "id": "product-branding",
                   "title": "Product Branding",
                   "tags": [
                     "Branding",
                     "Design"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-product-branding.webp",
-                    "alt": "Black and red AdSphere product box",
-                    "width": 447,
-                    "height": 458
-                  }
+                  "image": "/images/portfolio-product-branding.webp",
+                  "imageAlt": "Black and red AdSphere product box",
+                  "imageWidth": 447,
+                  "imageHeight": 458
                 },
                 {
+                  "id": "trading-platform",
                   "title": "Trading Platform",
                   "tags": [
                     "Development",
                     "Marketing"
                   ],
-                  "image": {
-                    "src": "/images/portfolio-trading-platform.webp",
-                    "alt": "Performance dashboard on a laptop screen",
-                    "width": 447,
-                    "height": 458
-                  }
+                  "image": "/images/portfolio-trading-platform.webp",
+                  "imageAlt": "Performance dashboard on a laptop screen",
+                  "imageWidth": 447,
+                  "imageHeight": 458
                 }
               ],
               "pageSize": 8
@@ -1578,6 +1565,7 @@
               ],
               "posts": [
                 {
+                  "id": "effective-digital-marketing-strategies-for-business-growth",
                   "day": "20",
                   "month": "Aug",
                   "year": "2025",
@@ -1594,13 +1582,12 @@
                     "that help you attract the right audience, boost",
                     "brand visibility, and drive measurable growth."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-digital-marketing.webp",
-                    "alt": "Laptop showing a digital marketing dashboard"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-digital-marketing.webp",
+                  "imageAlt": "Laptop showing a digital marketing dashboard"
                 },
                 {
+                  "id": "how-data-driven-decisions-can-transform-your-business",
                   "day": "25",
                   "month": "Aug",
                   "year": "2025",
@@ -1617,13 +1604,12 @@
                     "make smarter decisions, improve efficiency,",
                     "and achieve long-term success."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-data-driven.webp",
-                    "alt": "Business charts being reviewed next to a laptop"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-data-driven.webp",
+                  "imageAlt": "Business charts being reviewed next to a laptop"
                 },
                 {
+                  "id": "the-power-of-social-media-for-modern-businesses",
                   "day": "14",
                   "month": "Aug",
                   "year": "2025",
@@ -1640,13 +1626,12 @@
                     "your brand, increase engagement, and create",
                     "new opportunities for business growth."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-social-media.webp",
-                    "alt": "Phone with social media reactions floating above it"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-social-media.webp",
+                  "imageAlt": "Phone with social media reactions floating above it"
                 },
                 {
+                  "id": "everything-you-should-know-about-brand-strategy",
                   "day": "08",
                   "month": "Aug",
                   "year": "2025",
@@ -1663,13 +1648,12 @@
                     "why it matters, and how to build one that",
                     "keeps your business memorable."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/blog-detail.webp",
-                    "alt": "Three brand strategists reviewing ideas on a laptop"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/blog-detail.webp",
+                  "imageAlt": "Three brand strategists reviewing ideas on a laptop"
                 },
                 {
+                  "id": "creative-design-trends-that-make-your-brand-stand-out",
                   "day": "02",
                   "month": "Aug",
                   "year": "2025",
@@ -1686,13 +1670,12 @@
                     "and learn how strong visuals turn first",
                     "impressions into lasting recognition."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/about-designer.webp",
-                    "alt": "Designer reviewing brand colour charts at a desk"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/about-designer.webp",
+                  "imageAlt": "Designer reviewing brand colour charts at a desk"
                 },
                 {
+                  "id": "smart-media-planning-tips-for-higher-campaign-roi",
                   "day": "28",
                   "month": "Jul",
                   "year": "2025",
@@ -1709,13 +1692,12 @@
                     "set realistic budgets, and plan media that",
                     "delivers more from every rupee spent."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/service-detail.webp",
-                    "alt": "Three strategists planning media together at a laptop"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/service-detail.webp",
+                  "imageAlt": "Three strategists planning media together at a laptop"
                 },
                 {
+                  "id": "performance-marketing-metrics-every-business-should-track",
                   "day": "21",
                   "month": "Jul",
                   "year": "2025",
@@ -1732,13 +1714,12 @@
                     "from cost per lead to return on ad spend,",
                     "and use them to improve every campaign."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/portfolio-trading-platform.webp",
-                    "alt": "Performance dashboard on a laptop screen"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/portfolio-trading-platform.webp",
+                  "imageAlt": "Performance dashboard on a laptop screen"
                 },
                 {
+                  "id": "why-marketing-consulting-matters-for-growing-brands",
                   "day": "15",
                   "month": "Jul",
                   "year": "2025",
@@ -1755,11 +1736,9 @@
                     "missed opportunities, sharpen your strategy,",
                     "and speed up sustainable growth."
                   ],
-                  "href": "/blog/blog-details",
-                  "image": {
-                    "src": "/images/about-team.webp",
-                    "alt": "Team reviewing campaign material around a laptop"
-                  }
+                  "url": "/blog/blog-details",
+                  "image": "/images/about-team.webp",
+                  "imageAlt": "Team reviewing campaign material around a laptop"
                 }
               ],
               "pageSize": 6
@@ -1769,10 +1748,8 @@
         "BlogDetail": {
           "variants": {
             "AdvertisingBlogDetail1": {
-              "image": {
-                "src": "/images/blog-detail.webp",
-                "alt": "Three brand strategists reviewing ideas on a laptop"
-              },
+              "image": "/images/blog-detail.webp",
+              "imageAlt": "Three brand strategists reviewing ideas on a laptop",
               "date": "March 26, 2024",
               "category": "Branding",
               "author": "By Ashton Porter",
@@ -1812,6 +1789,7 @@
               ],
               "sections": [
                 {
+                  "id": "why-brand-strategy-matters",
                   "title": "Why Brand Strategy Matters",
                   "lines": [
                     "A well-defined brand strategy gives your business a clear direction. It helps you",
@@ -1821,6 +1799,7 @@
                   ]
                 },
                 {
+                  "id": "key-elements-of-a-successful-brand-strategy",
                   "title": "Key Elements of a Successful Brand Strategy",
                   "lines": [
                     "A successful brand strategy includes in-depth market research, a compelling brand",
@@ -1834,34 +1813,40 @@
                 "categoriesHeading": "Categories",
                 "categories": [
                   {
-                    "name": "Archive",
+                    "id": "archive",
+                    "label": "Archive",
                     "count": 3,
-                    "href": "/blog"
+                    "url": "/blog"
                   },
                   {
-                    "name": "Branding",
+                    "id": "branding",
+                    "label": "Branding",
                     "count": 6,
-                    "href": "/blog"
+                    "url": "/blog"
                   },
                   {
-                    "name": "Company",
+                    "id": "company",
+                    "label": "Company",
                     "count": 2,
-                    "href": "/blog"
+                    "url": "/blog"
                   },
                   {
-                    "name": "Design",
+                    "id": "design",
+                    "label": "Design",
                     "count": 1,
-                    "href": "/blog"
+                    "url": "/blog"
                   },
                   {
-                    "name": "Business",
+                    "id": "business",
+                    "label": "Business",
                     "count": 4,
-                    "href": "/blog"
+                    "url": "/blog"
                   },
                   {
-                    "name": "Modern",
+                    "id": "modern",
+                    "label": "Modern",
                     "count": 1,
-                    "href": "/blog"
+                    "url": "/blog"
                   }
                 ],
                 "recentHeading": "Recent Posts",
@@ -1869,40 +1854,49 @@
                 "tagsHeading": "Tags",
                 "tags": [
                   {
-                    "name": "Agency",
-                    "href": "/blog"
+                    "id": "agency",
+                    "label": "Agency",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Awards",
-                    "href": "/blog"
+                    "id": "awards",
+                    "label": "Awards",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Marketing",
-                    "href": "/blog"
+                    "id": "marketing",
+                    "label": "Marketing",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Brand",
-                    "href": "/blog"
+                    "id": "brand",
+                    "label": "Brand",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Contemporary",
-                    "href": "/blog"
+                    "id": "contemporary",
+                    "label": "Contemporary",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Design",
-                    "href": "/blog"
+                    "id": "design",
+                    "label": "Design",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Education",
-                    "href": "/blog"
+                    "id": "education",
+                    "label": "Education",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Business",
-                    "href": "/blog"
+                    "id": "business",
+                    "label": "Business",
+                    "url": "/blog"
                   },
                   {
-                    "name": "Modern",
-                    "href": "/blog"
+                    "id": "modern",
+                    "label": "Modern",
+                    "url": "/blog"
                   }
                 ]
               }
@@ -1934,6 +1928,7 @@
               ],
               "features": [
                 {
+                  "id": "custom-solutions",
                   "icon": "FaUsers",
                   "title": "Custom Solutions",
                   "lines": [
@@ -1942,6 +1937,7 @@
                   ]
                 },
                 {
+                  "id": "quick-response",
                   "icon": "MdBolt",
                   "title": "Quick Response",
                   "lines": [
@@ -1950,6 +1946,7 @@
                   ]
                 },
                 {
+                  "id": "no-obligation",
                   "icon": "MdShield",
                   "title": "No Obligation",
                   "lines": [
@@ -2027,6 +2024,7 @@
             "AdvertisingContact1": {
               "cards": [
                 {
+                  "id": "headquarters",
                   "icon": "MdLocationOn",
                   "title": "Headquarters",
                   "lines": [
@@ -2036,10 +2034,11 @@
                   ],
                   "link": {
                     "label": "Get Direction",
-                    "href": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
+                    "url": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
                   }
                 },
                 {
+                  "id": "email-address",
                   "icon": "MdChat",
                   "title": "Email Address",
                   "lines": [
@@ -2048,10 +2047,11 @@
                   ],
                   "link": {
                     "label": "Send Message",
-                    "href": "mailto:info@xyz.com"
+                    "url": "mailto:info@xyz.com"
                   }
                 },
                 {
+                  "id": "phone-number",
                   "icon": "MdPhone",
                   "title": "Phone Number",
                   "lines": [
@@ -2060,14 +2060,12 @@
                   ],
                   "link": {
                     "label": "Call Anytime",
-                    "href": "tel:+10000000000"
+                    "url": "tel:+10000000000"
                   }
                 }
               ],
-              "map": {
-                "title": "Map of San Francisco, USA",
-                "src": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed"
-              },
+              "mapTitle": "Map of San Francisco, USA",
+              "mapUrl": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed",
               "form": {
                 "headingLines": [
                   "Have Any Project on",
@@ -2107,6 +2105,7 @@
               ],
               "steps": [
                 {
+                  "id": "discover-and-understand",
                   "number": "01",
                   "title": "Discover & Understand",
                   "description": "We begin with a detailed conversation about your business, your customers and your goals. Our team studies your market and competitors to find the opportunities that matter most.",
@@ -2115,12 +2114,11 @@
                     "Audience and competitor research",
                     "Audit of your current marketing"
                   ],
-                  "image": {
-                    "src": "/images/service-seo.webp",
-                    "alt": "Two marketers reviewing research on a laptop"
-                  }
+                  "image": "/images/service-seo.webp",
+                  "imageAlt": "Two marketers reviewing research on a laptop"
                 },
                 {
+                  "id": "plan-and-strategize",
                   "number": "02",
                   "title": "Plan & Strategize",
                   "description": "Based on what we learn, we build a customized strategy with clear channels, budgets and timelines, so you always know what will happen and when.",
@@ -2129,12 +2127,11 @@
                     "Creative direction and messaging",
                     "Clear timelines and deliverables"
                   ],
-                  "image": {
-                    "src": "/images/service-branding.webp",
-                    "alt": "Strategists planning a campaign together"
-                  }
+                  "image": "/images/service-branding.webp",
+                  "imageAlt": "Strategists planning a campaign together"
                 },
                 {
+                  "id": "execute-and-optimize",
                   "number": "03",
                   "title": "Execute & Optimize",
                   "description": "We bring the strategy to life across every channel, then monitor performance closely and keep improving the campaigns for better results.",
@@ -2143,12 +2140,11 @@
                     "Continuous testing and tuning",
                     "Regular progress updates"
                   ],
-                  "image": {
-                    "src": "/images/service-performance.webp",
-                    "alt": "Performance charts being reviewed on a tablet"
-                  }
+                  "image": "/images/service-performance.webp",
+                  "imageAlt": "Performance charts being reviewed on a tablet"
                 },
                 {
+                  "id": "deliver-results",
                   "number": "04",
                   "title": "Deliver Results",
                   "description": "We track what matters, share clear reports and insights, and plan the next steps so your business keeps growing with measurable impact.",
@@ -2157,10 +2153,8 @@
                     "Insights you can act on",
                     "A plan for continued growth"
                   ],
-                  "image": {
-                    "src": "/images/service-consulting.webp",
-                    "alt": "Team celebrating results around a laptop"
-                  }
+                  "image": "/images/service-consulting.webp",
+                  "imageAlt": "Team celebrating results around a laptop"
                 }
               ],
               "cta": {
@@ -2168,7 +2162,7 @@
                 "description": "Tell us about your goals and we will prepare a plan that fits your business.",
                 "button": {
                   "label": "Get a Quote",
-                  "href": "/get-a-quote"
+                  "url": "/get-a-quote"
                 }
               }
             }
@@ -2194,6 +2188,7 @@
               ],
               "perks": [
                 {
+                  "id": "growth-and-learning",
                   "icon": "LuTrophy",
                   "title": "Growth & Learning",
                   "lines": [
@@ -2202,6 +2197,7 @@
                   ]
                 },
                 {
+                  "id": "great-team-culture",
                   "icon": "MdGroups",
                   "title": "Great Team Culture",
                   "lines": [
@@ -2210,6 +2206,7 @@
                   ]
                 },
                 {
+                  "id": "flexible-working",
                   "icon": "LuClock",
                   "title": "Flexible Working",
                   "lines": [
@@ -2218,6 +2215,7 @@
                   ]
                 },
                 {
+                  "id": "creative-freedom",
                   "icon": "TbBulb",
                   "title": "Creative Freedom",
                   "lines": [
@@ -2231,7 +2229,7 @@
                 "description": "Send us your profile anyway. We are always happy to hear from talented people.",
                 "button": {
                   "label": "Contact Us",
-                  "href": "/contact"
+                  "url": "/contact"
                 }
               },
               "applicationForm": {
@@ -2281,34 +2279,42 @@
               ],
               "faqs": [
                 {
+                  "id": "what-services-does-adsphere-offer",
                   "question": "What services does AdSphere offer?",
                   "answer": "We offer digital advertising, social media marketing, brand strategy, performance marketing, creative design, consulting, media planning and campaign management."
                 },
                 {
+                  "id": "how-do-i-get-started-with-a-project",
                   "question": "How do I get started with a project?",
                   "answer": "Fill in the Get a Quote form or contact us directly. We will set up a short call to understand your goals and then share a plan with timeline and pricing."
                 },
                 {
+                  "id": "how-much-do-your-services-cost",
                   "question": "How much do your services cost?",
                   "answer": "Pricing depends on the scope, channels and duration of your project. After understanding your requirements we share a clear, customized quote with no hidden charges."
                 },
                 {
+                  "id": "how-long-does-it-take-to-see-results",
                   "question": "How long does it take to see results?",
                   "answer": "Paid campaigns can show early results within a few weeks, while SEO and brand building usually take a few months. We set realistic expectations before we begin."
                 },
                 {
+                  "id": "do-you-work-with-small-businesses-and-startups",
                   "question": "Do you work with small businesses and startups?",
                   "answer": "Yes. We work with businesses of every size and shape the strategy and budget to match your stage of growth."
                 },
                 {
+                  "id": "how-will-i-know-how-my-campaigns-are-performing",
                   "question": "How will I know how my campaigns are performing?",
                   "answer": "You receive regular reports with the numbers that matter, along with clear insights and the next steps we recommend."
                 },
                 {
+                  "id": "can-i-change-the-plan-after-the-project-starts",
                   "question": "Can I change the plan after the project starts?",
                   "answer": "Yes. Marketing needs change, so we review the plan with you regularly and adjust channels, budgets or creatives when needed."
                 },
                 {
+                  "id": "is-there-a-long-term-contract",
                   "question": "Is there a long-term contract?",
                   "answer": "We offer both project-based and ongoing engagements. The terms are agreed with you before the work begins."
                 }
@@ -2318,7 +2324,7 @@
                 "description": "Our team is here to help you with anything you need to know.",
                 "button": {
                   "label": "Contact Us",
-                  "href": "/contact"
+                  "url": "/contact"
                 }
               }
             }
@@ -2332,15 +2338,17 @@
               "contactHeading": "Questions about this policy?",
               "contactText": "Write to us and our team will be happy to help.",
               "contactEmail": "info@xyz.com",
-              "contactEmailHref": "mailto:info@xyz.com",
+              "contactEmailUrl": "mailto:info@xyz.com",
               "items": [
                 {
+                  "id": "privacy-policy",
                   "slug": "privacy-policy",
                   "title": "Privacy Policy",
                   "updated": "January 1, 2026",
                   "intro": "This Privacy Policy explains what information AdSphere collects when you use our website or services, how we use it, and the choices you have.",
                   "sections": [
                     {
+                      "id": "information-we-collect",
                       "title": "Information We Collect",
                       "paragraphs": [
                         "We collect information you give us directly and some information automatically when you browse our website."
@@ -2352,6 +2360,7 @@
                       ]
                     },
                     {
+                      "id": "how-we-use-your-information",
                       "title": "How We Use Your Information",
                       "paragraphs": [
                         "We use your information only for the purposes described below."
@@ -2364,6 +2373,7 @@
                       ]
                     },
                     {
+                      "id": "sharing-your-information",
                       "title": "Sharing Your Information",
                       "paragraphs": [
                         "We do not sell your personal information. We may share it with trusted service providers who help us run our business, and only as far as they need it to do their work.",
@@ -2372,6 +2382,7 @@
                       "points": []
                     },
                     {
+                      "id": "data-security",
                       "title": "Data Security",
                       "paragraphs": [
                         "We use reasonable technical and organisational measures to protect your information. No method of transmission over the internet is completely secure, so we cannot guarantee absolute security."
@@ -2379,6 +2390,7 @@
                       "points": []
                     },
                     {
+                      "id": "your-rights",
                       "title": "Your Rights",
                       "paragraphs": [
                         "You may ask us to access, correct or delete the personal information we hold about you, or to stop sending you marketing messages, at any time."
@@ -2386,6 +2398,7 @@
                       "points": []
                     },
                     {
+                      "id": "changes-to-this-policy",
                       "title": "Changes To This Policy",
                       "paragraphs": [
                         "We may update this policy from time to time. The latest version will always be available on this page with the date it was last updated."
@@ -2395,12 +2408,14 @@
                   ]
                 },
                 {
+                  "id": "terms-and-conditions",
                   "slug": "terms-and-conditions",
                   "title": "Terms & Conditions",
                   "updated": "January 1, 2026",
                   "intro": "These Terms & Conditions govern your use of the AdSphere website and services. By using our website you agree to these terms.",
                   "sections": [
                     {
+                      "id": "use-of-our-website",
                       "title": "Use Of Our Website",
                       "paragraphs": [
                         "You agree to use this website only for lawful purposes and in a way that does not harm the website or other users."
@@ -2412,6 +2427,7 @@
                       ]
                     },
                     {
+                      "id": "services-and-quotes",
                       "title": "Services And Quotes",
                       "paragraphs": [
                         "Information on this website is provided for general guidance. A quote or proposal becomes binding only when both parties have agreed to it in writing."
@@ -2419,6 +2435,7 @@
                       "points": []
                     },
                     {
+                      "id": "payments",
                       "title": "Payments",
                       "paragraphs": [
                         "Fees, payment schedules and refund terms are set out in the agreement for each project. Work may be paused if payments are overdue."
@@ -2426,6 +2443,7 @@
                       "points": []
                     },
                     {
+                      "id": "intellectual-property",
                       "title": "Intellectual Property",
                       "paragraphs": [
                         "All content on this website, including text, graphics, logos and designs, belongs to AdSphere or its licensors. Ownership of project deliverables is defined in each client agreement."
@@ -2433,6 +2451,7 @@
                       "points": []
                     },
                     {
+                      "id": "limitation-of-liability",
                       "title": "Limitation Of Liability",
                       "paragraphs": [
                         "We work hard to deliver results, but we cannot guarantee specific outcomes from marketing activities. To the extent permitted by law, AdSphere is not liable for indirect or consequential losses."
@@ -2440,6 +2459,7 @@
                       "points": []
                     },
                     {
+                      "id": "governing-law",
                       "title": "Governing Law",
                       "paragraphs": [
                         "These terms are governed by the laws of India, and any disputes will be subject to the courts of New Delhi."
@@ -2449,12 +2469,14 @@
                   ]
                 },
                 {
+                  "id": "cookie-policy",
                   "slug": "cookie-policy",
                   "title": "Cookie Policy",
                   "updated": "January 1, 2026",
                   "intro": "This Cookie Policy explains what cookies are, which ones we use on this website, and how you can control them.",
                   "sections": [
                     {
+                      "id": "what-are-cookies",
                       "title": "What Are Cookies",
                       "paragraphs": [
                         "Cookies are small text files stored on your device when you visit a website. They help the website remember your actions and preferences."
@@ -2462,6 +2484,7 @@
                       "points": []
                     },
                     {
+                      "id": "cookies-we-use",
                       "title": "Cookies We Use",
                       "paragraphs": [
                         "We use the following types of cookies."
@@ -2474,6 +2497,7 @@
                       ]
                     },
                     {
+                      "id": "third-party-cookies",
                       "title": "Third-Party Cookies",
                       "paragraphs": [
                         "Some cookies are set by services we use, such as analytics tools and embedded maps. These providers have their own privacy and cookie policies."
@@ -2481,6 +2505,7 @@
                       "points": []
                     },
                     {
+                      "id": "managing-cookies",
                       "title": "Managing Cookies",
                       "paragraphs": [
                         "You can block or delete cookies through your browser settings. Please note that some parts of the website may not work properly without them."
@@ -2488,6 +2513,7 @@
                       "points": []
                     },
                     {
+                      "id": "changes-to-this-policy",
                       "title": "Changes To This Policy",
                       "paragraphs": [
                         "We may update this policy when our use of cookies changes. The latest version will always be available on this page."
@@ -2520,135 +2546,167 @@
               ],
               "groups": [
                 {
+                  "id": "main-pages",
                   "heading": "Main Pages",
                   "links": [
                     {
-                      "name": "Home",
-                      "href": "/"
+                      "id": "home",
+                      "label": "Home",
+                      "url": "/"
                     },
                     {
-                      "name": "About Us",
-                      "href": "/about-us"
+                      "id": "about-us",
+                      "label": "About Us",
+                      "url": "/about-us"
                     },
                     {
-                      "name": "Services",
-                      "href": "/services"
+                      "id": "services",
+                      "label": "Services",
+                      "url": "/services"
                     },
                     {
-                      "name": "Portfolio",
-                      "href": "/portfolio"
+                      "id": "portfolio",
+                      "label": "Portfolio",
+                      "url": "/portfolio"
                     },
                     {
-                      "name": "Blog",
-                      "href": "/blog"
+                      "id": "blog",
+                      "label": "Blog",
+                      "url": "/blog"
                     },
                     {
-                      "name": "Contact",
-                      "href": "/contact"
+                      "id": "contact",
+                      "label": "Contact",
+                      "url": "/contact"
                     }
                   ]
                 },
                 {
+                  "id": "company",
                   "heading": "Company",
                   "links": [
                     {
-                      "name": "How It Works",
-                      "href": "/how-it-works"
+                      "id": "how-it-works",
+                      "label": "How It Works",
+                      "url": "/how-it-works"
                     },
                     {
-                      "name": "Career",
-                      "href": "/career"
+                      "id": "career",
+                      "label": "Career",
+                      "url": "/career"
                     },
                     {
-                      "name": "Get a Quote",
-                      "href": "/get-a-quote"
+                      "id": "get-a-quote",
+                      "label": "Get a Quote",
+                      "url": "/get-a-quote"
                     }
                   ]
                 },
                 {
+                  "id": "our-services",
                   "heading": "Our Services",
                   "links": [
                     {
-                      "name": "Digital Advertising",
-                      "href": "/services/service-details"
+                      "id": "digital-advertising",
+                      "label": "Digital Advertising",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Social Media Marketing",
-                      "href": "/services/service-details"
+                      "id": "social-media-marketing",
+                      "label": "Social Media Marketing",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Brand Strategy",
-                      "href": "/services/service-details"
+                      "id": "brand-strategy",
+                      "label": "Brand Strategy",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Performance Marketing",
-                      "href": "/services/service-details"
+                      "id": "performance-marketing",
+                      "label": "Performance Marketing",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Creative Design",
-                      "href": "/services/service-details"
+                      "id": "creative-design",
+                      "label": "Creative Design",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Consulting",
-                      "href": "/services/service-details"
+                      "id": "consulting",
+                      "label": "Consulting",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Media Planning",
-                      "href": "/services/service-details"
+                      "id": "media-planning",
+                      "label": "Media Planning",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Campaign Management",
-                      "href": "/services/service-details"
+                      "id": "campaign-management",
+                      "label": "Campaign Management",
+                      "url": "/services/service-details"
                     },
                     {
-                      "name": "Search Engine Optimization",
-                      "href": "/services/service-details"
+                      "id": "search-engine-optimization",
+                      "label": "Search Engine Optimization",
+                      "url": "/services/service-details"
                     }
                   ]
                 },
                 {
+                  "id": "blog-posts",
                   "heading": "Blog Posts",
                   "links": [
                     {
-                      "name": "Everything You Should Know About Brand Strategy",
-                      "href": "/blog/blog-details"
+                      "id": "everything-you-should-know-about-brand-strategy",
+                      "label": "Everything You Should Know About Brand Strategy",
+                      "url": "/blog/blog-details"
                     },
                     {
-                      "name": "Effective Digital Marketing Strategies",
-                      "href": "/blog/blog-details"
+                      "id": "effective-digital-marketing-strategies",
+                      "label": "Effective Digital Marketing Strategies",
+                      "url": "/blog/blog-details"
                     },
                     {
-                      "name": "How Data-Driven Decisions Can Transform Your Business",
-                      "href": "/blog/blog-details"
+                      "id": "how-data-driven-decisions-can-transform-your-business",
+                      "label": "How Data-Driven Decisions Can Transform Your Business",
+                      "url": "/blog/blog-details"
                     },
                     {
-                      "name": "The Power of Social Media",
-                      "href": "/blog/blog-details"
+                      "id": "the-power-of-social-media",
+                      "label": "The Power of Social Media",
+                      "url": "/blog/blog-details"
                     }
                   ]
                 },
                 {
+                  "id": "support",
                   "heading": "Support",
                   "links": [
                     {
-                      "name": "FAQs",
-                      "href": "/faqs"
+                      "id": "faqs",
+                      "label": "FAQs",
+                      "url": "/faqs"
                     },
                     {
-                      "name": "Privacy Policy",
-                      "href": "/privacy-policy"
+                      "id": "privacy-policy",
+                      "label": "Privacy Policy",
+                      "url": "/privacy-policy"
                     },
                     {
-                      "name": "Terms & Conditions",
-                      "href": "/terms-and-conditions"
+                      "id": "terms-and-conditions",
+                      "label": "Terms & Conditions",
+                      "url": "/terms-and-conditions"
                     },
                     {
-                      "name": "Cookie Policy",
-                      "href": "/cookie-policy"
+                      "id": "cookie-policy",
+                      "label": "Cookie Policy",
+                      "url": "/cookie-policy"
                     },
                     {
-                      "name": "Sitemap",
-                      "href": "/sitemap"
+                      "id": "sitemap",
+                      "label": "Sitemap",
+                      "url": "/sitemap"
                     }
                   ]
                 }
@@ -2670,32 +2728,32 @@
                 "component": "AdvertisingHeader1"
               },
               {
-                "key": "Hero",
+                "key": "HeroSection",
                 "component": "AdvertisingHero1"
               },
               {
                 "key": "AboutUs",
-                "component": "AdvertisingAboutUs1"
+                "component": "AboutUs"
               },
               {
                 "key": "Impact",
-                "component": "AdvertisingImpact1"
+                "component": "Impact"
               },
               {
                 "key": "Services",
-                "component": "AdvertisingServices1"
+                "component": "Services"
               },
               {
                 "key": "Process",
-                "component": "AdvertisingProcess1"
+                "component": "Process"
               },
               {
                 "key": "Testimonials",
-                "component": "AdvertisingTestimonials1"
+                "component": "Testimonials"
               },
               {
                 "key": "Blogs",
-                "component": "AdvertisingBlogs1"
+                "component": "Blogs"
               },
               {
                 "key": "Footer",
@@ -2711,23 +2769,23 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.aboutBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "AboutUs",
-                "component": "AdvertisingAboutUs1"
+                "component": "AboutUs"
               },
               {
                 "key": "AboutStory",
-                "component": "AdvertisingAboutStory1"
+                "component": "AboutStory"
               },
               {
                 "key": "Impact",
-                "component": "AdvertisingImpact1"
+                "component": "Impact"
               },
               {
                 "key": "WhyChooseUs",
-                "component": "AdvertisingWhyChooseUs1"
+                "component": "WhyChooseUs"
               },
               {
                 "key": "Footer",
@@ -2743,11 +2801,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.servicesBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "ServicesGrid",
-                "component": "AdvertisingServicesGrid1"
+                "component": "ServicesGrid"
               },
               {
                 "key": "Footer",
@@ -2763,11 +2821,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.serviceDetailBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "ServiceDetail",
-                "component": "AdvertisingServiceDetail1"
+                "component": "ServiceDetail"
               },
               {
                 "key": "Footer",
@@ -2783,11 +2841,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.portfolioBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Portfolio",
-                "component": "AdvertisingPortfolio1"
+                "component": "Portfolio"
               },
               {
                 "key": "Footer",
@@ -2803,11 +2861,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.blogsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "BlogGrid",
-                "component": "AdvertisingBlogGrid1"
+                "component": "BlogGrid"
               },
               {
                 "key": "Footer",
@@ -2823,11 +2881,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.blogDetailBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "BlogDetail",
-                "component": "AdvertisingBlogDetail1"
+                "component": "BlogDetail"
               },
               {
                 "key": "Footer",
@@ -2843,11 +2901,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.quoteBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Quote",
-                "component": "AdvertisingQuote1"
+                "component": "Quote"
               },
               {
                 "key": "Footer",
@@ -2863,11 +2921,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.contactBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Contact",
-                "component": "AdvertisingContact1"
+                "component": "Contact"
               },
               {
                 "key": "Footer",
@@ -2883,15 +2941,15 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.howItWorksBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Process",
-                "component": "AdvertisingProcess1"
+                "component": "Process"
               },
               {
                 "key": "HowItWorks",
-                "component": "AdvertisingHowItWorks1"
+                "component": "HowItWorks"
               },
               {
                 "key": "Footer",
@@ -2907,11 +2965,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.careerBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Career",
-                "component": "AdvertisingCareer1"
+                "component": "Career"
               },
               {
                 "key": "Footer",
@@ -2927,11 +2985,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.faqsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Faq",
-                "component": "AdvertisingFaq1"
+                "component": "Faq"
               },
               {
                 "key": "Footer",
@@ -2947,11 +3005,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.privacyBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "PolicyPages",
-                "component": "AdvertisingPolicyPages1"
+                "component": "PolicyPages"
               },
               {
                 "key": "Footer",
@@ -2967,11 +3025,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.termsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "PolicyPages",
-                "component": "AdvertisingPolicyPages1"
+                "component": "PolicyPages"
               },
               {
                 "key": "Footer",
@@ -2987,11 +3045,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.cookieBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "PolicyPages",
-                "component": "AdvertisingPolicyPages1"
+                "component": "PolicyPages"
               },
               {
                 "key": "Footer",
@@ -3007,11 +3065,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.sitemapBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "SitemapPage",
-                "component": "AdvertisingSitemapPage1"
+                "component": "SitemapPage"
               },
               {
                 "key": "Footer",

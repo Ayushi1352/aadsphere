@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 /**
  * Counts a figure such as "30k+" or "98%" up from zero the first time it is seen.
@@ -13,7 +13,7 @@ export const CountUp = ({ value, duration = 1600 }: { value: string; duration?: 
     const el = ref.current;
     const match = value.match(/^(\D*)(\d+)(.*)$/);
     if (!el || !match) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const [, prefix, digits, suffix] = match;
     const target = Number(digits);

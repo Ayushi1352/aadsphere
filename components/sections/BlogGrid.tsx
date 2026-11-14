@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useRef, useState } from "react";
-import { BlogCard } from "@/components/ui/BlogCard";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import { fill } from "@/components/ui/fill";
-import type { BlogGridProps } from "@/types/templates.types";
+import { useRef, useState } from 'react';
+import { BlogCard } from '@/components/ui/BlogCard';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { fill } from '@/components/ui/fill';
+import type { BlogGridProps } from '@/types/templates.types';
 
 
 /** Heading plus a paginated grid of blog cards. */
@@ -18,7 +18,7 @@ export const BlogGrid = ({ data }: BlogGridProps) => {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -33,7 +33,7 @@ export const BlogGrid = ({ data }: BlogGridProps) => {
 
       <ul data-reveal-group="up" className="mt-[calc(36*var(--unit))] grid gap-[calc(24*var(--unit))] md:grid-cols-2 lg:ml-[calc(77*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:w-[calc(1535*var(--unit))] lg:grid-cols-3 lg:gap-x-[calc(25*var(--unit))] lg:gap-y-[calc(65*var(--unit))]">
         {visiblePosts.map((post) => (
-          <li key={post.titleLines.join(" ")}>
+          <li key={post.id}>
             <BlogCard post={post} />
           </li>
         ))}
@@ -55,8 +55,8 @@ export const BlogGrid = ({ data }: BlogGridProps) => {
               type="button"
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
-              aria-current={currentPage === page ? "page" : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"}`}
+              aria-current={currentPage === page ? 'page' : undefined}
+              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? 'bg-[var(--color-primary)] text-[var(--color-white)]' : 'bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]'}`}
             >
               {page}
             </button>

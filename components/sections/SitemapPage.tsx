@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { SitemapLinksProps } from "@/types/templates.types";
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import type { SitemapPageProps } from '@/types/templates.types';
 
 /** Every page of the website, grouped into boxes of links. */
-export const SitemapLinks = ({ data }: SitemapLinksProps) => {
+export const SitemapPage = ({ data }: SitemapPageProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, groups } = data;
   return (
@@ -19,18 +19,18 @@ export const SitemapLinks = ({ data }: SitemapLinksProps) => {
 
       <ul data-reveal-group="up" className="mt-[calc(36*var(--unit))] grid gap-[calc(22*var(--unit))] sm:grid-cols-2 lg:grid-cols-3 lg:mt-[calc(56*var(--unit))] lg:gap-[calc(26*var(--unit))]">
         {groups.map((group, i) => (
-          <li key={group.heading} className="rounded-[calc(14*var(--unit))] border border-[var(--color-border)] bg-[var(--color-surface)] p-[calc(24*var(--unit))] lg:p-[calc(34*var(--unit))]">
-            <p className="text-[calc(16*var(--unit))] font-extrabold leading-none text-[var(--color-primary)] lg:text-[calc(18*var(--unit))]">{String(i + 1).padStart(2, "0")}</p>
+          <li key={group.id} className="rounded-[calc(14*var(--unit))] border border-[var(--color-border)] bg-[var(--color-surface)] p-[calc(24*var(--unit))] lg:p-[calc(34*var(--unit))]">
+            <p className="text-[calc(16*var(--unit))] font-extrabold leading-none text-[var(--color-primary)] lg:text-[calc(18*var(--unit))]">{String(i + 1).padStart(2, '0')}</p>
             <h2 className="mt-[calc(10*var(--unit))] text-[calc(22*var(--unit))] font-bold leading-[1.2] text-[var(--color-heading)] lg:mt-[calc(12*var(--unit))] lg:text-[calc(27*var(--unit))]">{group.heading}</h2>
             <span className="mt-[calc(12*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(44*var(--unit))] bg-[var(--color-primary)] lg:mt-[calc(14*var(--unit))]" aria-hidden="true" />
             <ul className="mt-[calc(12*var(--unit))] lg:mt-[calc(16*var(--unit))]">
               {group.links.map((link) => (
-                <li key={link.name} className="border-b border-[var(--color-border)] last:border-b-0">
+                <li key={link.id} className="border-b border-[var(--color-border)] last:border-b-0">
                   <Link
-                    href={link.href}
+                    href={link.url}
                     className="flex items-center justify-between gap-[calc(12*var(--unit))] py-[calc(13*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.4] text-[var(--color-text-dark)] transition-colors duration-200 hover:text-[var(--color-primary)] lg:py-[calc(15*var(--unit))] lg:text-[calc(18*var(--unit))]"
                   >
-                    {link.name}
+                    {link.label}
                     <Icon name="LuChevronRight" className="size-[calc(17*var(--unit))] shrink-0 text-[var(--color-primary)]" />
                   </Link>
                 </li>

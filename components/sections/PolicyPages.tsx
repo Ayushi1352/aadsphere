@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import type { PolicyContentProps } from "@/types/templates.types";
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import type { PolicyPagesProps } from '@/types/templates.types';
 
 /** Text of one policy with a side box that links to the other policies. */
-export const PolicyContent = ({ data, slug }: PolicyContentProps) => {
+export const PolicyPages = ({ data, slug }: PolicyPagesProps) => {
   if (!data) return null;
-  const { items, updatedLabel, otherHeading, contactHeading, contactText, contactEmail, contactEmailHref } = data;
+  const { items, updatedLabel, otherHeading, contactHeading, contactText, contactEmail, contactEmailUrl } = data;
   const policy = items.find((item) => item.slug === slug) ?? items[0];
 
   return (
@@ -18,9 +18,9 @@ export const PolicyContent = ({ data, slug }: PolicyContentProps) => {
         <p className="mt-[calc(20*var(--unit))] font-text text-[calc(17*var(--unit))] leading-[1.7] text-[var(--color-text)] sm:text-[calc(19*var(--unit))] lg:mt-[calc(26*var(--unit))] lg:text-[calc(22*var(--unit))] lg:leading-[calc(37*var(--unit))]">{policy.intro}</p>
 
         {policy.sections.map((section, i) => (
-          <section key={section.title} className="mt-[calc(34*var(--unit))] lg:mt-[calc(48*var(--unit))]">
+          <section key={section.id} className="mt-[calc(34*var(--unit))] lg:mt-[calc(48*var(--unit))]">
             <h2 className="flex items-baseline gap-[calc(14*var(--unit))] text-[calc(23*var(--unit))] font-bold leading-[1.25] text-[var(--color-heading)] sm:text-[calc(28*var(--unit))] lg:gap-[calc(18*var(--unit))] lg:text-[calc(34*var(--unit))]">
-              <span className="text-[calc(18*var(--unit))] font-extrabold text-[var(--color-primary)] lg:text-[calc(22*var(--unit))]">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-[calc(18*var(--unit))] font-extrabold text-[var(--color-primary)] lg:text-[calc(22*var(--unit))]">{String(i + 1).padStart(2, '0')}</span>
               {section.title}
             </h2>
             <span className="mt-[calc(12*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(48*var(--unit))] bg-[var(--color-primary)] lg:mt-[calc(14*var(--unit))]" aria-hidden="true" />
@@ -51,12 +51,12 @@ export const PolicyContent = ({ data, slug }: PolicyContentProps) => {
           <span className="mt-[calc(12*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(48*var(--unit))] bg-[var(--color-primary)]" aria-hidden="true" />
           <ul className="mt-[calc(10*var(--unit))]">
             {items.map((item, i) => (
-              <li key={item.slug} className={i > 0 ? "border-t border-[var(--color-border)]" : ""}>
+              <li key={item.id} className={i > 0 ? 'border-t border-[var(--color-border)]' : ''}>
                 <Link
                   href={`/${item.slug}`}
-                  aria-current={item.slug === slug ? "page" : undefined}
+                  aria-current={item.slug === slug ? 'page' : undefined}
                   className={`flex items-center justify-between gap-[calc(12*var(--unit))] py-[calc(16*var(--unit))] text-[calc(17*var(--unit))] font-semibold transition-colors duration-200 hover:text-[var(--color-primary)] lg:text-[calc(19*var(--unit))] ${
-                    item.slug === slug ? "text-[var(--color-primary)]" : "text-[var(--color-sidebar-heading)]"
+                    item.slug === slug ? 'text-[var(--color-primary)]' : 'text-[var(--color-sidebar-heading)]'
                   }`}
                 >
                   {item.title}
@@ -70,7 +70,7 @@ export const PolicyContent = ({ data, slug }: PolicyContentProps) => {
         <div className="rounded-[calc(14*var(--unit))] bg-[var(--color-primary)] p-[calc(24*var(--unit))] text-[var(--color-white)] lg:p-[calc(32*var(--unit))]">
           <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.25] lg:text-[calc(24*var(--unit))]">{contactHeading}</h2>
           <p className="mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-white-85)] lg:text-[calc(17*var(--unit))]">{contactText}</p>
-          <a href={contactEmailHref} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
+          <a href={contactEmailUrl} className="mt-[calc(18*var(--unit))] inline-flex items-center gap-[calc(10*var(--unit))] break-all text-[calc(17*var(--unit))] font-bold underline-offset-4 hover:underline lg:text-[calc(19*var(--unit))]">
             <Icon name="MdEmail" className="size-[calc(20*var(--unit))] shrink-0" />
             {contactEmail}
           </a>

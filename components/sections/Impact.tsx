@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { DotGrid, Lines } from "@/components/ui/Text";
-import { CountUp } from "@/components/ui/CountUp";
-import type { ImpactSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { DotGrid, Lines } from '@/components/ui/Text';
+import { CountUp } from '@/components/ui/CountUp';
+import type { ImpactProps } from '@/types/templates.types';
 
-export const ImpactSection = ({ data }: ImpactSectionProps) => {
+export const Impact = ({ data }: ImpactProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, image, stats } = data;
+  const { label, headingLines, descriptionLines, image, imageAlt, stats } = data;
   return (
     <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(800*var(--unit))] lg:p-0">
       <p data-reveal="left" className="flex items-center gap-[calc(20*var(--unit))] text-[calc(14*var(--unit))] font-medium uppercase leading-none tracking-[0.5em] text-[var(--color-eyebrow)] lg:absolute lg:left-[calc(98*var(--unit))] lg:top-[calc(48*var(--unit))] lg:gap-[calc(14*var(--unit))] lg:text-[calc(17*var(--unit))]">
@@ -18,10 +18,10 @@ export const ImpactSection = ({ data }: ImpactSectionProps) => {
         {headingLines.map((line, i) => (
           <span key={i} className="lg:block">
             {line.map((part) => (
-              <span key={part.text} className={part.highlight ? "font-extrabold text-[var(--color-primary)]" : ""}>
+              <span key={part.text} className={part.highlight ? 'font-extrabold text-[var(--color-primary)]' : ''}>
                 {part.text}
               </span>
-            ))}{" "}
+            ))}{' '}
           </span>
         ))}
       </h2>
@@ -53,7 +53,7 @@ export const ImpactSection = ({ data }: ImpactSectionProps) => {
                 transform="rotate(-105 254 254)"
               />
             </svg>
-            <Image src={image.src} alt={image.alt} fill sizes="(min-width: 80rem) 28vw, 420px" className="rounded-full object-cover" />
+            <Image src={image} alt={imageAlt} fill sizes="(min-width: 80rem) 28vw, 420px" className="rounded-full object-cover" />
             <span data-float="6000" className="absolute left-[81.8%] top-[-3.6%] size-[11.9%] rounded-full bg-[var(--color-primary)]" aria-hidden="true" />
           </div>
         </div>
@@ -62,7 +62,7 @@ export const ImpactSection = ({ data }: ImpactSectionProps) => {
         <ul data-reveal-group="up" className="mt-[calc(48*var(--unit))] grid gap-[calc(15*var(--unit))] sm:grid-cols-2 lg:mt-0 lg:grow lg:absolute lg:left-[calc(823*var(--unit))] lg:top-[calc(330*var(--unit))] lg:w-[calc(822*var(--unit))] lg:grid-cols-[395fr_413fr] lg:gap-x-[calc(14*var(--unit))] lg:gap-y-[calc(15*var(--unit))]">
           {stats.map((stat) => (
             <li
-              key={stat.value}
+              key={stat.id}
               className="group relative flex items-center justify-between gap-[calc(16*var(--unit))] rounded-[calc(20*var(--unit))] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(32*var(--unit))_var(--color-primary-12)] bg-gradient-to-br from-[var(--color-primary-tint-2)] to-[var(--color-accent-tint-5)] px-[calc(28*var(--unit))] py-[calc(30*var(--unit))] lg:block lg:h-[calc(200*var(--unit))] lg:p-0"
             >
               <div className="lg:absolute lg:left-[calc(42*var(--unit))] lg:top-[calc(33*var(--unit))]">

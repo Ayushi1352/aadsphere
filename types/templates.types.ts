@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 // Types for data/templates.json. Generated from the JSON shape; keep them in step when the JSON changes.
 
 export interface SeoData {
@@ -7,14 +9,14 @@ export interface SeoData {
 
 export interface LinkItem {
   label: string;
-  href: string;
+  url: string;
 }
 
-/** One step of the breadcrumb trail; the last step is the current page (empty url). */
+/** One step of the breadcrumb trail; the last step is the current page (no url). */
 export interface BreadcrumbPath {
   id: string;
   label: string;
-  url: string;
+  url?: string;
 }
 
 export interface BreadcrumbData {
@@ -36,6 +38,16 @@ export interface ThemeData {
   fonts: ThemeFonts;
 }
 
+/** CSS variables layout.tsx sets on <html> from common.theme.fonts. */
+export type ThemeFontVariables = CSSProperties & {
+  '--font-primary': string;
+  '--font-text': string;
+  '--font-ui': string;
+  '--font-article': string;
+  '--font-hero': string;
+  '--font-alt': string;
+};
+
 export interface SiteMetadataData {
   title: string;
   siteName: string;
@@ -48,6 +60,11 @@ export interface SiteMetadataData {
 export interface GlobalUIData {
   breadcrumbLabel: string;
   breadcrumbSeparator: string;
+}
+
+export interface BreadcrumbProps {
+  data?: BreadcrumbData;
+  ui?: GlobalUIData;
 }
 
 /** Screen-reader labels of a slider's arrows and dots; "{n}" is the slide number. */
@@ -65,11 +82,6 @@ export interface PaginationLabels {
   nextLabel: string;
 }
 
-export interface MapData {
-  title: string;
-  src: string;
-}
-
 export interface FooterCta {
   eyebrow: string;
   heading: string;
@@ -78,34 +90,21 @@ export interface FooterCta {
   button: LinkItem;
 }
 
-export interface FooterImages {
-  logo: string;
-}
-
-export interface FooterText {
-  logoAlt: string;
-  homeLabel: string;
-  descriptionLines: string[];
-  contactHeading: string;
-  copyright: string;
-}
-
-export interface FooterLinks {
-  home: string;
-}
-
-export interface FooterSocial {
-  name: string;
+export interface SocialLink {
+  id: string;
+  label: string;
   icon: string;
-  href: string;
+  url: string;
 }
 
 export interface NavLink {
-  name: string;
-  href: string;
+  id: string;
+  label: string;
+  url: string;
 }
 
 export interface FooterColumn {
+  id: string;
   heading: string;
   links: NavLink[];
 }
@@ -118,55 +117,53 @@ export interface FooterContactIcons {
 }
 
 export interface FooterData {
+  logo: string;
+  logoAlt: string;
+  logoUrl: string;
+  logoLabel: string;
+  descriptionLines: string[];
   cta: FooterCta;
-  images: FooterImages;
-  text: FooterText;
-  links: FooterLinks;
-  socials: FooterSocial[];
+  socialLinks: SocialLink[];
   columns: FooterColumn[];
+  contactTitle: string;
   contactIcons: FooterContactIcons;
-  bottomLinks: NavLink[];
   addressLines: string[];
   phone: string;
-  phoneHref: string;
+  phoneUrl: string;
   email: string;
-  emailHref: string;
+  emailUrl: string;
   hoursLines: string[];
+  bottomLinks: NavLink[];
+  copyrightText: string;
 }
 
-export interface HeaderNavLink {
-  name: string;
-  href: string;
+export interface FooterProps {
+  data?: FooterData;
+}
+
+export interface HeaderNavLink extends NavLink {
   children: NavLink[];
 }
 
-export interface HeaderText {
-  logoAlt: string;
-  homeLabel: string;
-  needHelp: string;
-  getAQuote: string;
-  openMenu: string;
-  closeMenu: string;
-  mainNavLabel: string;
-  mobileNavLabel: string;
-}
-
-export interface HeaderImages {
-  logo: string;
-}
-
-export interface HeaderLinks {
-  home: string;
-  getAQuote: string;
-}
-
 export interface HeaderData {
+  logo: string;
+  logoAlt: string;
+  logoUrl: string;
+  logoLabel: string;
   navLinks: HeaderNavLink[];
-  text: HeaderText;
-  images: HeaderImages;
-  links: HeaderLinks;
+  menuLabel: string;
+  mobileMenuLabel: string;
+  openMenuLabel: string;
+  closeMenuLabel: string;
+  phoneLabel: string;
   phone: string;
-  phoneHref: string;
+  phoneUrl: string;
+  buttonText: string;
+  buttonUrl: string;
+}
+
+export interface HeaderProps {
+  data?: HeaderData;
 }
 
 export interface HeroHeadingLine {
@@ -174,26 +171,21 @@ export interface HeroHeadingLine {
   indent: boolean;
 }
 
-export interface ImageData {
-  src: string;
-  alt: string;
-}
-
 export interface HeroData {
   headingLines: HeroHeadingLine[];
   descriptionLines: string[];
   button: LinkItem;
-  image: ImageData;
+  image: string;
+  imageAlt: string;
+}
+
+export interface HeroSectionProps {
+  data?: HeroData;
 }
 
 export interface HeadingPart {
   text: string;
   highlight: boolean;
-}
-
-export interface AboutUsImages {
-  primary: ImageData;
-  secondary: ImageData;
 }
 
 export interface AboutUsExperience {
@@ -208,11 +200,21 @@ export interface AboutUsData {
   tagline: string[];
   headingLines: HeadingPart[][];
   descriptionLines: string[];
-  images: AboutUsImages;
+  primaryImage: string;
+  primaryImageAlt: string;
+  secondaryImage: string;
+  secondaryImageAlt: string;
   experience: AboutUsExperience;
 }
 
+export interface AboutUsProps {
+  data?: AboutUsData;
+  /** The About Us page version: no experience badge (see AboutUs). */
+  compact?: boolean;
+}
+
 export interface ImpactStat {
+  id: string;
   value: string;
   labelLines: string[];
   icon: string;
@@ -222,16 +224,23 @@ export interface ImpactData {
   label: string;
   headingLines: HeadingPart[][];
   descriptionLines: string[];
-  image: ImageData;
+  image: string;
+  imageAlt: string;
   stats: ImpactStat[];
 }
 
+export interface ImpactProps {
+  data?: ImpactData;
+}
+
 export interface ServicesService {
+  id: string;
   number: string;
   category: string;
   titleLines: string[];
-  href: string;
-  image: ImageData;
+  url: string;
+  image: string;
+  imageAlt: string;
 }
 
 export interface ServicesData extends SliderLabels {
@@ -241,12 +250,18 @@ export interface ServicesData extends SliderLabels {
   services: ServicesService[];
 }
 
+export interface ServicesProps {
+  data?: ServicesData;
+}
+
 export interface ProcessStep {
+  id: string;
   number: string;
   title: string;
   descriptionLines: string[];
   icon: string;
-  image: ImageData;
+  image: string;
+  imageAlt: string;
 }
 
 export interface ProcessData {
@@ -256,17 +271,23 @@ export interface ProcessData {
   steps: ProcessStep[];
 }
 
+export interface ProcessProps {
+  data?: ProcessData;
+}
+
 export interface TestimonialsBadge {
   stars: number;
   text: string;
 }
 
 export interface TestimonialsTestimonial {
+  id: string;
   quoteLines: string[];
   name: string;
   role: string;
   avatar: string;
-  image: ImageData;
+  image: string;
+  imageAlt: string;
 }
 
 export interface TestimonialsData extends SliderLabels {
@@ -277,15 +298,25 @@ export interface TestimonialsData extends SliderLabels {
   testimonials: TestimonialsTestimonial[];
 }
 
+export interface TestimonialsProps {
+  data?: TestimonialsData;
+}
+
 export interface BlogsPost {
+  id: string;
   day: string;
   month: string;
   year: string;
   categories: string[];
   titleLines: string[];
   excerptLines: string[];
-  href: string;
-  image: ImageData;
+  url: string;
+  image: string;
+  imageAlt: string;
+}
+
+export interface BlogCardProps {
+  post: BlogsPost;
 }
 
 export interface BlogsData extends SliderLabels {
@@ -295,11 +326,20 @@ export interface BlogsData extends SliderLabels {
   posts: BlogsPost[];
 }
 
+export interface BlogsProps {
+  data?: BlogsData;
+}
+
 export interface AboutStoryData {
   storyParagraphs: string[][];
 }
 
+export interface AboutStoryProps {
+  data?: AboutStoryData;
+}
+
 export interface WhyChooseUsReason {
+  id: string;
   number: string;
   title: string;
   descriptionLines: string[];
@@ -314,12 +354,23 @@ export interface WhyChooseUsData {
   reasons: WhyChooseUsReason[];
 }
 
+export interface WhyChooseUsProps {
+  data?: WhyChooseUsData;
+}
+
 export interface ServicesGridService {
+  id: string;
   number: string;
   category: string;
   titleLines: string[];
-  href: string;
-  image: ImageData;
+  url: string;
+  image: string;
+  imageAlt: string;
+}
+
+export interface ServiceCardProps {
+  service: ServicesGridService;
+  className?: string;
 }
 
 export interface ServicesGridData {
@@ -331,18 +382,25 @@ export interface ServicesGridData {
   pageSize: number;
 }
 
+export interface ServicesGridProps {
+  data?: ServicesGridData;
+}
+
 export interface ServiceDetailSection {
+  id: string;
   title: string;
   lines: string[];
 }
 
 export interface ServiceDetailFeature {
+  id: string;
   icon: string;
   title: string;
   lines: string[];
 }
 
 export interface ServiceDetailClosingSection {
+  id: string;
   title: string;
   lines: string[];
 }
@@ -350,24 +408,26 @@ export interface ServiceDetailClosingSection {
 export interface ServiceDetailData {
   label: string;
   heading: HeadingPart[];
-  image: ImageData;
+  image: string;
+  imageAlt: string;
   introLines: string[];
   sections: ServiceDetailSection[];
   features: ServiceDetailFeature[];
   closingSections: ServiceDetailClosingSection[];
 }
 
-export interface PortfolioProjectImage {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
+export interface ServiceDetailProps {
+  data?: ServiceDetailData;
 }
 
 export interface PortfolioProject {
+  id: string;
   title: string;
   tags: string[];
-  image: PortfolioProjectImage;
+  image: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
 }
 
 export interface PortfolioData {
@@ -379,15 +439,21 @@ export interface PortfolioData {
   pageSize: number;
 }
 
+export interface PortfolioProps {
+  data?: PortfolioData;
+}
+
 export interface BlogGridPost {
+  id: string;
   day: string;
   month: string;
   year: string;
   categories: string[];
   titleLines: string[];
   excerptLines: string[];
-  href: string;
-  image: ImageData;
+  url: string;
+  image: string;
+  imageAlt: string;
 }
 
 export interface BlogGridData {
@@ -399,15 +465,21 @@ export interface BlogGridData {
   pageSize: number;
 }
 
+export interface BlogGridProps {
+  data?: BlogGridData;
+}
+
 export interface BlogDetailSection {
+  id: string;
   title: string;
   lines: string[];
 }
 
 export interface BlogDetailSidebarCategory {
-  name: string;
+  id: string;
+  label: string;
   count: number;
-  href: string;
+  url: string;
 }
 
 export interface BlogDetailSidebar {
@@ -420,7 +492,8 @@ export interface BlogDetailSidebar {
 }
 
 export interface BlogDetailData {
-  image: ImageData;
+  image: string;
+  imageAlt: string;
   date: string;
   category: string;
   author: string;
@@ -431,7 +504,13 @@ export interface BlogDetailData {
   sidebar: BlogDetailSidebar;
 }
 
+export interface BlogDetailProps {
+  data?: BlogDetailData;
+  posts?: BlogGridPost[];
+}
+
 export interface QuoteFeature {
+  id: string;
   icon: string;
   title: string;
   lines: string[];
@@ -472,7 +551,12 @@ export interface QuoteData {
   form: QuoteForm;
 }
 
+export interface QuoteProps {
+  data?: QuoteData;
+}
+
 export interface ContactCard {
+  id: string;
   icon: string;
   title: string;
   lines: string[];
@@ -492,22 +576,33 @@ export interface ContactForm {
 
 export interface ContactData {
   cards: ContactCard[];
-  map: MapData;
+  mapTitle: string;
+  mapUrl: string;
   form: ContactForm;
 }
 
+export interface ContactProps {
+  data?: ContactData;
+}
+
 export interface HowItWorksStep {
+  id: string;
   number: string;
   title: string;
   description: string;
   points: string[];
-  image: ImageData;
+  image: string;
+  imageAlt: string;
 }
 
 export interface CtaData {
   heading: string;
   description: string;
   button: LinkItem;
+}
+
+export interface CtaStripProps {
+  cta?: CtaData;
 }
 
 export interface HowItWorksData {
@@ -518,7 +613,12 @@ export interface HowItWorksData {
   cta: CtaData;
 }
 
+export interface HowItWorksProps {
+  data?: HowItWorksData;
+}
+
 export interface CareerPerk {
+  id: string;
   icon: string;
   title: string;
   lines: string[];
@@ -551,7 +651,12 @@ export interface CareerData {
   applicationForm: CareerApplicationForm;
 }
 
+export interface CareerProps {
+  data?: CareerData;
+}
+
 export interface FaqFaq {
+  id: string;
   question: string;
   answer: string;
 }
@@ -564,13 +669,19 @@ export interface FaqData {
   cta: CtaData;
 }
 
+export interface FaqProps {
+  data?: FaqData;
+}
+
 export interface PolicyPagesItemSection {
+  id: string;
   title: string;
   paragraphs: string[];
   points: string[];
 }
 
 export interface PolicyPagesItem {
+  id: string;
   slug: string;
   title: string;
   updated: string;
@@ -584,11 +695,18 @@ export interface PolicyPagesData {
   contactHeading: string;
   contactText: string;
   contactEmail: string;
-  contactEmailHref: string;
+  contactEmailUrl: string;
   items: PolicyPagesItem[];
 }
 
+export interface PolicyPagesProps {
+  data?: PolicyPagesData;
+  /** Which policy of data.items to show. */
+  slug: string;
+}
+
 export interface SitemapPageGroup {
+  id: string;
   heading: string;
   links: NavLink[];
 }
@@ -598,6 +716,10 @@ export interface SitemapPageData {
   headingLines: HeadingPart[];
   descriptionLines: string[];
   groups: SitemapPageGroup[];
+}
+
+export interface SitemapPageProps {
+  data?: SitemapPageData;
 }
 
 export interface TemplateComponentsShared {
@@ -616,20 +738,20 @@ export interface TemplatePage {
 
 export interface TemplateComponentsPages {
   home: TemplatePage;
-  "about-us": TemplatePage;
+  'about-us': TemplatePage;
   services: TemplatePage;
-  "service-details": TemplatePage;
+  'service-details': TemplatePage;
   portfolio: TemplatePage;
   blog: TemplatePage;
-  "blog-details": TemplatePage;
-  "get-a-quote": TemplatePage;
+  'blog-details': TemplatePage;
+  'get-a-quote': TemplatePage;
   contact: TemplatePage;
-  "how-it-works": TemplatePage;
+  'how-it-works': TemplatePage;
   career: TemplatePage;
   faqs: TemplatePage;
-  "privacy-policy": TemplatePage;
-  "terms-and-conditions": TemplatePage;
-  "cookie-policy": TemplatePage;
+  'privacy-policy': TemplatePage;
+  'terms-and-conditions': TemplatePage;
+  'cookie-policy': TemplatePage;
   sitemap: TemplatePage;
 }
 
@@ -658,131 +780,6 @@ export interface CommonData {
   cookieBreadcrumb: BreadcrumbData;
   sitemapBreadcrumb: BreadcrumbData;
   Footer: FooterData;
-}
-
-// ── Component props ──
-
-export interface HeaderProps {
-  data?: HeaderData;
-}
-
-export interface FooterProps {
-  data?: FooterData;
-}
-
-export interface BreadcrumbProps {
-  data?: BreadcrumbData;
-  ui?: GlobalUIData;
-}
-
-export interface HeroSectionProps {
-  data?: HeroData;
-}
-
-export interface AboutSectionProps {
-  data?: AboutUsData;
-  /** The About Us page version: no experience badge (see AboutSection). */
-  compact?: boolean;
-}
-
-export interface ImpactSectionProps {
-  data?: ImpactData;
-}
-
-export interface ServicesSectionProps {
-  data?: ServicesData;
-}
-
-export interface ProcessSectionProps {
-  data?: ProcessData;
-}
-
-export interface TestimonialsSectionProps {
-  data?: TestimonialsData;
-}
-
-export interface BlogSectionProps {
-  data?: BlogsData;
-}
-
-export interface AboutStoryProps {
-  data?: AboutStoryData;
-}
-
-export interface WhyChooseUsProps {
-  data?: WhyChooseUsData;
-}
-
-export interface ServicesGridProps {
-  data?: ServicesGridData;
-}
-
-export interface ServiceContentProps {
-  data?: ServiceDetailData;
-}
-
-export interface ProjectsGridProps {
-  data?: PortfolioData;
-}
-
-export interface BlogGridProps {
-  data?: BlogGridData;
-}
-
-export interface BlogDetailProps {
-  data?: BlogDetailData;
-  posts?: BlogGridPost[];
-}
-
-export interface QuoteProps {
-  data?: QuoteData;
-}
-
-export interface ContactCardsProps {
-  data?: ContactData;
-}
-
-export interface ContactFormProps {
-  data?: ContactData;
-}
-
-export interface StepDetailsProps {
-  data?: HowItWorksData;
-}
-
-export interface CareerPerksProps {
-  data?: CareerData;
-}
-
-export interface JobListProps {
-  data?: CareerData;
-}
-
-export interface FaqProps {
-  data?: FaqData;
-}
-
-export interface PolicyContentProps {
-  data?: PolicyPagesData;
-  /** Which policy of data.items to show. */
-  slug: string;
-}
-
-export interface SitemapLinksProps {
-  data?: SitemapPageData;
-}
-
-export interface ServiceCardProps {
-  service: ServicesGridService;
-  className?: string;
-}
-
-export interface BlogCardProps {
-  post: BlogsPost;
-}
-
-export interface CtaStripProps {
-  cta?: CtaData;
 }
 
 export interface AdvertisingSections {

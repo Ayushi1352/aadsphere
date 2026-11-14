@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { BlogCard } from "@/components/ui/BlogCard";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import { ArrowButton, SliderDots, rotate, useSlider } from "@/components/ui/Slider";
-import type { BlogSectionProps } from "@/types/templates.types";
+import { BlogCard } from '@/components/ui/BlogCard';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { ArrowButton, SliderDots, rotate, useSlider } from '@/components/ui/Slider';
+import type { BlogsProps } from '@/types/templates.types';
 
-export const BlogSection = ({ data }: BlogSectionProps) => {
+export const Blogs = ({ data }: BlogsProps) => {
   const slider = useSlider(data?.posts.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, posts } = data;
@@ -26,7 +26,7 @@ export const BlogSection = ({ data }: BlogSectionProps) => {
           <ul key={slider.index} className="flex translate-x-0 transition-[opacity,transform] duration-450 ease-out starting:translate-x-[calc(24*var(--unit))] starting:opacity-0 motion-reduce:transition-none gap-[calc(24*var(--unit))] lg:gap-[calc(25*var(--unit))]">
             {ordered.map((post) => (
               <li
-                key={post.titleLines.join(" ")}
+                key={post.id}
                 className="w-full shrink-0 md:w-[calc((100%-calc(24*var(--unit)))/2)] lg:w-[calc(495*var(--unit))]"
               >
                 <BlogCard post={post} />

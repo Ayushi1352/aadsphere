@@ -1,4 +1,4 @@
-import type { HeadingPart } from "@/types/templates.types";
+import type { HeadingPart } from '@/types/templates.types';
 
 /**
  * Text that keeps the exact line breaks of the design on desktop
@@ -10,7 +10,7 @@ export const Lines = ({ lines }: { lines: string[] }) => {
       {lines.map((line, i) => (
           <span key={i} className="lg:block">
           {line}
-          {i < lines.length - 1 ? " " : ""}
+          {i < lines.length - 1 ? ' ' : ''}
         </span>
       ))}
     </>
@@ -18,7 +18,7 @@ export const Lines = ({ lines }: { lines: string[] }) => {
 };
 
 /** Small uppercase label with a red line on both sides ("—— OUR SERVICES ——"). */
-export const SectionLabel = ({ text, tracking = "tracking-[0.27em]", className = "" }: { text: string; tracking?: string; className?: string }) => {
+export const SectionLabel = ({ text, tracking = 'tracking-[0.27em]', className = '' }: { text: string; tracking?: string; className?: string }) => {
   return (
     <p className={`flex items-center gap-[calc(14*var(--unit))] lg:gap-[calc(22*var(--unit))] ${className}`}>
       <span className="h-[calc(2*var(--unit))] w-[calc(32*var(--unit))] bg-[var(--color-primary)] lg:w-[calc(52*var(--unit))]" aria-hidden="true" />
@@ -31,11 +31,11 @@ export const SectionLabel = ({ text, tracking = "tracking-[0.27em]", className =
 };
 
 /** Two-line section heading: black first line, maroon second line. */
-export const SectionHeading = ({ lines, className = "" }: { lines: HeadingPart[]; className?: string }) => {
+export const SectionHeading = ({ lines, className = '' }: { lines: HeadingPart[]; className?: string }) => {
   return (
     <h2 className={`font-bold text-[var(--color-heading)] ${className}`}>
       {lines.map((line, i) => (
-        <span key={i} className={`block ${line.highlight ? "text-[var(--color-primary)]" : ""}`}>
+        <span key={i} className={`block ${line.highlight ? 'text-[var(--color-primary)]' : ''}`}>
           {line.text}
         </span>
       ))}
@@ -53,8 +53,8 @@ export const DotGrid = ({
   gap = 22,
   gapY = gap,
   size = 6,
-  color = "var(--color-primary)",
-  className = "",
+  color = 'var(--color-primary)',
+  className = '',
   ...floatProps
 }: {
   cols: number;
@@ -64,8 +64,8 @@ export const DotGrid = ({
   size?: number;
   color?: string;
   className?: string;
-  "data-float"?: string;
-  "data-float-delay"?: string;
+  'data-float'?: string;
+  'data-float-delay'?: string;
 }) => {
   const px = (n: number) => `calc(${n} * var(--unit, 1px))`;
   return (

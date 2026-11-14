@@ -1,20 +1,19 @@
-import type { CSSProperties } from "react";
-import type { Metadata } from "next";
-import { Inter, Krona_One, Montserrat, Poppins, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
-import rawData from "@/data/templates.json";
-import type { AdvertisingTemplateData } from "@/types/templates.types";
-import { Header } from "@/components/common/Header";
-import { Footer } from "@/components/common/Footer";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter, Krona_One, Montserrat, Poppins, Red_Hat_Display, Red_Hat_Text } from 'next/font/google';
+import rawData from '@/data/templates.json';
+import type { AdvertisingTemplateData, ThemeFontVariables } from '@/types/templates.types';
+import { Header } from '@/components/common/Header';
+import { Footer } from '@/components/common/Footer';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
+import './globals.css';
 
-const redHatDisplay = Red_Hat_Display({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"], fallback: ["Arial", "sans-serif"], variable: "--font-red-hat-display" });
-const redHatText = Red_Hat_Text({ subsets: ["latin"], weight: ["400", "500"], fallback: ["Arial", "sans-serif"], variable: "--font-red-hat-text" });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], fallback: ["Arial", "sans-serif"], variable: "--font-inter" });
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], fallback: ["Arial", "sans-serif"], variable: "--font-montserrat" });
-const kronaOne = Krona_One({ subsets: ["latin"], weight: ["400"], fallback: ["Arial", "sans-serif"], variable: "--font-krona-one" });
-const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], fallback: ["Arial", "sans-serif"], variable: "--font-poppins" });
+const redHatDisplay = Red_Hat_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'], fallback: ['Arial', 'sans-serif'], variable: '--font-red-hat-display' });
+const redHatText = Red_Hat_Text({ subsets: ['latin'], weight: ['400', '500'], fallback: ['Arial', 'sans-serif'], variable: '--font-red-hat-text' });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], fallback: ['Arial', 'sans-serif'], variable: '--font-inter' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], fallback: ['Arial', 'sans-serif'], variable: '--font-montserrat' });
+const kronaOne = Krona_One({ subsets: ['latin'], weight: ['400'], fallback: ['Arial', 'sans-serif'], variable: '--font-krona-one' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], fallback: ['Arial', 'sans-serif'], variable: '--font-poppins' });
 
 const templateData: AdvertisingTemplateData = rawData;
 const sectionData = templateData.categories.Advertising.sections;
@@ -22,14 +21,14 @@ const commonData = templateData.common;
 
 // Which font each part of the site uses comes from templates.json (common.theme.fonts).
 const fonts = commonData.theme.fonts;
-const fontVariables = {
-  "--font-primary": fonts.primary,
-  "--font-text": fonts.text,
-  "--font-ui": fonts.ui,
-  "--font-article": fonts.article,
-  "--font-hero": fonts.hero,
-  "--font-alt": fonts.alt,
-} as CSSProperties;
+const fontVariables: ThemeFontVariables = {
+  '--font-primary': fonts.primary,
+  '--font-text': fonts.text,
+  '--font-ui': fonts.ui,
+  '--font-article': fonts.article,
+  '--font-hero': fonts.hero,
+  '--font-alt': fonts.alt,
+};
 
 export const metadata: Metadata = {
   title: commonData.metadata.title,
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang={commonData.metadata.lang}

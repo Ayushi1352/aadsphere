@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { AdvertisingTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { AdvertisingTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { ServicesGrid } from '@/components/sections/ServicesGrid';
 
 export const metadata: Metadata = { ...(rawData as AdvertisingTemplateData).common.servicesBreadcrumb?.seo };
 

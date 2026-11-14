@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useRef, useState } from "react";
-import { ServiceCard } from "@/components/ui/ServiceCard";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import { fill } from "@/components/ui/fill";
-import type { ServicesGridProps } from "@/types/templates.types";
+import { useRef, useState } from 'react';
+import { ServiceCard } from '@/components/ui/ServiceCard';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { fill } from '@/components/ui/fill';
+import type { ServicesGridProps } from '@/types/templates.types';
 
 
 /** Heading plus a paginated grid of service cards. */
@@ -18,7 +18,7 @@ export const ServicesGrid = ({ data }: ServicesGridProps) => {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -55,8 +55,8 @@ export const ServicesGrid = ({ data }: ServicesGridProps) => {
               type="button"
               onClick={() => goToPage(page)}
               aria-label={fill(pagination.goToPageN, { n: page })}
-              aria-current={currentPage === page ? "page" : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"}`}
+              aria-current={currentPage === page ? 'page' : undefined}
+              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? 'bg-[var(--color-primary)] text-[var(--color-white)]' : 'bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]'}`}
             >
               {page}
             </button>

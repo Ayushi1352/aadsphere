@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { Lines } from "@/components/ui/Text";
-import type { BlogCardProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { Lines } from '@/components/ui/Text';
+import type { BlogCardProps } from '@/types/templates.types';
 
 /** One blog card: photo with date badge, categories, title, arrow and excerpt. Used on Home and Blog. */
 export const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <Link href={post.href} className="group block overflow-hidden rounded-[calc(14*var(--unit))] bg-[var(--color-blog-card-bg)] [box-shadow:0_calc(2.4*var(--unit))_calc(14.4*var(--unit))_var(--color-heading-9)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(28*var(--unit))_var(--color-primary-16)]">
+    <Link href={post.url} className="group block overflow-hidden rounded-[calc(14*var(--unit))] bg-[var(--color-blog-card-bg)] [box-shadow:0_calc(2.4*var(--unit))_calc(14.4*var(--unit))_var(--color-heading-9)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[calc(6*var(--unit))] hover:[box-shadow:0_calc(14.4*var(--unit))_calc(28*var(--unit))_var(--color-primary-16)]">
       <div className="relative aspect-[495/222] overflow-hidden">
         <Image
-          src={post.image.src}
-          alt={post.image.alt}
+          src={post.image}
+          alt={post.imageAlt}
           fill
           sizes="(min-width: 80rem) 30vw, (min-width: 48rem) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

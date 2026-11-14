@@ -1,13 +1,13 @@
-import { Fragment } from "react";
-import Link from "next/link";
-import type { BreadcrumbProps } from "@/types/templates.types";
+import { Fragment } from 'react';
+import Link from 'next/link';
+import type { BreadcrumbProps } from '@/types/templates.types';
 
 /** Maroon banner at the top of every inner page: page title + "Home / Page" breadcrumb.
  *  `paths` in templates.json is the whole trail, Home first and the current page last;
  *  a trail with steps between them (e.g. Home / Services / Services Detail) is a detail page.
  */
 export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
-  if (!data) return null;
+  if (!data || !ui) return null;
   const { title, paths: crumbs } = data;
   const links = crumbs.slice(0, -1);
   const current = crumbs[crumbs.length - 1];
@@ -29,8 +29,8 @@ export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
         <h1
           className={`translate-x-0 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none font-extrabold tracking-[-0.02em] text-[var(--color-white)] ${
             isDetailPage
-              ? "text-[calc(32*var(--unit))] leading-[1.2] sm:text-[calc(44*var(--unit))] sm:leading-[1.18] lg:text-[calc(56*var(--unit))] lg:leading-[1.15]"
-              : "text-[calc(38*var(--unit))] leading-[1.1] sm:text-[calc(56*var(--unit))] sm:leading-[1.1] lg:text-[calc(84*var(--unit))] lg:leading-[calc(96*var(--unit))]"
+              ? 'text-[calc(32*var(--unit))] leading-[1.2] sm:text-[calc(44*var(--unit))] sm:leading-[1.18] lg:text-[calc(56*var(--unit))] lg:leading-[1.15]'
+              : 'text-[calc(38*var(--unit))] leading-[1.1] sm:text-[calc(56*var(--unit))] sm:leading-[1.1] lg:text-[calc(84*var(--unit))] lg:leading-[calc(96*var(--unit))]'
           }`}
         >
           {title}
@@ -41,9 +41,13 @@ export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
               <Fragment key={crumb.id}>
                 {index > 0 && <li aria-hidden="true" className="shrink-0 text-[var(--color-white-60)]">{ui?.breadcrumbSeparator}</li>}
                 <li className="shrink-0">
-                  <Link href={crumb.url} className="transition-opacity duration-200 hover:opacity-75">
-                    {crumb.label}
-                  </Link>
+                  {crumb.url ? (
+                    <Link href={crumb.url} className="transition-opacity duration-200 hover:opacity-75">
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span>{crumb.label}</span>
+                  )}
                 </li>
               </Fragment>
             ))}

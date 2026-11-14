@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useCallback, useRef, useState } from "react";
-import type { TouchEvent } from "react";
-import { Icon } from "@/components/ui/Icon";
-import { fill } from "@/components/ui/fill";
+import { useCallback, useRef, useState } from 'react';
+import type { TouchEvent } from 'react';
+import { Icon } from '@/components/ui/Icon';
+import { fill } from '@/components/ui/fill';
 
 /** Index state for a looping slider, plus swipe handlers for touch screens. */
 export function useSlider(count: number) {
@@ -40,7 +40,7 @@ export const ArrowButton = ({
   label,
   icon,
   onClick,
-  className = "",
+  className = '',
 }: {
   label?: string;
   icon: string;
@@ -64,8 +64,8 @@ export const SliderDots = ({
   count,
   active,
   onSelect,
-  label = "",
-  className = "",
+  label = '',
+  className = '',
 }: {
   count: number;
   active: number;
@@ -85,7 +85,7 @@ export const SliderDots = ({
           aria-current={i === active}
           className="flex size-[calc(28*var(--unit))] cursor-pointer items-center justify-center"
         >
-          <span className={`block size-[calc(12*var(--unit))] rounded-full transition-colors duration-200 ${i === active ? "bg-[var(--color-primary)]" : "bg-[var(--color-slider-dot)]"}`} />
+          <span className={`block size-[calc(12*var(--unit))] rounded-full transition-colors duration-200 ${i === active ? 'bg-[var(--color-primary)]' : 'bg-[var(--color-slider-dot)]'}`} />
         </button>
       ))}
     </div>

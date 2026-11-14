@@ -1,9 +1,9 @@
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { DotGrid, Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { ProcessSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { DotGrid, Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import type { ProcessProps } from '@/types/templates.types';
 
-export const ProcessSection = ({ data }: ProcessSectionProps) => {
+export const Process = ({ data }: ProcessProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, steps } = data;
   return (
@@ -24,11 +24,11 @@ export const ProcessSection = ({ data }: ProcessSectionProps) => {
 
       <ol data-reveal-group="up" className="relative mt-[calc(48*var(--unit))] grid gap-x-[calc(24*var(--unit))] gap-y-[calc(52*var(--unit))] sm:grid-cols-2 lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(294*var(--unit))] lg:mt-0 lg:w-[calc(1571*var(--unit))] lg:grid-cols-4 lg:gap-0">
         {steps.map((step) => (
-          <li key={step.number} className="group flex flex-col items-center text-center">
+          <li key={step.id} className="group flex flex-col items-center text-center">
             <div className="relative size-[calc(200*var(--unit))] transition-transform duration-500 group-hover:-translate-y-[calc(8*var(--unit))] sm:size-[calc(250*var(--unit))] lg:mt-[calc(18*var(--unit))]">
               <span className="absolute -left-[calc(30*var(--unit))] -top-[calc(15*var(--unit))] size-[calc(230*var(--unit))] rounded-full bg-[var(--color-accent-tint-6)] sm:-left-[calc(50*var(--unit))] sm:-top-[calc(17*var(--unit))] sm:size-[calc(270*var(--unit))]" aria-hidden="true" />
               <div className="relative size-[calc(200*var(--unit))] overflow-hidden rounded-full sm:size-[calc(250*var(--unit))]">
-                <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 40rem) 250px, 200px" className="object-cover" />
+                <Image src={step.image} alt={step.imageAlt} fill sizes="(min-width: 40rem) 250px, 200px" className="object-cover" />
               </div>
               <span className="absolute -left-[calc(28*var(--unit))] -top-[calc(12*var(--unit))] z-10 text-[calc(48*var(--unit))] font-extrabold leading-none tracking-[-0.03em] text-[var(--color-primary)] sm:-left-[calc(48*var(--unit))] sm:-top-[calc(14*var(--unit))] sm:text-[calc(57*var(--unit))]">{step.number}</span>
               <span className="absolute -bottom-[calc(4*var(--unit))] -right-[calc(10*var(--unit))] z-10 flex size-[calc(76*var(--unit))] items-center justify-center rounded-full border-[calc(5*var(--unit))] border-[var(--color-white)] bg-[var(--color-primary)] text-[var(--color-white)] transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 sm:bottom-[calc(4*var(--unit))] sm:-right-[calc(19*var(--unit))] sm:size-[calc(94*var(--unit))]">

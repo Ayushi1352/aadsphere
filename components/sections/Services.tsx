@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { ServiceCard } from "@/components/ui/ServiceCard";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import { ArrowButton, SliderDots, rotate, useSlider } from "@/components/ui/Slider";
-import type { ServicesSectionProps } from "@/types/templates.types";
+import { ServiceCard } from '@/components/ui/ServiceCard';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { ArrowButton, SliderDots, rotate, useSlider } from '@/components/ui/Slider';
+import type { ServicesProps } from '@/types/templates.types';
 
-export const ServicesSection = ({ data }: ServicesSectionProps) => {
+export const Services = ({ data }: ServicesProps) => {
   const slider = useSlider(data?.services.length ?? 0);
   if (!data) return null;
   const { label, headingLines, descriptionLines, services } = data;
@@ -27,7 +27,7 @@ export const ServicesSection = ({ data }: ServicesSectionProps) => {
           <ul key={slider.index} className="flex translate-x-0 transition-[opacity,transform] duration-450 ease-out starting:translate-x-[calc(24*var(--unit))] starting:opacity-0 motion-reduce:transition-none gap-[calc(24*var(--unit))] lg:gap-[calc(23*var(--unit))]">
             {ordered.map((service) => (
               <li
-                key={service.number}
+                key={service.id}
                 className="w-full shrink-0 sm:w-[calc((100%-calc(24*var(--unit)))/2)] lg:w-[calc(366*var(--unit))]"
               >
                 <ServiceCard service={service} />

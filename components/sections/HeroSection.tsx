@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Lines } from "@/components/ui/Text";
-import type { HeroSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Lines } from '@/components/ui/Text';
+import type { HeroSectionProps } from '@/types/templates.types';
 
 export const HeroSection = ({ data }: HeroSectionProps) => {
   if (!data) return null;
-  const { headingLines, descriptionLines, button, image } = data;
+  const { headingLines, descriptionLines, button, image, imageAlt } = data;
   return (
     <section className="relative mb-[calc(32*var(--unit))] bg-[var(--color-primary)] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] lg:h-[calc(799*var(--unit))]">
       {/* Text */}
@@ -15,7 +15,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
             <span
               key={line.text}
               style={{ transitionDelay: `${i * 140}ms` }}
-              className={`block translate-x-0 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none ${line.indent ? "pl-[18%] sm:pl-[calc(150*var(--unit))] lg:pl-[calc(242*var(--unit))]" : ""}`}>
+              className={`block translate-x-0 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none ${line.indent ? 'pl-[18%] sm:pl-[calc(150*var(--unit))] lg:pl-[calc(242*var(--unit))]' : ''}`}>
               {line.text}
             </span>
           ))}
@@ -26,7 +26,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
         {/* The wrapper plays the entrance, so the button keeps its own quick hover transition. */}
         <div className="mt-[calc(28*var(--unit))] flex translate-y-0 transition-[opacity,transform] delay-600 duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[calc(40*var(--unit))] starting:opacity-0 motion-reduce:transition-none sm:mt-[calc(36*var(--unit))] lg:mt-[calc(50*var(--unit))]">
           <Link
-            href={button.href}
+            href={button.url}
             className="inline-flex h-[calc(58*var(--unit))] w-[calc(170*var(--unit))] items-center justify-center bg-[var(--color-white)] font-hero text-[calc(15*var(--unit))] font-normal tracking-[-0.09em] text-[var(--color-heading)] [-webkit-text-stroke:0.03em_currentColor] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:h-[calc(74*var(--unit))] lg:w-[calc(216*var(--unit))] lg:text-[calc(19*var(--unit))]"
           >
             {button.label}
@@ -36,7 +36,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
 
       {/* Photo */}
       <div className="relative overflow-hidden [clip-path:inset(0)] transition-[clip-path] duration-1100 ease-[cubic-bezier(0.65,0,0.35,1)] starting:[clip-path:inset(0_0_0_100%)] motion-reduce:transition-none ml-[calc(20*var(--unit))] aspect-[1122/735] sm:ml-[calc(32*var(--unit))] lg:absolute lg:left-[calc(564*var(--unit))] lg:right-0 lg:top-0 lg:ml-0 lg:aspect-auto lg:h-[calc(735*var(--unit))]">
-        <Image src={image.src} alt={image.alt} fill preload sizes="(min-width: 80rem) 66vw, 100vw" className="scale-100 object-cover transition-transform duration-1600 ease-[cubic-bezier(0.22,1,0.36,1)] starting:scale-[1.14] motion-reduce:transition-none" />
+        <Image src={image} alt={imageAlt} fill preload sizes="(min-width: 80rem) 66vw, 100vw" className="scale-100 object-cover transition-transform duration-1600 ease-[cubic-bezier(0.22,1,0.36,1)] starting:scale-[1.14] motion-reduce:transition-none" />
       </div>
       <div className="h-[calc(24*var(--unit))] sm:h-[calc(36*var(--unit))] lg:hidden" aria-hidden="true" />
     </section>

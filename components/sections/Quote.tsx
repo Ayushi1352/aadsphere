@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import type { FormEvent, ReactNode } from "react";
-import { Icon } from "@/components/ui/Icon";
-import { Lines } from "@/components/ui/Text";
-import { useSentMessage } from "@/components/ui/useSentMessage";
-import type { QuoteData, QuoteProps } from "@/types/templates.types";
+import { useState } from 'react';
+import type { FormEvent, ReactNode } from 'react';
+import { Icon } from '@/components/ui/Icon';
+import { Lines } from '@/components/ui/Text';
+import { useSentMessage } from '@/components/ui/useSentMessage';
+import type { QuoteData, QuoteProps } from '@/types/templates.types';
 
 /** Left side of the quote page: heading, short text and three promises. */
 const QuoteIntro = ({ data }: { data?: QuoteData }) => {
@@ -19,7 +19,7 @@ const QuoteIntro = ({ data }: { data?: QuoteData }) => {
       </p>
       <h2 className="mt-[calc(18*var(--unit))] text-[calc(38*var(--unit))] font-black leading-[1.06] tracking-[-0.015em] text-[var(--color-quote-heading)] sm:text-[calc(56*var(--unit))] lg:ml-[calc(3*var(--unit))] lg:mt-[calc(23*var(--unit))] lg:text-[calc(72*var(--unit))] lg:leading-[calc(75*var(--unit))]">
         {headingLines.map((line) => (
-          <span key={line.text} className={`block ${line.highlight ? "text-[var(--color-primary)]" : ""}`}>
+          <span key={line.text} className={`block ${line.highlight ? 'text-[var(--color-primary)]' : ''}`}>
             {line.text}
           </span>
         ))}
@@ -30,7 +30,7 @@ const QuoteIntro = ({ data }: { data?: QuoteData }) => {
 
       <ul className="mt-[calc(30*var(--unit))] space-y-[calc(22*var(--unit))] lg:mt-[calc(35*var(--unit))] lg:space-y-[calc(34*var(--unit))]">
         {features.map((feature) => (
-          <li key={feature.title} className="flex items-center gap-[calc(20*var(--unit))] lg:gap-[calc(37*var(--unit))]">
+          <li key={feature.id} className="flex items-center gap-[calc(20*var(--unit))] lg:gap-[calc(37*var(--unit))]">
             <span className="flex size-[calc(88*var(--unit))] shrink-0 items-center justify-center rounded-[calc(14*var(--unit))] bg-[var(--color-accent-tint-7)] text-[var(--color-primary)] lg:h-[calc(118*var(--unit))] lg:w-[calc(121*var(--unit))] lg:rounded-[calc(18*var(--unit))]">
               <Icon name={feature.icon} className="size-[calc(44*var(--unit))] lg:size-[calc(62*var(--unit))]" />
             </span>
@@ -49,10 +49,10 @@ const QuoteIntro = ({ data }: { data?: QuoteData }) => {
 
 // Shared look of every field; inputs add their height (inputClass), the textarea its own.
 const fieldClass =
-  "block w-full rounded-[calc(8*var(--unit))] border border-[var(--color-quote-input-border)] bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(16*var(--unit))] text-[var(--color-heading)] outline-none transition-colors duration-200 placeholder:text-[var(--color-quote-placeholder)] focus:border-[var(--color-primary)] lg:px-[calc(17*var(--unit))] lg:text-[calc(17*var(--unit))]";
+  'block w-full rounded-[calc(8*var(--unit))] border border-[var(--color-quote-input-border)] bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(16*var(--unit))] text-[var(--color-heading)] outline-none transition-colors duration-200 placeholder:text-[var(--color-quote-placeholder)] focus:border-[var(--color-primary)] lg:px-[calc(17*var(--unit))] lg:text-[calc(17*var(--unit))]';
 const inputClass = `${fieldClass} h-[calc(48*var(--unit))] lg:h-[calc(49*var(--unit))]`;
 
-function Field({ label, required, htmlFor, children, className = "" }: { label: string; required?: boolean; htmlFor: string; children: ReactNode; className?: string }) {
+function Field({ label, required, htmlFor, children, className = '' }: { label: string; required?: boolean; htmlFor: string; children: ReactNode; className?: string }) {
   return (
     <div className={className}>
       <label htmlFor={htmlFor} className="block text-[calc(16*var(--unit))] font-bold leading-none text-[var(--color-quote-input-text)] lg:text-[calc(18*var(--unit))] lg:leading-[calc(20*var(--unit))]">
@@ -65,10 +65,10 @@ function Field({ label, required, htmlFor, children, className = "" }: { label: 
 }
 
 function Select({ id, placeholder, options, required }: { id: string; placeholder: string; options: string[]; required?: boolean }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   return (
     <div className="relative">
-      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${fieldClass} h-[calc(48*var(--unit))] cursor-pointer appearance-none pr-[calc(44*var(--unit))] lg:h-[calc(52*var(--unit))] ${value ? "" : "!text-[var(--color-quote-placeholder)]"}`}>
+      <select id={id} name={id} required={required} value={value} onChange={(event) => setValue(event.target.value)} className={`${fieldClass} h-[calc(48*var(--unit))] cursor-pointer appearance-none pr-[calc(44*var(--unit))] lg:h-[calc(52*var(--unit))] ${value ? '' : '!text-[var(--color-quote-placeholder)]'}`}>
         <option value="" disabled>
           {placeholder}
         </option>

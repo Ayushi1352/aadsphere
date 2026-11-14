@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { AdvertisingTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { Quote } from "@/components/sections/Quote";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { AdvertisingTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { Quote } from '@/components/sections/Quote';
 
 export const metadata: Metadata = { ...(rawData as AdvertisingTemplateData).common.quoteBreadcrumb?.seo };
 

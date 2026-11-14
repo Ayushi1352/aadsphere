@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { CtaStrip } from "@/components/ui/CtaStrip";
-import { Icon } from "@/components/ui/Icon";
-import { Lines, SectionHeading, SectionLabel } from "@/components/ui/Text";
-import type { StepDetailsProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { CtaStrip } from '@/components/ui/CtaStrip';
+import { Icon } from '@/components/ui/Icon';
+import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import type { HowItWorksProps } from '@/types/templates.types';
 
 /** Each step of the process explained in detail, with a photo and a short checklist. */
-export const StepDetails = ({ data }: StepDetailsProps) => {
+export const HowItWorks = ({ data }: HowItWorksProps) => {
   if (!data) return null;
   const { label, headingLines, descriptionLines, steps, cta } = data;
   return (
@@ -20,17 +20,17 @@ export const StepDetails = ({ data }: StepDetailsProps) => {
 
       <ol className="mt-[calc(40*var(--unit))] space-y-[calc(40*var(--unit))] lg:mt-[calc(64*var(--unit))] lg:space-y-[calc(72*var(--unit))]">
         {steps.map((step, i) => (
-          <li key={step.number} className={`flex flex-col gap-[calc(28*var(--unit))] lg:items-center lg:gap-[calc(90*var(--unit))] ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}`}>
-            <div data-reveal={i % 2 === 1 ? "right" : "left"} className="group relative lg:w-1/2">
+          <li key={step.id} className={`flex flex-col gap-[calc(28*var(--unit))] lg:items-center lg:gap-[calc(90*var(--unit))] ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+            <div data-reveal={i % 2 === 1 ? 'right' : 'left'} className="group relative lg:w-1/2">
               <div className="relative aspect-[366/264] overflow-hidden rounded-[calc(14*var(--unit))] lg:rounded-[calc(18*var(--unit))]">
-                <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 64rem) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src={step.image} alt={step.imageAlt} fill sizes="(min-width: 64rem) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <span className="absolute left-0 top-0 flex size-[calc(64*var(--unit))] items-center justify-center rounded-br-[calc(14*var(--unit))] rounded-tl-[calc(14*var(--unit))] bg-[var(--color-primary)] text-[calc(24*var(--unit))] font-bold leading-none text-[var(--color-white)] lg:size-[calc(84*var(--unit))] lg:text-[calc(32*var(--unit))]">
                 {step.number}
               </span>
             </div>
 
-            <div data-reveal={i % 2 === 1 ? "left" : "right"} data-reveal-delay="120" className="lg:w-1/2">
+            <div data-reveal={i % 2 === 1 ? 'left' : 'right'} data-reveal-delay="120" className="lg:w-1/2">
               <h3 className="text-[calc(26*var(--unit))] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-heading)] sm:text-[calc(34*var(--unit))] lg:text-[calc(44*var(--unit))]">{step.title}</h3>
               <span className="mt-[calc(16*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(56*var(--unit))] bg-[var(--color-primary)] lg:mt-[calc(20*var(--unit))]" aria-hidden="true" />
               <p className="mt-[calc(16*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(22*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">{step.description}</p>
