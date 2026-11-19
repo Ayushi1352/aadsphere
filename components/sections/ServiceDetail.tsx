@@ -1,26 +1,24 @@
 import Image from 'next/image';
 import { Icon } from '@/components/ui/Icon';
-import { Lines } from '@/components/ui/Text';
-import type { ServiceDetailProps } from '@/types/templates.types';
-
-type TextBlock = { id: string; title: string; lines: string[] };
+import { Lines, headingLines } from '@/components/ui/Text';
+import type { ServiceDetailBlock, ServiceDetailProps } from '@/types/templates.types';
 
 /** A sub heading with its paragraph. */
-function Block({ block, className }: { block: TextBlock; className: string }) {
+function Block({ block, className }: { block: ServiceDetailBlock; className: string }) {
   return (
     <div className={className}>
       <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[var(--color-service-detail-heading)] sm:text-[calc(25*var(--unit))] lg:text-[calc(30*var(--unit))] lg:leading-[calc(36*var(--unit))]">{block.title}</h2>
       <p className="mt-[calc(8*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.6] text-[var(--color-text-body-dark)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(9*var(--unit))] lg:whitespace-nowrap lg:text-[calc(22*var(--unit))] lg:leading-[calc(29.7*var(--unit))] lg:tracking-[-0.015em]">
-        <Lines lines={block.lines} />
+        <Lines text={block.description} />
       </p>
     </div>
   );
 }
 
-/** Common article for every service: photo, intro, text blocks and two feature cards. */
+/** Common article for every service (the detail of the Services data): photo, intro, text blocks and two feature cards. */
 export const ServiceDetail = ({ data }: ServiceDetailProps) => {
-  if (!data) return null;
-  const { label, heading, image, imageAlt, introLines, sections, features, closingSections } = data;
+  if (!data?.detail) return null;
+  const { label, title, titleHighlight, image, imageAlt, description, sections, features, closingSections } = data.detail;
   return (
     <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] font-article sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:px-0 lg:py-[calc(48*var(--unit))]">
       <div className="relative aspect-[1566/612] overflow-hidden rounded-[calc(14*var(--unit))] lg:ml-[calc(63*var(--unit))] lg:w-[calc(1571*var(--unit))] lg:rounded-[calc(24*var(--unit))]">
@@ -33,14 +31,14 @@ export const ServiceDetail = ({ data }: ServiceDetailProps) => {
           {label}
         </p>
         <h1 className="mt-[calc(14*var(--unit))] text-[calc(32*var(--unit))] font-bold leading-[1.12] tracking-[-0.01em] text-[var(--color-service-detail-heading)] sm:text-[calc(48*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(67*var(--unit))] lg:leading-[calc(70*var(--unit))]">
-          {heading.map((part) => (
+          {headingLines(title, titleHighlight).flat().map((part) => (
             <span key={part.text} className={part.highlight ? 'text-[var(--color-accent)]' : ''}>
               {part.text}
             </span>
           ))}
         </h1>
         <p className="mt-[calc(16*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.65] text-[var(--color-text-body-dark)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(22*var(--unit))] lg:whitespace-nowrap lg:text-[calc(22*var(--unit))] lg:leading-[calc(32.5*var(--unit))] lg:tracking-[-0.015em]">
-          <Lines lines={introLines} />
+          <Lines text={description} />
         </p>
 
         {sections.map((block, i) => (
@@ -57,7 +55,7 @@ export const ServiceDetail = ({ data }: ServiceDetailProps) => {
             <div>
               <h3 className="text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[var(--color-service-detail-heading)] sm:text-[calc(25*var(--unit))] lg:whitespace-nowrap lg:text-[calc(30*var(--unit))] lg:leading-[calc(36*var(--unit))]">{feature.title}</h3>
               <p className="mt-[calc(8*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.6] text-[var(--color-text-body-dark)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(9*var(--unit))] lg:whitespace-nowrap lg:text-[calc(22*var(--unit))] lg:leading-[calc(29.7*var(--unit))] lg:tracking-[-0.015em]">
-                <Lines lines={feature.lines} />
+                <Lines text={feature.description} />
               </p>
             </div>
           </li>

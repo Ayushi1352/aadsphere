@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, type FormEvent, type ChangeEvent } from 'react';
-import { useSentMessage } from '@/components/ui/useSentMessage';
+import { useFormSubmit } from '@/components/ui/useFormSubmit';
 import { Icon } from '@/components/ui/Icon';
 import { Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
 import type { CareerProps } from '@/types/templates.types';
@@ -9,14 +9,14 @@ import type { CareerProps } from '@/types/templates.types';
 /** Intro heading plus the four reasons to work at AdSphere. */
 const CareerPerks = ({ data }: CareerProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, perks } = data;
+  const { label, title, titleHighlight, description, perks } = data;
   return (
     <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:py-[calc(48*var(--unit))] lg:pl-[calc(63*var(--unit))] lg:pr-[calc(52*var(--unit))]">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} />
-        <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
+        <SectionHeading title={title} highlight={titleHighlight} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
         <p className="mt-[calc(18*var(--unit))] max-w-[calc(680*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(14*var(--unit))] lg:max-w-none lg:text-[calc(19*var(--unit))] lg:leading-[calc(29*var(--unit))]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
       </div>
 
@@ -32,7 +32,7 @@ const CareerPerks = ({ data }: CareerProps) => {
             </span>
             <h3 className="relative mt-[calc(20*var(--unit))] text-[calc(21*var(--unit))] font-extrabold leading-[1.2] text-[var(--color-heading)] lg:mt-[calc(26*var(--unit))] lg:text-[calc(25*var(--unit))]">{perk.title}</h3>
             <p className="relative mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.55] text-[var(--color-card-text)] lg:mt-[calc(10*var(--unit))] lg:text-[calc(18*var(--unit))] lg:leading-[calc(28*var(--unit))]">
-              <Lines lines={perk.lines} />
+              <Lines text={perk.description} />
             </p>
           </li>
         ))}
@@ -48,7 +48,7 @@ const JobList = ({ data }: CareerProps) => {
   const [formData, setFormData] = useState(emptyForm);
   const [fileName, setFileName] = useState('');
   // The thank-you message replaces the form for a few seconds, then an empty form comes back.
-  const { sent: submitted, show } = useSentMessage();
+  const { sent: submitted, show } = useFormSubmit();
   const fileRef = useRef<HTMLInputElement>(null);
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
@@ -76,7 +76,7 @@ const JobList = ({ data }: CareerProps) => {
         {/* ── Left: CTA ── */}
         <div className="flex flex-col justify-center gap-[calc(18*var(--unit))] bg-[var(--color-primary)] px-[calc(24*var(--unit))] py-[calc(30*var(--unit))] sm:px-[calc(40*var(--unit))] sm:py-[calc(40*var(--unit))] lg:w-1/2 lg:px-[calc(52*var(--unit))] lg:py-[calc(52*var(--unit))]">
           <h2 className="text-[calc(26*var(--unit))] font-bold leading-[1.2] text-[var(--color-white)] sm:text-[calc(32*var(--unit))] lg:text-[calc(40*var(--unit))]">
-            {cta.heading}
+            {cta.title}
           </h2>
           <p className="font-text text-[calc(16*var(--unit))] leading-[1.6] text-[var(--color-white-85)] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
             {cta.description}
@@ -102,14 +102,14 @@ const JobList = ({ data }: CareerProps) => {
               <span className="flex size-[calc(72*var(--unit))] items-center justify-center rounded-full bg-[var(--color-job-success-bg)]">
                 <Icon name={applicationForm.successIcon} className="size-[calc(36*var(--unit))] text-[var(--color-job-success)]" />
               </span>
-              <h3 className="text-[calc(24*var(--unit))] font-bold text-[var(--color-heading)] lg:text-[calc(28*var(--unit))]">{applicationForm.successHeading}</h3>
+              <h3 className="text-[calc(24*var(--unit))] font-bold text-[var(--color-heading)] lg:text-[calc(28*var(--unit))]">{applicationForm.successTitle}</h3>
               <p className="max-w-[calc(340*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.5] text-[var(--color-text)]">
                 {applicationForm.successMessage}
               </p>
             </div>
           ) : (
             <>
-              <h3 className="text-[calc(22*var(--unit))] font-bold text-[var(--color-heading)] lg:text-[calc(26*var(--unit))]">{applicationForm.heading}</h3>
+              <h3 className="text-[calc(22*var(--unit))] font-bold text-[var(--color-heading)] lg:text-[calc(26*var(--unit))]">{applicationForm.title}</h3>
               <p className="mt-[calc(6*var(--unit))] font-text text-[calc(15*var(--unit))] leading-[1.5] text-[var(--color-text)] lg:text-[calc(16*var(--unit))]">
                 {applicationForm.description}
               </p>
@@ -199,8 +199,8 @@ const JobList = ({ data }: CareerProps) => {
                   type="submit"
                   className="mt-[calc(4*var(--unit))] inline-flex h-[calc(52*var(--unit))] items-center justify-center gap-[calc(10*var(--unit))] rounded-full bg-[var(--color-primary)] px-[calc(30*var(--unit))] text-[calc(16*var(--unit))] font-bold text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-heading)] lg:h-[calc(56*var(--unit))] lg:text-[calc(17*var(--unit))]"
                 >
-                  {applicationForm.submit}
-                  <Icon name={applicationForm.submitIcon} className="size-[calc(18*var(--unit))]" />
+                  {applicationForm.buttonText}
+                  <Icon name={applicationForm.buttonIcon} className="size-[calc(18*var(--unit))]" />
                 </button>
               </form>
             </>

@@ -9,7 +9,7 @@ const HIDE_AFTER_MS = 5000;
  * seconds, or as soon as the visitor starts filling the form in again (hide()).
  * formKey changes on every submit; put it on the <form> so all its fields start empty again.
  */
-export function useSentMessage() {
+export function useFormSubmit() {
   const [sent, setSent] = useState(false);
   const [formKey, setFormKey] = useState(0);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);

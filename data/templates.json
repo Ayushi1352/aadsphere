@@ -307,23 +307,14 @@
       "logoLabel": "AdSphere home",
       "logoWidth": 900,
       "logoHeight": 217,
-      "descriptionLines": [
-        "We help brands grow through strategic",
-        "advertising, creative storytelling, and ",
-        "digital solutions that deliver real results."
-      ],
+      "description": "We help brands grow through strategic\nadvertising, creative storytelling, and \ndigital solutions that deliver real results.",
       "cta": {
         "eyebrow": "Ready to grow?",
-        "heading": "Let’s Create Something Great",
-        "headingHighlight": "Together",
-        "descriptionLines": [
-          "Partner with AdSphere and take your brand to",
-          "the next level with result-driven advertising solutions."
-        ],
-        "button": {
-          "label": "Get Started Today",
-          "url": "/contact"
-        },
+        "title": "Let’s Create Something Great",
+        "titleHighlight": "Together",
+        "description": "Partner with AdSphere and take your brand to\nthe next level with result-driven advertising solutions.",
+        "buttonText": "Get Started Today",
+        "buttonUrl": "/contact",
         "buttonIcon": "LuArrowRight"
       },
       "socialLinks": [
@@ -355,7 +346,7 @@
       "columns": [
         {
           "id": "quick-links",
-          "heading": "Quick Links",
+          "title": "Quick Links",
           "links": [
             {
               "id": "home",
@@ -401,7 +392,7 @@
         },
         {
           "id": "our-services",
-          "heading": "Our Services",
+          "title": "Our Services",
           "links": [
             {
               "id": "digital-advertising",
@@ -448,24 +439,29 @@
       ],
       "linkIcon": "LuChevronRight",
       "contactTitle": "Contact Us",
-      "contactIcons": {
-        "address": "MdLocationOn",
-        "phone": "LuPhoneCall",
-        "email": "MdEmail",
-        "hours": "LuClock"
-      },
-      "addressLines": [
-        "123 Business Avenue,",
-        "Suite 400, San Francisco,",
-        "CA 94107, USA"
-      ],
-      "phone": "+1 0000000000",
-      "phoneUrl": "tel:+10000000000",
-      "email": "info@xyz.com",
-      "emailUrl": "mailto:info@xyz.com",
-      "hoursLines": [
-        "Mon - Fri: 9:00 AM - 6:00 PM",
-        "Sat - Sun: Closed"
+      "contactItems": [
+        {
+          "id": "address",
+          "icon": "MdLocationOn",
+          "value": "123 Business Avenue,\nSuite 400, San Francisco,\nCA 94107, USA"
+        },
+        {
+          "id": "phone",
+          "icon": "LuPhoneCall",
+          "value": "+1 0000000000",
+          "url": "tel:+10000000000"
+        },
+        {
+          "id": "email",
+          "icon": "MdEmail",
+          "value": "info@xyz.com",
+          "url": "mailto:info@xyz.com"
+        },
+        {
+          "id": "hours",
+          "icon": "LuClock",
+          "value": "Mon - Fri: 9:00 AM - 6:00 PM\nSat - Sun: Closed"
+        }
       ],
       "bottomLinks": [
         {
@@ -598,28 +594,10 @@
         "Hero": {
           "variants": {
             "AdvertisingHero1": {
-              "headingLines": [
-                {
-                  "text": "Turning",
-                  "indent": false
-                },
-                {
-                  "text": "Ideas into",
-                  "indent": false
-                },
-                {
-                  "text": "Impact",
-                  "indent": true
-                }
-              ],
-              "descriptionLines": [
-                "We are digital agency that helps immersive and",
-                "engaging user experiences that"
-              ],
-              "button": {
-                "label": "Read More",
-                "url": "/about-us"
-              },
+              "title": "Turning\nIdeas into\nImpact",
+              "description": "We are digital agency that helps immersive and\nengaging user experiences that",
+              "buttonText": "Read More",
+              "buttonUrl": "/about-us",
               "image": "/images/hero-office.webp",
               "imageAlt": "Modern AdSphere office with a long meeting table and wall displays"
             }
@@ -629,65 +607,34 @@
           "variants": {
             "AdvertisingAboutUs1": {
               "tagline": [
-                "Grow",
-                "Engage",
-                "Convert"
+                {
+                  "id": "grow",
+                  "text": "Grow"
+                },
+                {
+                  "id": "engage",
+                  "text": "Engage"
+                },
+                {
+                  "id": "convert",
+                  "text": "Convert"
+                }
               ],
-              "headingLines": [
-                [
-                  {
-                    "text": "Leads marketing",
-                    "highlight": true
-                  },
-                  {
-                    "text": " efforts",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "to promote the brand",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "and drive business",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "growth.",
-                    "highlight": false
-                  }
-                ]
-              ],
-              "descriptionLines": [
-                "We create data-driven marketing strategies",
-                "that build brand awareness, attract the right",
-                "audience, and deliver measurable growth."
-              ],
+              "title": "",
+              "titleHighlight": "Leads marketing",
+              "titleEnd": " efforts\nto promote the brand\nand drive business\ngrowth.",
+              "description": "We create data-driven marketing strategies\nthat build brand awareness, attract the right\naudience, and deliver measurable growth.",
               "primaryImage": "/images/about-designer.webp",
               "primaryImageAlt": "Designer reviewing brand colour charts at a desk",
               "secondaryImage": "/images/about-team.webp",
               "secondaryImageAlt": "Team reviewing campaign material around a laptop",
               "experience": {
                 "number": "10",
-                "labelLines": [
-                  "Years",
-                  "Experience"
-                ],
+                "label": "Years\nExperience",
                 "title": "Established 2015 – 2025",
-                "descriptionLines": [
-                  "A decade of experience in building powerful",
-                  "brands, creating impactful campaigns, and",
-                  "delivering real business results for our clients."
-                ],
-                "link": {
-                  "label": "Read More",
-                  "url": "/about-us"
-                },
+                "description": "A decade of experience in building powerful\nbrands, creating impactful campaigns, and\ndelivering real business results for our clients.",
+                "linkText": "Read More",
+                "linkUrl": "/about-us",
                 "linkIcon": "LuArrowUpRight"
               }
             }
@@ -697,82 +644,35 @@
           "variants": {
             "AdvertisingImpact1": {
               "label": "Our Impact",
-              "headingLines": [
-                [
-                  {
-                    "text": "We offer a wide range of",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "services designed to ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "optimize",
-                    "highlight": true
-                  }
-                ],
-                [
-                  {
-                    "text": "your business",
-                    "highlight": true
-                  },
-                  {
-                    "text": " and achieve",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "your goals.",
-                    "highlight": false
-                  }
-                ]
-              ],
-              "descriptionLines": [
-                "We combine creativity, strategy, and data–driven",
-                "solutions to help brands grow, reach the right audience,",
-                "and achieve measurable success in the digital world."
-              ],
+              "title": "We offer a wide range of\nservices designed to ",
+              "titleHighlight": "optimize\nyour business",
+              "titleEnd": " and achieve\nyour goals.",
+              "description": "We combine creativity, strategy, and data–driven\nsolutions to help brands grow, reach the right audience,\nand achieve measurable success in the digital world.",
               "image": "/images/impact-team.webp",
               "imageAlt": "Three colleagues working together on a laptop",
               "stats": [
                 {
                   "id": "years-of-experience",
                   "value": "10+",
-                  "labelLines": [
-                    "Years of",
-                    "Experience"
-                  ],
+                  "label": "Years of\nExperience",
                   "icon": "LuTrophy"
                 },
                 {
                   "id": "successful-campaigns",
                   "value": "30k+",
-                  "labelLines": [
-                    "Successful",
-                    "Campaigns"
-                  ],
+                  "label": "Successful\nCampaigns",
                   "icon": "LuChartNoAxesCombined"
                 },
                 {
                   "id": "happy-clients",
                   "value": "20k+",
-                  "labelLines": [
-                    "Happy",
-                    "Clients"
-                  ],
+                  "label": "Happy\nClients",
                   "icon": "LuUsers"
                 },
                 {
                   "id": "client-satisfaction",
                   "value": "98%",
-                  "labelLines": [
-                    "Client",
-                    "Satisfaction"
-                  ],
+                  "label": "Client\nSatisfaction",
                   "icon": "LuThumbsUp"
                 }
               ]
@@ -783,65 +683,110 @@
           "variants": {
             "AdvertisingServices1": {
               "label": "Our Services",
-              "headingLines": [
-                {
-                  "text": "Services Designed",
-                  "highlight": false
-                },
-                {
-                  "text": "For Your Business",
-                  "highlight": true
-                }
+              "title": "Services Designed",
+              "titleHighlight": "For Your Business",
+              "description": "We offer a wide range of digital marketing services to help you build your brand, attract\nthe right audience, and achieve measurable results.",
+              "homeServiceIds": [
+                "search-engine-optimization",
+                "brand-strategy-and-identity",
+                "performance-marketing",
+                "marketing-consulting"
               ],
-              "descriptionLines": [
-                "We offer a wide range of digital marketing services to help you build your brand, attract",
-                "the right audience, and achieve measurable results."
+              "listingServiceIds": [
+                "digital-advertising",
+                "social-media-marketing",
+                "brand-strategy",
+                "performance-marketing",
+                "creative-design",
+                "consulting",
+                "media-planning",
+                "campaign-management"
               ],
               "services": [
                 {
-                  "id": "search-engine-optimization",
-                  "number": "01",
-                  "category": "Digital Marketing",
-                  "titleLines": [
-                    "Search Engine",
-                    "Optimization"
-                  ],
+                  "id": "digital-advertising",
+                  "category": "Paid Media",
+                  "title": "Digital\nAdvertising",
                   "url": "/services/service-details",
                   "image": "/images/service-seo.webp",
-                  "imageAlt": "Two marketers reviewing search results on a laptop"
+                  "imageAlt": "Two marketers reviewing ad results on a laptop"
                 },
                 {
-                  "id": "brand-strategy-and-identity",
-                  "number": "02",
+                  "id": "social-media-marketing",
+                  "category": "Social Media",
+                  "title": "Social Media\nMarketing",
+                  "url": "/services/service-details",
+                  "image": "/images/portfolio-social-campaign.webp",
+                  "imageAlt": "Three phones showing social media creatives"
+                },
+                {
+                  "id": "brand-strategy",
                   "category": "Branding",
-                  "titleLines": [
-                    "Brand Strategy",
-                    "& Identity"
-                  ],
+                  "title": "Brand\nStrategy",
                   "url": "/services/service-details",
                   "image": "/images/service-branding.webp",
                   "imageAlt": "Brand strategists discussing ideas at a laptop"
                 },
                 {
                   "id": "performance-marketing",
-                  "number": "03",
                   "category": "Paid Advertising",
-                  "titleLines": [
-                    "Performance",
-                    "Marketing"
-                  ],
+                  "title": "Performance\nMarketing",
                   "url": "/services/service-details",
                   "image": "/images/service-performance.webp",
                   "imageAlt": "Performance charts on a tablet during a review"
                 },
                 {
-                  "id": "marketing-consulting",
-                  "number": "04",
+                  "id": "creative-design",
+                  "category": "Design",
+                  "title": "Creative\nDesign",
+                  "url": "/services/service-details",
+                  "image": "/images/about-designer.webp",
+                  "imageAlt": "Designer reviewing brand colour charts at a desk"
+                },
+                {
+                  "id": "consulting",
                   "category": "Consulting",
-                  "titleLines": [
-                    "Marketing",
-                    "Consulting"
-                  ],
+                  "title": "Consulting",
+                  "url": "/services/service-details",
+                  "image": "/images/service-consulting.webp",
+                  "imageAlt": "Consultants smiling around a laptop"
+                },
+                {
+                  "id": "media-planning",
+                  "category": "Planning",
+                  "title": "Media\nPlanning",
+                  "url": "/services/service-details",
+                  "image": "/images/blog-data-driven.webp",
+                  "imageAlt": "Business charts being reviewed next to a laptop"
+                },
+                {
+                  "id": "campaign-management",
+                  "category": "Campaigns",
+                  "title": "Campaign\nManagement",
+                  "url": "/services/service-details",
+                  "image": "/images/about-team.webp",
+                  "imageAlt": "Team reviewing campaign material around a laptop"
+                },
+                {
+                  "id": "search-engine-optimization",
+                  "category": "Digital Marketing",
+                  "title": "Search Engine\nOptimization",
+                  "url": "/services/service-details",
+                  "image": "/images/service-seo.webp",
+                  "imageAlt": "Two marketers reviewing search results on a laptop"
+                },
+                {
+                  "id": "brand-strategy-and-identity",
+                  "category": "Branding",
+                  "title": "Brand Strategy\n& Identity",
+                  "url": "/services/service-details",
+                  "image": "/images/service-branding.webp",
+                  "imageAlt": "Brand strategists discussing ideas at a laptop"
+                },
+                {
+                  "id": "marketing-consulting",
+                  "category": "Consulting",
+                  "title": "Marketing\nConsulting",
                   "url": "/services/service-details",
                   "image": "/images/service-consulting.webp",
                   "imageAlt": "Consultants smiling around a laptop"
@@ -852,7 +797,60 @@
               "nextIcon": "LuArrowRight",
               "previousLabel": "Previous",
               "nextLabel": "Next",
-              "goToSlideLabel": "Go to slide {n}"
+              "goToSlideLabel": "Go to slide {n}",
+              "pagination": {
+                "label": "Service pagination",
+                "pageLabel": "Go to service page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
+              },
+              "pageSize": 8,
+              "detail": {
+                "label": "Our Service",
+                "title": "Branding ",
+                "titleHighlight": "Design",
+                "image": "/images/service-detail.webp",
+                "imageAlt": "Three brand strategists working together at a laptop",
+                "description": "We create powerful and memorable brand identities that help your business\nstand out in a competitive market. Our branding design services combine strategy,\ncreativity, and market insight to build a consistent and impactful brand presence\nacross all touchpoints.",
+                "sections": [
+                  {
+                    "id": "strategic-brand-identity",
+                    "title": "Strategic Brand Identity",
+                    "description": "We start by understanding your business, target audience, and market position to\ncreate a brand identity that truly represents your values and goals. From logo design\nand color palettes to typography and visual elements, we craft every detail with\npurpose and consistency."
+                  },
+                  {
+                    "id": "creative-design-solutions",
+                    "title": "Creative Design Solutions",
+                    "description": "Our design team develops unique and engaging brand assets that make your brand\nrecognizable and relatable. We focus on clean, modern, and timeless design that\nworks seamlessly across digital and print platforms."
+                  }
+                ],
+                "features": [
+                  {
+                    "id": "custom-solutions",
+                    "icon": "TbTargetArrow",
+                    "title": "Custom Solutions",
+                    "description": "Tailored design solutions that\nmatch your business goals and\nbrand personality."
+                  },
+                  {
+                    "id": "in-time-results",
+                    "icon": "MdBarChart",
+                    "title": "In-time Results",
+                    "description": "We deliver high-quality designs\nwithin the committed timeline\nwithout compromising on quality."
+                  }
+                ],
+                "closingSections": [
+                  {
+                    "id": "making-your-brand-future-ready",
+                    "title": "Making Your Brand Future-Ready",
+                    "description": "A strong brand goes beyond just a logo. We create a complete visual identity system\nthat enhances brand recall, builds trust, and ensures a consistent experience across\nall marketing channels, helping you connect with your audience and grow your\nbusiness in the long run."
+                  },
+                  {
+                    "id": "ongoing-support",
+                    "title": "Ongoing Support",
+                    "description": "Our relationship doesn’t end with the design. We provide continuous support and\nguidance to ensure your brand remains consistent and evolves with your business\nneeds."
+                  }
+                ]
+              }
             }
           }
         },
@@ -860,30 +858,15 @@
           "variants": {
             "AdvertisingProcess1": {
               "label": "How It Works",
-              "headingLines": [
-                {
-                  "text": "A Simple Process",
-                  "highlight": false
-                },
-                {
-                  "text": "For Real Results",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "We follow a structured and transparent process to turn your goals into measurable",
-                "growth, with clear communication at every step."
-              ],
+              "title": "A Simple Process",
+              "titleHighlight": "For Real Results",
+              "description": "We follow a structured and transparent process to turn your goals into measurable\ngrowth, with clear communication at every step.",
               "steps": [
                 {
                   "id": "discover-and-understand",
                   "number": "01",
                   "title": "Discover & Understand",
-                  "descriptionLines": [
-                    "We learn about your business,",
-                    "industry, and goals to identify the",
-                    "right opportunities."
-                  ],
+                  "description": "We learn about your business,\nindustry, and goals to identify the\nright opportunities.",
                   "icon": "LuUsers",
                   "image": "/images/process-discover.webp",
                   "imageAlt": "Consultant and client reviewing a report"
@@ -892,11 +875,7 @@
                   "id": "plan-and-strategize",
                   "number": "02",
                   "title": "Plan & Strategize",
-                  "descriptionLines": [
-                    "Our team creates a customized",
-                    "strategy with clear timelines",
-                    "and deliverables."
-                  ],
+                  "description": "Our team creates a customized\nstrategy with clear timelines\nand deliverables.",
                   "icon": "LuFilePen",
                   "image": "/images/process-plan.webp",
                   "imageAlt": "Strategy charts shown on a tablet"
@@ -905,11 +884,7 @@
                   "id": "execute-and-optimize",
                   "number": "03",
                   "title": "Execute & Optimize",
-                  "descriptionLines": [
-                    "We bring the strategy to life,",
-                    "constantly monitoring and",
-                    "optimizing for better results."
-                  ],
+                  "description": "We bring the strategy to life,\nconstantly monitoring and\noptimizing for better results.",
                   "icon": "LuSettings",
                   "image": "/images/process-execute.webp",
                   "imageAlt": "Marketer writing notes on campaign reports"
@@ -918,11 +893,7 @@
                   "id": "deliver-results",
                   "number": "04",
                   "title": "Deliver Results",
-                  "descriptionLines": [
-                    "We track performance, share",
-                    "insights, and ensure your business",
-                    "grows with measurable impact."
-                  ],
+                  "description": "We track performance, share\ninsights, and ensure your business\ngrows with measurable impact.",
                   "icon": "LuChartNoAxesCombined",
                   "image": "/images/process-deliver.webp",
                   "imageAlt": "Happy client celebrating growing results"
@@ -935,20 +906,9 @@
           "variants": {
             "AdvertisingTestimonials1": {
               "label": "Testimonials",
-              "headingLines": [
-                {
-                  "text": "Real Feedback from",
-                  "highlight": false
-                },
-                {
-                  "text": "Real Clients",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "Here’s what our clients say about working with us and",
-                "the results we’ve delivered for their businesses."
-              ],
+              "title": "Real Feedback from",
+              "titleHighlight": "Real Clients",
+              "description": "Here’s what our clients say about working with us and\nthe results we’ve delivered for their businesses.",
               "badge": {
                 "stars": 5,
                 "starsLabel": "{stars}/5",
@@ -960,12 +920,7 @@
               "testimonials": [
                 {
                   "id": "michael-roberts",
-                  "quoteLines": [
-                    "Working with this team has been a game changer",
-                    "for our brand. Their strategy, creativity, and dedication",
-                    "helped us reach the right audience and achieve",
-                    "real, measurable growth. Highly recommended!"
-                  ],
+                  "quote": "Working with this team has been a game changer\nfor our brand. Their strategy, creativity, and dedication\nhelped us reach the right audience and achieve\nreal, measurable growth. Highly recommended!",
                   "name": "Michael Roberts",
                   "role": "CEO & Founder, Nexus Tech",
                   "avatar": "/images/testimonial-avatar.webp",
@@ -974,12 +929,7 @@
                 },
                 {
                   "id": "priya-sharma",
-                  "quoteLines": [
-                    "AdSphere understood our goals from day one.",
-                    "The campaigns they planned were sharp, on brand,",
-                    "and delivered far more qualified leads than we",
-                    "expected in such a short time."
-                  ],
+                  "quote": "AdSphere understood our goals from day one.\nThe campaigns they planned were sharp, on brand,\nand delivered far more qualified leads than we\nexpected in such a short time.",
                   "name": "Priya Sharma",
                   "role": "Marketing Head, UrbanNest",
                   "avatar": "",
@@ -988,12 +938,7 @@
                 },
                 {
                   "id": "daniel-carter",
-                  "quoteLines": [
-                    "From brand identity to performance marketing,",
-                    "every step was handled with clarity and care.",
-                    "Our online visibility and sales have grown",
-                    "steadily ever since we started."
-                  ],
+                  "quote": "From brand identity to performance marketing,\nevery step was handled with clarity and care.\nOur online visibility and sales have grown\nsteadily ever since we started.",
                   "name": "Daniel Carter",
                   "role": "Director, BrightPath Retail",
                   "avatar": "",
@@ -1002,12 +947,7 @@
                 },
                 {
                   "id": "ananya-verma",
-                  "quoteLines": [
-                    "A reliable partner that communicates clearly",
-                    "and delivers on time. Their data-driven approach",
-                    "helped us spend smarter and see real returns",
-                    "on every campaign."
-                  ],
+                  "quote": "A reliable partner that communicates clearly\nand delivers on time. Their data-driven approach\nhelped us spend smarter and see real returns\non every campaign.",
                   "name": "Ananya Verma",
                   "role": "Co-Founder, FreshKart",
                   "avatar": "",
@@ -1027,19 +967,23 @@
           "variants": {
             "AdvertisingBlogs1": {
               "label": "Our Blogs",
-              "headingLines": [
-                {
-                  "text": "Latest Insights & Ideas",
-                  "highlight": false
-                },
-                {
-                  "text": "For Your Business",
-                  "highlight": true
-                }
+              "title": "Latest Insights & Ideas",
+              "titleHighlight": "For Your Business",
+              "description": "Explore our latest blogs for expert tips, industry insights, and practical strategies\nto help your brand grow in the digital world.",
+              "homePostIds": [
+                "effective-digital-marketing-strategies-for-business-growth",
+                "how-data-driven-decisions-can-transform-your-business",
+                "the-power-of-social-media-for-modern-businesses"
               ],
-              "descriptionLines": [
-                "Explore our latest blogs for expert tips, industry insights, and practical strategies",
-                "to help your brand grow in the digital world."
+              "listingPostIds": [
+                "effective-digital-marketing-strategies-for-business-growth",
+                "how-data-driven-decisions-can-transform-your-business",
+                "the-power-of-social-media-for-modern-businesses",
+                "everything-you-should-know-about-brand-strategy",
+                "creative-design-trends-that-make-your-brand-stand-out",
+                "smart-media-planning-tips-for-higher-campaign-roi",
+                "performance-marketing-metrics-every-business-should-track",
+                "why-marketing-consulting-matters-for-growing-brands"
               ],
               "posts": [
                 {
@@ -1048,18 +992,17 @@
                   "month": "Aug",
                   "year": "2025",
                   "categories": [
-                    "Digital Marketing",
-                    "Strategy"
+                    {
+                      "id": "digital-marketing",
+                      "text": "Digital Marketing"
+                    },
+                    {
+                      "id": "strategy",
+                      "text": "Strategy"
+                    }
                   ],
-                  "titleLines": [
-                    "Effective Digital Marketing",
-                    "Strategies for Business Growth"
-                  ],
-                  "excerptLines": [
-                    "Discover proven digital marketing strategies",
-                    "that help you attract the right audience, boost",
-                    "brand visibility, and drive measurable growth."
-                  ],
+                  "title": "Effective Digital Marketing\nStrategies for Business Growth",
+                  "excerpt": "Discover proven digital marketing strategies\nthat help you attract the right audience, boost\nbrand visibility, and drive measurable growth.",
                   "url": "/blog/blog-details",
                   "image": "/images/blog-digital-marketing.webp",
                   "imageAlt": "Laptop showing a digital marketing dashboard"
@@ -1070,18 +1013,17 @@
                   "month": "Aug",
                   "year": "2025",
                   "categories": [
-                    "Business",
-                    "Consulting"
+                    {
+                      "id": "business",
+                      "text": "Business"
+                    },
+                    {
+                      "id": "consulting",
+                      "text": "Consulting"
+                    }
                   ],
-                  "titleLines": [
-                    "How Data-Driven Decisions",
-                    "Can Transform Your Business"
-                  ],
-                  "excerptLines": [
-                    "Learn how data-driven strategies can help you",
-                    "make smarter decisions, improve efficiency,",
-                    "and achieve long-term success."
-                  ],
+                  "title": "How Data-Driven Decisions\nCan Transform Your Business",
+                  "excerpt": "Learn how data-driven strategies can help you\nmake smarter decisions, improve efficiency,\nand achieve long-term success.",
                   "url": "/blog/blog-details",
                   "image": "/images/blog-data-driven.webp",
                   "imageAlt": "Business charts being reviewed next to a laptop"
@@ -1092,565 +1034,17 @@
                   "month": "Aug",
                   "year": "2025",
                   "categories": [
-                    "Social Media",
-                    "Branding"
+                    {
+                      "id": "social-media",
+                      "text": "Social Media"
+                    },
+                    {
+                      "id": "branding",
+                      "text": "Branding"
+                    }
                   ],
-                  "titleLines": [
-                    "The Power of Social Media",
-                    "for Modern Businesses"
-                  ],
-                  "excerptLines": [
-                    "Explore how social media can strengthen",
-                    "your brand, increase engagement, and create",
-                    "new opportunities for business growth."
-                  ],
-                  "url": "/blog/blog-details",
-                  "image": "/images/blog-social-media.webp",
-                  "imageAlt": "Phone with social media reactions floating above it"
-                }
-              ],
-              "cardIcon": "LuArrowRight",
-              "categorySeparator": "/",
-              "previousIcon": "LuChevronLeft",
-              "nextIcon": "LuChevronRight",
-              "previousLabel": "Previous",
-              "nextLabel": "Next",
-              "goToSlideLabel": "Go to slide {n}"
-            }
-          }
-        },
-        "AboutStory": {
-          "variants": {
-            "AdvertisingAboutStory1": {
-              "storyParagraphs": [
-                [
-                  "At AdSphere, we believe every brand has a unique story and the right audience deserves",
-                  "to hear it. We are a results-driven advertising agency focused on creating impactful",
-                  "marketing strategies that connect businesses with their audience across digital platforms."
-                ],
-                [
-                  "At AdSphere, we believe every brand has a unique story and the right audience deserves",
-                  "to hear it. We are a results-driven advertising agency focused on creating impactful",
-                  "marketing strategies that connect businesses with their audience across digital platforms."
-                ],
-                [
-                  "From strategy and creative development to media planning and performance optimization,",
-                  "our team works closely with you to deliver tailored solutions that drive real growth, increase",
-                  "brand visibility, and generate measurable results."
-                ]
-              ]
-            }
-          }
-        },
-        "WhyChooseUs": {
-          "variants": {
-            "AdvertisingWhyChooseUs1": {
-              "label": "Why Choose Us",
-              "headingLines": [
-                [
-                  {
-                    "text": "Partner for Ideas",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "That Drive ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Real Results",
-                    "highlight": true
-                  }
-                ]
-              ],
-              "descriptionLines": [
-                "We combine strategy, creativity and data to create advertising solutions",
-                "that help your brand grow, stand out and connect with the right audience."
-              ],
-              "reasons": [
-                {
-                  "id": "strategic-approach",
-                  "number": "01",
-                  "title": "Strategic Approach",
-                  "descriptionLines": [
-                    "Data-driven strategies tailored",
-                    "to your business goals for",
-                    "maximum impact."
-                  ],
-                  "icon": "LuChartNoAxesCombined",
-                  "featured": false
-                },
-                {
-                  "id": "creative-excellence",
-                  "number": "02",
-                  "title": "Creative Excellence",
-                  "descriptionLines": [
-                    "Engaging and innovative",
-                    "campaigns that make your",
-                    "brand stand out."
-                  ],
-                  "icon": "TbBulb",
-                  "featured": true
-                },
-                {
-                  "id": "measurable-results",
-                  "number": "03",
-                  "title": "Measurable Results",
-                  "descriptionLines": [
-                    "Performance-focused advertising",
-                    "that drives real growth and",
-                    "higher ROI."
-                  ],
-                  "icon": "TbTargetArrow",
-                  "featured": false
-                },
-                {
-                  "id": "expert-team",
-                  "number": "04",
-                  "title": "Expert Team",
-                  "descriptionLines": [
-                    "A dedicated team of marketing",
-                    "professionals with industry",
-                    "expertise."
-                  ],
-                  "icon": "MdGroups",
-                  "featured": false
-                },
-                {
-                  "id": "end-to-end-solutions",
-                  "number": "05",
-                  "title": "End-to-End Solutions",
-                  "descriptionLines": [
-                    "From strategy and design to",
-                    "execution and optimization,",
-                    "we handle it all."
-                  ],
-                  "icon": "MdSettings",
-                  "featured": false
-                },
-                {
-                  "id": "long-term-partnership",
-                  "number": "06",
-                  "title": "Long-Term Partnership",
-                  "descriptionLines": [
-                    "We believe in building strong",
-                    "relationships and growing",
-                    "together with your brand."
-                  ],
-                  "icon": "LuHandshake",
-                  "featured": false
-                }
-              ]
-            }
-          }
-        },
-        "ServicesGrid": {
-          "variants": {
-            "AdvertisingServicesGrid1": {
-              "pagination": {
-                "label": "Service pagination",
-                "goToPageN": "Go to service page {n}",
-                "previousLabel": "Previous",
-                "nextLabel": "Next"
-              },
-              "label": "Our Services",
-              "headingLines": [
-                {
-                  "text": "Services Designed",
-                  "highlight": false
-                },
-                {
-                  "text": "For Your Business",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "We offer a wide range of digital marketing services to help you build your brand, attract",
-                "the right audience, and achieve measurable results."
-              ],
-              "services": [
-                {
-                  "id": "digital-advertising",
-                  "number": "01",
-                  "category": "Paid Media",
-                  "titleLines": [
-                    "Digital",
-                    "Advertising"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/service-seo.webp",
-                  "imageAlt": "Two marketers reviewing ad results on a laptop"
-                },
-                {
-                  "id": "social-media-marketing",
-                  "number": "02",
-                  "category": "Social Media",
-                  "titleLines": [
-                    "Social Media",
-                    "Marketing"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/portfolio-social-campaign.webp",
-                  "imageAlt": "Three phones showing social media creatives"
-                },
-                {
-                  "id": "brand-strategy",
-                  "number": "03",
-                  "category": "Branding",
-                  "titleLines": [
-                    "Brand",
-                    "Strategy"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/service-branding.webp",
-                  "imageAlt": "Brand strategists discussing ideas at a laptop"
-                },
-                {
-                  "id": "performance-marketing",
-                  "number": "04",
-                  "category": "Paid Advertising",
-                  "titleLines": [
-                    "Performance",
-                    "Marketing"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/service-performance.webp",
-                  "imageAlt": "Performance charts on a tablet during a review"
-                },
-                {
-                  "id": "creative-design",
-                  "number": "05",
-                  "category": "Design",
-                  "titleLines": [
-                    "Creative",
-                    "Design"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/about-designer.webp",
-                  "imageAlt": "Designer reviewing brand colour charts at a desk"
-                },
-                {
-                  "id": "consulting",
-                  "number": "06",
-                  "category": "Consulting",
-                  "titleLines": [
-                    "Consulting"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/service-consulting.webp",
-                  "imageAlt": "Consultants smiling around a laptop"
-                },
-                {
-                  "id": "media-planning",
-                  "number": "07",
-                  "category": "Planning",
-                  "titleLines": [
-                    "Media",
-                    "Planning"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/blog-data-driven.webp",
-                  "imageAlt": "Business charts being reviewed next to a laptop"
-                },
-                {
-                  "id": "campaign-management",
-                  "number": "08",
-                  "category": "Campaigns",
-                  "titleLines": [
-                    "Campaign",
-                    "Management"
-                  ],
-                  "url": "/services/service-details",
-                  "image": "/images/about-team.webp",
-                  "imageAlt": "Team reviewing campaign material around a laptop"
-                }
-              ],
-              "cardIcon": "LuArrowRight",
-              "pageSize": 8
-            }
-          }
-        },
-        "ServiceDetail": {
-          "variants": {
-            "AdvertisingServiceDetail1": {
-              "label": "Our Service",
-              "heading": [
-                {
-                  "text": "Branding ",
-                  "highlight": false
-                },
-                {
-                  "text": "Design",
-                  "highlight": true
-                }
-              ],
-              "image": "/images/service-detail.webp",
-              "imageAlt": "Three brand strategists working together at a laptop",
-              "introLines": [
-                "We create powerful and memorable brand identities that help your business",
-                "stand out in a competitive market. Our branding design services combine strategy,",
-                "creativity, and market insight to build a consistent and impactful brand presence",
-                "across all touchpoints."
-              ],
-              "sections": [
-                {
-                  "id": "strategic-brand-identity",
-                  "title": "Strategic Brand Identity",
-                  "lines": [
-                    "We start by understanding your business, target audience, and market position to",
-                    "create a brand identity that truly represents your values and goals. From logo design",
-                    "and color palettes to typography and visual elements, we craft every detail with",
-                    "purpose and consistency."
-                  ]
-                },
-                {
-                  "id": "creative-design-solutions",
-                  "title": "Creative Design Solutions",
-                  "lines": [
-                    "Our design team develops unique and engaging brand assets that make your brand",
-                    "recognizable and relatable. We focus on clean, modern, and timeless design that",
-                    "works seamlessly across digital and print platforms."
-                  ]
-                }
-              ],
-              "features": [
-                {
-                  "id": "custom-solutions",
-                  "icon": "TbTargetArrow",
-                  "title": "Custom Solutions",
-                  "lines": [
-                    "Tailored design solutions that",
-                    "match your business goals and",
-                    "brand personality."
-                  ]
-                },
-                {
-                  "id": "in-time-results",
-                  "icon": "MdBarChart",
-                  "title": "In-time Results",
-                  "lines": [
-                    "We deliver high-quality designs",
-                    "within the committed timeline",
-                    "without compromising on quality."
-                  ]
-                }
-              ],
-              "closingSections": [
-                {
-                  "id": "making-your-brand-future-ready",
-                  "title": "Making Your Brand Future-Ready",
-                  "lines": [
-                    "A strong brand goes beyond just a logo. We create a complete visual identity system",
-                    "that enhances brand recall, builds trust, and ensures a consistent experience across",
-                    "all marketing channels, helping you connect with your audience and grow your",
-                    "business in the long run."
-                  ]
-                },
-                {
-                  "id": "ongoing-support",
-                  "title": "Ongoing Support",
-                  "lines": [
-                    "Our relationship doesn’t end with the design. We provide continuous support and",
-                    "guidance to ensure your brand remains consistent and evolves with your business",
-                    "needs."
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        "Portfolio": {
-          "variants": {
-            "AdvertisingPortfolio1": {
-              "pagination": {
-                "label": "Portfolio pagination",
-                "goToPageN": "Go to portfolio page {n}",
-                "previousLabel": "Previous",
-                "nextLabel": "Next"
-              },
-              "label": "Our Portfolio",
-              "headingLines": [
-                [
-                  {
-                    "text": "Work That ",
-                    "highlight": false
-                  },
-                  {
-                    "text": "Creates Impact",
-                    "highlight": true
-                  }
-                ]
-              ],
-              "descriptionLines": [
-                "Explore some of our recent projects that showcase our creativity, strategy, and",
-                "commitment to delivering real results for our clients."
-              ],
-              "projects": [
-                {
-                  "id": "brand-identity-design",
-                  "title": "Brand Identity Design",
-                  "tags": [
-                    "Branding",
-                    "Design"
-                  ],
-                  "image": "/images/portfolio-brand-identity.webp",
-                  "imageAlt": "Red and white AdSphere notebooks and business cards",
-                  "imageWidth": 447,
-                  "imageHeight": 488
-                },
-                {
-                  "id": "marketing-website",
-                  "title": "Marketing Website",
-                  "tags": [
-                    "Development",
-                    "Marketing"
-                  ],
-                  "image": "/images/portfolio-marketing-website.webp",
-                  "imageAlt": "AdSphere marketing website shown on a laptop",
-                  "imageWidth": 447,
-                  "imageHeight": 488
-                },
-                {
-                  "id": "business-mobile-app",
-                  "title": "Business Mobile App",
-                  "tags": [
-                    "Development",
-                    "Design"
-                  ],
-                  "image": "/images/portfolio-mobile-app.webp",
-                  "imageAlt": "AdSphere mobile app with growth chart on a phone",
-                  "imageWidth": 447,
-                  "imageHeight": 488
-                },
-                {
-                  "id": "social-media-campaign",
-                  "title": "Social Media Campaign",
-                  "tags": [
-                    "Marketing",
-                    "Design"
-                  ],
-                  "image": "/images/portfolio-social-campaign.webp",
-                  "imageAlt": "Three phones showing AdSphere social media creatives",
-                  "imageWidth": 447,
-                  "imageHeight": 458
-                },
-                {
-                  "id": "product-branding",
-                  "title": "Product Branding",
-                  "tags": [
-                    "Branding",
-                    "Design"
-                  ],
-                  "image": "/images/portfolio-product-branding.webp",
-                  "imageAlt": "Black and red AdSphere product box",
-                  "imageWidth": 447,
-                  "imageHeight": 458
-                },
-                {
-                  "id": "trading-platform",
-                  "title": "Trading Platform",
-                  "tags": [
-                    "Development",
-                    "Marketing"
-                  ],
-                  "image": "/images/portfolio-trading-platform.webp",
-                  "imageAlt": "Performance dashboard on a laptop screen",
-                  "imageWidth": 447,
-                  "imageHeight": 458
-                }
-              ],
-              "pageSize": 8
-            }
-          }
-        },
-        "BlogGrid": {
-          "variants": {
-            "AdvertisingBlogGrid1": {
-              "pagination": {
-                "label": "Blog pagination",
-                "goToPageN": "Go to blog page {n}",
-                "previousLabel": "Previous",
-                "nextLabel": "Next"
-              },
-              "label": "Our Blogs",
-              "headingLines": [
-                {
-                  "text": "Latest Insights & Ideas",
-                  "highlight": false
-                },
-                {
-                  "text": "For Your Business",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "Explore our latest blogs for expert tips, industry insights, and practical strategies",
-                "to help your brand grow in the digital world."
-              ],
-              "posts": [
-                {
-                  "id": "effective-digital-marketing-strategies-for-business-growth",
-                  "day": "20",
-                  "month": "Aug",
-                  "year": "2025",
-                  "categories": [
-                    "Digital Marketing",
-                    "Strategy"
-                  ],
-                  "titleLines": [
-                    "Effective Digital Marketing",
-                    "Strategies for Business Growth"
-                  ],
-                  "excerptLines": [
-                    "Discover proven digital marketing strategies",
-                    "that help you attract the right audience, boost",
-                    "brand visibility, and drive measurable growth."
-                  ],
-                  "url": "/blog/blog-details",
-                  "image": "/images/blog-digital-marketing.webp",
-                  "imageAlt": "Laptop showing a digital marketing dashboard"
-                },
-                {
-                  "id": "how-data-driven-decisions-can-transform-your-business",
-                  "day": "25",
-                  "month": "Aug",
-                  "year": "2025",
-                  "categories": [
-                    "Business",
-                    "Consulting"
-                  ],
-                  "titleLines": [
-                    "How Data-Driven Decisions",
-                    "Can Transform Your Business"
-                  ],
-                  "excerptLines": [
-                    "Learn how data-driven strategies can help you",
-                    "make smarter decisions, improve efficiency,",
-                    "and achieve long-term success."
-                  ],
-                  "url": "/blog/blog-details",
-                  "image": "/images/blog-data-driven.webp",
-                  "imageAlt": "Business charts being reviewed next to a laptop"
-                },
-                {
-                  "id": "the-power-of-social-media-for-modern-businesses",
-                  "day": "14",
-                  "month": "Aug",
-                  "year": "2025",
-                  "categories": [
-                    "Social Media",
-                    "Branding"
-                  ],
-                  "titleLines": [
-                    "The Power of Social Media",
-                    "for Modern Businesses"
-                  ],
-                  "excerptLines": [
-                    "Explore how social media can strengthen",
-                    "your brand, increase engagement, and create",
-                    "new opportunities for business growth."
-                  ],
+                  "title": "The Power of Social Media\nfor Modern Businesses",
+                  "excerpt": "Explore how social media can strengthen\nyour brand, increase engagement, and create\nnew opportunities for business growth.",
                   "url": "/blog/blog-details",
                   "image": "/images/blog-social-media.webp",
                   "imageAlt": "Phone with social media reactions floating above it"
@@ -1661,18 +1055,17 @@
                   "month": "Aug",
                   "year": "2025",
                   "categories": [
-                    "Branding",
-                    "Strategy"
+                    {
+                      "id": "branding",
+                      "text": "Branding"
+                    },
+                    {
+                      "id": "strategy",
+                      "text": "Strategy"
+                    }
                   ],
-                  "titleLines": [
-                    "Everything You Should Know",
-                    "About Brand Strategy"
-                  ],
-                  "excerptLines": [
-                    "Understand what a brand strategy really is,",
-                    "why it matters, and how to build one that",
-                    "keeps your business memorable."
-                  ],
+                  "title": "Everything You Should Know\nAbout Brand Strategy",
+                  "excerpt": "Understand what a brand strategy really is,\nwhy it matters, and how to build one that\nkeeps your business memorable.",
                   "url": "/blog/blog-details",
                   "image": "/images/blog-detail.webp",
                   "imageAlt": "Three brand strategists reviewing ideas on a laptop"
@@ -1683,18 +1076,17 @@
                   "month": "Aug",
                   "year": "2025",
                   "categories": [
-                    "Design",
-                    "Creative"
+                    {
+                      "id": "design",
+                      "text": "Design"
+                    },
+                    {
+                      "id": "creative",
+                      "text": "Creative"
+                    }
                   ],
-                  "titleLines": [
-                    "Creative Design Trends That",
-                    "Make Your Brand Stand Out"
-                  ],
-                  "excerptLines": [
-                    "See the design trends shaping modern brands",
-                    "and learn how strong visuals turn first",
-                    "impressions into lasting recognition."
-                  ],
+                  "title": "Creative Design Trends That\nMake Your Brand Stand Out",
+                  "excerpt": "See the design trends shaping modern brands\nand learn how strong visuals turn first\nimpressions into lasting recognition.",
                   "url": "/blog/blog-details",
                   "image": "/images/about-designer.webp",
                   "imageAlt": "Designer reviewing brand colour charts at a desk"
@@ -1705,18 +1097,17 @@
                   "month": "Jul",
                   "year": "2025",
                   "categories": [
-                    "Media",
-                    "Planning"
+                    {
+                      "id": "media",
+                      "text": "Media"
+                    },
+                    {
+                      "id": "planning",
+                      "text": "Planning"
+                    }
                   ],
-                  "titleLines": [
-                    "Smart Media Planning Tips",
-                    "for Higher Campaign ROI"
-                  ],
-                  "excerptLines": [
-                    "Find out how to choose the right channels,",
-                    "set realistic budgets, and plan media that",
-                    "delivers more from every rupee spent."
-                  ],
+                  "title": "Smart Media Planning Tips\nfor Higher Campaign ROI",
+                  "excerpt": "Find out how to choose the right channels,\nset realistic budgets, and plan media that\ndelivers more from every rupee spent.",
                   "url": "/blog/blog-details",
                   "image": "/images/service-detail.webp",
                   "imageAlt": "Three strategists planning media together at a laptop"
@@ -1727,18 +1118,17 @@
                   "month": "Jul",
                   "year": "2025",
                   "categories": [
-                    "Advertising",
-                    "Performance"
+                    {
+                      "id": "advertising",
+                      "text": "Advertising"
+                    },
+                    {
+                      "id": "performance",
+                      "text": "Performance"
+                    }
                   ],
-                  "titleLines": [
-                    "Performance Marketing Metrics",
-                    "Every Business Should Track"
-                  ],
-                  "excerptLines": [
-                    "Get to know the numbers that matter most,",
-                    "from cost per lead to return on ad spend,",
-                    "and use them to improve every campaign."
-                  ],
+                  "title": "Performance Marketing Metrics\nEvery Business Should Track",
+                  "excerpt": "Get to know the numbers that matter most,\nfrom cost per lead to return on ad spend,\nand use them to improve every campaign.",
                   "url": "/blog/blog-details",
                   "image": "/images/portfolio-trading-platform.webp",
                   "imageAlt": "Performance dashboard on a laptop screen"
@@ -1749,18 +1139,17 @@
                   "month": "Jul",
                   "year": "2025",
                   "categories": [
-                    "Consulting",
-                    "Growth"
+                    {
+                      "id": "consulting",
+                      "text": "Consulting"
+                    },
+                    {
+                      "id": "growth",
+                      "text": "Growth"
+                    }
                   ],
-                  "titleLines": [
-                    "Why Marketing Consulting",
-                    "Matters for Growing Brands"
-                  ],
-                  "excerptLines": [
-                    "Learn how an outside expert view can uncover",
-                    "missed opportunities, sharpen your strategy,",
-                    "and speed up sustainable growth."
-                  ],
+                  "title": "Why Marketing Consulting\nMatters for Growing Brands",
+                  "excerpt": "Learn how an outside expert view can uncover\nmissed opportunities, sharpen your strategy,\nand speed up sustainable growth.",
                   "url": "/blog/blog-details",
                   "image": "/images/about-team.webp",
                   "imageAlt": "Team reviewing campaign material around a laptop"
@@ -1768,77 +1157,51 @@
               ],
               "cardIcon": "LuArrowRight",
               "categorySeparator": "/",
-              "pageSize": 6
-            }
-          }
-        },
-        "BlogDetail": {
-          "variants": {
-            "AdvertisingBlogDetail1": {
-              "image": "/images/blog-detail.webp",
-              "imageAlt": "Three brand strategists reviewing ideas on a laptop",
-              "date": "March 26, 2024",
-              "category": "Branding",
-              "author": "By Ashton Porter",
-              "headingLines": [
-                [
+              "previousIcon": "LuChevronLeft",
+              "nextIcon": "LuChevronRight",
+              "previousLabel": "Previous",
+              "nextLabel": "Next",
+              "goToSlideLabel": "Go to slide {n}",
+              "pagination": {
+                "label": "Blog pagination",
+                "pageLabel": "Go to blog page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
+              },
+              "pageSize": 6,
+              "detail": {
+                "image": "/images/blog-detail.webp",
+                "imageAlt": "Three brand strategists reviewing ideas on a laptop",
+                "date": "March 26, 2024",
+                "category": "Branding",
+                "author": "By Ashton Porter",
+                "title": "Everything You Should\nKnow About ",
+                "titleHighlight": "Brand Strategy",
+                "paragraphs": [
                   {
-                    "text": "Everything You Should",
-                    "highlight": false
-                  }
-                ],
-                [
-                  {
-                    "text": "Know About ",
-                    "highlight": false
+                    "id": "paragraph-1",
+                    "text": "A strong brand strategy is the foundation of every successful business. It helps you\ncommunicate your values, connect with the right audience, and create a lasting impression\nin a competitive market."
                   },
                   {
-                    "text": "Brand Strategy",
-                    "highlight": true
+                    "id": "paragraph-2",
+                    "text": "In today’s fast-paced digital world, a clear and well-defined brand strategy not only\ndifferentiates you from competitors but also builds trust and drives long-term growth. It\naligns your messaging, visuals, and customer experience across all channels."
                   }
-                ]
-              ],
-              "paragraphs": [
-                [
-                  "A strong brand strategy is the foundation of every successful business. It helps you",
-                  "communicate your values, connect with the right audience, and create a lasting impression",
-                  "in a competitive market."
                 ],
-                [
-                  "In today’s fast-paced digital world, a clear and well-defined brand strategy not only",
-                  "differentiates you from competitors but also builds trust and drives long-term growth. It",
-                  "aligns your messaging, visuals, and customer experience across all channels."
-                ]
-              ],
-              "quoteLines": [
-                "“A well-crafted brand strategy turns your vision into",
-                "recognition and your audience into loyal customers.”"
-              ],
-              "quoteIcon": "FaQuoteLeft",
-              "sections": [
-                {
-                  "id": "why-brand-strategy-matters",
-                  "title": "Why Brand Strategy Matters",
-                  "lines": [
-                    "A well-defined brand strategy gives your business a clear direction. It helps you",
-                    "understand your target audience, shape your brand’s personality, and communicate a",
-                    "consistent message. When every element of your brand works together, it creates a",
-                    "stronger impact and builds long-term customer loyalty."
-                  ]
-                },
-                {
-                  "id": "key-elements-of-a-successful-brand-strategy",
-                  "title": "Key Elements of a Successful Brand Strategy",
-                  "lines": [
-                    "A successful brand strategy includes in-depth market research, a compelling brand",
-                    "positioning, consistent visual identity, and a clear communication plan. These elements",
-                    "help you create a brand that not only stands out but also evolves with market trends and",
-                    "customer expectations."
-                  ]
-                }
-              ],
-              "sidebar": {
-                "categoriesHeading": "Categories",
+                "quote": "“A well-crafted brand strategy turns your vision into\nrecognition and your audience into loyal customers.”",
+                "quoteIcon": "FaQuoteLeft",
+                "sections": [
+                  {
+                    "id": "why-brand-strategy-matters",
+                    "title": "Why Brand Strategy Matters",
+                    "description": "A well-defined brand strategy gives your business a clear direction. It helps you\nunderstand your target audience, shape your brand’s personality, and communicate a\nconsistent message. When every element of your brand works together, it creates a\nstronger impact and builds long-term customer loyalty."
+                  },
+                  {
+                    "id": "key-elements-of-a-successful-brand-strategy",
+                    "title": "Key Elements of a Successful Brand Strategy",
+                    "description": "A successful brand strategy includes in-depth market research, a compelling brand\npositioning, consistent visual identity, and a clear communication plan. These elements\nhelp you create a brand that not only stands out but also evolves with market trends and\ncustomer expectations."
+                  }
+                ],
+                "categoriesTitle": "Categories",
                 "categories": [
                   {
                     "id": "archive",
@@ -1878,11 +1241,16 @@
                   }
                 ],
                 "categoryIcon": "LuChevronRight",
-                "recentHeading": "Recent Posts",
-                "recentCount": 3,
+                "recentTitle": "Recent Posts",
+                "recentPostIds": [
+                  "effective-digital-marketing-strategies-for-business-growth",
+                  "how-data-driven-decisions-can-transform-your-business",
+                  "the-power-of-social-media-for-modern-businesses"
+                ],
+                "recentDateFormat": "{month} {day}, {year}",
                 "recentImageWidth": 137,
                 "recentImageHeight": 109,
-                "tagsHeading": "Tags",
+                "tagsTitle": "Tags",
                 "tags": [
                   {
                     "id": "agency",
@@ -1934,61 +1302,243 @@
             }
           }
         },
+        "AboutStory": {
+          "variants": {
+            "AdvertisingAboutStory1": {
+              "paragraphs": [
+                {
+                  "id": "story-1",
+                  "text": "At AdSphere, we believe every brand has a unique story and the right audience deserves\nto hear it. We are a results-driven advertising agency focused on creating impactful\nmarketing strategies that connect businesses with their audience across digital platforms."
+                },
+                {
+                  "id": "story-2",
+                  "text": "At AdSphere, we believe every brand has a unique story and the right audience deserves\nto hear it. We are a results-driven advertising agency focused on creating impactful\nmarketing strategies that connect businesses with their audience across digital platforms."
+                },
+                {
+                  "id": "story-3",
+                  "text": "From strategy and creative development to media planning and performance optimization,\nour team works closely with you to deliver tailored solutions that drive real growth, increase\nbrand visibility, and generate measurable results."
+                }
+              ]
+            }
+          }
+        },
+        "WhyChooseUs": {
+          "variants": {
+            "AdvertisingWhyChooseUs1": {
+              "label": "Why Choose Us",
+              "title": "Partner for Ideas\nThat Drive ",
+              "titleHighlight": "Real Results",
+              "description": "We combine strategy, creativity and data to create advertising solutions\nthat help your brand grow, stand out and connect with the right audience.",
+              "reasons": [
+                {
+                  "id": "strategic-approach",
+                  "number": "01",
+                  "title": "Strategic Approach",
+                  "description": "Data-driven strategies tailored\nto your business goals for\nmaximum impact.",
+                  "icon": "LuChartNoAxesCombined",
+                  "featured": false
+                },
+                {
+                  "id": "creative-excellence",
+                  "number": "02",
+                  "title": "Creative Excellence",
+                  "description": "Engaging and innovative\ncampaigns that make your\nbrand stand out.",
+                  "icon": "TbBulb",
+                  "featured": true
+                },
+                {
+                  "id": "measurable-results",
+                  "number": "03",
+                  "title": "Measurable Results",
+                  "description": "Performance-focused advertising\nthat drives real growth and\nhigher ROI.",
+                  "icon": "TbTargetArrow",
+                  "featured": false
+                },
+                {
+                  "id": "expert-team",
+                  "number": "04",
+                  "title": "Expert Team",
+                  "description": "A dedicated team of marketing\nprofessionals with industry\nexpertise.",
+                  "icon": "MdGroups",
+                  "featured": false
+                },
+                {
+                  "id": "end-to-end-solutions",
+                  "number": "05",
+                  "title": "End-to-End Solutions",
+                  "description": "From strategy and design to\nexecution and optimization,\nwe handle it all.",
+                  "icon": "MdSettings",
+                  "featured": false
+                },
+                {
+                  "id": "long-term-partnership",
+                  "number": "06",
+                  "title": "Long-Term Partnership",
+                  "description": "We believe in building strong\nrelationships and growing\ntogether with your brand.",
+                  "icon": "LuHandshake",
+                  "featured": false
+                }
+              ]
+            }
+          }
+        },
+        "Portfolio": {
+          "variants": {
+            "AdvertisingPortfolio1": {
+              "label": "Our Portfolio",
+              "title": "Work That ",
+              "titleHighlight": "Creates Impact",
+              "description": "Explore some of our recent projects that showcase our creativity, strategy, and\ncommitment to delivering real results for our clients.",
+              "projects": [
+                {
+                  "id": "brand-identity-design",
+                  "title": "Brand Identity Design",
+                  "tags": [
+                    {
+                      "id": "branding",
+                      "text": "Branding"
+                    },
+                    {
+                      "id": "design",
+                      "text": "Design"
+                    }
+                  ],
+                  "image": "/images/portfolio-brand-identity.webp",
+                  "imageAlt": "Red and white AdSphere notebooks and business cards",
+                  "imageWidth": 447,
+                  "imageHeight": 488
+                },
+                {
+                  "id": "marketing-website",
+                  "title": "Marketing Website",
+                  "tags": [
+                    {
+                      "id": "development",
+                      "text": "Development"
+                    },
+                    {
+                      "id": "marketing",
+                      "text": "Marketing"
+                    }
+                  ],
+                  "image": "/images/portfolio-marketing-website.webp",
+                  "imageAlt": "AdSphere marketing website shown on a laptop",
+                  "imageWidth": 447,
+                  "imageHeight": 488
+                },
+                {
+                  "id": "business-mobile-app",
+                  "title": "Business Mobile App",
+                  "tags": [
+                    {
+                      "id": "development",
+                      "text": "Development"
+                    },
+                    {
+                      "id": "design",
+                      "text": "Design"
+                    }
+                  ],
+                  "image": "/images/portfolio-mobile-app.webp",
+                  "imageAlt": "AdSphere mobile app with growth chart on a phone",
+                  "imageWidth": 447,
+                  "imageHeight": 488
+                },
+                {
+                  "id": "social-media-campaign",
+                  "title": "Social Media Campaign",
+                  "tags": [
+                    {
+                      "id": "marketing",
+                      "text": "Marketing"
+                    },
+                    {
+                      "id": "design",
+                      "text": "Design"
+                    }
+                  ],
+                  "image": "/images/portfolio-social-campaign.webp",
+                  "imageAlt": "Three phones showing AdSphere social media creatives",
+                  "imageWidth": 447,
+                  "imageHeight": 458
+                },
+                {
+                  "id": "product-branding",
+                  "title": "Product Branding",
+                  "tags": [
+                    {
+                      "id": "branding",
+                      "text": "Branding"
+                    },
+                    {
+                      "id": "design",
+                      "text": "Design"
+                    }
+                  ],
+                  "image": "/images/portfolio-product-branding.webp",
+                  "imageAlt": "Black and red AdSphere product box",
+                  "imageWidth": 447,
+                  "imageHeight": 458
+                },
+                {
+                  "id": "trading-platform",
+                  "title": "Trading Platform",
+                  "tags": [
+                    {
+                      "id": "development",
+                      "text": "Development"
+                    },
+                    {
+                      "id": "marketing",
+                      "text": "Marketing"
+                    }
+                  ],
+                  "image": "/images/portfolio-trading-platform.webp",
+                  "imageAlt": "Performance dashboard on a laptop screen",
+                  "imageWidth": 447,
+                  "imageHeight": 458
+                }
+              ],
+              "pagination": {
+                "label": "Portfolio pagination",
+                "pageLabel": "Go to portfolio page {n}",
+                "previousLabel": "Previous",
+                "nextLabel": "Next"
+              },
+              "pageSize": 8
+            }
+          }
+        },
         "Quote": {
           "variants": {
             "AdvertisingQuote1": {
               "label": "Get a Quote",
-              "headingLines": [
-                {
-                  "text": "Let’s Turn",
-                  "highlight": false
-                },
-                {
-                  "text": "Your Ideas Into",
-                  "highlight": false
-                },
-                {
-                  "text": "Real Results",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "Tell us about your project and our team will provide a",
-                "custom solution with the right strategy, timeline, and",
-                "pricing to meet your goals."
-              ],
+              "title": "Let’s Turn\nYour Ideas Into",
+              "titleHighlight": "Real Results",
+              "description": "Tell us about your project and our team will provide a\ncustom solution with the right strategy, timeline, and\npricing to meet your goals.",
               "features": [
                 {
                   "id": "custom-solutions",
                   "icon": "FaUsers",
                   "title": "Custom Solutions",
-                  "lines": [
-                    "We understand your goals and provide",
-                    "solutions tailored to your needs."
-                  ]
+                  "description": "We understand your goals and provide\nsolutions tailored to your needs."
                 },
                 {
                   "id": "quick-response",
                   "icon": "MdBolt",
                   "title": "Quick Response",
-                  "lines": [
-                    "Our team will review your requirements",
-                    "and get back to you promptly."
-                  ]
+                  "description": "Our team will review your requirements\nand get back to you promptly."
                 },
                 {
                   "id": "no-obligation",
                   "icon": "MdShield",
                   "title": "No Obligation",
-                  "lines": [
-                    "Get a detailed quote with no commitment",
-                    "and complete transparency."
-                  ]
+                  "description": "Get a detailed quote with no commitment\nand complete transparency."
                 }
               ],
               "form": {
-                "heading": "Request a ",
-                "headingHighlight": "Quote",
+                "title": "Request a ",
+                "titleHighlight": "Quote",
                 "description": "Fill out the form below and we’ll get back to you with a customized quote.",
                 "requiredMark": "*",
                 "selectIcon": "LuChevronDown",
@@ -2046,8 +1596,8 @@
                     "More than 3 months"
                   ]
                 },
-                "submit": "Submit Request",
-                "submitIcon": "LuArrowRight",
+                "buttonText": "Submit Request",
+                "buttonIcon": "LuArrowRight",
                 "success": "Thank you! Your request has been noted. Our team will get back to you shortly."
               }
             }
@@ -2061,60 +1611,38 @@
                   "id": "headquarters",
                   "icon": "MdLocationOn",
                   "title": "Headquarters",
-                  "lines": [
-                    "123 Business Avenue,",
-                    "Suite 400, San Francisco,",
-                    "CA 94107, USA"
-                  ],
-                  "link": {
-                    "label": "Get Direction",
-                    "url": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
-                  }
+                  "description": "123 Business Avenue,\nSuite 400, San Francisco,\nCA 94107, USA",
+                  "linkText": "Get Direction",
+                  "linkUrl": "https://www.google.com/maps/search/?api=1&query=123+Business+Avenue+San+Francisco+CA+94107"
                 },
                 {
                   "id": "email-address",
                   "icon": "MdChat",
                   "title": "Email Address",
-                  "lines": [
-                    "info@xyz.com",
-                    "support@xyz.com"
-                  ],
-                  "link": {
-                    "label": "Send Message",
-                    "url": "mailto:info@xyz.com"
-                  }
+                  "description": "info@xyz.com\nsupport@xyz.com",
+                  "linkText": "Send Message",
+                  "linkUrl": "mailto:info@xyz.com"
                 },
                 {
                   "id": "phone-number",
                   "icon": "MdPhone",
                   "title": "Phone Number",
-                  "lines": [
-                    "+1 0000000000",
-                    "+1 0000000000"
-                  ],
-                  "link": {
-                    "label": "Call Anytime",
-                    "url": "tel:+10000000000"
-                  }
+                  "description": "+1 0000000000\n+1 0000000000",
+                  "linkText": "Call Anytime",
+                  "linkUrl": "tel:+10000000000"
                 }
               ],
               "linkIcon": "LuArrowUpRight",
-              "mapTitle": "Map of San Francisco, USA",
-              "mapUrl": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed",
+              "mapLabel": "Map of San Francisco, USA",
+              "mapEmbedUrl": "https://www.google.com/maps?q=123+Business+Avenue,+San+Francisco,+CA+94107,+USA&z=13&output=embed",
               "form": {
-                "headingLines": [
-                  "Have Any Project on",
-                  "Your Mind?"
-                ],
-                "descriptionLines": [
-                  "We’d love to hear about your project. Share your requirements",
-                  "and our team will get back to you with a personalized solution."
-                ],
+                "title": "Have Any Project on\nYour Mind?",
+                "description": "We’d love to hear about your project. Share your requirements\nand our team will get back to you with a personalized solution.",
                 "fullName": "Full name*",
                 "email": "Email address*",
                 "website": "Website link",
                 "message": "How Can We Help You*",
-                "submit": "Send Message",
+                "buttonText": "Send Message",
                 "success": "Thank you! Your message has been noted. Our team will get back to you shortly."
               }
             }
@@ -2124,20 +1652,9 @@
           "variants": {
             "AdvertisingHowItWorks1": {
               "label": "Step By Step",
-              "headingLines": [
-                {
-                  "text": "What Happens",
-                  "highlight": false
-                },
-                {
-                  "text": "At Every Stage",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "From the first conversation to the final report, here is exactly",
-                "what you can expect when you work with AdSphere."
-              ],
+              "title": "What Happens",
+              "titleHighlight": "At Every Stage",
+              "description": "From the first conversation to the final report, here is exactly\nwhat you can expect when you work with AdSphere.",
               "steps": [
                 {
                   "id": "discover-and-understand",
@@ -2145,9 +1662,18 @@
                   "title": "Discover & Understand",
                   "description": "We begin with a detailed conversation about your business, your customers and your goals. Our team studies your market and competitors to find the opportunities that matter most.",
                   "points": [
-                    "Business and goal discussion",
-                    "Audience and competitor research",
-                    "Audit of your current marketing"
+                    {
+                      "id": "business-and-goal-discussion",
+                      "text": "Business and goal discussion"
+                    },
+                    {
+                      "id": "audience-and-competitor-research",
+                      "text": "Audience and competitor research"
+                    },
+                    {
+                      "id": "audit-of-your-current-marketing",
+                      "text": "Audit of your current marketing"
+                    }
                   ],
                   "image": "/images/service-seo.webp",
                   "imageAlt": "Two marketers reviewing research on a laptop"
@@ -2158,9 +1684,18 @@
                   "title": "Plan & Strategize",
                   "description": "Based on what we learn, we build a customized strategy with clear channels, budgets and timelines, so you always know what will happen and when.",
                   "points": [
-                    "Channel and budget planning",
-                    "Creative direction and messaging",
-                    "Clear timelines and deliverables"
+                    {
+                      "id": "channel-and-budget-planning",
+                      "text": "Channel and budget planning"
+                    },
+                    {
+                      "id": "creative-direction-and-messaging",
+                      "text": "Creative direction and messaging"
+                    },
+                    {
+                      "id": "clear-timelines-and-deliverables",
+                      "text": "Clear timelines and deliverables"
+                    }
                   ],
                   "image": "/images/service-branding.webp",
                   "imageAlt": "Strategists planning a campaign together"
@@ -2171,9 +1706,18 @@
                   "title": "Execute & Optimize",
                   "description": "We bring the strategy to life across every channel, then monitor performance closely and keep improving the campaigns for better results.",
                   "points": [
-                    "Campaign launch and management",
-                    "Continuous testing and tuning",
-                    "Regular progress updates"
+                    {
+                      "id": "campaign-launch-and-management",
+                      "text": "Campaign launch and management"
+                    },
+                    {
+                      "id": "continuous-testing-and-tuning",
+                      "text": "Continuous testing and tuning"
+                    },
+                    {
+                      "id": "regular-progress-updates",
+                      "text": "Regular progress updates"
+                    }
                   ],
                   "image": "/images/service-performance.webp",
                   "imageAlt": "Performance charts being reviewed on a tablet"
@@ -2184,9 +1728,18 @@
                   "title": "Deliver Results",
                   "description": "We track what matters, share clear reports and insights, and plan the next steps so your business keeps growing with measurable impact.",
                   "points": [
-                    "Transparent performance reports",
-                    "Insights you can act on",
-                    "A plan for continued growth"
+                    {
+                      "id": "transparent-performance-reports",
+                      "text": "Transparent performance reports"
+                    },
+                    {
+                      "id": "insights-you-can-act-on",
+                      "text": "Insights you can act on"
+                    },
+                    {
+                      "id": "a-plan-for-continued-growth",
+                      "text": "A plan for continued growth"
+                    }
                   ],
                   "image": "/images/service-consulting.webp",
                   "imageAlt": "Team celebrating results around a laptop"
@@ -2194,12 +1747,10 @@
               ],
               "pointIcon": "LuCheck",
               "cta": {
-                "heading": "Ready to start your project?",
+                "title": "Ready to start your project?",
                 "description": "Tell us about your goals and we will prepare a plan that fits your business.",
-                "button": {
-                  "label": "Get a Quote",
-                  "url": "/get-a-quote"
-                },
+                "buttonText": "Get a Quote",
+                "buttonUrl": "/get-a-quote",
                 "buttonIcon": "LuArrowRight"
               }
             }
@@ -2209,64 +1760,41 @@
           "variants": {
             "AdvertisingCareer1": {
               "label": "Join Our Team",
-              "headingLines": [
-                {
-                  "text": "Build Your Career",
-                  "highlight": false
-                },
-                {
-                  "text": "With AdSphere",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "We are a team of strategists, creatives and marketers who love helping",
-                "brands grow. If that sounds like you, we would love to meet you."
-              ],
+              "title": "Build Your Career",
+              "titleHighlight": "With AdSphere",
+              "description": "We are a team of strategists, creatives and marketers who love helping\nbrands grow. If that sounds like you, we would love to meet you.",
               "perks": [
                 {
                   "id": "growth-and-learning",
                   "icon": "LuTrophy",
                   "title": "Growth & Learning",
-                  "lines": [
-                    "Mentorship, training budgets",
-                    "and real ownership from day one."
-                  ]
+                  "description": "Mentorship, training budgets\nand real ownership from day one."
                 },
                 {
                   "id": "great-team-culture",
                   "icon": "MdGroups",
                   "title": "Great Team Culture",
-                  "lines": [
-                    "Work with supportive people",
-                    "who enjoy what they do."
-                  ]
+                  "description": "Work with supportive people\nwho enjoy what they do."
                 },
                 {
                   "id": "flexible-working",
                   "icon": "LuClock",
                   "title": "Flexible Working",
-                  "lines": [
-                    "Hybrid schedules that respect",
-                    "your time and your life."
-                  ]
+                  "description": "Hybrid schedules that respect\nyour time and your life."
                 },
                 {
                   "id": "creative-freedom",
                   "icon": "TbBulb",
                   "title": "Creative Freedom",
-                  "lines": [
-                    "Your ideas are heard, tested",
-                    "and taken to real clients."
-                  ]
+                  "description": "Your ideas are heard, tested\nand taken to real clients."
                 }
               ],
               "cta": {
-                "heading": "Don’t see the right role?",
+                "title": "Don’t see the right role?",
                 "description": "Send us your profile anyway. We are always happy to hear from talented people."
               },
               "applicationForm": {
-                "heading": "Apply Now",
+                "title": "Apply Now",
                 "description": "Attach your resume and tell us about yourself.",
                 "contactEmail": "info@xyz.com",
                 "contactPhone": "+1 0000000000",
@@ -2288,13 +1816,13 @@
                 "resumeAccept": ".pdf,.doc,.docx",
                 "uploadIcon": "LuArrowUpRight",
                 "removeIcon": "LuX",
+                "removeResume": "Remove resume",
                 "coverNote": "Cover note (optional)",
-                "submit": "Submit Application",
-                "submitIcon": "LuArrowRight",
-                "successHeading": "Application Sent!",
+                "buttonText": "Submit Application",
+                "buttonIcon": "LuArrowRight",
+                "successTitle": "Application Sent!",
                 "successMessage": "Thank you for applying. We will review your profile and get back to you soon.",
-                "successIcon": "LuCheck",
-                "removeResume": "Remove resume"
+                "successIcon": "LuCheck"
               }
             }
           }
@@ -2303,20 +1831,9 @@
           "variants": {
             "AdvertisingFaq1": {
               "label": "FAQs",
-              "headingLines": [
-                {
-                  "text": "Frequently Asked",
-                  "highlight": false
-                },
-                {
-                  "text": "Questions",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "Quick answers to the questions we hear most often. If you cannot find",
-                "what you are looking for, our team is happy to help."
-              ],
+              "title": "Frequently Asked",
+              "titleHighlight": "Questions",
+              "description": "Quick answers to the questions we hear most often. If you cannot find\nwhat you are looking for, our team is happy to help.",
               "faqs": [
                 {
                   "id": "what-services-does-adsphere-offer",
@@ -2361,12 +1878,10 @@
               ],
               "openIcon": "LuPlus",
               "cta": {
-                "heading": "Still have questions?",
+                "title": "Still have questions?",
                 "description": "Our team is here to help you with anything you need to know.",
-                "button": {
-                  "label": "Contact Us",
-                  "url": "/contact"
-                },
+                "buttonText": "Contact Us",
+                "buttonUrl": "/contact",
                 "buttonIcon": "LuArrowRight"
               }
             }
@@ -2376,8 +1891,8 @@
           "variants": {
             "AdvertisingPolicyPages1": {
               "updatedLabel": "Last updated:",
-              "otherHeading": "Other Policies",
-              "contactHeading": "Questions about this policy?",
+              "otherTitle": "Other Policies",
+              "contactTitle": "Questions about this policy?",
               "contactText": "Write to us and our team will be happy to help.",
               "contactEmail": "info@xyz.com",
               "contactEmailUrl": "mailto:info@xyz.com",
@@ -2387,7 +1902,6 @@
               "items": [
                 {
                   "id": "privacy-policy",
-                  "slug": "privacy-policy",
                   "url": "/privacy-policy",
                   "title": "Privacy Policy",
                   "updated": "January 1, 2026",
@@ -2397,33 +1911,66 @@
                       "id": "information-we-collect",
                       "title": "Information We Collect",
                       "paragraphs": [
-                        "We collect information you give us directly and some information automatically when you browse our website."
+                        {
+                          "id": "information-we-collect-paragraph-1",
+                          "text": "We collect information you give us directly and some information automatically when you browse our website."
+                        }
                       ],
                       "points": [
-                        "Contact details such as your name, email address and phone number",
-                        "Company and project details you share through our forms",
-                        "Usage data such as pages visited, device type and browser"
+                        {
+                          "id": "information-we-collect-point-1",
+                          "text": "Contact details such as your name, email address and phone number"
+                        },
+                        {
+                          "id": "information-we-collect-point-2",
+                          "text": "Company and project details you share through our forms"
+                        },
+                        {
+                          "id": "information-we-collect-point-3",
+                          "text": "Usage data such as pages visited, device type and browser"
+                        }
                       ]
                     },
                     {
                       "id": "how-we-use-your-information",
                       "title": "How We Use Your Information",
                       "paragraphs": [
-                        "We use your information only for the purposes described below."
+                        {
+                          "id": "how-we-use-your-information-paragraph-1",
+                          "text": "We use your information only for the purposes described below."
+                        }
                       ],
                       "points": [
-                        "To respond to enquiries and prepare quotes",
-                        "To deliver and improve our services",
-                        "To send updates you have asked to receive",
-                        "To keep our website secure and working properly"
+                        {
+                          "id": "how-we-use-your-information-point-1",
+                          "text": "To respond to enquiries and prepare quotes"
+                        },
+                        {
+                          "id": "how-we-use-your-information-point-2",
+                          "text": "To deliver and improve our services"
+                        },
+                        {
+                          "id": "how-we-use-your-information-point-3",
+                          "text": "To send updates you have asked to receive"
+                        },
+                        {
+                          "id": "how-we-use-your-information-point-4",
+                          "text": "To keep our website secure and working properly"
+                        }
                       ]
                     },
                     {
                       "id": "sharing-your-information",
                       "title": "Sharing Your Information",
                       "paragraphs": [
-                        "We do not sell your personal information. We may share it with trusted service providers who help us run our business, and only as far as they need it to do their work.",
-                        "We may also disclose information when the law requires it."
+                        {
+                          "id": "sharing-your-information-paragraph-1",
+                          "text": "We do not sell your personal information. We may share it with trusted service providers who help us run our business, and only as far as they need it to do their work."
+                        },
+                        {
+                          "id": "sharing-your-information-paragraph-2",
+                          "text": "We may also disclose information when the law requires it."
+                        }
                       ],
                       "points": []
                     },
@@ -2431,7 +1978,10 @@
                       "id": "data-security",
                       "title": "Data Security",
                       "paragraphs": [
-                        "We use reasonable technical and organisational measures to protect your information. No method of transmission over the internet is completely secure, so we cannot guarantee absolute security."
+                        {
+                          "id": "data-security-paragraph-1",
+                          "text": "We use reasonable technical and organisational measures to protect your information. No method of transmission over the internet is completely secure, so we cannot guarantee absolute security."
+                        }
                       ],
                       "points": []
                     },
@@ -2439,7 +1989,10 @@
                       "id": "your-rights",
                       "title": "Your Rights",
                       "paragraphs": [
-                        "You may ask us to access, correct or delete the personal information we hold about you, or to stop sending you marketing messages, at any time."
+                        {
+                          "id": "your-rights-paragraph-1",
+                          "text": "You may ask us to access, correct or delete the personal information we hold about you, or to stop sending you marketing messages, at any time."
+                        }
                       ],
                       "points": []
                     },
@@ -2447,7 +2000,10 @@
                       "id": "changes-to-this-policy",
                       "title": "Changes To This Policy",
                       "paragraphs": [
-                        "We may update this policy from time to time. The latest version will always be available on this page with the date it was last updated."
+                        {
+                          "id": "changes-to-this-policy-paragraph-1",
+                          "text": "We may update this policy from time to time. The latest version will always be available on this page with the date it was last updated."
+                        }
                       ],
                       "points": []
                     }
@@ -2455,7 +2011,6 @@
                 },
                 {
                   "id": "terms-and-conditions",
-                  "slug": "terms-and-conditions",
                   "url": "/terms-and-conditions",
                   "title": "Terms & Conditions",
                   "updated": "January 1, 2026",
@@ -2465,19 +2020,34 @@
                       "id": "use-of-our-website",
                       "title": "Use Of Our Website",
                       "paragraphs": [
-                        "You agree to use this website only for lawful purposes and in a way that does not harm the website or other users."
+                        {
+                          "id": "use-of-our-website-paragraph-1",
+                          "text": "You agree to use this website only for lawful purposes and in a way that does not harm the website or other users."
+                        }
                       ],
                       "points": [
-                        "Do not attempt to gain unauthorised access to any part of the website",
-                        "Do not copy or misuse our content without permission",
-                        "Do not submit false or misleading information"
+                        {
+                          "id": "use-of-our-website-point-1",
+                          "text": "Do not attempt to gain unauthorised access to any part of the website"
+                        },
+                        {
+                          "id": "use-of-our-website-point-2",
+                          "text": "Do not copy or misuse our content without permission"
+                        },
+                        {
+                          "id": "use-of-our-website-point-3",
+                          "text": "Do not submit false or misleading information"
+                        }
                       ]
                     },
                     {
                       "id": "services-and-quotes",
                       "title": "Services And Quotes",
                       "paragraphs": [
-                        "Information on this website is provided for general guidance. A quote or proposal becomes binding only when both parties have agreed to it in writing."
+                        {
+                          "id": "services-and-quotes-paragraph-1",
+                          "text": "Information on this website is provided for general guidance. A quote or proposal becomes binding only when both parties have agreed to it in writing."
+                        }
                       ],
                       "points": []
                     },
@@ -2485,7 +2055,10 @@
                       "id": "payments",
                       "title": "Payments",
                       "paragraphs": [
-                        "Fees, payment schedules and refund terms are set out in the agreement for each project. Work may be paused if payments are overdue."
+                        {
+                          "id": "payments-paragraph-1",
+                          "text": "Fees, payment schedules and refund terms are set out in the agreement for each project. Work may be paused if payments are overdue."
+                        }
                       ],
                       "points": []
                     },
@@ -2493,7 +2066,10 @@
                       "id": "intellectual-property",
                       "title": "Intellectual Property",
                       "paragraphs": [
-                        "All content on this website, including text, graphics, logos and designs, belongs to AdSphere or its licensors. Ownership of project deliverables is defined in each client agreement."
+                        {
+                          "id": "intellectual-property-paragraph-1",
+                          "text": "All content on this website, including text, graphics, logos and designs, belongs to AdSphere or its licensors. Ownership of project deliverables is defined in each client agreement."
+                        }
                       ],
                       "points": []
                     },
@@ -2501,7 +2077,10 @@
                       "id": "limitation-of-liability",
                       "title": "Limitation Of Liability",
                       "paragraphs": [
-                        "We work hard to deliver results, but we cannot guarantee specific outcomes from marketing activities. To the extent permitted by law, AdSphere is not liable for indirect or consequential losses."
+                        {
+                          "id": "limitation-of-liability-paragraph-1",
+                          "text": "We work hard to deliver results, but we cannot guarantee specific outcomes from marketing activities. To the extent permitted by law, AdSphere is not liable for indirect or consequential losses."
+                        }
                       ],
                       "points": []
                     },
@@ -2509,7 +2088,10 @@
                       "id": "governing-law",
                       "title": "Governing Law",
                       "paragraphs": [
-                        "These terms are governed by the laws of India, and any disputes will be subject to the courts of New Delhi."
+                        {
+                          "id": "governing-law-paragraph-1",
+                          "text": "These terms are governed by the laws of India, and any disputes will be subject to the courts of New Delhi."
+                        }
                       ],
                       "points": []
                     }
@@ -2517,7 +2099,6 @@
                 },
                 {
                   "id": "cookie-policy",
-                  "slug": "cookie-policy",
                   "url": "/cookie-policy",
                   "title": "Cookie Policy",
                   "updated": "January 1, 2026",
@@ -2527,7 +2108,10 @@
                       "id": "what-are-cookies",
                       "title": "What Are Cookies",
                       "paragraphs": [
-                        "Cookies are small text files stored on your device when you visit a website. They help the website remember your actions and preferences."
+                        {
+                          "id": "what-are-cookies-paragraph-1",
+                          "text": "Cookies are small text files stored on your device when you visit a website. They help the website remember your actions and preferences."
+                        }
                       ],
                       "points": []
                     },
@@ -2535,20 +2119,38 @@
                       "id": "cookies-we-use",
                       "title": "Cookies We Use",
                       "paragraphs": [
-                        "We use the following types of cookies."
+                        {
+                          "id": "cookies-we-use-paragraph-1",
+                          "text": "We use the following types of cookies."
+                        }
                       ],
                       "points": [
-                        "Essential cookies that keep the website working",
-                        "Analytics cookies that show us how visitors use the website",
-                        "Preference cookies that remember your settings",
-                        "Marketing cookies that help us show relevant content"
+                        {
+                          "id": "cookies-we-use-point-1",
+                          "text": "Essential cookies that keep the website working"
+                        },
+                        {
+                          "id": "cookies-we-use-point-2",
+                          "text": "Analytics cookies that show us how visitors use the website"
+                        },
+                        {
+                          "id": "cookies-we-use-point-3",
+                          "text": "Preference cookies that remember your settings"
+                        },
+                        {
+                          "id": "cookies-we-use-point-4",
+                          "text": "Marketing cookies that help us show relevant content"
+                        }
                       ]
                     },
                     {
                       "id": "third-party-cookies",
                       "title": "Third-Party Cookies",
                       "paragraphs": [
-                        "Some cookies are set by services we use, such as analytics tools and embedded maps. These providers have their own privacy and cookie policies."
+                        {
+                          "id": "third-party-cookies-paragraph-1",
+                          "text": "Some cookies are set by services we use, such as analytics tools and embedded maps. These providers have their own privacy and cookie policies."
+                        }
                       ],
                       "points": []
                     },
@@ -2556,7 +2158,10 @@
                       "id": "managing-cookies",
                       "title": "Managing Cookies",
                       "paragraphs": [
-                        "You can block or delete cookies through your browser settings. Please note that some parts of the website may not work properly without them."
+                        {
+                          "id": "managing-cookies-paragraph-1",
+                          "text": "You can block or delete cookies through your browser settings. Please note that some parts of the website may not work properly without them."
+                        }
                       ],
                       "points": []
                     },
@@ -2564,7 +2169,10 @@
                       "id": "changes-to-this-policy",
                       "title": "Changes To This Policy",
                       "paragraphs": [
-                        "We may update this policy when our use of cookies changes. The latest version will always be available on this page."
+                        {
+                          "id": "changes-to-this-policy-paragraph-1",
+                          "text": "We may update this policy when our use of cookies changes. The latest version will always be available on this page."
+                        }
                       ],
                       "points": []
                     }
@@ -2578,24 +2186,13 @@
           "variants": {
             "AdvertisingSitemapPage1": {
               "label": "Sitemap",
-              "headingLines": [
-                {
-                  "text": "Find Your Way",
-                  "highlight": false
-                },
-                {
-                  "text": "Around AdSphere",
-                  "highlight": true
-                }
-              ],
-              "descriptionLines": [
-                "Every page of our website in one place, so you can",
-                "quickly get to what you are looking for."
-              ],
+              "title": "Find Your Way",
+              "titleHighlight": "Around AdSphere",
+              "description": "Every page of our website in one place, so you can\nquickly get to what you are looking for.",
               "groups": [
                 {
                   "id": "main-pages",
-                  "heading": "Main Pages",
+                  "title": "Main Pages",
                   "links": [
                     {
                       "id": "home",
@@ -2631,7 +2228,7 @@
                 },
                 {
                   "id": "company",
-                  "heading": "Company",
+                  "title": "Company",
                   "links": [
                     {
                       "id": "how-it-works",
@@ -2652,7 +2249,7 @@
                 },
                 {
                   "id": "our-services",
-                  "heading": "Our Services",
+                  "title": "Our Services",
                   "links": [
                     {
                       "id": "digital-advertising",
@@ -2703,7 +2300,7 @@
                 },
                 {
                   "id": "blog-posts",
-                  "heading": "Blog Posts",
+                  "title": "Blog Posts",
                   "links": [
                     {
                       "id": "everything-you-should-know-about-brand-strategy",
@@ -2729,7 +2326,7 @@
                 },
                 {
                   "id": "support",
-                  "heading": "Support",
+                  "title": "Support",
                   "links": [
                     {
                       "id": "faqs",
@@ -2853,8 +2450,8 @@
                 "component": "Breadcrumb"
               },
               {
-                "key": "ServicesGrid",
-                "component": "ServicesGrid"
+                "key": "Services",
+                "component": "Services"
               },
               {
                 "key": "Footer",
@@ -2913,8 +2510,8 @@
                 "component": "Breadcrumb"
               },
               {
-                "key": "BlogGrid",
-                "component": "BlogGrid"
+                "key": "Blogs",
+                "component": "Blogs"
               },
               {
                 "key": "Footer",

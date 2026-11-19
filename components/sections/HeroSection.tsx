@@ -1,35 +1,37 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Lines } from '@/components/ui/Text';
+import { Lines, lines } from '@/components/ui/Text';
 import type { HeroSectionProps } from '@/types/templates.types';
 
 export const HeroSection = ({ data }: HeroSectionProps) => {
   if (!data) return null;
-  const { headingLines, descriptionLines, button, image, imageAlt } = data;
+  const { title, description, buttonText, buttonUrl, image, imageAlt } = data;
+  const titleLines = lines(title);
   return (
     <section className="relative mb-[calc(32*var(--unit))] bg-[var(--color-primary)] sm:mb-[calc(40*var(--unit))] lg:mb-[calc(48*var(--unit))] lg:h-[calc(799*var(--unit))]">
       {/* Text */}
       <div className="relative z-10 px-[calc(20*var(--unit))] pb-[calc(36*var(--unit))] pt-[calc(44*var(--unit))] sm:px-[calc(32*var(--unit))] sm:pb-[calc(48*var(--unit))] sm:pt-[calc(60*var(--unit))] lg:px-0 lg:pb-0 lg:pl-[calc(63*var(--unit))] lg:pt-[calc(100*var(--unit))]">
         <h1 className="font-hero text-[calc(36*var(--unit))] font-normal leading-[1.2] tracking-[-0.045em] text-[var(--color-white)] [-webkit-text-stroke:0.028em_var(--color-white)] sm:text-[calc(60*var(--unit))] lg:text-[calc(96*var(--unit))] lg:leading-[calc(117*var(--unit))]">
-          {headingLines.map((line, i) => (
+          {/* The last line is indented, as in the design. */}
+          {titleLines.map((line, i) => (
             <span
-              key={line.text}
+              key={line}
               style={{ transitionDelay: `${i * 140}ms` }}
-              className={`block translate-x-0 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none ${line.indent ? 'pl-[18%] sm:pl-[calc(150*var(--unit))] lg:pl-[calc(242*var(--unit))]' : ''}`}>
-              {line.text}
+              className={`block translate-x-0 transition-[opacity,transform] duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] starting:-translate-x-[calc(56*var(--unit))] starting:opacity-0 motion-reduce:transition-none ${i === titleLines.length - 1 ? 'pl-[18%] sm:pl-[calc(150*var(--unit))] lg:pl-[calc(242*var(--unit))]' : ''}`}>
+              {line}
             </span>
           ))}
         </h1>
         <p className="translate-y-0 transition-[opacity,transform] delay-450 duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[calc(40*var(--unit))] starting:opacity-0 motion-reduce:transition-none mt-[calc(22*var(--unit))] max-w-[calc(560*var(--unit))] font-alt text-[calc(16*var(--unit))] leading-[1.7] tracking-[0.012em] text-[var(--color-white-90)] sm:mt-[calc(28*var(--unit))] sm:text-[calc(19*var(--unit))] lg:mt-[calc(38*var(--unit))] lg:max-w-none lg:text-[calc(22*var(--unit))] lg:leading-[calc(37*var(--unit))]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
         {/* The wrapper plays the entrance, so the button keeps its own quick hover transition. */}
         <div className="mt-[calc(28*var(--unit))] flex translate-y-0 transition-[opacity,transform] delay-600 duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[calc(40*var(--unit))] starting:opacity-0 motion-reduce:transition-none sm:mt-[calc(36*var(--unit))] lg:mt-[calc(50*var(--unit))]">
           <Link
-            href={button.url}
+            href={buttonUrl}
             className="inline-flex h-[calc(58*var(--unit))] w-[calc(170*var(--unit))] items-center justify-center bg-[var(--color-white)] font-hero text-[calc(15*var(--unit))] font-normal tracking-[-0.09em] text-[var(--color-heading)] [-webkit-text-stroke:0.03em_currentColor] transition-colors duration-200 hover:bg-[var(--color-heading)] hover:text-[var(--color-white)] lg:h-[calc(74*var(--unit))] lg:w-[calc(216*var(--unit))] lg:text-[calc(19*var(--unit))]"
           >
-            {button.label}
+            {buttonText}
           </Link>
         </div>
       </div>

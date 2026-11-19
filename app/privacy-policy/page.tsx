@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.privacyBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} slug="privacy-policy" />
+      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} policyId="privacy-policy" />
     </main>
   );
 }

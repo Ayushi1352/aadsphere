@@ -2,13 +2,12 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
-import { Lines } from '@/components/ui/Text';
-import type { BlogDetailData, BlogDetailProps, BlogDetailSidebar, BlogGridPost } from '@/types/templates.types';
+import { Lines, fill, headingLines, lines } from '@/components/ui/Text';
+import type { BlogDetailProps, BlogsDetail, BlogsPost } from '@/types/templates.types';
 
 /** Common article shown for every blog post. */
-const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
-  if (!data) return null;
-  const { image, imageAlt, date, category, author, headingLines, paragraphs, quoteLines, quoteIcon, sections } = data;
+const BlogArticle = ({ detail }: { detail: BlogsDetail }) => {
+  const { image, imageAlt, date, category, author, title, titleHighlight, paragraphs, quote, quoteIcon, sections } = detail;
   return (
     <article className="min-w-0 lg:grow lg:w-[calc(1042*var(--unit))] lg:flex-none">
       <div className="relative aspect-[1042/448] overflow-hidden rounded-[calc(12*var(--unit))] lg:rounded-[calc(16*var(--unit))]">
@@ -24,7 +23,7 @@ const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
       </p>
 
       <h1 data-reveal="up" className="mt-[calc(14*var(--unit))] text-[calc(32*var(--unit))] font-bold leading-[1.12] tracking-[-0.01em] text-[var(--color-blog-heading)] sm:text-[calc(48*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:whitespace-nowrap lg:pl-[calc(7*var(--unit))] lg:text-[calc(67*var(--unit))] lg:leading-[calc(70*var(--unit))]">
-        {headingLines.map((line, i) => (
+        {headingLines(title, titleHighlight).map((line, i) => (
           <span key={i} className="lg:block">
             {line.map((part) => (
               <span key={part.text} className={part.highlight ? 'text-[var(--color-accent)]' : ''}>
@@ -36,9 +35,9 @@ const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
       </h1>
 
       <div data-reveal-group="up" className="mt-[calc(16*var(--unit))] space-y-[calc(18*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.65] text-[var(--color-card-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(22*var(--unit))] lg:space-y-[calc(30*var(--unit))] lg:whitespace-nowrap lg:pl-[calc(11*var(--unit))] lg:text-[calc(22*var(--unit))] lg:leading-[calc(32.5*var(--unit))] lg:tracking-[-0.015em]">
-        {paragraphs.map((lines, i) => (
-          <p key={i}>
-            <Lines lines={lines} />
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph.id}>
+            <Lines text={paragraph.text} />
           </p>
         ))}
       </div>
@@ -48,7 +47,7 @@ const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
         <span className="absolute -right-[calc(70*var(--unit))] -top-[calc(120*var(--unit))] size-[calc(260*var(--unit))] rounded-full bg-[var(--color-accent-tint-13-50)]" aria-hidden="true" />
         <Icon name={quoteIcon} className="relative h-[calc(44*var(--unit))] w-[calc(56*var(--unit))] shrink-0 text-[var(--color-accent)] lg:absolute lg:left-[calc(48*var(--unit))] lg:top-[calc(23*var(--unit))] lg:size-[calc(80*var(--unit))]" />
         <p className="relative text-[calc(17*var(--unit))] font-medium leading-[1.5] text-[var(--color-blog-text)] sm:text-[calc(21*var(--unit))] lg:absolute lg:left-[calc(152*var(--unit))] lg:top-[calc(31*var(--unit))] lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(36*var(--unit))]">
-          <Lines lines={quoteLines} />
+          <Lines text={quote} />
         </p>
       </blockquote>
 
@@ -56,7 +55,7 @@ const BlogArticle = ({ data }: { data?: BlogDetailData }) => {
         <section key={section.id} data-reveal="up" className={`mt-[calc(28*var(--unit))] lg:pl-[calc(11*var(--unit))] ${i === 0 ? 'lg:mt-[calc(36*var(--unit))]' : 'lg:mt-[calc(22*var(--unit))]'}`}>
           <h2 className="text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[var(--color-blog-heading)] sm:text-[calc(25*var(--unit))] lg:text-[calc(30*var(--unit))] lg:leading-[calc(36*var(--unit))]">{section.title}</h2>
           <p className="mt-[calc(8*var(--unit))] text-[calc(16*var(--unit))] font-medium leading-[1.6] text-[var(--color-card-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(9*var(--unit))] lg:whitespace-nowrap lg:text-[calc(22*var(--unit))] lg:leading-[calc(29.7*var(--unit))] lg:tracking-[-0.015em]">
-            <Lines lines={section.lines} />
+            <Lines text={section.description} />
           </p>
         </section>
       ))}
@@ -76,14 +75,13 @@ function Box({ heading, children, className = '' }: { heading: string; children:
 }
 
 /** Right column of a blog post: categories, recent posts and tags. */
-const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: BlogGridPost[] }) => {
-  if (!data) return null;
-  const { categoriesHeading, categories, categoryIcon, recentHeading, recentCount, recentImageWidth, recentImageHeight, tagsHeading, tags } = data;
-  const recentPostsList = posts.slice(0, recentCount);
+const BlogSidebar = ({ detail, posts }: { detail: BlogsDetail; posts: BlogsPost[] }) => {
+  const { categoriesTitle, categories, categoryIcon, recentTitle, recentPostIds, recentDateFormat, recentImageWidth, recentImageHeight, tagsTitle, tags } = detail;
+  const recentPostsList = recentPostIds.flatMap((id) => posts.find((post) => post.id === id) ?? []);
 
   return (
     <aside data-reveal-group="right" className="mt-[calc(40*var(--unit))] grid gap-[calc(24*var(--unit))] md:grid-cols-2 lg:mt-0 lg:shrink-0 lg:grid-cols-1 lg:w-[calc(448*var(--unit))] lg:gap-[calc(29*var(--unit))]">
-      <Box heading={categoriesHeading} className="lg:h-[calc(474*var(--unit))] lg:pb-0 lg:pt-[calc(27*var(--unit))]">
+      <Box heading={categoriesTitle} className="lg:h-[calc(474*var(--unit))] lg:pb-0 lg:pt-[calc(27*var(--unit))]">
         <ul className="mt-[calc(10*var(--unit))] font-main lg:-mr-[calc(4*var(--unit))] lg:mt-[calc(18*var(--unit))]">
           {categories.map((item, i) => (
             <li key={item.id} className={i > 0 ? 'border-t border-[var(--color-border)]' : ''}>
@@ -97,7 +95,7 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
         </ul>
       </Box>
 
-      <Box heading={recentHeading} className="lg:min-h-[calc(560*var(--unit))] lg:pb-[calc(24*var(--unit))] lg:pt-[calc(27*var(--unit))]">
+      <Box heading={recentTitle} className="lg:min-h-[calc(560*var(--unit))] lg:pb-[calc(24*var(--unit))] lg:pt-[calc(27*var(--unit))]">
         <ul className="mt-[calc(10*var(--unit))] lg:mt-[calc(3*var(--unit))]">
           {recentPostsList.map((post, i) => (
             <li key={post.id} className={i > 0 ? 'border-t border-[var(--color-border)]' : ''}>
@@ -105,9 +103,9 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
                 <Image src={post.image} alt={post.imageAlt} width={recentImageWidth} height={recentImageHeight} className="h-[calc(88*var(--unit))] w-[calc(110*var(--unit))] shrink-0 rounded-[calc(6*var(--unit))] object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[calc(109*var(--unit))] lg:w-[calc(137*var(--unit))]" />
                 <span className="block min-w-0">
                   <span className="block text-[calc(16*var(--unit))] font-bold leading-[1.35] text-[var(--color-blog-heading)] transition-colors duration-200 group-hover:text-[var(--color-accent)] lg:text-[calc(19*var(--unit))] lg:leading-[calc(26*var(--unit))]">
-                    {post.titleLines.join(' ')}
+                    {lines(post.title).join(' ')}
                   </span>
-                  <span className="mt-[calc(6*var(--unit))] block font-main text-[calc(14*var(--unit))] font-medium leading-none text-[var(--color-blog-excerpt)] lg:mt-[calc(8*var(--unit))] lg:text-[calc(18*var(--unit))]">{post.month} {post.day}, {post.year}</span>
+                  <span className="mt-[calc(6*var(--unit))] block font-main text-[calc(14*var(--unit))] font-medium leading-none text-[var(--color-blog-excerpt)] lg:mt-[calc(8*var(--unit))] lg:text-[calc(18*var(--unit))]">{fill(recentDateFormat, { month: post.month, day: post.day, year: post.year })}</span>
                 </span>
               </Link>
             </li>
@@ -115,7 +113,7 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
         </ul>
       </Box>
 
-      <Box heading={tagsHeading} className="md:col-span-2 lg:col-span-1 lg:h-[calc(295*var(--unit))] lg:pb-0 lg:pt-[calc(24*var(--unit))]">
+      <Box heading={tagsTitle} className="md:col-span-2 lg:col-span-1 lg:h-[calc(295*var(--unit))] lg:pb-0 lg:pt-[calc(24*var(--unit))]">
         <ul className="mt-[calc(22*var(--unit))] flex flex-wrap gap-x-[calc(12*var(--unit))] gap-y-[calc(12*var(--unit))] font-main lg:-mr-[calc(10*var(--unit))] lg:mt-[calc(32*var(--unit))] lg:gap-x-[calc(14*var(--unit))] lg:gap-y-[calc(14*var(--unit))]">
           {tags.map((tag) => (
             <li key={tag.id}>
@@ -133,13 +131,13 @@ const BlogSidebar = ({ data, posts = [] }: { data?: BlogDetailSidebar; posts?: B
   );
 };
 
-/** One common blog post page: the article with the sidebar next to it. */
-export const BlogDetail = ({ data, posts }: BlogDetailProps) => {
-  if (!data) return null;
+/** One common blog post page (the detail of the Blogs data): the article with the sidebar next to it. */
+export const BlogDetail = ({ data }: BlogDetailProps) => {
+  if (!data?.detail) return null;
   return (
     <div className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] font-article sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:flex lg:items-start lg:gap-[calc(37*var(--unit))] lg:px-0 lg:py-[calc(48*var(--unit))] lg:pl-[calc(63*var(--unit))] lg:pr-[calc(52*var(--unit))]">
-      <BlogArticle data={data} />
-      <BlogSidebar data={data.sidebar} posts={posts} />
+      <BlogArticle detail={data.detail} />
+      <BlogSidebar detail={data.detail} posts={data.posts} />
     </div>
   );
 };

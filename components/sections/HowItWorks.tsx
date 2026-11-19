@@ -7,14 +7,14 @@ import type { HowItWorksProps } from '@/types/templates.types';
 /** Each step of the process explained in detail, with a photo and a short checklist. */
 export const HowItWorks = ({ data }: HowItWorksProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, steps, cta } = data;
+  const { label, title, titleHighlight, description, steps, cta } = data;
   return (
     <section className="my-[calc(32*var(--unit))] bg-[var(--color-primary-tint-4)] px-[calc(20*var(--unit))] py-[calc(64*var(--unit))] sm:my-[calc(40*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(80*var(--unit))] lg:my-[calc(48*var(--unit))] lg:px-[calc(98*var(--unit))] lg:py-[calc(96*var(--unit))]">
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} />
-        <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
+        <SectionHeading title={title} highlight={titleHighlight} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(65*var(--unit))] lg:leading-[calc(64*var(--unit))]" />
         <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(14*var(--unit))] lg:max-w-none lg:text-[calc(19*var(--unit))] lg:leading-[calc(29*var(--unit))]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
       </div>
 
@@ -36,11 +36,11 @@ export const HowItWorks = ({ data }: HowItWorksProps) => {
               <p className="mt-[calc(16*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(22*var(--unit))] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">{step.description}</p>
               <ul className="mt-[calc(20*var(--unit))] space-y-[calc(12*var(--unit))] lg:mt-[calc(26*var(--unit))] lg:space-y-[calc(14*var(--unit))]">
                 {step.points.map((point) => (
-                  <li key={point} className="flex items-center gap-[calc(14*var(--unit))] text-[calc(16*var(--unit))] font-semibold text-[var(--color-heading)] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
+                  <li key={point.id} className="flex items-center gap-[calc(14*var(--unit))] text-[calc(16*var(--unit))] font-semibold text-[var(--color-heading)] sm:text-[calc(18*var(--unit))] lg:text-[calc(20*var(--unit))]">
                     <span className="flex size-[calc(28*var(--unit))] shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] lg:size-[calc(32*var(--unit))]">
                       <Icon name={data.pointIcon} className="size-[calc(16*var(--unit))] lg:size-[calc(18*var(--unit))]" />
                     </span>
-                    {point}
+                    {point.text}
                   </li>
                 ))}
               </ul>

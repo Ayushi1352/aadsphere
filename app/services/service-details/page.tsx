@@ -17,7 +17,7 @@ export default function ServiceDetailPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.serviceDetailBreadcrumb} ui={commonData.globalUI} />
-      <ServiceDetail data={sectionData.ServiceDetail?.variants?.AdvertisingServiceDetail1} />
+      <ServiceDetail data={sectionData.Services?.variants?.AdvertisingServices1} />
     </main>
   );
 }

@@ -16,7 +16,7 @@ export default function CookiePolicyPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.cookieBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} slug="cookie-policy" />
+      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} policyId="cookie-policy" />
     </main>
   );
 }

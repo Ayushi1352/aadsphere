@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
-import { DotGrid, Lines } from '@/components/ui/Text';
+import { DotGrid, Lines, headingLines, lines } from '@/components/ui/Text';
 import { CountUp } from '@/components/ui/CountUp';
 import type { AboutUsProps } from '@/types/templates.types';
 
@@ -11,7 +11,7 @@ import type { AboutUsProps } from '@/types/templates.types';
  */
 export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
   if (!data) return null;
-  const { tagline, headingLines, descriptionLines, primaryImage, primaryImageAlt, secondaryImage, secondaryImageAlt, experience } = data;
+  const { tagline, title, titleHighlight, titleEnd, description, primaryImage, primaryImageAlt, secondaryImage, secondaryImageAlt, experience } = data;
   return (
     <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(776*var(--unit))] lg:p-0">
       <div className="contents">
@@ -20,16 +20,16 @@ export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
           <div className="lg:w-auto">
             <p data-reveal="left" className="flex flex-wrap items-center gap-x-[calc(18*var(--unit))] text-[calc(13*var(--unit))] font-semibold uppercase leading-none tracking-[0.3em] text-[var(--color-eyebrow)] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(111*var(--unit))] lg:text-[calc(16*var(--unit))] lg:font-medium">
               {tagline.map((word, i) => (
-                <span key={word} className="flex items-center gap-[calc(18*var(--unit))]">
+                <span key={word.id} className="flex items-center gap-[calc(18*var(--unit))]">
                   {i > 0 && <span className="-ml-[0.3em] h-[calc(12*var(--unit))] w-[calc(2*var(--unit))] bg-[var(--color-primary)] lg:h-[calc(11*var(--unit))]" aria-hidden="true" />}
-                  {word}
+                  {word.text}
                 </span>
               ))}
             </p>
 
             {/* On desktop every line sits on a white strip that overlaps the photo. */}
             <h2 data-reveal="left" className="mt-[calc(20*var(--unit))] text-[calc(36*var(--unit))] leading-[1.14] tracking-[-0.03em] text-[var(--color-heading)] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(153*var(--unit))] lg:z-20 lg:mt-0 lg:text-[calc(70*var(--unit))] lg:leading-[calc(73*var(--unit))] lg:tracking-[-0.004em]">
-              {headingLines.map((line, i) => (
+              {headingLines(title, titleHighlight, titleEnd).map((line, i) => (
                 <span key={i} className={`lg:block lg:w-fit lg:min-w-[calc(639*var(--unit))] lg:whitespace-nowrap lg:bg-[var(--color-white)] lg:pr-[calc(21*var(--unit))] ${i === 0 ? 'lg:pt-[calc(8*var(--unit))]' : ''}`}>
                   {line.map((part) => (
                     <span key={part.text} className={part.highlight ? 'font-extrabold text-[var(--color-primary)]' : 'font-normal'}>
@@ -43,7 +43,7 @@ export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
             <span data-reveal="line" className="origin-left mt-[calc(24*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(70*var(--unit))] bg-[var(--color-primary)] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(477*var(--unit))] lg:mt-0" aria-hidden="true" />
 
             <p data-reveal="left" className="mt-[calc(22*var(--unit))] max-w-[calc(540*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.75] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:absolute lg:left-[calc(64*var(--unit))] lg:top-[calc(506*var(--unit))] lg:mt-0 lg:max-w-none lg:whitespace-nowrap lg:text-[calc(21*var(--unit))] lg:leading-[calc(35*var(--unit))] lg:tracking-[0.03em]">
-              <Lines lines={descriptionLines} />
+              <Lines text={description} />
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
               </p>
               <div data-reveal="right" className="min-w-0 lg:absolute lg:left-[calc(339*var(--unit))] lg:top-[calc(245*var(--unit))]">
                 <p className="text-[calc(13*var(--unit))] font-medium uppercase leading-[1.7] tracking-[0.25em] text-[var(--color-eyebrow)] sm:text-[calc(18*var(--unit))] sm:tracking-[0.47em] lg:text-[calc(20*var(--unit))] lg:leading-[calc(34*var(--unit))]">
-                  {experience.labelLines.map((line) => (
+                  {lines(experience.label).map((line) => (
                     <span key={line} className="block">
                       {line}
                     </span>
@@ -93,15 +93,15 @@ export const AboutUs = ({ data, compact = false }: AboutUsProps) => {
 
             <h3 data-reveal="up" className="mt-[calc(44*var(--unit))] text-[calc(21*var(--unit))] font-bold leading-[1.2] text-[var(--color-heading)] sm:text-[calc(25*var(--unit))] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(408*var(--unit))] lg:mt-0 lg:whitespace-nowrap">{experience.title}</h3>
             <p data-reveal="up" className="mt-[calc(14*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(448*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(21*var(--unit))] lg:leading-[calc(32*var(--unit))] lg:tracking-[0.005em]">
-              <Lines lines={experience.descriptionLines} />
+              <Lines text={experience.description} />
             </p>
             {!compact && (
               <Link
-                href={experience.link.url}
+                href={experience.linkUrl}
                 data-reveal="up"
                 className="group mt-[calc(28*var(--unit))] flex items-center justify-between border-b border-[var(--color-accent-tint-55)] pb-[calc(10*var(--unit))] text-[calc(18*var(--unit))] font-semibold text-[var(--color-primary)] lg:absolute lg:left-[calc(63*var(--unit))] lg:top-[calc(581*var(--unit))] lg:mt-0 lg:h-[calc(36*var(--unit))] lg:w-[calc(475*var(--unit))] lg:items-start lg:pb-0 lg:text-[calc(20*var(--unit))] lg:leading-[calc(28*var(--unit))]"
               >
-                {experience.link.label}
+                {experience.linkText}
                 <Icon name={experience.linkIcon} className="size-[calc(26*var(--unit))] transition-transform duration-200 group-hover:-translate-y-[calc(2*var(--unit))] group-hover:translate-x-[calc(2*var(--unit))] lg:mt-[calc(2*var(--unit))]" />
               </Link>
             )}

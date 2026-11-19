@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { Icon } from '@/components/ui/Icon';
-import { DotGrid, Lines } from '@/components/ui/Text';
+import { DotGrid, Lines, headingLines, lines } from '@/components/ui/Text';
 import { CountUp } from '@/components/ui/CountUp';
 import type { ImpactProps } from '@/types/templates.types';
 
 export const Impact = ({ data }: ImpactProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, image, imageAlt, stats } = data;
+  const { label, title, titleHighlight, titleEnd, description, image, imageAlt, stats } = data;
   return (
     <section className="relative px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(800*var(--unit))] lg:p-0">
       <p data-reveal="left" className="flex items-center gap-[calc(20*var(--unit))] text-[calc(14*var(--unit))] font-medium uppercase leading-none tracking-[0.5em] text-[var(--color-eyebrow)] lg:absolute lg:left-[calc(98*var(--unit))] lg:top-[calc(48*var(--unit))] lg:gap-[calc(14*var(--unit))] lg:text-[calc(17*var(--unit))]">
@@ -15,7 +15,7 @@ export const Impact = ({ data }: ImpactProps) => {
       </p>
 
       <h2 data-reveal="left" className="mt-[calc(20*var(--unit))] text-[calc(32*var(--unit))] font-medium leading-[1.15] tracking-[0.005em] text-[var(--color-heading)] sm:text-[calc(44*var(--unit))] lg:absolute lg:left-[calc(98*var(--unit))] lg:top-[calc(86*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(57*var(--unit))] lg:leading-[calc(59*var(--unit))]">
-        {headingLines.map((line, i) => (
+        {headingLines(title, titleHighlight, titleEnd).map((line, i) => (
           <span key={i} className="lg:block">
             {line.map((part) => (
               <span key={part.text} className={part.highlight ? 'font-extrabold text-[var(--color-primary)]' : ''}>
@@ -28,7 +28,7 @@ export const Impact = ({ data }: ImpactProps) => {
 
       <div data-reveal="right" className="mt-[calc(22*var(--unit))] lg:absolute lg:left-[calc(977*var(--unit))] lg:top-[calc(126*var(--unit))] lg:mt-0">
         <p className="max-w-[calc(620*var(--unit))] font-alt text-[calc(16*var(--unit))] leading-[1.75] tracking-[0.015em] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:max-w-none lg:whitespace-nowrap lg:text-[calc(20*var(--unit))] lg:leading-[calc(31*var(--unit))]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
         <span className="mt-[calc(22*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(78*var(--unit))] bg-[var(--color-primary)] lg:mt-[calc(27*var(--unit))]" aria-hidden="true" />
       </div>
@@ -68,7 +68,7 @@ export const Impact = ({ data }: ImpactProps) => {
               <div className="lg:absolute lg:left-[calc(42*var(--unit))] lg:top-[calc(33*var(--unit))]">
                 <p className="font-alt text-[calc(48*var(--unit))] font-bold leading-none tracking-[-0.02em] text-[var(--color-primary)] lg:text-[calc(66*var(--unit))]"><CountUp value={stat.value} /></p>
                 <p className="mt-[calc(16*var(--unit))] font-alt text-[calc(13*var(--unit))] uppercase leading-[1.55] tracking-[0.44em] text-[var(--color-stat-label)] lg:mt-[calc(12*var(--unit))] lg:text-[calc(14*var(--unit))] lg:leading-[calc(21*var(--unit))]">
-                  {stat.labelLines.map((line) => (
+                  {lines(stat.label).map((line) => (
                     <span key={line} className="block">
                       {line}
                     </span>

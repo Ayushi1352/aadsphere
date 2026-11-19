@@ -1,15 +1,11 @@
 import type { CSSProperties } from 'react';
 
 // Types for data/templates.json. Generated from the JSON shape; keep them in step when the JSON changes.
+// A text with "\n" in it shows one line per part (see lines() in components/ui/Text.tsx).
 
 export interface SeoData {
   title: string;
   description: string;
-}
-
-export interface LinkItem {
-  label: string;
-  url: string;
 }
 
 /** One step of the breadcrumb trail; the last step is the current page (no url). */
@@ -66,6 +62,18 @@ export interface BreadcrumbProps {
   ui?: GlobalUIData;
 }
 
+/** A piece of a heading; `highlight` pieces are coloured. */
+export interface HeadingPart {
+  text: string;
+  highlight: boolean;
+}
+
+/** One entry of a plain text list. */
+export interface TextItem {
+  id: string;
+  text: string;
+}
+
 /** Screen-reader labels of a slider's arrows and dots; "{n}" is the slide number. */
 export interface SliderLabels {
   previousLabel: string;
@@ -73,27 +81,33 @@ export interface SliderLabels {
   goToSlideLabel: string;
 }
 
-/** Labels of the page numbers under a paged grid; "{n}" is the page number. */
 /** Icons of a slider's previous / next arrows. */
 export interface SliderIcons {
   previousIcon: string;
   nextIcon: string;
 }
 
+/** Labels of the page numbers under a paged grid; "{n}" is the page number. */
 export interface PaginationLabels {
   label: string;
-  goToPageN: string;
+  pageLabel: string;
   previousLabel: string;
   nextLabel: string;
 }
 
-export interface FooterCta {
-  eyebrow: string;
-  heading: string;
-  headingHighlight: string;
-  descriptionLines: string[];
-  button: LinkItem;
-  buttonIcon: string;
+export interface PaginationProps {
+  page: number;
+  pageCount: number;
+  onChange: (page: number) => void;
+  labels: PaginationLabels;
+  /** Colour of the current page and of hovered buttons. */
+  tone?: 'primary' | 'accent';
+}
+
+export interface NavLink {
+  id: string;
+  label: string;
+  url: string;
 }
 
 export interface SocialLink {
@@ -103,23 +117,28 @@ export interface SocialLink {
   url: string;
 }
 
-export interface NavLink {
-  id: string;
-  label: string;
-  url: string;
+export interface FooterCta {
+  eyebrow: string;
+  title: string;
+  titleHighlight: string;
+  description: string;
+  buttonText: string;
+  buttonUrl: string;
+  buttonIcon: string;
 }
 
 export interface FooterColumn {
   id: string;
-  heading: string;
+  title: string;
   links: NavLink[];
 }
 
-export interface FooterContactIcons {
-  address: string;
-  phone: string;
-  email: string;
-  hours: string;
+/** One entry of the footer's contact column; an entry with a url is a link. */
+export interface FooterContactItem {
+  id: string;
+  icon: string;
+  value: string;
+  url?: string;
 }
 
 export interface FooterData {
@@ -129,19 +148,13 @@ export interface FooterData {
   logoLabel: string;
   logoWidth: number;
   logoHeight: number;
-  descriptionLines: string[];
+  description: string;
   cta: FooterCta;
   socialLinks: SocialLink[];
   columns: FooterColumn[];
   linkIcon: string;
   contactTitle: string;
-  contactIcons: FooterContactIcons;
-  addressLines: string[];
-  phone: string;
-  phoneUrl: string;
-  email: string;
-  emailUrl: string;
-  hoursLines: string[];
+  contactItems: FooterContactItem[];
   bottomLinks: NavLink[];
   copyrightText: string;
 }
@@ -182,15 +195,11 @@ export interface HeaderProps {
   data?: HeaderData;
 }
 
-export interface HeroHeadingLine {
-  text: string;
-  indent: boolean;
-}
-
 export interface HeroData {
-  headingLines: HeroHeadingLine[];
-  descriptionLines: string[];
-  button: LinkItem;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonUrl: string;
   image: string;
   imageAlt: string;
 }
@@ -199,24 +208,23 @@ export interface HeroSectionProps {
   data?: HeroData;
 }
 
-export interface HeadingPart {
-  text: string;
-  highlight: boolean;
-}
-
 export interface AboutUsExperience {
   number: string;
-  labelLines: string[];
+  label: string;
   title: string;
-  descriptionLines: string[];
-  link: LinkItem;
+  description: string;
+  linkText: string;
+  linkUrl: string;
   linkIcon: string;
 }
 
 export interface AboutUsData {
-  tagline: string[];
-  headingLines: HeadingPart[][];
-  descriptionLines: string[];
+  tagline: TextItem[];
+  /** The heading reads title, then titleHighlight (coloured), then titleEnd. */
+  title: string;
+  titleHighlight: string;
+  titleEnd: string;
+  description: string;
   primaryImage: string;
   primaryImageAlt: string;
   secondaryImage: string;
@@ -226,21 +234,24 @@ export interface AboutUsData {
 
 export interface AboutUsProps {
   data?: AboutUsData;
-  /** The About Us page version: no experience badge (see AboutUs). */
+  /** The About Us page version: no "Read More" link (see AboutUs). */
   compact?: boolean;
 }
 
 export interface ImpactStat {
   id: string;
   value: string;
-  labelLines: string[];
+  label: string;
   icon: string;
 }
 
 export interface ImpactData {
   label: string;
-  headingLines: HeadingPart[][];
-  descriptionLines: string[];
+  /** The heading reads title, then titleHighlight (coloured), then titleEnd. */
+  title: string;
+  titleHighlight: string;
+  titleEnd: string;
+  description: string;
   image: string;
   imageAlt: string;
   stats: ImpactStat[];
@@ -252,23 +263,70 @@ export interface ImpactProps {
 
 export interface ServicesService {
   id: string;
-  number: string;
   category: string;
-  titleLines: string[];
+  title: string;
   url: string;
   image: string;
   imageAlt: string;
 }
 
+export interface ServiceCardProps {
+  service: ServicesService;
+  /** "01", "02", … : the card's place in its list. */
+  number: string;
+  icon: string;
+  className?: string;
+}
+
+export interface ServiceDetailBlock {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface ServiceDetailFeature {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+/** The common Service Detail page, shown for every service. */
+export interface ServicesDetail {
+  label: string;
+  title: string;
+  titleHighlight: string;
+  image: string;
+  imageAlt: string;
+  description: string;
+  sections: ServiceDetailBlock[];
+  features: ServiceDetailFeature[];
+  closingSections: ServiceDetailBlock[];
+}
+
 export interface ServicesData extends SliderLabels, SliderIcons {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
+  /** Services in the Home slider. */
+  homeServiceIds: string[];
+  /** Services in the Services page grid. */
+  listingServiceIds: string[];
   services: ServicesService[];
   cardIcon: string;
+  pagination: PaginationLabels;
+  pageSize: number;
+  detail: ServicesDetail;
 }
 
 export interface ServicesProps {
+  data?: ServicesData;
+  /** The Services page version: a paged grid of the listed services instead of the Home slider. */
+  showAll?: boolean;
+}
+
+export interface ServiceDetailProps {
   data?: ServicesData;
 }
 
@@ -276,7 +334,7 @@ export interface ProcessStep {
   id: string;
   number: string;
   title: string;
-  descriptionLines: string[];
+  description: string;
   icon: string;
   image: string;
   imageAlt: string;
@@ -284,8 +342,9 @@ export interface ProcessStep {
 
 export interface ProcessData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   steps: ProcessStep[];
 }
 
@@ -303,7 +362,7 @@ export interface TestimonialsBadge {
 
 export interface TestimonialsTestimonial {
   id: string;
-  quoteLines: string[];
+  quote: string;
   name: string;
   role: string;
   avatar: string;
@@ -313,8 +372,9 @@ export interface TestimonialsTestimonial {
 
 export interface TestimonialsData extends SliderLabels, SliderIcons {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   badge: TestimonialsBadge;
   quoteIcon: string;
   avatarSize: number;
@@ -330,9 +390,9 @@ export interface BlogsPost {
   day: string;
   month: string;
   year: string;
-  categories: string[];
-  titleLines: string[];
-  excerptLines: string[];
+  categories: TextItem[];
+  title: string;
+  excerpt: string;
   url: string;
   image: string;
   imageAlt: string;
@@ -344,21 +404,74 @@ export interface BlogCardProps {
   categorySeparator: string;
 }
 
+export interface BlogDetailSection {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface BlogDetailCategory {
+  id: string;
+  label: string;
+  count: number;
+  url: string;
+}
+
+/** The common Blog Detail page (article and sidebar), shown for every post. */
+export interface BlogsDetail {
+  image: string;
+  imageAlt: string;
+  date: string;
+  category: string;
+  author: string;
+  title: string;
+  titleHighlight: string;
+  paragraphs: TextItem[];
+  quote: string;
+  quoteIcon: string;
+  sections: BlogDetailSection[];
+  categoriesTitle: string;
+  categories: BlogDetailCategory[];
+  categoryIcon: string;
+  recentTitle: string;
+  recentPostIds: string[];
+  /** Date of a recent post; "{month}", "{day}" and "{year}" come from the post. */
+  recentDateFormat: string;
+  recentImageWidth: number;
+  recentImageHeight: number;
+  tagsTitle: string;
+  tags: NavLink[];
+}
+
 export interface BlogsData extends SliderLabels, SliderIcons {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
+  /** Posts in the Home slider. */
+  homePostIds: string[];
+  /** Posts in the Blog page grid. */
+  listingPostIds: string[];
   posts: BlogsPost[];
   cardIcon: string;
   categorySeparator: string;
+  pagination: PaginationLabels;
+  pageSize: number;
+  detail: BlogsDetail;
 }
 
 export interface BlogsProps {
   data?: BlogsData;
+  /** The Blog page version: a paged grid of the listed posts instead of the Home slider. */
+  showAll?: boolean;
+}
+
+export interface BlogDetailProps {
+  data?: BlogsData;
 }
 
 export interface AboutStoryData {
-  storyParagraphs: string[][];
+  paragraphs: TextItem[];
 }
 
 export interface AboutStoryProps {
@@ -369,15 +482,16 @@ export interface WhyChooseUsReason {
   id: string;
   number: string;
   title: string;
-  descriptionLines: string[];
+  description: string;
   icon: string;
   featured: boolean;
 }
 
 export interface WhyChooseUsData {
   label: string;
-  headingLines: HeadingPart[][];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   reasons: WhyChooseUsReason[];
 }
 
@@ -385,74 +499,10 @@ export interface WhyChooseUsProps {
   data?: WhyChooseUsData;
 }
 
-export interface ServicesGridService {
-  id: string;
-  number: string;
-  category: string;
-  titleLines: string[];
-  url: string;
-  image: string;
-  imageAlt: string;
-}
-
-export interface ServiceCardProps {
-  service: ServicesGridService;
-  icon: string;
-  className?: string;
-}
-
-export interface ServicesGridData {
-  pagination: PaginationLabels;
-  label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
-  services: ServicesGridService[];
-  cardIcon: string;
-  pageSize: number;
-}
-
-export interface ServicesGridProps {
-  data?: ServicesGridData;
-}
-
-export interface ServiceDetailSection {
-  id: string;
-  title: string;
-  lines: string[];
-}
-
-export interface ServiceDetailFeature {
-  id: string;
-  icon: string;
-  title: string;
-  lines: string[];
-}
-
-export interface ServiceDetailClosingSection {
-  id: string;
-  title: string;
-  lines: string[];
-}
-
-export interface ServiceDetailData {
-  label: string;
-  heading: HeadingPart[];
-  image: string;
-  imageAlt: string;
-  introLines: string[];
-  sections: ServiceDetailSection[];
-  features: ServiceDetailFeature[];
-  closingSections: ServiceDetailClosingSection[];
-}
-
-export interface ServiceDetailProps {
-  data?: ServiceDetailData;
-}
-
 export interface PortfolioProject {
   id: string;
   title: string;
-  tags: string[];
+  tags: TextItem[];
   image: string;
   imageAlt: string;
   imageWidth: number;
@@ -460,11 +510,12 @@ export interface PortfolioProject {
 }
 
 export interface PortfolioData {
-  pagination: PaginationLabels;
   label: string;
-  headingLines: HeadingPart[][];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   projects: PortfolioProject[];
+  pagination: PaginationLabels;
   pageSize: number;
 }
 
@@ -472,83 +523,11 @@ export interface PortfolioProps {
   data?: PortfolioData;
 }
 
-export interface BlogGridPost {
-  id: string;
-  day: string;
-  month: string;
-  year: string;
-  categories: string[];
-  titleLines: string[];
-  excerptLines: string[];
-  url: string;
-  image: string;
-  imageAlt: string;
-}
-
-export interface BlogGridData {
-  pagination: PaginationLabels;
-  label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
-  posts: BlogGridPost[];
-  cardIcon: string;
-  categorySeparator: string;
-  pageSize: number;
-}
-
-export interface BlogGridProps {
-  data?: BlogGridData;
-}
-
-export interface BlogDetailSection {
-  id: string;
-  title: string;
-  lines: string[];
-}
-
-export interface BlogDetailSidebarCategory {
-  id: string;
-  label: string;
-  count: number;
-  url: string;
-}
-
-export interface BlogDetailSidebar {
-  categoriesHeading: string;
-  categories: BlogDetailSidebarCategory[];
-  categoryIcon: string;
-  recentHeading: string;
-  recentCount: number;
-  recentImageWidth: number;
-  recentImageHeight: number;
-  tagsHeading: string;
-  tags: NavLink[];
-}
-
-export interface BlogDetailData {
-  image: string;
-  imageAlt: string;
-  date: string;
-  category: string;
-  author: string;
-  headingLines: HeadingPart[][];
-  paragraphs: string[][];
-  quoteLines: string[];
-  quoteIcon: string;
-  sections: BlogDetailSection[];
-  sidebar: BlogDetailSidebar;
-}
-
-export interface BlogDetailProps {
-  data?: BlogDetailData;
-  posts?: BlogGridPost[];
-}
-
 export interface QuoteFeature {
   id: string;
   icon: string;
   title: string;
-  lines: string[];
+  description: string;
 }
 
 export interface FormField {
@@ -563,8 +542,8 @@ export interface FormSelectField {
 }
 
 export interface QuoteForm {
-  heading: string;
-  headingHighlight: string;
+  title: string;
+  titleHighlight: string;
   description: string;
   requiredMark: string;
   selectIcon: string;
@@ -576,15 +555,16 @@ export interface QuoteForm {
   details: FormField;
   budget: FormSelectField;
   timeline: FormSelectField;
-  submit: string;
-  submitIcon: string;
+  buttonText: string;
+  buttonIcon: string;
   success: string;
 }
 
 export interface QuoteData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   features: QuoteFeature[];
   form: QuoteForm;
 }
@@ -597,26 +577,27 @@ export interface ContactCard {
   id: string;
   icon: string;
   title: string;
-  lines: string[];
-  link: LinkItem;
+  description: string;
+  linkText: string;
+  linkUrl: string;
 }
 
 export interface ContactForm {
-  headingLines: string[];
-  descriptionLines: string[];
+  title: string;
+  description: string;
   fullName: string;
   email: string;
   website: string;
   message: string;
-  submit: string;
+  buttonText: string;
   success: string;
 }
 
 export interface ContactData {
   cards: ContactCard[];
   linkIcon: string;
-  mapTitle: string;
-  mapUrl: string;
+  mapLabel: string;
+  mapEmbedUrl: string;
   form: ContactForm;
 }
 
@@ -629,15 +610,16 @@ export interface HowItWorksStep {
   number: string;
   title: string;
   description: string;
-  points: string[];
+  points: TextItem[];
   image: string;
   imageAlt: string;
 }
 
 export interface CtaData {
-  heading: string;
+  title: string;
   description: string;
-  button: LinkItem;
+  buttonText: string;
+  buttonUrl: string;
   buttonIcon: string;
 }
 
@@ -647,8 +629,9 @@ export interface CtaStripProps {
 
 export interface HowItWorksData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   steps: HowItWorksStep[];
   pointIcon: string;
   cta: CtaData;
@@ -662,16 +645,16 @@ export interface CareerPerk {
   id: string;
   icon: string;
   title: string;
-  lines: string[];
+  description: string;
 }
 
 export interface CareerCta {
-  heading: string;
+  title: string;
   description: string;
 }
 
 export interface CareerApplicationForm {
-  heading: string;
+  title: string;
   description: string;
   contactEmail: string;
   contactPhone: string;
@@ -686,19 +669,20 @@ export interface CareerApplicationForm {
   resumeAccept: string;
   uploadIcon: string;
   removeIcon: string;
+  removeResume: string;
   coverNote: string;
-  submit: string;
-  submitIcon: string;
-  successHeading: string;
+  buttonText: string;
+  buttonIcon: string;
+  successTitle: string;
   successMessage: string;
   successIcon: string;
-  removeResume: string;
 }
 
 export interface CareerData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   perks: CareerPerk[];
   cta: CareerCta;
   applicationForm: CareerApplicationForm;
@@ -716,8 +700,9 @@ export interface FaqFaq {
 
 export interface FaqData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   faqs: FaqFaq[];
   openIcon: string;
   cta: CtaData;
@@ -730,13 +715,12 @@ export interface FaqProps {
 export interface PolicyPagesItemSection {
   id: string;
   title: string;
-  paragraphs: string[];
-  points: string[];
+  paragraphs: TextItem[];
+  points: TextItem[];
 }
 
 export interface PolicyPagesItem {
   id: string;
-  slug: string;
   url: string;
   title: string;
   updated: string;
@@ -746,8 +730,8 @@ export interface PolicyPagesItem {
 
 export interface PolicyPagesData {
   updatedLabel: string;
-  otherHeading: string;
-  contactHeading: string;
+  otherTitle: string;
+  contactTitle: string;
   contactText: string;
   contactEmail: string;
   contactEmailUrl: string;
@@ -759,20 +743,21 @@ export interface PolicyPagesData {
 
 export interface PolicyPagesProps {
   data?: PolicyPagesData;
-  /** Which policy of data.items to show. */
-  slug: string;
+  /** Which policy of data.items to show (its id). */
+  policyId: string;
 }
 
 export interface SitemapPageGroup {
   id: string;
-  heading: string;
+  title: string;
   links: NavLink[];
 }
 
 export interface SitemapPageData {
   label: string;
-  headingLines: HeadingPart[];
-  descriptionLines: string[];
+  title: string;
+  titleHighlight: string;
+  description: string;
   groups: SitemapPageGroup[];
   linkIcon: string;
 }
@@ -852,11 +837,7 @@ export interface AdvertisingSections {
   Blogs?: { variants?: { AdvertisingBlogs1?: BlogsData } };
   AboutStory?: { variants?: { AdvertisingAboutStory1?: AboutStoryData } };
   WhyChooseUs?: { variants?: { AdvertisingWhyChooseUs1?: WhyChooseUsData } };
-  ServicesGrid?: { variants?: { AdvertisingServicesGrid1?: ServicesGridData } };
-  ServiceDetail?: { variants?: { AdvertisingServiceDetail1?: ServiceDetailData } };
   Portfolio?: { variants?: { AdvertisingPortfolio1?: PortfolioData } };
-  BlogGrid?: { variants?: { AdvertisingBlogGrid1?: BlogGridData } };
-  BlogDetail?: { variants?: { AdvertisingBlogDetail1?: BlogDetailData } };
   Quote?: { variants?: { AdvertisingQuote1?: QuoteData } };
   Contact?: { variants?: { AdvertisingContact1?: ContactData } };
   HowItWorks?: { variants?: { AdvertisingHowItWorks1?: HowItWorksData } };

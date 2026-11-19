@@ -17,7 +17,7 @@ export default function BlogDetailPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.blogDetailBreadcrumb} ui={commonData.globalUI} />
-      <BlogDetail data={sectionData.BlogDetail?.variants?.AdvertisingBlogDetail1} posts={sectionData.BlogGrid?.variants?.AdvertisingBlogGrid1?.posts} />
+      <BlogDetail data={sectionData.Blogs?.variants?.AdvertisingBlogs1} />
     </main>
   );
 }

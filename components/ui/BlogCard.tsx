@@ -25,20 +25,20 @@ export const BlogCard = ({ post, icon, categorySeparator }: BlogCardProps) => {
         </p>
         <p className="flex flex-wrap items-center gap-x-[calc(16*var(--unit))] gap-y-[calc(4*var(--unit))] font-ui text-[calc(11*var(--unit))] font-medium uppercase leading-none tracking-[0.17em] text-[var(--color-card-meta)] lg:absolute lg:left-[calc(32*var(--unit))] lg:top-[calc(32*var(--unit))] lg:gap-x-[calc(16*var(--unit))] lg:text-[calc(12*var(--unit))]">
           {post.categories.map((category, i) => (
-            <span key={category} className="flex items-center gap-[calc(16*var(--unit))]">
+            <span key={category.id} className="flex items-center gap-[calc(16*var(--unit))]">
               {i > 0 && <span aria-hidden="true">{categorySeparator}</span>}
-              {category}
+              {category.text}
             </span>
           ))}
         </p>
         <h3 className="mt-[calc(16*var(--unit))] pr-[calc(56*var(--unit))] text-[calc(21*var(--unit))] font-bold leading-[1.25] tracking-[-0.025em] text-[var(--color-heading)] lg:absolute lg:left-[calc(32*var(--unit))] lg:top-[calc(58*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:pr-0 lg:text-[calc(25*var(--unit))] lg:leading-[calc(29*var(--unit))]">
-          <Lines lines={post.titleLines} />
+          <Lines text={post.title} />
         </h3>
         <span className="absolute right-[calc(22*var(--unit))] top-[calc(66*var(--unit))] flex size-[calc(44*var(--unit))] items-center justify-center rounded-full bg-[var(--color-accent-tint-9)] text-[var(--color-primary)] transition-colors duration-200 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] sm:right-[calc(30*var(--unit))] lg:right-[calc(32*var(--unit))] lg:top-[calc(57*var(--unit))]">
           <Icon name={icon} className="size-[calc(20*var(--unit))] transition-transform duration-300 group-hover:translate-x-[calc(3*var(--unit))]" />
         </span>
         <p className="mt-[calc(12*var(--unit))] text-[calc(16*var(--unit))] leading-[1.5] text-[var(--color-blog-excerpt)] lg:absolute lg:left-[calc(32*var(--unit))] lg:top-[calc(125*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(17*var(--unit))] lg:leading-[calc(24.5*var(--unit))]">
-          <Lines lines={post.excerptLines} />
+          <Lines text={post.excerpt} />
         </p>
       </div>
     </Link>

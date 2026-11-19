@@ -2,8 +2,8 @@
 
 import { useRef, useState } from 'react';
 import Image from 'next/image';
-import { Lines, SectionLabel } from '@/components/ui/Text';
-import { fill } from '@/components/ui/fill';
+import { Lines, SectionLabel, headingLines } from '@/components/ui/Text';
+import { Pagination } from '@/components/ui/Pagination';
 import type { PortfolioProps } from '@/types/templates.types';
 
 
@@ -12,7 +12,7 @@ export const Portfolio = ({ data }: PortfolioProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
   if (!data) return null;
-  const { label, headingLines, descriptionLines, projects, pagination, pageSize } = data;
+  const { label, title, titleHighlight, description, projects, pagination, pageSize } = data;
   const pageCount = Math.ceil(projects.length / pageSize);
   const visibleProjects = projects.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
@@ -26,7 +26,7 @@ export const Portfolio = ({ data }: PortfolioProps) => {
       <div data-reveal-group="up" className="flex flex-col items-center text-center">
         <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-[var(--color-accent)]" />
         <h2 className="mt-[calc(18*var(--unit))] text-[calc(30*var(--unit))] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-portfolio-heading)] sm:text-[calc(52*var(--unit))] lg:mt-[calc(34*var(--unit))] lg:text-[calc(70*var(--unit))] lg:leading-[calc(70*var(--unit))]">
-          {headingLines.map((line, i) => (
+          {headingLines(title, titleHighlight).map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
                 <span key={part.text} className={part.highlight ? 'text-[var(--color-accent)]' : ''}>
@@ -37,7 +37,7 @@ export const Portfolio = ({ data }: PortfolioProps) => {
           ))}
         </h2>
         <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-ui text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-section-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(18*var(--unit))] lg:max-w-none lg:text-[calc(23*var(--unit))] lg:leading-[calc(33*var(--unit))] lg:tracking-[0.005em]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
       </div>
 
@@ -57,8 +57,8 @@ export const Portfolio = ({ data }: PortfolioProps) => {
             <h3 className="mt-[calc(18*var(--unit))] text-[calc(22*var(--unit))] font-black leading-[1.2] tracking-[0.01em] text-[var(--color-portfolio-heading)] sm:text-[calc(25*var(--unit))] lg:mt-[calc(19*var(--unit))] lg:text-[calc(32*var(--unit))] lg:leading-[calc(38*var(--unit))]">{project.title}</h3>
             <ul className="mt-[calc(14*var(--unit))] flex flex-wrap gap-[calc(10*var(--unit))] lg:mt-[calc(21*var(--unit))] lg:gap-[calc(11*var(--unit))]">
               {project.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-[var(--color-accent-tint-9)] px-[calc(18*var(--unit))] py-[calc(9*var(--unit))] text-[calc(15*var(--unit))] font-medium leading-none text-[var(--color-accent)] lg:flex lg:h-[calc(45*var(--unit))] lg:items-center lg:px-[calc(22*var(--unit))] lg:py-0 lg:text-[calc(19*var(--unit))]">
-                  {tag}
+                <li key={tag.id} className="rounded-full bg-[var(--color-accent-tint-9)] px-[calc(18*var(--unit))] py-[calc(9*var(--unit))] text-[calc(15*var(--unit))] font-medium leading-none text-[var(--color-accent)] lg:flex lg:h-[calc(45*var(--unit))] lg:items-center lg:px-[calc(22*var(--unit))] lg:py-0 lg:text-[calc(19*var(--unit))]">
+                  {tag.text}
                 </li>
               ))}
             </ul>
@@ -66,38 +66,7 @@ export const Portfolio = ({ data }: PortfolioProps) => {
         ))}
       </ul>
 
-      {projects.length > 0 && (
-        <nav aria-label={pagination.label} className="mt-[calc(40*var(--unit))] flex flex-wrap items-center justify-center gap-[calc(8*var(--unit))]">
-          <button
-            type="button"
-            onClick={() => goToPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {pagination.previousLabel}
-          </button>
-          {Array.from({ length: pageCount }, (_, i) => i + 1).map((page) => (
-            <button
-              key={page}
-              type="button"
-              onClick={() => goToPage(page)}
-              aria-label={fill(pagination.goToPageN, { n: page })}
-              aria-current={currentPage === page ? 'page' : undefined}
-              className={`size-[calc(44*var(--unit))] rounded-full text-[calc(14*var(--unit))] font-semibold transition-colors ${currentPage === page ? 'bg-[var(--color-accent)] text-[var(--color-white)]' : 'bg-[var(--color-white)] text-[var(--color-heading)] hover:bg-[var(--color-accent)] hover:text-[var(--color-white)]'}`}
-            >
-              {page}
-            </button>
-          ))}
-          <button
-            type="button"
-            onClick={() => goToPage(Math.min(pageCount, currentPage + 1))}
-            disabled={currentPage === pageCount}
-            className="h-[calc(44*var(--unit))] rounded-full bg-[var(--color-white)] px-[calc(16*var(--unit))] text-[calc(14*var(--unit))] font-semibold text-[var(--color-heading)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-white)] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {pagination.nextLabel}
-          </button>
-        </nav>
-      )}
+      {projects.length > 0 && <Pagination page={currentPage} pageCount={pageCount} onChange={goToPage} labels={pagination} tone="accent" />}
     </section>
   );
 };

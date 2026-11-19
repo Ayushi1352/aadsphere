@@ -2,9 +2,8 @@
 
 import Image from 'next/image';
 import { Icon } from '@/components/ui/Icon';
-import { DotGrid, Lines, SectionHeading, SectionLabel } from '@/components/ui/Text';
+import { DotGrid, Lines, SectionHeading, SectionLabel, fill } from '@/components/ui/Text';
 import { SliderDots, useSlider } from '@/components/ui/Slider';
-import { fill } from '@/components/ui/fill';
 import type { TestimonialsProps } from '@/types/templates.types';
 
 
@@ -19,7 +18,7 @@ function initials(name: string) {
 export const Testimonials = ({ data }: TestimonialsProps) => {
   const slider = useSlider(data?.testimonials.length ?? 0);
   if (!data) return null;
-  const { label, headingLines, descriptionLines, badge, testimonials } = data;
+  const { label, title, titleHighlight, description, badge, testimonials } = data;
   const current = testimonials[slider.index];
 
   return (
@@ -27,9 +26,9 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
       <div className="lg:items-center lg:gap-[calc(48*var(--unit))] lg:block">
         <div data-reveal-group="left" className="lg:w-auto">
           <SectionLabel text={label} tracking="tracking-[0.34em]" className="lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(48*var(--unit))]" />
-          <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(85*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(74*var(--unit))] lg:leading-[calc(70*var(--unit))]" />
+          <SectionHeading title={title} highlight={titleHighlight} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(85*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(74*var(--unit))] lg:leading-[calc(70*var(--unit))]" />
           <p className="mt-[calc(16*var(--unit))] max-w-[calc(620*var(--unit))] font-text text-[calc(17*var(--unit))] leading-[1.5] text-[var(--color-testimonial-text)] sm:text-[calc(20*var(--unit))] lg:absolute lg:left-[calc(112*var(--unit))] lg:top-[calc(236*var(--unit))] lg:mt-0 lg:max-w-none lg:whitespace-nowrap lg:text-[calc(25*var(--unit))] lg:leading-[calc(33*var(--unit))] lg:tracking-[0.01em]">
-            <Lines lines={descriptionLines} />
+            <Lines text={description} />
           </p>
 
           {/* Quote card */}
@@ -43,7 +42,7 @@ export const Testimonials = ({ data }: TestimonialsProps) => {
 
             <div key={current.id} className="translate-y-0 transition-[opacity,transform] duration-450 ease-out starting:translate-y-[calc(8*var(--unit))] starting:opacity-0 motion-reduce:transition-none">
               <blockquote className="mt-[calc(18*var(--unit))] font-text text-[calc(17*var(--unit))] leading-[1.6] tracking-[-0.01em] text-[var(--color-text-dark)] sm:text-[calc(20*var(--unit))] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(51*var(--unit))] lg:mt-0 lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(32*var(--unit))] lg:tracking-[0.005em]">
-                <Lines lines={current.quoteLines} />
+                <Lines text={current.quote} />
               </blockquote>
 
               <span className="mt-[calc(22*var(--unit))] block h-px bg-[var(--color-testimonial-divider)] lg:absolute lg:left-[calc(139*var(--unit))] lg:top-[calc(205*var(--unit))] lg:mt-0 lg:w-[calc(616*var(--unit))]" aria-hidden="true" />

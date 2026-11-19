@@ -16,7 +16,7 @@ export default function TermsAndConditionsPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.termsBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} slug="terms-and-conditions" />
+      <PolicyPages data={sectionData.PolicyPages?.variants?.AdvertisingPolicyPages1} policyId="terms-and-conditions" />
     </main>
   );
 }

@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import type { TouchEvent } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { fill } from '@/components/ui/fill';
+import { fill } from '@/components/ui/Text';
 
 /** Index state for a looping slider, plus swipe handlers for touch screens. */
 export function useSlider(count: number) {

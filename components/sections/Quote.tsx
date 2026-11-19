@@ -3,14 +3,15 @@
 import { useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { Lines } from '@/components/ui/Text';
-import { useSentMessage } from '@/components/ui/useSentMessage';
+import { Lines, lines } from '@/components/ui/Text';
+import { useFormSubmit } from '@/components/ui/useFormSubmit';
 import type { QuoteData, QuoteProps } from '@/types/templates.types';
 
 /** Left side of the quote page: heading, short text and three promises. */
 const QuoteIntro = ({ data }: { data?: QuoteData }) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, features } = data;
+  const { label, title, titleHighlight, description, features } = data;
+  const titleLines = [...lines(title).map((text) => ({ text, highlight: false })), { text: titleHighlight, highlight: true }];
   return (
     <div data-reveal-group="left" className="lg:ml-[calc(118*var(--unit))] lg:w-[calc(702*var(--unit))] lg:shrink-0 lg:pt-[calc(3*var(--unit))]">
       <p className="flex items-center gap-[calc(16*var(--unit))] font-ui text-[calc(13*var(--unit))] font-bold uppercase leading-none tracking-[0.24em] text-[var(--color-quote-text)] lg:gap-[calc(23*var(--unit))] lg:text-[calc(15*var(--unit))]">
@@ -18,14 +19,14 @@ const QuoteIntro = ({ data }: { data?: QuoteData }) => {
         {label}
       </p>
       <h2 className="mt-[calc(18*var(--unit))] text-[calc(38*var(--unit))] font-black leading-[1.06] tracking-[-0.015em] text-[var(--color-quote-heading)] sm:text-[calc(56*var(--unit))] lg:ml-[calc(3*var(--unit))] lg:mt-[calc(23*var(--unit))] lg:text-[calc(72*var(--unit))] lg:leading-[calc(75*var(--unit))]">
-        {headingLines.map((line) => (
+        {titleLines.map((line) => (
           <span key={line.text} className={`block ${line.highlight ? 'text-[var(--color-primary)]' : ''}`}>
             {line.text}
           </span>
         ))}
       </h2>
       <p className="mt-[calc(16*var(--unit))] max-w-[calc(560*var(--unit))] text-[calc(17*var(--unit))] leading-[1.6] text-[var(--color-quote-text-soft)] sm:text-[calc(19*var(--unit))] lg:ml-[calc(3*var(--unit))] lg:mt-[calc(17*var(--unit))] lg:max-w-none lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(36*var(--unit))] lg:tracking-[0.02em]">
-        <Lines lines={descriptionLines} />
+        <Lines text={description} />
       </p>
 
       <ul className="mt-[calc(30*var(--unit))] space-y-[calc(22*var(--unit))] lg:mt-[calc(35*var(--unit))] lg:space-y-[calc(34*var(--unit))]">
@@ -37,7 +38,7 @@ const QuoteIntro = ({ data }: { data?: QuoteData }) => {
             <span className="block">
               <span className="block text-[calc(21*var(--unit))] font-extrabold leading-[1.2] text-[var(--color-quote-heading)] lg:text-[calc(27*var(--unit))] lg:leading-[calc(32*var(--unit))]">{feature.title}</span>
               <span className="mt-[calc(4*var(--unit))] block text-[calc(16*var(--unit))] leading-[1.4] text-[var(--color-quote-text-soft)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(3*var(--unit))] lg:whitespace-nowrap lg:text-[calc(24*var(--unit))] lg:leading-[calc(31*var(--unit))] lg:tracking-[0.012em]">
-                <Lines lines={feature.lines} />
+                <Lines text={feature.description} />
               </span>
             </span>
           </li>
@@ -85,7 +86,7 @@ function Select({ id, placeholder, options, icon, required }: { id: string; plac
 
 /** "Request a Quote" form card. */
 const QuoteForm = ({ data }: { data?: QuoteData }) => {
-  const { sent, show, hide, formKey } = useSentMessage();
+  const { sent, show, hide, formKey } = useFormSubmit();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -98,8 +99,8 @@ const QuoteForm = ({ data }: { data?: QuoteData }) => {
   return (
     <div data-reveal="right" className="mt-[calc(48*var(--unit))] rounded-[calc(16*var(--unit))] border border-[var(--color-quote-border)] bg-[var(--color-quote-input-bg)] p-[calc(22*var(--unit))] [box-shadow:0_calc(4*var(--unit))_calc(24*var(--unit))_var(--color-heading-4)] sm:p-[calc(32*var(--unit))] lg:mt-0 lg:grow lg:w-[calc(760*var(--unit))] lg:flex-none lg:rounded-[calc(20*var(--unit))] lg:pb-[calc(31*var(--unit))] lg:pl-[calc(37*var(--unit))] lg:pr-[calc(32*var(--unit))] lg:pt-[calc(20*var(--unit))]">
       <h2 className="text-[calc(30*var(--unit))] font-black leading-[1.1] text-[var(--color-quote-heading)] sm:text-[calc(36*var(--unit))] lg:text-[calc(43*var(--unit))] lg:leading-[calc(48*var(--unit))]">
-        {form.heading}
-        <span className="text-[var(--color-primary)]">{form.headingHighlight}</span>
+        {form.title}
+        <span className="text-[var(--color-primary)]">{form.titleHighlight}</span>
       </h2>
       <p className="mt-[calc(10*var(--unit))] text-[calc(16*var(--unit))] leading-[1.4] text-[var(--color-quote-label)] lg:text-[calc(19*var(--unit))] lg:leading-[calc(24*var(--unit))] lg:tracking-[0.008em]">{form.description}</p>
 
@@ -135,8 +136,8 @@ const QuoteForm = ({ data }: { data?: QuoteData }) => {
             type="submit"
             className="flex h-[calc(58*var(--unit))] w-full cursor-pointer items-center justify-center gap-[calc(16*var(--unit))] rounded-[calc(10*var(--unit))] bg-gradient-to-r from-[var(--color-primary-shade-77)] to-[var(--color-primary)] text-[calc(18*var(--unit))] font-extrabold text-[var(--color-white)] transition-opacity duration-200 hover:opacity-90 lg:h-[calc(64*var(--unit))] lg:gap-[calc(20*var(--unit))] lg:rounded-[calc(12*var(--unit))] lg:text-[calc(21*var(--unit))]"
           >
-            {form.submit}
-            <Icon name={form.submitIcon} className="size-[calc(22*var(--unit))] lg:size-[calc(24*var(--unit))]" />
+            {form.buttonText}
+            <Icon name={form.buttonIcon} className="size-[calc(22*var(--unit))] lg:size-[calc(24*var(--unit))]" />
           </button>
           {sent && (
             <p role="status" className="mt-[calc(14*var(--unit))] text-[calc(15*var(--unit))] font-medium text-[var(--color-success)]">

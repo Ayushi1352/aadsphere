@@ -1,17 +1,17 @@
 import { Icon } from '@/components/ui/Icon';
-import { Lines, SectionLabel } from '@/components/ui/Text';
+import { Lines, SectionLabel, headingLines } from '@/components/ui/Text';
 import type { WhyChooseUsProps } from '@/types/templates.types';
 
 /** "Why Choose Us": heading plus six reason cards (the featured one is solid red). */
 export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, reasons } = data;
+  const { label, title, titleHighlight, description, reasons } = data;
   return (
     <section className="px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(800*var(--unit))] lg:p-0">
       <div data-reveal-group="up" className="flex flex-col items-center text-center lg:pt-[calc(48*var(--unit))]">
         <SectionLabel text={label} tracking="tracking-[0.24em]" className="[&>span:nth-child(2)]:font-bold [&>span:nth-child(odd)]:bg-[var(--color-accent)]" />
           <h2 className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] font-extrabold leading-[1.1] text-[var(--color-heading)] sm:text-[calc(52*var(--unit))] lg:mt-[calc(24*var(--unit))] lg:text-[calc(63*var(--unit))] lg:leading-[calc(60*var(--unit))]">
-          {headingLines.map((line, i) => (
+          {headingLines(title, titleHighlight).map((line, i) => (
             <span key={i} className="block">
               {line.map((part) => (
                 <span key={part.text} className={part.highlight ? 'text-[var(--color-accent)]' : ''}>
@@ -22,7 +22,7 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
           ))}
         </h2>
         <p className="mt-[calc(18*var(--unit))] max-w-[calc(680*var(--unit))] font-ui text-[calc(16*var(--unit))] leading-[1.7] text-[var(--color-section-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(14*var(--unit))] lg:max-w-none lg:text-[calc(23*var(--unit))] lg:leading-[calc(28*var(--unit))] lg:tracking-[-0.012em]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
                 {reason.title}
               </h3>
               <p className={`mt-[calc(8*var(--unit))] font-text text-[calc(16*var(--unit))] leading-[1.5] sm:text-[calc(18*var(--unit))] lg:mt-[calc(7*var(--unit))] lg:whitespace-nowrap lg:text-[calc(20*var(--unit))] lg:leading-[calc(25.5*var(--unit))] ${reason.featured ? 'text-[var(--color-white-90)]' : 'text-[var(--color-card-text)]'}`}>
-                <Lines lines={reason.descriptionLines} />
+                <Lines text={reason.description} />
               </p>
             </div>
           </li>

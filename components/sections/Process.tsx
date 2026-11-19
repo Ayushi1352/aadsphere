@@ -5,7 +5,7 @@ import type { ProcessProps } from '@/types/templates.types';
 
 export const Process = ({ data }: ProcessProps) => {
   if (!data) return null;
-  const { label, headingLines, descriptionLines, steps } = data;
+  const { label, title, titleHighlight, description, steps } = data;
   return (
     <section className="relative overflow-hidden px-[calc(20*var(--unit))] py-[calc(32*var(--unit))] sm:px-[calc(32*var(--unit))] sm:py-[calc(40*var(--unit))] lg:h-[calc(747*var(--unit))] lg:p-0">
       {/* Decorations */}
@@ -16,9 +16,9 @@ export const Process = ({ data }: ProcessProps) => {
 
       <div data-reveal-group="up" className="relative flex flex-col items-center text-center lg:pt-[calc(48*var(--unit))]">
         <SectionLabel text={label} tracking="tracking-[0.25em]" />
-        <SectionHeading lines={headingLines} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(68*var(--unit))] lg:leading-[calc(62*var(--unit))] lg:tracking-[0.01em]" />
+        <SectionHeading title={title} highlight={titleHighlight} className="mt-[calc(18*var(--unit))] text-[calc(28*var(--unit))] leading-[1.08] sm:text-[calc(52*var(--unit))] lg:mt-[calc(20*var(--unit))] lg:text-[calc(68*var(--unit))] lg:leading-[calc(62*var(--unit))] lg:tracking-[0.01em]" />
         <p className="mt-[calc(18*var(--unit))] max-w-[calc(640*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.7] text-[var(--color-text)] sm:text-[calc(18*var(--unit))] lg:mt-[calc(11*var(--unit))] lg:max-w-none lg:text-[calc(19*var(--unit))] lg:leading-[calc(29*var(--unit))] lg:tracking-[0.015em]">
-          <Lines lines={descriptionLines} />
+          <Lines text={description} />
         </p>
       </div>
 
@@ -38,7 +38,7 @@ export const Process = ({ data }: ProcessProps) => {
             <h3 className="relative mt-[calc(24*var(--unit))] text-[calc(23*var(--unit))] font-bold leading-none tracking-[-0.005em] text-[var(--color-heading)] sm:mt-[calc(28*var(--unit))] lg:mt-[calc(7*var(--unit))] lg:text-[calc(26*var(--unit))] lg:leading-[calc(30*var(--unit))]">{step.title}</h3>
             <span className="mt-[calc(16*var(--unit))] block h-[calc(3*var(--unit))] w-[calc(40*var(--unit))] bg-[var(--color-primary)] transition-[width] duration-500 group-hover:w-[calc(72*var(--unit))] lg:mt-[calc(13*var(--unit))]" aria-hidden="true" />
             <p className="mt-[calc(14*var(--unit))] max-w-[calc(320*var(--unit))] font-text text-[calc(16*var(--unit))] font-medium leading-[1.55] text-[var(--color-text)] lg:mt-[calc(9*var(--unit))] lg:max-w-none lg:text-[calc(18*var(--unit))] lg:leading-[calc(25*var(--unit))] lg:tracking-[0.02em]">
-              <Lines lines={step.descriptionLines} />
+              <Lines text={step.description} />
             </p>
           </li>
         ))}

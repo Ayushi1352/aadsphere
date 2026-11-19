@@ -1,16 +1,45 @@
 import type { HeadingPart } from '@/types/templates.types';
 
+/** Fills the {placeholders} of a text from templates.json, e.g. fill("Go to slide {n}", { n: 2 }). */
+export const fill = (template: string, values: Record<string, string | number>): string =>
+  template.replace(/\{(\w+)\}/g, (match, key) => (key in values ? String(values[key]) : match));
+
+/** The lines of a templates.json text; "\n" in the text starts a new line. */
+export function lines(text: string) {
+  return text.split('\n');
+}
+
+/**
+ * Lines of a heading with coloured words: title, then highlight, then end.
+ * A "\n" in any of them starts a new line, so the coloured words can sit anywhere.
+ */
+export function headingLines(title: string, highlight = '', end = ''): HeadingPart[][] {
+  const result: HeadingPart[][] = [[]];
+  [
+    { text: title, highlight: false },
+    { text: highlight, highlight: true },
+    { text: end, highlight: false },
+  ].forEach((part) => {
+    lines(part.text).forEach((text, i) => {
+      if (i > 0) result.push([]);
+      if (text) result[result.length - 1].push({ text, highlight: part.highlight });
+    });
+  });
+  return result;
+}
+
 /**
  * Text that keeps the exact line breaks of the design on desktop
  * and flows naturally (no forced breaks) on smaller screens.
  */
-export const Lines = ({ lines }: { lines: string[] }) => {
+export const Lines = ({ text }: { text: string }) => {
+  const items = lines(text);
   return (
     <>
-      {lines.map((line, i) => (
+      {items.map((line, i) => (
           <span key={i} className="lg:block">
           {line}
-          {i < lines.length - 1 ? ' ' : ''}
+          {i < items.length - 1 ? ' ' : ''}
         </span>
       ))}
     </>
@@ -30,11 +59,12 @@ export const SectionLabel = ({ text, tracking = 'tracking-[0.27em]', className =
   );
 };
 
-/** Two-line section heading: black first line, maroon second line. */
-export const SectionHeading = ({ lines, className = '' }: { lines: HeadingPart[]; className?: string }) => {
+/** Section heading: the title lines in black, then the highlight on its own line in maroon. */
+export const SectionHeading = ({ title, highlight, className = '' }: { title: string; highlight: string; className?: string }) => {
+  const items: HeadingPart[] = [...lines(title).map((text) => ({ text, highlight: false })), { text: highlight, highlight: true }];
   return (
     <h2 className={`font-bold text-[var(--color-heading)] ${className}`}>
-      {lines.map((line, i) => (
+      {items.map((line, i) => (
         <span key={i} className={`block ${line.highlight ? 'text-[var(--color-primary)]' : ''}`}>
           {line.text}
         </span>
